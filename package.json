@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node ./server/dist",
     "dev": "cross-env NODE_ENV=development ts-node-dev ./server/src/index.ts",
     "test": "cross-env NODE_ENV=test jest -i",
-    "dev:client": "cd client; npm start",
+    "dev:client": "cd client&& npm start",
     "build": "tsc -p .",
     "heroku:postbuild": "npm run build && cd client && npm i && npm run build",
     "build:db": "cross-env NODE_ENV=development ts-node ./server/src/database/config/buildDB.ts",
