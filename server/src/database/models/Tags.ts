@@ -3,14 +3,14 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface ITagsModel extends Model<
-  InferAttributes<ITagsModel>, InferCreationAttributes<ITagsModel>
+interface ITags extends Model<
+  InferAttributes<ITags>, InferCreationAttributes<ITags>
 > {
   id: number;
   name: string;
 }
 
-const TagsModel = sequelize.define<ITagsModel>(
+const Tags = sequelize.define<ITags>(
   'tags',
   {
     id: {
@@ -26,4 +26,4 @@ const TagsModel = sequelize.define<ITagsModel>(
   { timestamps: false },
 );
 
-export default TagsModel;
+export default Tags;
