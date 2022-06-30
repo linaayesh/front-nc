@@ -1,5 +1,7 @@
 .both{
     display: flex;
+    height: 90vh;
+
 }
 .left{
     background-color: #ffffff;
