@@ -1,45 +1,48 @@
 import {
-  UsersModel,
-  UploadsModel,
-  RolesModel,
-  UploadsTagsModel,
-  UploadsCategoriesModel,
-  TagsModel,
-  CategoriesModel,
+  Users,
+  Uploads,
+  Roles,
+  UploadsTags,
+  UploadsCategories,
+  Tags,
+  Categories,
 } from '../models';
-
 import sequelize from './connections';
+
+// Users - Users (Venues) relationship
+Users.belongsToMany(Users, { through: 'UserVenues', as: 'venues' });
+
 // Users - Uploads relationship
-UsersModel.hasMany(UploadsModel);
-UploadsModel.belongsTo(UsersModel);
+Users.hasMany(Uploads);
+Uploads.belongsTo(Users);
 
 // Users - Roles relationship
-RolesModel.hasMany(UsersModel);
-UsersModel.belongsTo(RolesModel);
+Roles.hasMany(Users);
+Users.belongsTo(Roles);
 
 // Uploads - Tags relationship
-UploadsModel.belongsToMany(TagsModel, { through: UploadsTagsModel });
-TagsModel.belongsToMany(UploadsModel, { through: UploadsTagsModel });
-UploadsModel.hasMany(UploadsTagsModel);
-UploadsTagsModel.belongsTo(UploadsModel);
-TagsModel.hasMany(UploadsTagsModel);
-UploadsTagsModel.belongsTo(TagsModel);
+Uploads.belongsToMany(Tags, { through: UploadsTags });
+Tags.belongsToMany(Uploads, { through: UploadsTags });
+Uploads.hasMany(UploadsTags);
+UploadsTags.belongsTo(Uploads);
+Tags.hasMany(UploadsTags);
+UploadsTags.belongsTo(Tags);
 
 // Uploads - Categories relationship
-UploadsModel.belongsToMany(CategoriesModel, { through: UploadsCategoriesModel });
-CategoriesModel.belongsToMany(UploadsModel, { through: UploadsCategoriesModel });
-UploadsModel.hasMany(UploadsCategoriesModel);
-UploadsCategoriesModel.belongsTo(UploadsModel);
-CategoriesModel.hasMany(UploadsCategoriesModel);
-UploadsCategoriesModel.belongsTo(CategoriesModel);
+Uploads.belongsToMany(Categories, { through: UploadsCategories });
+Categories.belongsToMany(Uploads, { through: UploadsCategories });
+Uploads.hasMany(UploadsCategories);
+UploadsCategories.belongsTo(Uploads);
+Categories.hasMany(UploadsCategories);
+UploadsCategories.belongsTo(Categories);
 
 export {
-  UsersModel,
-  UploadsModel,
-  RolesModel,
-  UploadsTagsModel,
-  UploadsCategoriesModel,
-  TagsModel,
-  CategoriesModel,
+  Users,
+  Uploads,
+  Roles,
+  UploadsTags,
+  UploadsCategories,
+  Tags,
+  Categories,
   sequelize,
 };

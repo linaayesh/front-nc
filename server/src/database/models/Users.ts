@@ -3,18 +3,19 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface IUsersModel extends Model<
-  InferAttributes<IUsersModel>, InferCreationAttributes<IUsersModel>
+interface IUsers extends Model<
+  InferAttributes<IUsers>, InferCreationAttributes<IUsers>
 > {
-  id: number;
+  id?: number;
   username: string;
   email: string;
   password: string;
   roleId: number;
-  isVerified: boolean;
+  isVerified?: boolean;
+  isApproved?: boolean;
 }
 
-const UsersModel = sequelize.define<IUsersModel>(
+const Users = sequelize.define<IUsers>(
   'users',
   {
     id: {
@@ -44,7 +45,12 @@ const UsersModel = sequelize.define<IUsersModel>(
       allowNull: false,
       defaultValue: false,
     },
+    isApproved: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
 );
 
-export default UsersModel;
+export default Users;
