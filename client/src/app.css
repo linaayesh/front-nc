@@ -1,13 +1,122 @@
-body {
+*,
+*::after,
+*::before {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+/* not Found Style */
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f3f5f8;
+}
+
+.not-found-dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.not-found-gym-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f5f8;
+  height: 50vh;
+}
+
+.not-found-section {
+  min-width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #13E0D5;
+}
+
+.not-found-title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 5em;
+}
+
+#box2 {
+  color: #333;
+  text-align: center;
+}
+
+.notFound {
+  fill: #ffffff;
+  stroke: #13E0D5;
+  stroke-width: 1.5;
+  animation: lupa 5s infinite;
+}
+.notFound rect {
+  stroke: none;
+}
+
+.not-found-subTitle {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+.not-found-back {
+  padding: 0.5rem 1.25rem;
+  background: #13E0D5;
+  color: #fff;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+}
+a,
+a::after,
+a::before,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+input,
+input::after,
+input::before,
+textarea,
+textarea::after,
+textarea::before,
+textarea,
+select {
+  outline: none;
+  border: none;
+}
+select,
+button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+  text-decoration: none;
 }

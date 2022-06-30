@@ -1,3 +1,4 @@
 import Home from './Home';
+import DashboardLayout from './DashboardLayout';
 
-export default Home;
+export { Home, DashboardLayout };
