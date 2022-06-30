@@ -1,4 +1,4 @@
 import Home from './Home';
-import Dashboard from './Dashboard';
+import DashboardLayout from './DashboardLayout';
 
-export { Home, Dashboard };
+export { Home, DashboardLayout };

@@ -1,3 +1,4 @@
 import Navbar from './Navbar';
+import Dashboard from './Dashboard';
 
-export default Navbar;
+export { Navbar, Dashboard };

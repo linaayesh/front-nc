@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Components';
+import { Navbar } from '../Components';
 
 export default function Home() {
   return (

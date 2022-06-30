@@ -1,8 +1,9 @@
 import React from 'react';
+import { Dashboard } from '../Components';
 
 function UserDashboard() {
   return (
-    <div>UserDashboard</div>
+    <Dashboard />
   );
 }
 
