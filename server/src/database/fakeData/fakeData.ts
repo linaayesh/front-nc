@@ -1,72 +1,66 @@
 const users = [
   {
-    id: 1,
     username: 'zaher',
     email: 'zaherabuamro@gmail.com',
     password: 'zaher123',
     roleId: 1,
     isVerified: true,
+    isApproved: true,
   },
   {
-    id: 2,
     username: 'ibrahim',
     email: 'ibrahim.jarada@gmail.com',
     password: 'ibrahim123',
     roleId: 2,
     isVerified: true,
+    isApproved: true,
   },
   {
-    id: 3,
     username: 'rand',
     email: 'rand@gmail.com',
     password: 'rand123',
     roleId: 3,
-    isVerified: false,
+    isVerified: true,
+    isApproved: false,
   },
   {
-    id: 4,
     username: 'ayman',
     email: 'ayman@gmail.com',
     password: 'ayman123',
     roleId: 4,
     isVerified: false,
+    isApproved: false,
   },
   {
-    id: 5,
     username: 'admin',
     email: 'admin@gmail.com',
     password: 'admin123',
     roleId: 5,
     isVerified: true,
+    isApproved: true,
   },
 ];
 
 const roles = [
   {
-    id: 1,
     name: 'user',
   },
   {
-    id: 2,
     name: 'user',
   },
   {
-    id: 3,
     name: 'user',
   },
   {
-    id: 4,
     name: 'user',
   },
   {
-    id: 5,
     name: 'admin',
   },
 ];
 
 const uploads = [
   {
-    id: 1,
     userId: 1,
     title: 'upload 1',
     status: 'pending',
@@ -78,7 +72,6 @@ const uploads = [
     image3840x1080: 'https://s3.amazonaws.com/uploads-zaher/1.jpg',
   },
   {
-    id: 2,
     userId: 1,
     title: 'upload 2',
     status: 'approved',
@@ -90,7 +83,6 @@ const uploads = [
     image3840x1080: 'https://s3.amazonaws.com/uploads-zaher/2.jpg',
   },
   {
-    id: 3,
     userId: 1,
     title: 'upload 3',
     status: 'rejected',
@@ -103,7 +95,6 @@ const uploads = [
 
   },
   {
-    id: 4,
     userId: 2,
     title: 'upload 4',
     status: 'pending',
@@ -115,7 +106,6 @@ const uploads = [
     image3840x1080: 'https://s3.amazonaws.com/uploads-ibrahim/4.jpg',
   },
   {
-    id: 5,
     userId: 2,
     title: 'upload 5',
     status: 'approved',
@@ -128,7 +118,6 @@ const uploads = [
 
   },
   {
-    id: 6,
     userId: 2,
     title: 'upload 6',
     status: 'rejected',
@@ -140,7 +129,6 @@ const uploads = [
     image3840x1080: 'https://s3.amazonaws.com/uploads-ibrahim/6.jpg',
   },
   {
-    id: 7,
     userId: 3,
     title: 'upload 7',
     status: 'pending',
@@ -153,7 +141,6 @@ const uploads = [
 
   },
   {
-    id: 8,
     userId: 3,
     title: 'upload 8',
     status: 'approved',
@@ -166,7 +153,6 @@ const uploads = [
 
   },
   {
-    id: 9,
     userId: 3,
     title: 'upload 9',
     status: 'rejected',
@@ -181,86 +167,66 @@ const uploads = [
 
 const tags = [
   {
-    id: 1,
     name: 'tag 1',
   },
   {
-    id: 2,
     name: 'tag 2',
   },
   {
-    id: 3,
     name: 'tag 3',
   },
   {
-    id: 4,
     name: 'tag 4',
   },
   {
-    id: 5,
     name: 'tag 5',
   },
   {
-    id: 6,
     name: 'tag 6',
   },
   {
-    id: 7,
     name: 'tag 7',
   },
   {
-    id: 8,
     name: 'tag 8',
   },
   {
-    id: 9,
     name: 'tag 9',
   },
   {
-    id: 10,
     name: 'tag 10',
   },
 ];
 
 const categories = [
   {
-    id: 1,
     name: 'category 1',
   },
   {
-    id: 2,
     name: 'category 2',
   },
   {
-    id: 3,
     name: 'category 3',
   },
   {
-    id: 4,
     name: 'category 4',
   },
   {
-    id: 5,
     name: 'category 5',
   },
   {
-    id: 6,
     name: 'category 6',
   },
   {
-    id: 7,
     name: 'category 7',
   },
   {
-    id: 8,
     name: 'category 8',
   },
   {
-    id: 9,
     name: 'category 9',
   },
   {
-    id: 10,
     name: 'category 10',
   },
 ];

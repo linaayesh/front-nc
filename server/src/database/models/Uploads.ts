@@ -3,8 +3,8 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface IUploadsModel extends Model<
-  InferAttributes<IUploadsModel>, InferCreationAttributes<IUploadsModel>
+interface IUploads extends Model<
+  InferAttributes<IUploads>, InferCreationAttributes<IUploads>
 > {
   id?: number;
   userId: number;
@@ -18,7 +18,7 @@ interface IUploadsModel extends Model<
   image3840x1080: string;
 }
 
-const UploadsModel = sequelize.define<IUploadsModel>(
+const Uploads = sequelize.define<IUploads>(
   'uploads',
   {
     id: {
@@ -65,4 +65,4 @@ const UploadsModel = sequelize.define<IUploadsModel>(
   },
 );
 
-export default UploadsModel;
+export default Uploads;

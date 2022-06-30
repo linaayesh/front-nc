@@ -3,14 +3,14 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface IUploadsCategoriesModel extends Model<
-  InferAttributes<IUploadsCategoriesModel>, InferCreationAttributes<IUploadsCategoriesModel>
+interface IUploadsCategories extends Model<
+  InferAttributes<IUploadsCategories>, InferCreationAttributes<IUploadsCategories>
 > {
   categoryId?: number;
   uploadId?: number;
 }
 
-const UploadsCategoriesModel = sequelize.define<IUploadsCategoriesModel>(
+const UploadsCategories = sequelize.define<IUploadsCategories>(
   'uploadsCategories',
   {
     categoryId: {
@@ -27,4 +27,4 @@ const UploadsCategoriesModel = sequelize.define<IUploadsCategoriesModel>(
   { timestamps: false },
 );
 
-export default UploadsCategoriesModel;
+export default UploadsCategories;

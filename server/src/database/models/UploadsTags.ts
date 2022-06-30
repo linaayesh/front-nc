@@ -4,14 +4,14 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface IUploadsTagsModel extends Model<
-  InferAttributes<IUploadsTagsModel>, InferCreationAttributes<IUploadsTagsModel>
+interface IUploadsTags extends Model<
+  InferAttributes<IUploadsTags>, InferCreationAttributes<IUploadsTags>
 > {
   tagId?: number;
   uploadId?: number;
 }
 
-const UploadsTagsModel = sequelize.define<IUploadsTagsModel>(
+const UploadsTags = sequelize.define<IUploadsTags>(
   'uploadsTags',
   {
     tagId: {
@@ -28,4 +28,4 @@ const UploadsTagsModel = sequelize.define<IUploadsTagsModel>(
   { timestamps: false },
 );
 
-export default UploadsTagsModel;
+export default UploadsTags;
