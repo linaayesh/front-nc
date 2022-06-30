@@ -5,7 +5,7 @@ import {
 } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from './logo';
-import test1 from '../../Assets/Images/test1.jpg';
+import authImage from '../../Assets/Images/authImage.png';
 import './style.css';
 
 export default function HomeLayout() {
@@ -19,7 +19,7 @@ export default function HomeLayout() {
   };
   return (
     <div className="register">
-      <img src={test1} alt="List of posters" className="home-layout-image" />
+      <img src={authImage} alt="List of posters" className="home-layout-image" />
       <div className="register-container">
         <Logo />
         <Text className="description-text">Please compleat to create your account</Text>
