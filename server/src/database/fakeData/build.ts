@@ -1,12 +1,12 @@
 import {
   sequelize,
-  UsersModel,
-  TagsModel,
-  CategoriesModel,
-  RolesModel,
-  UploadsCategoriesModel,
-  UploadsModel,
-  UploadsTagsModel,
+  Users,
+  Tags,
+  Categories,
+  Roles,
+  UploadsCategories,
+  Uploads,
+  UploadsTags,
 } from '../config';
 
 import {
@@ -25,17 +25,17 @@ const buildFakeData = async () => {
   await sequelize.sync({ force: true });
 
   await Promise.all([
-    await RolesModel.bulkCreate(roles),
-    await TagsModel.bulkCreate(tags),
-    await CategoriesModel.bulkCreate(categories),
+    await Roles.bulkCreate(roles),
+    await Tags.bulkCreate(tags),
+    await Categories.bulkCreate(categories),
   ]);
   await Promise.all([
-    await UsersModel.bulkCreate(users),
-    await UploadsModel.bulkCreate(uploads),
+    await Users.bulkCreate(users),
+    await Uploads.bulkCreate(uploads),
   ]);
   await Promise.all([
-    await UploadsTagsModel.bulkCreate(uploadsTags),
-    await UploadsCategoriesModel.bulkCreate(uploadsCategories),
+    await UploadsTags.bulkCreate(uploadsTags),
+    await UploadsCategories.bulkCreate(uploadsCategories),
   ]);
 };
 

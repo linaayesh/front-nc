@@ -3,14 +3,14 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface IRolesModel extends Model<
-  InferAttributes<IRolesModel>, InferCreationAttributes<IRolesModel>
+interface IRoles extends Model<
+  InferAttributes<IRoles>, InferCreationAttributes<IRoles>
 > {
   id?: number;
   name: string
 }
 
-const RolesModel = sequelize.define<IRolesModel>(
+const Roles = sequelize.define<IRoles>(
   'roles',
   {
     id: {
@@ -26,4 +26,4 @@ const RolesModel = sequelize.define<IRolesModel>(
   { timestamps: false },
 );
 
-export default RolesModel;
+export default Roles;

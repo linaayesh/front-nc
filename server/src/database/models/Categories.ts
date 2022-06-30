@@ -3,14 +3,14 @@ import {
 } from 'sequelize';
 import sequelize from '../config/connections';
 
-interface ICategoriesModel extends Model<
-  InferAttributes<ICategoriesModel>, InferCreationAttributes<ICategoriesModel>
+interface ICategories extends Model<
+  InferAttributes<ICategories>, InferCreationAttributes<ICategories>
 > {
   id: number;
   name: string;
 }
 
-const CategoriesModel = sequelize.define<ICategoriesModel>(
+const Categories = sequelize.define<ICategories>(
   'categories',
   {
     id: {
@@ -26,4 +26,4 @@ const CategoriesModel = sequelize.define<ICategoriesModel>(
   { timestamps: false },
 );
 
-export default CategoriesModel;
+export default Categories;
