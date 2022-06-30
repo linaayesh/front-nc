@@ -1,2 +1,2 @@
 export { notFound, serverError, CustomError } from './error';
-export { signupHandler, verifyEmailHandler } from './auth';
+export { signupHandler, loginHandler, verifyEmailHandler } from './auth';
