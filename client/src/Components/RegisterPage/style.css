@@ -1,3 +1,15 @@
+.register{
+  display: flex;
+}
+.home-layout-image{
+  width: 50%;
+  height: 100vh;
+  object-fit: cover;
+}
+.home-layout-logo{
+  width: 175px;
+  height: 93px;
+}
 .register-container{
   width: 50%;
   display: flex;
