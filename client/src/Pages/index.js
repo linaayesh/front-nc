@@ -1,3 +1,5 @@
 import HomePage from './HomePage';
+import NotFound from './NotFound';
+import UserDashboard from './UserDashboard';
 
-export default HomePage;
+export { HomePage, NotFound, UserDashboard };

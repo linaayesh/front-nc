@@ -1,0 +1,29 @@
+.sidebar{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.sidebar-body{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+
+  
+    
+}
+.sidebar-body-item{
+    color: #6F767E;
+    height: 40px;
+    display: flex;
+    align-items: center;
+padding-left: 10px;
+
+}
+
+.sidebar-body-item:hover{
+background-color: #EFEFEF;
+width: 100%;
+border-radius: 10px;
+color: black;
+}
