@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Components';
+import { HomeLayout } from '../Components';
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
+    <div style={{ display: 'flex' }}>
+      <HomeLayout />
       <Outlet />
-    </>
+    </div>
   );
 }

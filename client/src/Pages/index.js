@@ -1,3 +1,4 @@
 import HomePage from './HomePage';
+import RegisterPage from './RegisterPage';
 
-export default HomePage;
+export { HomePage, RegisterPage };
