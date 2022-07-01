@@ -1,8 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropsTypes from 'prop-types';
 
 export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
@@ -15,10 +13,12 @@ export default function SidebarItem({ item }) {
             { item.icon && <i className={item.icon} /> }
             {item.title}
           </span>
-          <i className="bi-chevron-down toggle-btn" onClick={() => setOpen(!open)} />
+          <button type="button" onClick={() => setOpen(!open)}>
+            <i className="bi-chevron-down toggle-btn" />
+          </button>
         </div>
         <div className="sidebar-content">
-          { item.childrens.map((child) => <SidebarItem item={child} />) }
+          { item.childrens.map((child) => <SidebarItem key={child.key} item={child} />) }
         </div>
       </div>
     );
@@ -31,3 +31,16 @@ export default function SidebarItem({ item }) {
 
   );
 }
+SidebarItem.propTypes = {
+  item: PropsTypes.shape({
+    title: PropsTypes.string.isRequired,
+    icon: PropsTypes.string,
+    path: PropsTypes.string,
+    childrens: PropsTypes.arrayOf(PropsTypes.shape({
+      title: PropsTypes.string.isRequired,
+      icon: PropsTypes.string,
+      path: PropsTypes.string,
+    })),
+
+  }).isRequired,
+};
