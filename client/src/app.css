@@ -120,3 +120,23 @@ ol {
   list-style: none;
   text-decoration: none;
 }
+.both{
+  display: flex;
+  height: 90vh;
+
+}
+.left{
+  background-color: #ffffff;
+  width: 20%;
+}
+.right{
+  background-color: #F2F5F7;
+  width: 85%;
+  
+}
+
+@media screen and (max-width: 768px){
+  .left{
+      width: 40%;    }
+  
+}
