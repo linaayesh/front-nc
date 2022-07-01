@@ -1,27 +1,16 @@
 /* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
-  Typography, Input, Form, Button, Checkbox, message,
+  Typography, Input, Form, Button, Checkbox,
 } from 'antd';
-import { GoogleLogin } from 'react-google-login';
-import { gapi } from 'gapi-script';
-// import axios from 'axios';
 import { Link } from 'react-router-dom';
+import GoogleAuth from '../GoogleAuth';
+// import axios from 'axios';
 import Logo from '../RegisterForm/logo';
 
 export default function LogInForm() {
   const { Text } = Typography;
-  const clientID = '727149282582-03n35pardu6mt2g6d16ds12l9pau77nh.apps.googleusercontent.com';
-  useEffect(() => {
-    const start = () => {
-      gapi.client.init({
-        clientId: clientID,
-        scope: 'email',
-      });
-    };
 
-    gapi.load('client:auth2', start);
-  }, []);
   const onFinish = async (values) => {
     try {
       console.log(values);
@@ -29,23 +18,7 @@ export default function LogInForm() {
       console.log(error);
     }
   };
-  const successResponse = (response) => {
-    console.log(response);
-    const { tokenId, profileObj: { email, name, imageUrl } } = response;
-    console.log('User Data', email, name, imageUrl);
-    console.log('tokenId', tokenId);
-    // try {
-    //   const response = await axios.post('/signUp/google', { tokenId });
-    //   message.success(response.data.msg); // Sign up Successfully
-    // } catch (err) {
-    //   message.error(err.data.msg); // something went wrong try a gain later
-    // }
-  };
 
-  const failureResponse = (response) => {
-    console.log('error', response);
-    message.error(response); // something went wrong try a gain later
-  };
   return (
     <div className="auth-container">
       <Logo />
@@ -103,14 +76,7 @@ export default function LogInForm() {
         </Form.Item>
       </Form>
       {/* Log in with google */}
-      <GoogleLogin
-        className="google-sign-up-button"
-        buttonText="Log In with google"
-        clientId={clientID}
-        onSuccess={successResponse}
-        onFailure={failureResponse}
-        cookiePolicy="single_host_origin"
-      />
+      <GoogleAuth label="Log In With Google" />
       {/* navigate to sign up */}
       <Text className="have-account-text">
         Does not have an account?
