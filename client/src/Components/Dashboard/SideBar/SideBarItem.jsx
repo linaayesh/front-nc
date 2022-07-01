@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,6 @@ export default function SidebarItem({ item }) {
   if (item.childrens) {
     return (
       <div className={open ? 'sidebar-item open ' : 'sidebar-item title'}>
-
         <div className="sidebar-title">
           <span>
             { item.icon && <i className={item.icon} /> }
@@ -25,9 +25,10 @@ export default function SidebarItem({ item }) {
     );
   }
   return (
-    <a href={item.path || '#'} className="sidebar-item plain">
+    <NavLink to={item.path || '#'} className="sidebar-item plain">
       { item.icon && <i className={item.icon} /> }
       {item.title}
-    </a>
+    </NavLink>
+
   );
 }

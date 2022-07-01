@@ -1,7 +1,8 @@
 [
     {
         "title": "Home",
-        "icon": "fa fa-home"
+        "icon": "fa fa-home",
+        "path": "/dashboard/home"
        
     },
     {

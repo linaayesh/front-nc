@@ -1,67 +1,66 @@
-.sidebar{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-  
-  .sidebar-item{
-    padding: .75em 1em;
+.sidebar-item {
+  padding: 0.75em 1em;
+  display: block;
+  border-radius: 5px;
+  color: #6f767e;
+}
 
-    display: block;
-    border-radius: 5px;
-    color: #6F767E;
+.sidebar-title {
+  display: flex;
+  font-size: 1.2em;
+  justify-content: space-between;
+}
 
-  }
-  
+.title:hover {
+  background-color: #efefef;
+  border-radius: 10px;
+  color: black;
+}
 
-  .sidebar-title{
-    display: flex;
-    font-size: 1.2em;
-    justify-content: space-between;
-  }
-
-  .title:hover{
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    color: black;
-
-
-
-  }
-  
-  .sidebar-title span i{
-    display: inline-block;
-    width: 1.5em;
-  }
-  .sidebar-title .toggle-btn{
-    cursor: pointer;
-    transition: transform .3s;
-  }
-  .sidebar-item.open > .sidebar-title .toggle-btn{
-    transform: rotate(180deg);
-  }
-  .sidebar-content{
-    padding-top: .25em;
-    height: 0;
-    overflow: hidden;
-  }
-  .sidebar-item.open > .sidebar-content{
-    height: auto;
-  }
-  
-  .sidebar-item.plain{
-    color: #6F767E;
-    font-size: 1.2em;
-    text-decoration: none;
-  }
-  .sidebar-item.plain:hover{
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    color: black;
-  }
-  .sidebar-item.plain i{
-    display: inline-block;
-    width: 1.7em;
-  }
- 
+.sidebar-title span i {
+  display: inline-block;
+  width: 1.5em;
+}
+.sidebar-title .toggle-btn {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.sidebar-item.open > .sidebar-title .toggle-btn {
+  transform: rotate(180deg);
+}
+.sidebar-content {
+  padding-top: 0.25em;
+  height: 0;
+  overflow: hidden;
+}
+.sidebar-item.open > .sidebar-content {
+  height: auto;
+}
+.plain {
+  padding: 0.75em 1em;
+  display: block;
+  border-radius: 5px;
+  color: #6f767e;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.plainselected {
+  background-color: #efefef;
+  border-radius: 10px;
+  color: black;
+}
+.plain:hover {
+  background-color: #efefef;
+  border-radius: 10px;
+  color: black;
+}
+.plain i {
+  display: inline-block;
+  width: 1.7em;
+}
