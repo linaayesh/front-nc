@@ -8,7 +8,7 @@ import items from './sidebar.json';
 function SideBar() {
   return (
     <div className="sidebar">
-      { items.map((item, index) => <SidebarItem key={index} item={item} />) }
+      { items.map((item) => <SidebarItem item={item} />) }
     </div>
   );
 }

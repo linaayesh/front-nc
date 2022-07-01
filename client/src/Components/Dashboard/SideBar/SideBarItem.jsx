@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -19,7 +18,7 @@ export default function SidebarItem({ item }) {
           <i className="bi-chevron-down toggle-btn" onClick={() => setOpen(!open)} />
         </div>
         <div className="sidebar-content">
-          { item.childrens.map((child, index) => <SidebarItem key={index} item={child} />) }
+          { item.childrens.map((child) => <SidebarItem item={child} />) }
         </div>
       </div>
     );
