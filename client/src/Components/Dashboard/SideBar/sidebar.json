@@ -12,16 +12,18 @@
          
             {
                 "title": "Your Statistics ",
-                "path": "/dashboard/YourStatistics "
+                "path": "/dashboard/YourStatistics ",
+                "key": "YourStatistics"
             },
             {
                 "title": "Video List ",
-                "path": "/dashboard/yourvideos"
+                "path": "/dashboard/yourvideos",
+                "key": "yourvideos"
             },
            
             {
                 "title": "Staff List ",
-                "path": "/dashboard/Staff "
+                "path": "/dashboard/Staff ","key": "Staff"
             }
         ]
     },
@@ -32,16 +34,19 @@
          
             {
                 "title": "Revenue ",
-                "path": "/dashboard/Revenue "
+                "path": "/dashboard/Revenue ",
+                "key": "Revenue"
             },
             {
                 "title": "Payout",
-                "path": "/dashboard/Payout"
+                "path": "/dashboard/Payout",
+                "key": "Payout"
             },
            
             {
                 "title": "Affilate Program",
                 "path": "/dashboard/Staff "
+                ,"key": "Staff"
             }
         ]
     },
