@@ -10,7 +10,7 @@ export default function SidebarItem({ item }) {
       <div className={open ? 'sidebar-item open ' : 'sidebar-item title'}>
         <div className="sidebar-title">
           <span>
-            { item.icon && <i className={item.icon} /> }
+            {item.icon && <i className={item.icon} />}
             {item.title}
           </span>
           <button type="button" onClick={() => setOpen(!open)}>
@@ -18,29 +18,36 @@ export default function SidebarItem({ item }) {
           </button>
         </div>
         <div className="sidebar-content">
-          { item.childrens.map((child) => <SidebarItem key={child.key} item={child} />) }
+          {item.childrens.map((child) => (
+            <SidebarItem key={child.key} item={child} />
+          ))}
         </div>
       </div>
     );
   }
+
+  //
   return (
-    <NavLink to={item.path || '#'} className="sidebar-item plain">
-      { item.icon && <i className={item.icon} /> }
+    <NavLink
+      to={item.path || '#'}
+      className={({ isActive }) => `sidebar-item plain ${isActive ? 'plainselected' : ''}`}
+    >
+      {item.icon && <i className={item.icon} />}
       {item.title}
     </NavLink>
-
   );
 }
 SidebarItem.propTypes = {
   item: PropsTypes.shape({
     title: PropsTypes.string.isRequired,
-    icon: PropsTypes.string.isRequired,
-    path: PropsTypes.string.isRequired,
-    childrens: PropsTypes.arrayOf(PropsTypes.shape({
-      title: PropsTypes.string.isRequired,
-      icon: PropsTypes.string,
-      path: PropsTypes.string,
-    })),
-
+    icon: PropsTypes.string,
+    path: PropsTypes.string,
+    childrens: PropsTypes.arrayOf(
+      PropsTypes.shape({
+        title: PropsTypes.string.isRequired,
+        icon: PropsTypes.string,
+        path: PropsTypes.string,
+      }),
+    ),
   }).isRequired,
 };

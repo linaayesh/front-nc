@@ -10,44 +10,48 @@
         "icon": "fa fa-dashboard",
         "childrens": [
          
-            {
-                "title": "Your Statistics ",
-                "path": "/dashboard/YourStatistics ",
-                "key": "YourStatistics"
-            },
+         
             {
                 "title": "Video List ",
                 "path": "/dashboard/yourvideos",
                 "key": "yourvideos"
             },
-           
+            {
+                "title": "Your Statistics ",
+                "path": "/dashboard/yourstatistics",
+                "key": "yourstatistics"
+            },
             {
                 "title": "Staff List ",
-                "path": "/dashboard/Staff ","key": "Staff"
+                "path": "/dashboard/staff",
+                "key": "staff"
             }
+           
+           
         ]
     },
     {
         "title": "Finance",
         "icon": "fa fa-money",
         "childrens": [
-         
             {
-                "title": "Revenue ",
-                "path": "/dashboard/Revenue ",
-                "key": "Revenue"
+                "title": "Revenue",
+                "path": "/dashboard/revenue",
+                "key": "revenue"
             },
+            
             {
                 "title": "Payout",
-                "path": "/dashboard/Payout",
-                "key": "Payout"
+                "path": "/dashboard/payout",
+                "key": "payout"
             },
-           
             {
                 "title": "Affilate Program",
-                "path": "/dashboard/Staff "
-                ,"key": "Staff"
+                "path": "/dashboard/affilate",
+                "key": "affilate"
             }
+           
+          
         ]
     },
     {
