@@ -67,7 +67,7 @@
     {
         "title": "Logout",
         "icon": "fa fa-sign-out",
-        "path": "/logout"
+        "path": "/"
        
     }
 
