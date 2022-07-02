@@ -7,10 +7,7 @@ function Navbar() {
     <>
       {/* Create navbar */}
       <nav className="navbar">
-        <div className="leftside">
-          <img src="https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png" alt="logo" className="logo" />
-
-        </div>
+        <div className="leftside" />
         <div className="rightside">
           <i className="fa fa-bell icon" />
 
