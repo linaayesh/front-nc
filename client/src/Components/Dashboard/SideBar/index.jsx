@@ -8,7 +8,14 @@ import items from './sidebar.json';
 function SideBar() {
   return (
     <div className="sidebar">
-      { items.map((item, index) => <SidebarItem key={index} item={item} />) }
+      <div className="logodiv">
+        <img src="https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png" alt="logo" className="logo" />
+
+      </div>
+      <div>
+        { items.map((item, index) => <SidebarItem key={index} item={item} />) }
+
+      </div>
     </div>
   );
 }
