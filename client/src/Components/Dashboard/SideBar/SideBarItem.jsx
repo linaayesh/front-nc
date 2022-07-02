@@ -34,8 +34,8 @@ export default function SidebarItem({ item }) {
 SidebarItem.propTypes = {
   item: PropsTypes.shape({
     title: PropsTypes.string.isRequired,
-    icon: PropsTypes.string,
-    path: PropsTypes.string,
+    icon: PropsTypes.string.isRequired,
+    path: PropsTypes.string.isRequired,
     childrens: PropsTypes.arrayOf(PropsTypes.shape({
       title: PropsTypes.string.isRequired,
       icon: PropsTypes.string,
