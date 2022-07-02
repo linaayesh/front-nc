@@ -122,12 +122,16 @@ ol {
 }
 .both{
   display: flex;
-  height: 90vh;
+  height: 100vh;
+
 
 }
 .left{
   background-color: #ffffff;
   width: 20%;
+}
+.middle{
+  background-color: #ffffff;
 }
 .right{
   background-color: #F2F5F7;
