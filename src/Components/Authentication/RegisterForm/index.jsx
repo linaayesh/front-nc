@@ -23,8 +23,7 @@ export default function RegisterForm() {
   return (
     <div className="auth-container">
       <Logo />
-      <Text className="description-text">Please compleat to create your account</Text>
-      {/* <Divider>Or</Divider> */}
+      <Text className="auth-text title-text">Please compleat to create your account</Text>
       <Form
         name="basic"
         onFinish={onFinish}
@@ -83,7 +82,6 @@ export default function RegisterForm() {
           <Input.Password placeholder="Confirm Password" />
         </Form.Item>
         {/* Terms and conditions */}
-        <Link to="/terms" className="terms-link">Terms and Conditions</Link>
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -94,7 +92,11 @@ export default function RegisterForm() {
             },
           ]}
         >
-          <Checkbox style={{ color: '#6F767E' }}>I agree with terms and condition</Checkbox>
+          <Checkbox style={{ color: '#6F767E' }}>
+            I agree with
+            {' '}
+            <Link to="/terms" target="_blank" style={{ fontWeight: 500 }}>Terms and Conditions</Link>
+          </Checkbox>
         </Form.Item>
         {/* Sign Up button */}
         <Form.Item>
