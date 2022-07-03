@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import {
-  UserDashboard, NotFound, RegisterPage, LogInPage, TermsPage, ForgetPasswordPage,
+  UserDashboard, NotFound, RegisterPage, LogInPage, TermsPage, ForgetPasswordPage, RevenewPage,
 } from './Pages';
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
       </Route>
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<UserDashboard />} />
+        <Route path="home" element={<UserDashboard />} />
+        <Route path="Revenue" element={<RevenewPage />} />
         <Route
           path="*"
           element={(
@@ -40,6 +42,16 @@ function App() {
           )}
         />
       </Route>
+      <Route
+        path="*"
+        element={(
+          <NotFound
+            link="/"
+            pageClassName="not-found-dashboard-container"
+            title="Back To Log In"
+          />
+          )}
+      />
     </Routes>
   );
 }

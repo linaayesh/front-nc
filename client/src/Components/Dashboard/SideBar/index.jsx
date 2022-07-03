@@ -1,57 +1,21 @@
+/* eslint-disable react/no-array-index-key */
+
 import React from 'react';
+import SidebarItem from './SideBarItem';
 import './style.css';
-import { Link } from 'react-router-dom';
+import items from './sidebar.json';
 
 function SideBar() {
-  const links = [
-    {
-      name: 'Home',
-      link: '/dashboard',
-      icon: 'fa fa-home icon',
-    },
-    {
-      name: 'Dashboard',
-      link: '/dashboard',
-      icon: 'fa fa-dashboard icon',
-    },
-    {
-      name: 'Finance',
-      link: '/dashboard/finance',
-      icon: 'fa fa-user icon',
-    },
-    {
-      name: 'Account Settings',
-      link: '/dashboard/account-settings',
-      icon: 'fa fa-cog icon',
-    },
-    {
-      name: 'Dashobard Settings',
-      link: '/dashboard/Dashobard-settings',
-      icon: 'fa fa-cog icon',
-    },
-    {
-      name: 'Logout',
-      link: '/logout',
-      icon: 'fa fa fa-sign-out icon',
-    },
-  ];
-
   return (
     <div className="sidebar">
-
-      <div className="sidebar-body">
-        {links.map((link, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Link to={link.link} key={index}>
-            <div className="sidebar-body-item">
-              <i className={link.icon} />
-              <span>{link.name}</span>
-            </div>
-          </Link>
-        ))}
+      <div className="logodiv">
+        <img src="https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png" alt="logo" className="logo" />
 
       </div>
+      <div>
+        { items.map((item, index) => <SidebarItem key={index} item={item} />) }
 
+      </div>
     </div>
   );
 }

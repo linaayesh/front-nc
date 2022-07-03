@@ -17,7 +17,7 @@ export default async ({ body }: Request, res: Response, next: NextFunction) => {
     const userExists = await Users.findOne({ where: { email } });
     if (userExists) throw new CustomError('User already exists', 409);
     const hashedPassword = await hash(password, 10);
-    const { dataValues: { id: roleId, name: role } }: any = await Roles.create({ name: 'user' });
+    const { dataValues: { id: roleId, name: role } }: any = await Roles.create({ name: 'artist' });
     const { dataValues: { id: userId } }: any = await Users.create({
       username,
       email,

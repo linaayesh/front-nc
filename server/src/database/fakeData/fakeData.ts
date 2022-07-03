@@ -43,19 +43,19 @@ const users = [
 
 const roles = [
   {
-    name: 'user',
+    name: 'artist',
   },
   {
-    name: 'user',
+    name: 'artist',
   },
   {
-    name: 'user',
-  },
-  {
-    name: 'user',
+    name: 'venue',
   },
   {
     name: 'admin',
+  },
+  {
+    name: 'super-admin',
   },
 ];
 
