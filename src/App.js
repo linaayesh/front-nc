@@ -1,7 +1,7 @@
 import React from 'react';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
-
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import {
