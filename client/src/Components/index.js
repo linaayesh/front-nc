@@ -1,5 +1,8 @@
 import Navbar from './Navbar';
-import { HomeLayout } from './Layout';
 import Dashboard from './Dashboard';
+import RegisterForm from './RegisterForm';
+import LogInForm from './LogInForm';
 
-export { Navbar, Dashboard, HomeLayout };
+export {
+  Navbar, Dashboard, RegisterForm, LogInForm,
+};

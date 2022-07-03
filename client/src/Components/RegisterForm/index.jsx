@@ -1,33 +1,39 @@
+/* eslint-disable no-console */
 import React from 'react';
 import {
   Typography, Input, Form, Button, Checkbox,
 } from 'antd';
 import { Link } from 'react-router-dom';
+import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
 
-export default function HomeLayout() {
+export default function RegisterForm() {
   const { Text } = Typography;
   const onFinish = async (values) => {
-    try {
-      console.log(values);
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(values);
+    // try {
+    //   const response = await axios.post('/signUp', values);
+    //   message.success(response.data.msg); // Sign up Successfully + verify email
+    // } catch (err) {
+    //   message.error(err.data.msg); // something went wrong try a gain later
+    // }
   };
+
   return (
-    <div className="register-container">
+    <div className="auth-container">
       <Logo />
       <Text className="description-text">Please compleat to create your account</Text>
+      {/* <Divider>Or</Divider> */}
       <Form
         name="basic"
         onFinish={onFinish}
         autoComplete="off"
-        className="register-form"
+        className="auth-form"
       >
+        {/* USER NAME */}
         <Form.Item
-          // label="Name"
-          name="name"
+          name="username"
           rules={[
             {
               required: true,
@@ -37,22 +43,21 @@ export default function HomeLayout() {
         >
           <Input placeholder="Name" />
         </Form.Item>
-
+        {/* EMAIL */}
         <Form.Item
-          // label="Email"
           name="email"
           rules={[
             {
+              type: 'email',
               required: true,
               message: 'Please input your email!',
             },
           ]}
         >
-          <Input placeholder="Email" />
+          <Input placeholder="Email" type="email" />
         </Form.Item>
-
+        {/* Password */}
         <Form.Item
-          // label="Password"
           name="password"
           rules={[
             {
@@ -64,9 +69,8 @@ export default function HomeLayout() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-
+        {/* Confirm Password */}
         <Form.Item
-          // label="Confirm Password"
           name="confirmPassword"
           rules={[
             {
@@ -78,6 +82,8 @@ export default function HomeLayout() {
         >
           <Input.Password placeholder="Confirm Password" />
         </Form.Item>
+        {/* Terms and conditions */}
+        <Link to="/terms" className="terms-link">Terms and Conditions</Link>
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -90,18 +96,22 @@ export default function HomeLayout() {
         >
           <Checkbox style={{ color: '#6F767E' }}>I agree with terms and condition</Checkbox>
         </Form.Item>
+        {/* Sign Up button */}
         <Form.Item>
-          {/*  htmlType="submit"  */}
-          <Button className="form-button" type="primary">
-            Submit
+          <Button className="form-button" type="primary" htmlType="submit">
+            Sign Up
           </Button>
         </Form.Item>
       </Form>
+      {/* Sign up with google */}
+      <GoogleAuth label="Sign Up With Google" />
+      {/* Have an account  */}
       <Text className="have-account-text">
         Already have an account?
         {' '}
-        <Link to="/logIn" className="sign-in-link">Sign In.</Link>
+        <Link to="/" className="sign-in-link">Sign In.</Link>
       </Text>
     </div>
+
   );
 }

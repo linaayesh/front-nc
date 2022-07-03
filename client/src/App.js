@@ -5,14 +5,27 @@ import { Routes, Route } from 'react-router-dom';
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import {
-  UserDashboard, NotFound, RegisterPage, RevenewPage,
+  UserDashboard, NotFound, RegisterPage, LogInPage, TermsPage, ForgetPasswordPage, RevenewPage,
 } from './Pages';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}>
-        <Route index element={<RegisterPage />} />
+        <Route index element={<LogInPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/forgetPassword" element={<ForgetPasswordPage />} />
+        <Route
+          path="*"
+          element={(
+            <NotFound
+              link="/"
+              pageClassName="not-found-dashboard-container"
+              title="Back To Log In"
+            />
+          )}
+        />
       </Route>
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<UserDashboard />} />
