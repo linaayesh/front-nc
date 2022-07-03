@@ -120,27 +120,16 @@ ol {
   list-style: none;
   text-decoration: none;
 }
-.both{
+
+.one {
   display: flex;
-  height: 100vh;
-
-
+  height: 100vh;}
+.two {  width: 20%;
 }
-.left{
-  background-color: #ffffff;
-  width: 20%;
+.three {
+  width: 100%;
 }
-.middle{
-  background-color: #ffffff;
-}
-.right{
-  background-color: #F2F5F7;
-  width: 85%;
-  
-}
-
-@media screen and (max-width: 768px){
-  .left{
-      width: 40%;    }
-  
+.outlet {
+  background-color: #f2f5f7;
+  height: 100%;
 }
