@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'montserrat ', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -119,4 +119,17 @@ li,
 ol {
   list-style: none;
   text-decoration: none;
+}
+
+.one {
+  display: flex;
+  height: 100vh;}
+.two {  width: 20%;
+}
+.three {
+  width: 100%;
+}
+.outlet {
+  background-color: #f2f5f7;
+  height: 100%;
 }

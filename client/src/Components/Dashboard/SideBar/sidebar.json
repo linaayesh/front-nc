@@ -1,0 +1,79 @@
+[
+    {
+        "title": "Home",
+        "icon": "fa fa-home",
+        "path": "/dashboard/home"
+       
+    },
+    {
+        "title": "Dashboard",
+        "icon": "fa fa-dashboard",
+        "childrens": [
+         
+         
+            {
+                "title": "Video List ",
+                "path": "/dashboard/yourvideos",
+                "key": "yourvideos"
+            },
+            {
+                "title": "Your Statistics ",
+                "path": "/dashboard/yourstatistics",
+                "key": "yourstatistics"
+            },
+            {
+                "title": "Staff List ",
+                "path": "/dashboard/staff",
+                "key": "staff"
+            }
+           
+           
+        ]
+    },
+    {
+        "title": "Finance",
+        "icon": "fa fa-money",
+        "childrens": [
+            {
+                "title": "Revenue",
+                "path": "/dashboard/revenue",
+                "key": "revenue"
+            },
+            
+            {
+                "title": "Payout",
+                "path": "/dashboard/payout",
+                "key": "payout"
+            },
+            {
+                "title": "Affilate Program",
+                "path": "/dashboard/affilate",
+                "key": "affilate"
+            }
+           
+          
+        ]
+    },
+    {
+        "title": "Account Settings",
+        "icon": "fa fa-cog",
+        
+       
+        "path": "/dashboard/AccountSettings"
+    },
+    {
+        "title": "Dashboard Settings",
+        "icon": "fa fa-cog",
+      
+            "path": "/dashboard/Settings"
+
+    },
+    {
+        "title": "Logout",
+        "icon": "fa fa-sign-out",
+        "path": "/"
+       
+    }
+
+   
+]
