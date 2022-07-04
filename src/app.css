@@ -5,7 +5,10 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --main-color: #13E0D5;
+  --secondary-color: #646D82;
+}
 html {
   scroll-behavior: smooth;
   padding: 0;

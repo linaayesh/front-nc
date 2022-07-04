@@ -1,12 +1,13 @@
 import React from 'react';
-import {
-  Typography,
-} from 'antd';
+import authImage from '../Assets/Images/authImage.png';
+import { ForgetPasswordForm } from '../Components';
 
 function ForgetPasswordPage() {
-  const { Title } = Typography;
   return (
-    <Title level={1}> Forget Password</Title>
+    <div className="register">
+      <img src={authImage} alt="List of posters" className="home-layout-image" />
+      <ForgetPasswordForm />
+    </div>
   );
 }
 

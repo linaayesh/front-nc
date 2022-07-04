@@ -22,7 +22,7 @@ export default function LogInForm() {
   return (
     <div className="auth-container">
       <Logo />
-      <Text className="description-text">Welcome back please login to your account.</Text>
+      <Text className="auth-text title-text">Welcome back please login to your account.</Text>
       <Form
         name="basic"
         onFinish={onFinish}
@@ -64,9 +64,9 @@ export default function LogInForm() {
             name="remember"
             valuePropName="checked"
           >
-            <Checkbox style={{ color: '#6F767E' }}>Remember me</Checkbox>
+            <Checkbox className="auth-text">Remember me</Checkbox>
           </Form.Item>
-          <Link to="/forgetPassword" className="sign-in-link">Forget Password</Link>
+          <Link to="/forgetPassword" className="auth-text forget-password-link">Forget Password</Link>
         </div>
         {/* Log In Button */}
         <Form.Item>
@@ -87,4 +87,3 @@ export default function LogInForm() {
 
   );
 }
-//       {/* <img src={authImage} alt="List of posters" className="home-layout-image" /> */}

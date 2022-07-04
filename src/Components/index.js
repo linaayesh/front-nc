@@ -1,8 +1,9 @@
 import Navbar from './Navbar';
 import Dashboard from './Dashboard';
-import RegisterForm from './RegisterForm';
-import LogInForm from './LogInForm';
+import LogInForm from './Authentication/LogInForm';
+import RegisterForm from './Authentication/RegisterForm';
+import ForgetPasswordForm from './Authentication/ForgetPasswordForm';
 
 export {
-  Navbar, Dashboard, RegisterForm, LogInForm,
+  Navbar, Dashboard, LogInForm, RegisterForm, ForgetPasswordForm,
 };
