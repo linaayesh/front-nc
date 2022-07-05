@@ -36,7 +36,7 @@ export default function RegisterForm() {
           rules={[
             {
               required: true,
-              message: 'Please input your name!',
+              message: 'Please enter your name!',
             },
           ]}
         >
@@ -49,7 +49,7 @@ export default function RegisterForm() {
             {
               type: 'email',
               required: true,
-              message: 'Please input your email!',
+              message: 'Please enter a vaild email!',
             },
           ]}
         >

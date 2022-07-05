@@ -1,13 +1,21 @@
 import React from 'react';
 import './style.css';
 import 'font-awesome/css/font-awesome.min.css';
+import { Button } from 'antd';
 
 function Navbar() {
   return (
     <>
       {/* Create navbar */}
       <nav className="navbar">
-        <div className="leftside" />
+        <div className="leftside">
+          <div className="bti">
+            <Button>
+              <i className="fa fa-bars" />
+            </Button>
+          </div>
+
+        </div>
         <div className="rightside">
           <i className="fa fa-bell icon" />
 
