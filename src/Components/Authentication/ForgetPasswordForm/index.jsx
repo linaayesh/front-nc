@@ -34,7 +34,7 @@ export default function ForgetPasswordForm() {
             {
               type: 'email',
               required: true,
-              message: 'Email',
+              message: 'Please enter a valid email!',
             },
           ]}
         >

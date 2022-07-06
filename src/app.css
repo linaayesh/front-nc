@@ -6,8 +6,8 @@
   box-sizing: border-box;
 }
 :root {
-  --main-color: #13E0D5;
-  --secondary-color: #646D82;
+  --main-color: #13e0d5;
+  --secondary-color: #646d82;
 }
 html {
   scroll-behavior: smooth;
@@ -16,10 +16,11 @@ html {
 }
 
 body {
-  font-family: 'montserrat ', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "montserrat ", -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background-color: #f2f5f7;
 }
 /* not Found Style */
 .not-found-container {
@@ -51,7 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #13E0D5;
+  color: #13e0d5;
 }
 
 .not-found-title {
@@ -70,7 +71,7 @@ body {
 
 .notFound {
   fill: #ffffff;
-  stroke: #13E0D5;
+  stroke: #13e0d5;
   stroke-width: 1.5;
   animation: lupa 5s infinite;
 }
@@ -87,7 +88,7 @@ body {
 }
 .not-found-back {
   padding: 0.5rem 1.25rem;
-  background: #13E0D5;
+  background: #13e0d5;
   color: #fff;
   border-radius: 0.25rem;
   margin-top: 1rem;
@@ -124,15 +125,22 @@ ol {
   text-decoration: none;
 }
 
-.one {
+.both {
   display: flex;
-  height: 100vh;}
-.two {  width: 20%;
+  height: 100vh;
+
 }
-.three {
+.sidebarinlayout {
+  width: 22%;
+  background-color: white;
+}
+.navbarinlayout {
   width: 100%;
-}
-.outlet {
-  background-color: #f2f5f7;
   height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebarinlayout {
+    display: none;
+  }
 }

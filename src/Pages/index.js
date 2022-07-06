@@ -4,9 +4,34 @@ import NotFound from './NotFound';
 import LogInPage from './LogInPage';
 import TermsPage from './TermsPage';
 import ForgetPasswordPage from './ForgetPasswordPage';
-import { RevenewPage, UserDashboard } from './UserPages';
+import {
+  RevenewPage,
+  UserDashboard,
+  EditProfile,
+  ChangePassword,
+  DashboardSettings,
+  PaymentSettings,
+  StaffList,
+  Statistics,
+  PayoutPage,
+  VideoList,
+} from './UserPages';
 
 export {
-  HomePage, NotFound, UserDashboard, RegisterPage, LogInPage, TermsPage, ForgetPasswordPage,
+  HomePage,
+  RegisterPage,
+  NotFound,
+  LogInPage,
+  TermsPage,
+  ForgetPasswordPage,
   RevenewPage,
+  UserDashboard,
+  EditProfile,
+  ChangePassword,
+  DashboardSettings,
+  PaymentSettings,
+  StaffList,
+  Statistics,
+  PayoutPage,
+  VideoList,
 };

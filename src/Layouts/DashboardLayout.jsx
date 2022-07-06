@@ -5,15 +5,17 @@ import Sidebar from '../Components/Dashboard';
 
 export default function DashboardLayout() {
   return (
-    <div className="one">
-      <div className="two">
+    <div className="asdoasd">
+      <div className="both">
+        <div className="sidebarinlayout">
 
-        <Sidebar />
-      </div>
-      <div className="three">
-        <Navbar />
-        <div className="outlet">
-          <Outlet />
+          <Sidebar />
+        </div>
+        <div className="navbarinlayout">
+          <Navbar />
+          <div>
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
