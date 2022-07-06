@@ -1,23 +1,25 @@
-/* eslint-disable no-console */
 import React from 'react';
 import {
-  Typography, Input, Form, Button, Checkbox,
+  Typography, Input, Form, Button, Checkbox, message,
 } from 'antd';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
 
 export default function RegisterForm() {
   const { Text } = Typography;
+  const [form] = Form.useForm();
   const onFinish = async (values) => {
-    console.log(values);
-    // try {
-    //   const response = await axios.post('/signUp', values);
-    //   message.success(response.data.msg); // Sign up Successfully + verify email
-    // } catch (err) {
-    //   message.error(err.data.msg); // something went wrong try a gain later
-    // }
+    const { username, email, password } = values;
+    try {
+      const response = await axios.post('/api/v1/auth/signup', { username, email, password });
+      message.success(response.data.message);
+      form.resetFields();
+    } catch (error) {
+      message.error(error.response.data.message);
+    }
   };
 
   return (
@@ -25,6 +27,7 @@ export default function RegisterForm() {
       <Logo />
       <Text className="auth-text title-text">Please compleat to create your account</Text>
       <Form
+        form={form}
         name="basic"
         onFinish={onFinish}
         autoComplete="off"
@@ -64,18 +67,29 @@ export default function RegisterForm() {
               message: 'Please input your password!',
             },
           ]}
+          hasFeedback
           className="input-password"
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
         {/* Confirm Password */}
         <Form.Item
-          name="confirmPassword"
+          name="confirm"
+          dependencies={['password']}
+          hasFeedback
           rules={[
             {
               required: true,
               message: 'Please confirm your password!',
             },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue('password') === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              },
+            }),
           ]}
           className="input-password"
         >
