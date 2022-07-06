@@ -14,7 +14,7 @@ function Navbar() {
               <i className="fa fa-bars" />
             </Button>
           </div>
-
+          {/* Create rightside */}
         </div>
         <div className="rightside">
           <i className="fa fa-bell icon" />
