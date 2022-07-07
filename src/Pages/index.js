@@ -16,6 +16,7 @@ import {
   PayoutPage,
   VideoList,
 } from './UserPages';
+import ResetPasswordPage from './ResetPasswordPage';
 
 export {
   HomePage,
@@ -34,4 +35,5 @@ export {
   Statistics,
   PayoutPage,
   VideoList,
+  ResetPasswordPage,
 };

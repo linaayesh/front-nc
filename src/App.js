@@ -20,7 +20,9 @@ import {
   DashboardSettings,
   ChangePassword,
   EditProfile,
+  ResetPasswordPage,
 } from './Pages';
+import NewUsers from './Pages/UserPages/NewUsers';
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/forgetPassword" element={<ForgetPasswordPage />} />
+        <Route path="/resetpassword" element={<ResetPasswordPage />} />
         <Route
           path="*"
           element={(
@@ -53,6 +56,7 @@ function App() {
         <Route path="yourstatistics" element={<Statistics />} />
         <Route path="payout" element={<PayoutPage />} />
         <Route path="yourvideos" element={<VideoList />} />
+        <Route path="newusers" element={<NewUsers />} />
 
         <Route
           path="*"
