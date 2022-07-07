@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '../Components';
-import Sidebar from '../Components/Dashboard';
+import { Navbar, SideBar } from '../Components';
 
 export default function DashboardLayout() {
   return (
@@ -9,7 +8,7 @@ export default function DashboardLayout() {
       <div className="both">
         <div className="sidebarinlayout">
 
-          <Sidebar />
+          <SideBar />
         </div>
         <div className="navbarinlayout">
           <Navbar />

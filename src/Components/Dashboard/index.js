@@ -1,3 +1,4 @@
-import Sidebar from './SideBar';
+import ManageUSer from './MangeUser';
+import SideBar from './SideBar';
 
-export default Sidebar;
+export { SideBar, ManageUSer };

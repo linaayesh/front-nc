@@ -21,6 +21,7 @@ import {
   ChangePassword,
   EditProfile,
 } from './Pages';
+import NewUsers from './Pages/UserPages/NewUsers';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="yourstatistics" element={<Statistics />} />
         <Route path="payout" element={<PayoutPage />} />
         <Route path="yourvideos" element={<VideoList />} />
+        <Route path="newusers" element={<NewUsers />} />
 
         <Route
           path="*"
