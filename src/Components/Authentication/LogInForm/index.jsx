@@ -1,23 +1,27 @@
-/* eslint-disable no-console */
 import React from 'react';
 import {
-  Typography, Input, Form, Button, Checkbox,
+  Typography, Input, Form, Button, Checkbox, message,
 } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import GoogleAuth from '../GoogleAuth';
-// import axios from 'axios';
 import Logo from '../RegisterForm/logo';
 
 export default function LogInForm() {
   const { Text } = Typography;
+  const navigate = useNavigate();
 
   const onFinish = async (values) => {
+    const { email, password } = values;
     try {
-      console.log(values);
+      const response = await axios.post('/api/v1/auth/login', { email, password });
+      message.success(response.data.message);
+      navigate('/dashboard');
     } catch (error) {
-      console.log(error);
+      message.error(error.response.data.message);
     }
   };
+  // test thing
 
   return (
     <div className="auth-container">
