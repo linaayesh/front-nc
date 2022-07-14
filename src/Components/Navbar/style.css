@@ -1,17 +1,18 @@
 .logo{
     width: 100px;
-    margin-left: 10px;
+    margin-left: 90px;
     margin-top: 10px;
+    
 }
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    background-color: white;
-    position: relative;
-    width: 100%
-    
+    background-color: rgb(255, 255, 255);
+    height: 63px;
+    position:sticky;
+    top:0;
 }
 .navbar-button{
    background-color: #13E0D5;
@@ -81,5 +82,12 @@ font-size: 30px;
   }
     .bti{
         display: block;
+    }
+    .navbar{
+        width: 100%;
+    }
+    .logo{
+      margin-left: 10px;
+
     }
 }

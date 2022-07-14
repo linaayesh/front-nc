@@ -1,16 +1,26 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   background-color: white;
 
 }
+
 .logodiv{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: px;
+  flex-direction: row;
+  position:sticky;
+  top:0;
+
+background-color: white;
+
+
+
+
 }
+
+
 .sidebar-item {
   padding: 0.75em 1em;
   display: block;
@@ -72,4 +82,17 @@
 .plain i {
   display: inline-block;
   width: 1.7em;
+}
+.buttonround{
+  display: none;
+
+}
+@media screen and (max-width: 768px) {
+  .buttonround {
+    display: block;
+  }
+  .logodiv{
+    width: 100%;
+    padding: 10px;
+  }
 }
