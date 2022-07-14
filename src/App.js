@@ -21,8 +21,9 @@ import {
   ChangePassword,
   EditProfile,
   ResetPasswordPage,
+  NewUsers,
+  UserListPage,
 } from './Pages';
-import NewUsers from './Pages/UserPages/NewUsers';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route path="payout" element={<PayoutPage />} />
         <Route path="yourvideos" element={<VideoList />} />
         <Route path="newusers" element={<NewUsers />} />
+        <Route path="userlist" element={<UserListPage />} />
 
         <Route
           path="*"

@@ -8,6 +8,8 @@ import StaffList from './StaffList';
 import Statistics from './Statistics';
 import PayoutPage from './PayoutPage';
 import VideoList from './VideoList';
+import UserListPage from './UserListPage';
+import NewUsers from './NewUsers';
 
 export {
   RevenewPage,
@@ -20,4 +22,6 @@ export {
   Statistics,
   PayoutPage,
   VideoList,
+  UserListPage,
+  NewUsers,
 };
