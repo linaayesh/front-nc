@@ -2,48 +2,27 @@ import {
   Button, Input, Space, Table, Popconfirm,
 } from 'antd';
 import './style.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function ManageUSer() {
-  const data = [
-    {
-      key: '1',
-      name: 'Ayman Sami',
-      email: 'email@gmail.com',
-      registrationDate: '09/07/2022',
-      role: 'Admin',
-    },
-    {
-      key: '2',
-      name: 'Ibrahim Jarada',
-      email: 'email@gmail.com',
-      registrationDate: '09/07/2022',
-      role: 'Admin',
-    },
-    {
-      key: '3',
-      name: 'Rand Suhail',
-      email: 'email@gmail.com',
-      registrationDate: '09/07/2022',
-      role: 'Comedian',
-    },
-    {
-      key: '4',
-      name: 'Zaher aa',
-      email: 'email@gmail.com',
-      registrationDate: '09/07/2022',
-      role: 'Venue',
-    },
-  ];
-
-  const [dataSource, setDataSource] = useState(data);
+  const [data, setData] = useState([]);
   const [value, setValue] = useState('');
-  // create delete function whitout key
-  const deleteUser = (id) => {
-    const newData = dataSource.filter((item) => item.key !== id);
-    setDataSource(newData);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios('/api/v1/user/notApprovedUsers');
+      setData(result.data.data.map((item, index) => ({ ...item, key: index })));
+    };
+    fetchData();
+  }, []);
 
+  const [dataSource, setDataSource] = useState([]);
+  useEffect(() => {
+    setDataSource(data);
+  }, [data]);
+  const approveuser = (id) => {
+    axios.get(`/api/v1/user/approveUser/${id}`);
+  };
   const FilterByNameInput = (
     <Input
       placeholder="Search user by Name"
@@ -61,8 +40,8 @@ function ManageUSer() {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'username',
+      key: 'username',
       width: '20%',
     },
 
@@ -73,13 +52,13 @@ function ManageUSer() {
     },
     {
       title: 'Registereion Date',
-      dataIndex: 'registrationDate',
-      key: 'registrationDate',
+      dataIndex: 'createdAt',
+      key: 'createdAt',
     },
     {
       title: 'Role',
-      dataIndex: 'role',
-      key: 'role',
+      dataIndex: 'roleId',
+      key: 'roleId',
     },
     {
       title: 'Action',
@@ -91,7 +70,7 @@ function ManageUSer() {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-              deleteUser(b.key);
+              approveuser(b.key);
             }}
           >
             <Button>Approve</Button>
@@ -101,7 +80,7 @@ function ManageUSer() {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-              deleteUser(b.key);
+              approveuser(b.key);
             }}
           >
             <Button type="danger">Reject</Button>
@@ -119,9 +98,7 @@ function ManageUSer() {
           dataSource={dataSource}
           pagination={{ pageSize: 5 }}
           scroll={{ x: 500 }}
-
         />
-
       </div>
     </div>
   );
