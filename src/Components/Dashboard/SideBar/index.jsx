@@ -1,30 +1,27 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 
 import React, { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { Button } from 'antd';
 import SidebarItem from './SideBarItem';
 import './style.css';
 import { itemsSuperAdmin, itemsAdmin } from './sidebarItems';
+import userAuthHook from '../../../Hooks/userAuth';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
+  const { roleId } = userAuthHook();
   useEffect(
     () => {
-      const fetchData = async () => {
-        const result = await axios('/api/v1/auth/userAuth');
-        if (result.data.data.roleId === 1) {
-          setItems(itemsSuperAdmin);
-        } else if (result.data.data.roleId === 2) {
-          setItems(itemsAdmin);
-        }
-      };
-
-      fetchData();
+      if (roleId === 1) {
+        setItems(itemsSuperAdmin);
+      } else if (roleId === 2) {
+        setItems(itemsAdmin);
+      }
     },
-    [],
+    [roleId],
   );
 
   return (
@@ -45,7 +42,10 @@ function SideBar({ handleClick }) {
       </div>
       <div className="sideitem">
         {items.map((item, index) => (
-          <SidebarItem key={index} item={item} />
+          <SidebarItem
+            key={index}
+            item={item}
+          />
         ))}
       </div>
     </div>
