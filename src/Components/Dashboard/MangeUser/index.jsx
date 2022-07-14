@@ -10,7 +10,7 @@ function ManageUSer() {
   const [value, setValue] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('/api/v1/user/notApprovedUsers');
+      const result = await axios.get('/api/v1/user/notApprovedUsers');
       setData(result.data.data.map((item, index) => ({ ...item, key: index })));
     };
     fetchData();
@@ -20,9 +20,17 @@ function ManageUSer() {
   useEffect(() => {
     setDataSource(data);
   }, [data]);
+
   const approveuser = (id) => {
-    axios.get(`/api/v1/user/approveUser/${id}`);
+    axios.get(`/api/v1/user/approveUser/${id}`).then((res) => {
+      console.log(res);
+      const newData = dataSource.filter((item) => item.id !== id);
+      setDataSource(newData);
+    }).catch((err) => {
+      console.log(err);
+    });
   };
+
   const FilterByNameInput = (
     <Input
       placeholder="Search user by Name"
@@ -57,8 +65,8 @@ function ManageUSer() {
     },
     {
       title: 'Role',
-      dataIndex: 'roleId',
-      key: 'roleId',
+      dataIndex: 'roleName',
+      key: 'roleName',
     },
     {
       title: 'Action',
@@ -70,7 +78,7 @@ function ManageUSer() {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-              approveuser(b.key);
+              approveuser(b.id);
             }}
           >
             <Button>Approve</Button>

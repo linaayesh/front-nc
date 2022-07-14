@@ -7,7 +7,7 @@ function UsersList() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('/api/v1/user/notApprovedUsers');
+      const result = await axios('/api/v1/user/approvedUsers');
       setData(result.data.data.map((item, index) => ({ ...item, key: index })));
     };
     fetchData();
@@ -54,8 +54,8 @@ function UsersList() {
     },
     {
       title: 'Role',
-      dataIndex: 'roleId',
-      key: 'roleId',
+      dataIndex: 'roleName',
+      key: 'roleName',
     },
   ];
   return (
