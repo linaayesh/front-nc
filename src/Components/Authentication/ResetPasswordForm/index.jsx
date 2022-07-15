@@ -26,20 +26,40 @@ function ResetPasswordForm() {
         autoComplete="off"
         className="auth-form"
       >
+        {/* Password */}
         <Form.Item
           name="password"
+          rules={[
+            {
+              required: true,
+              message: 'Please Enter your password!',
+            },
+          ]}
           hasFeedback
-          rules={[{ required: true, message: 'Please Enter your password!' }]}
-
+          className="input-password"
         >
-          <Input.Password placeholder="Password" type="password" />
+          <Input.Password placeholder="Password" />
         </Form.Item>
-
+        {/* Confirm Password */}
         <Form.Item
           name="confirm"
           dependencies={['password']}
           hasFeedback
-          rules={[{ required: true, message: 'Please confirm your password!' }]}
+          rules={[
+            {
+              required: true,
+              message: 'Please confirm your password!',
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue('password') === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error('The two passwords that you entered do not match!'));
+              },
+            }),
+          ]}
+          className="input-password"
         >
           <Input.Password placeholder="Confirm Password" />
         </Form.Item>

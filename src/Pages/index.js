@@ -15,6 +15,8 @@ import {
   Statistics,
   PayoutPage,
   VideoList,
+  UserListPage,
+  NewUsers,
 } from './UserPages';
 import ResetPasswordPage from './ResetPasswordPage';
 
@@ -36,4 +38,6 @@ export {
   PayoutPage,
   VideoList,
   ResetPasswordPage,
+  UserListPage,
+  NewUsers,
 };
