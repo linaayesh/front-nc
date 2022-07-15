@@ -11,7 +11,7 @@ function ManageUSer() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get('/api/v1/user/notApprovedUsers');
-      setData(result.data.data.map((item, index) => ({ ...item, key: index })));
+      setData(result.data.data.map((item) => ({ ...item, key: (item.id + Date.now()) })));
     };
     fetchData();
   }, []);
@@ -22,8 +22,7 @@ function ManageUSer() {
   }, [data]);
 
   const approveuser = (id) => {
-    axios.get(`/api/v1/user/approveUser/${id}`).then((res) => {
-      console.log(res);
+    axios.get(`/api/v1/user/approveUser/${id}`).then(() => {
       const newData = dataSource.filter((item) => item.id !== id);
       setDataSource(newData);
     }).catch((err) => {
