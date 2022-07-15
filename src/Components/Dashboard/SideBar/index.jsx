@@ -1,3 +1,6 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/no-array-index-key */
+
 import React, { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
@@ -40,8 +43,8 @@ function SideBar({ handleClick }) {
       <div className="sideitem">
         {items.map((item) => (
           <SidebarItem
+            key={item.title}
             item={item}
-            key={item.id + Date.now()}
           />
         ))}
       </div>
