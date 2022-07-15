@@ -1,5 +1,5 @@
 import {
-  Button, Input, Space, Table, Popconfirm,
+  Button, Input, Space, Table, Popconfirm, message,
 } from 'antd';
 import './style.css';
 import React, { useEffect, useState } from 'react';
@@ -15,6 +15,9 @@ function ManageUSer() {
     };
     fetchData();
   }, []);
+  const error = () => {
+    message.error('This is an error message');
+  };
 
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
@@ -25,8 +28,8 @@ function ManageUSer() {
     axios.get(`/api/v1/user/approveUser/${id}`).then(() => {
       const newData = dataSource.filter((item) => item.id !== id);
       setDataSource(newData);
-    }).catch((err) => {
-      console.log(err);
+    }).catch(() => {
+      error();
     });
   };
 

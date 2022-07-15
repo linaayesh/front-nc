@@ -42,8 +42,8 @@ function SideBar({ handleClick }) {
       <div className="sideitem">
         {items.map((item) => (
           <SidebarItem
+            key={item.title}
             item={item}
-            key={item.id + Date.now()}
           />
         ))}
       </div>
