@@ -1,6 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import { setAuth } from './checkAuthSlice';
+import { setLogout } from './logoutSlice';
 
 export {
   setAuth,
+  setLogout,
 };
