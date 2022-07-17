@@ -7,6 +7,8 @@ const initialState = {
     username: null,
     email: null,
     roleId: null,
+    isLoggedIn: false,
+
   },
 };
 
@@ -21,7 +23,6 @@ export const checkAuthSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { setAuth } = checkAuthSlice.actions;
 
 export default checkAuthSlice.reducer;

@@ -4,9 +4,9 @@ import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function ProtectedRoute({ children }) {
-  const { roleId } = useSelector(({ checkAuth }) => checkAuth.auth);
+  const { roleId, isLoggedIn } = useSelector(({ checkAuth }) => checkAuth.auth);
 
-  if (!roleId) {
+  if (!isLoggedIn || roleId < 1) {
     return <Navigate to="/" />;
   }
 
