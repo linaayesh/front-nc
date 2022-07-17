@@ -24,6 +24,7 @@ import {
   NewUsers,
   UserListPage,
 } from './Pages';
+import ProtectedRoute from './middleware';
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
           )}
         />
       </Route>
-      <Route path="dashboard" element={<DashboardLayout />}>
+      <Route path="dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
         <Route index element={<UserDashboard />} />
         <Route path="home" element={<UserDashboard />} />
         <Route path="Revenue" element={<RevenewPage />} />
