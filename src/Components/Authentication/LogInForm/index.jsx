@@ -29,6 +29,8 @@ export default function LogInForm() {
           username,
           email,
           roleId,
+          isLoggedIn: true,
+
         }),
       );
     } catch (error) {
