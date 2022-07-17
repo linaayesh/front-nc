@@ -1,8 +1,10 @@
-import React from 'react';
-// import 'antd/dist/antd.css';
+import React, { useMemo } from 'react';
 import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
 import './app.css';
+import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
+import { useDispatch } from 'react-redux';
 import { Home, DashboardLayout } from './Layouts';
 import {
   UserDashboard,
@@ -24,8 +26,31 @@ import {
   NewUsers,
   UserListPage,
 } from './Pages';
+import ProtectedRoute from './middleware';
+import { setAuth } from './Store/Slices/checkAuthSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const checkToken = () => {
+    const token = Cookies.get('accessToken');
+    if (!token) return;
+    const {
+      id, username, email, roleId,
+    } = jwtDecode(token);
+    dispatch(
+      setAuth({
+        id,
+        username,
+        email,
+        roleId,
+        isLoggedIn: true,
+      }),
+    );
+  };
+
+  useMemo(checkToken, [checkToken, dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Home />}>
@@ -45,7 +70,7 @@ function App() {
           )}
         />
       </Route>
-      <Route path="dashboard" element={<DashboardLayout />}>
+      <Route path="dashboard" element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
         <Route index element={<UserDashboard />} />
         <Route path="home" element={<UserDashboard />} />
         <Route path="Revenue" element={<RevenewPage />} />

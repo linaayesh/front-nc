@@ -1,5 +1,7 @@
-import { setAuth, setLogout } from './checkAuthSlice';
+import { setAuth } from './checkAuthSlice';
+import { setLogout } from './logoutSlice';
 
 export {
-  setAuth, setLogout,
+  setAuth,
+  setLogout,
 };

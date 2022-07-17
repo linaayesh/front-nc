@@ -4,12 +4,15 @@ import {
 } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
+import { setAuth } from '../../../Store/Slices/checkAuthSlice';
 
 export default function LogInForm() {
   const { Text } = Typography;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onFinish = async (values) => {
     const { email, password } = values;
@@ -17,6 +20,19 @@ export default function LogInForm() {
       const response = await axios.post('/api/v1/auth/login', { email, password });
       message.success(response.data.message);
       navigate('/dashboard');
+      const {
+        id, username, roleId,
+      } = response.data.payload;
+      dispatch(
+        setAuth({
+          id,
+          username,
+          email,
+          roleId,
+          isLoggedIn: true,
+
+        }),
+      );
     } catch (error) {
       message.error(error.response.data.message);
     }
