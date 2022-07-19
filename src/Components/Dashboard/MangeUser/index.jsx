@@ -32,6 +32,15 @@ function ManageUSer() {
       error();
     });
   };
+  const rejectuser = (id) => {
+    // remove user from dataSource
+    axios.get(`/api/v1/user/rejectUser/${id}`).then(() => {
+      const newData = dataSource.filter((item) => item.id !== id);
+      setDataSource(newData);
+    }).catch(() => {
+      error();
+    });
+  };
 
   const FilterByNameInput = (
     <Input
@@ -90,7 +99,7 @@ function ManageUSer() {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-              approveuser(b.key);
+              rejectuser(b.key);
             }}
           >
             <Button type="danger">Reject</Button>

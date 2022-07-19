@@ -5,9 +5,10 @@ export default function userAuthHook() {
   const [userAuth, setUserAuth] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get('/api/v1/auth/userAuth');
-      setUserAuth(result.data.data);
+    const fetchData = () => {
+      axios.get('/api/v1/auth/userAuth').then(
+        (result) => setUserAuth(result.data.data),
+      );
     };
     fetchData();
   }, []);
