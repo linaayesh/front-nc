@@ -2,8 +2,6 @@ import React, { useMemo } from 'react';
 import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
 import './app.css';
-import Cookies from 'js-cookie';
-import jwtDecode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { Home, DashboardLayout } from './Layouts';
 import {
@@ -28,16 +26,16 @@ import {
 } from './Pages';
 import ProtectedRoute from './middleware';
 import { setAuth } from './Store/Slices/checkAuthSlice';
+import userAuthHook from './Hooks/userAuth';
 
 function App() {
   const dispatch = useDispatch();
+  const token = userAuthHook();
+  const {
+    id, username, email, roleId,
+  } = token;
 
   const checkToken = () => {
-    const token = Cookies.get('accessToken');
-    if (!token) return;
-    const {
-      id, username, email, roleId,
-    } = jwtDecode(token);
     dispatch(
       setAuth({
         id,
@@ -49,7 +47,7 @@ function App() {
     );
   };
 
-  useMemo(checkToken, [checkToken, dispatch]);
+  useMemo(checkToken, [id, username, email, roleId]);
 
   return (
     <Routes>
