@@ -61,7 +61,6 @@ export default function LogInForm() {
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
-        {/* Password */}
         <Form.Item
           name="password"
           rules={[
@@ -74,7 +73,6 @@ export default function LogInForm() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Remember me and forget password */}
         <div style={{
           display: 'flex', justifyContent: 'space-between',
         }}
@@ -87,16 +85,13 @@ export default function LogInForm() {
           </Form.Item>
           <Link to="/forgetPassword" className="auth-text forget-password-link">Forget Password</Link>
         </div>
-        {/* Log In Button */}
         <Form.Item>
           <Button className="form-button" type="primary" htmlType="submit">
             Log In
           </Button>
         </Form.Item>
       </Form>
-      {/* Log in with google */}
       <GoogleAuth label="Log In With Google" />
-      {/* navigate to sign up */}
       <Text className="have-account-text">
         Does not have an account?
         {' '}
