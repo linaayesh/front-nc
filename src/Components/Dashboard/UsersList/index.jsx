@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
-import { Input, Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {
+  Input, Table,
+} from '../../AntDesign';
 
 function UsersList() {
   const [data, setData] = useState([]);

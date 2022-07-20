@@ -1,10 +1,11 @@
 import React from 'react';
-import {
-  Typography, Input, Form, Button, Checkbox, message,
-} from 'antd';
+
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import {
+  Input, Typography, Button, Form, message, Checkbox,
+} from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';

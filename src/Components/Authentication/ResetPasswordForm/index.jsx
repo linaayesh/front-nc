@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
+
 import {
-  Typography, Input, Form, Button,
-} from 'antd';
+  Input, Typography, Button, Form,
+} from '../../AntDesign';
+
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {

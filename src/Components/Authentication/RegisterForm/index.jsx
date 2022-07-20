@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  Typography, Input, Form, Button, Checkbox, message,
-} from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {
+  Input, Typography, Button, Form, message, Checkbox,
+} from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
@@ -33,7 +33,6 @@ export default function RegisterForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* USER NAME */}
         <Form.Item
           name="username"
           rules={[
@@ -92,7 +91,6 @@ export default function RegisterForm() {
         >
           <Input.Password placeholder="Confirm Password" />
         </Form.Item>
-        {/* Terms and conditions */}
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -109,19 +107,15 @@ export default function RegisterForm() {
             <Link to="/terms" target="_blank" style={{ fontWeight: 500 }}>Terms and Conditions</Link>
           </Checkbox>
         </Form.Item>
-        {/* Sign Up button */}
         <Form.Item>
           <Button className="form-button" type="primary" htmlType="submit">
             Sign Up
           </Button>
         </Form.Item>
       </Form>
-      {/* Sign up with google */}
       <GoogleAuth label="Sign Up With Google" />
-      {/* Have an account  */}
       <Text className="have-account-text">
         Already have an account?
-        {' '}
         <Link to="/" className="sign-in-link">Sign In.</Link>
       </Text>
     </div>

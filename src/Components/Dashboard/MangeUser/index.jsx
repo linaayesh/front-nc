@@ -1,9 +1,9 @@
-import {
-  Button, Input, Space, Table, Popconfirm, message,
-} from 'antd';
 import './style.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {
+  Input, Button, message, Space, Table, Popconfirm,
+} from '../../AntDesign';
 
 function ManageUSer() {
   const [data, setData] = useState([]);
@@ -11,7 +11,9 @@ function ManageUSer() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get('/api/v1/user/notApprovedUsers');
-      setData(result.data.data.map((item) => ({ ...item, key: (item.id + Date.now()) })));
+      setData(
+        result.data.data.map((item) => ({ ...item, key: item.id + Date.now() })),
+      );
     };
     fetchData();
   }, []);
@@ -25,21 +27,27 @@ function ManageUSer() {
   }, [data]);
 
   const approveuser = (id) => {
-    axios.get(`/api/v1/user/approveUser/${id}`).then(() => {
-      const newData = dataSource.filter((item) => item.id !== id);
-      setDataSource(newData);
-    }).catch(() => {
-      error();
-    });
+    axios
+      .get(`/api/v1/user/approveUser/${id}`)
+      .then(() => {
+        const newData = dataSource.filter((item) => item.id !== id);
+        setDataSource(newData);
+      })
+      .catch(() => {
+        error();
+      });
   };
   const rejectuser = (id) => {
     // remove user from dataSource
-    axios.get(`/api/v1/user/rejectUser/${id}`).then(() => {
-      const newData = dataSource.filter((item) => item.id !== id);
-      setDataSource(newData);
-    }).catch(() => {
-      error();
-    });
+    axios
+      .get(`/api/v1/user/rejectUser/${id}`)
+      .then(() => {
+        const newData = dataSource.filter((item) => item.id !== id);
+        setDataSource(newData);
+      })
+      .catch(() => {
+        error();
+      });
   };
 
   const FilterByNameInput = (

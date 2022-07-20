@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
-import {
-  Typography, Input, Form, Button,
-} from 'antd';
+
 import { Link } from 'react-router-dom';
+import {
+  Input, Typography, Button, Form,
+} from '../../AntDesign';
 import Logo from '../RegisterForm/logo';
 
 export default function ForgetPasswordForm() {

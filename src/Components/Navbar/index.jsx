@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
 import 'font-awesome/css/font-awesome.min.css';
-import { Button } from 'antd';
 import PropTypes from 'prop-types';
+import { Button } from '../AntDesign';
 
 function Navbar({ handleClick }) {
   return (
