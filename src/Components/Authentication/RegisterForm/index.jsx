@@ -45,7 +45,6 @@ export default function RegisterForm() {
         >
           <Input placeholder="Name" />
         </Form.Item>
-        {/* EMAIL */}
         <Form.Item
           name="email"
           rules={[
@@ -58,7 +57,6 @@ export default function RegisterForm() {
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
-        {/* Password */}
         <Form.Item
           name="password"
           rules={[
@@ -72,7 +70,6 @@ export default function RegisterForm() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Confirm Password */}
         <Form.Item
           name="confirm"
           dependencies={['password']}

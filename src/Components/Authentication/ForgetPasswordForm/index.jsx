@@ -27,7 +27,6 @@ export default function ForgetPasswordForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* Email */}
         <Form.Item
           name="email"
           rules={[
@@ -40,17 +39,14 @@ export default function ForgetPasswordForm() {
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
-        {/* Log In Button */}
         <Form.Item>
           <Button className="form-button" type="primary" htmlType="submit">
             Send a reset email
           </Button>
         </Form.Item>
       </Form>
-      {/* navigate to sign up */}
       <Text className="have-account-text">
         Remember it?
-        {' '}
         <Link to="/" className="sign-in-link">Sign in.</Link>
       </Text>
     </div>

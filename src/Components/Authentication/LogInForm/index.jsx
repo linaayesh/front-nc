@@ -49,7 +49,6 @@ export default function LogInForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* Email */}
         <Form.Item
           name="email"
           rules={[
