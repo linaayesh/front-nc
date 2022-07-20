@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import { UserDashboard, NotFound, LogInPage } from './Pages';
-import ProtectedRoute from './middleware';
+import ProtectedRoute from './Middleware';
 import CheckToken from './Hooks/checkToken';
 import { routes, adminRoutes } from './Services/Routes';
 
