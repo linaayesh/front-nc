@@ -6,6 +6,7 @@ import {
 import { GoogleLogin } from 'react-google-login';
 import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
+import axios from 'axios';
 
 export default function GoogleAuth({ label }) {
   const clientID = process.env.REACT_APP_CLIENT_ID;
@@ -16,20 +17,17 @@ export default function GoogleAuth({ label }) {
         scope: 'email',
       });
     };
-
     gapi.load('client:auth2', start);
   }, []);
-  const successResponse = (response) => {
-    console.log(response);
-    const { tokenId, profileObj: { email, name, imageUrl } } = response;
-    console.log('User Data', email, name, imageUrl);
-    console.log('tokenId', tokenId);
-    // try {
-    //   const response = await axios.post('/signUp/google', { tokenId });
-    //   message.success(response.data.msg); // Sign up Successfully
-    // } catch (err) {
-    //   message.error(err.data.msg); // something went wrong try a gain later
-    // }
+  const successResponse = async (response) => {
+    const { tokenId } = response;
+    try {
+      const googleResponse = await axios.post('/api/v1/auth/sign/google', { tokenId });
+      console.log(googleResponse.data.message);
+    } catch (error) {
+      console.log(22222, error.response.data.message);
+      // message.error(error.response.data.message);
+    }
   };
 
   const failureResponse = (response) => {
@@ -44,6 +42,7 @@ export default function GoogleAuth({ label }) {
       onSuccess={successResponse}
       onFailure={failureResponse}
       cookiePolicy="single_host_origin"
+      isSignedIn
     />
 
   );
