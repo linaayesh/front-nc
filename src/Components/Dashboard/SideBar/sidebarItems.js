@@ -7,7 +7,7 @@ const itemsSuperAdmin = [
   {
     title: 'Dashboard',
     icon: 'fa fa-dashboard',
-    childrens: [
+    children: [
       {
         title: 'Video List ',
         path: '/dashboard/yourvideos',
@@ -28,7 +28,7 @@ const itemsSuperAdmin = [
   {
     title: 'Finance',
     icon: 'fa fa-money',
-    childrens: [
+    children: [
       {
         title: 'Revenue',
         path: '/dashboard/revenue',
@@ -45,7 +45,7 @@ const itemsSuperAdmin = [
   {
     title: 'User Management',
     icon: 'fa fa-users',
-    childrens: [
+    children: [
       {
         title: 'User List',
         path: '/dashboard/userlist',
@@ -63,7 +63,7 @@ const itemsSuperAdmin = [
     title: 'Account Settings',
     icon: 'fa fa-cog',
 
-    childrens: [
+    children: [
       {
         title: 'Edit Profile',
         path: '/dashboard/editprofile',
@@ -103,7 +103,7 @@ const itemsAdmin = [
   {
     title: 'Dashboard',
     icon: 'fa fa-dashboard',
-    childrens: [
+    children: [
       {
         title: 'Video List ',
         path: '/dashboard/yourvideos',
@@ -126,7 +126,7 @@ const itemsAdmin = [
     title: 'Account Settings',
     icon: 'fa fa-cog',
 
-    childrens: [
+    children: [
       {
         title: 'Edit Profile',
         path: '/dashboard/editprofile',
