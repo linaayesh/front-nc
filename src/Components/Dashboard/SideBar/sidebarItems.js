@@ -1,4 +1,3 @@
-// create array and export it
 const itemsSuperAdmin = [
   {
     title: 'Home',
