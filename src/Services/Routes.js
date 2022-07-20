@@ -1,0 +1,141 @@
+import {
+  UserDashboard,
+  RegisterPage,
+  LogInPage,
+  TermsPage,
+  ForgetPasswordPage,
+  RevenewPage,
+  VideoList,
+  PayoutPage,
+  Statistics,
+  StaffList,
+  PaymentSettings,
+  DashboardSettings,
+  ChangePassword,
+  EditProfile,
+  ResetPasswordPage,
+  NewUsers,
+  UserListPage,
+} from '../Pages';
+
+const routes = [
+  {
+    path: 'signup',
+    component: RegisterPage,
+    exact: true,
+    title: 'Sign Up',
+  },
+  {
+    path: 'login',
+    component: LogInPage,
+    exact: true,
+    title: 'Log In',
+  },
+  {
+    path: 'forgetPassword',
+    component: ForgetPasswordPage,
+    exact: true,
+    title: 'Forget Password',
+  },
+  {
+    path: 'resetpassword',
+    component: ResetPasswordPage,
+    exact: true,
+    title: 'Reset Password',
+  },
+  {
+    path: 'terms',
+    component: TermsPage,
+    exact: true,
+    title: 'Terms & Conditions',
+  },
+];
+const adminRoutes = [
+  {
+    title: 'Home',
+    path: '/dashboard/home',
+    component: UserDashboard,
+    exact: true,
+    key: 'home',
+  },
+  {
+    title: 'Revenue',
+    path: '/dashboard/Revenue',
+    component: RevenewPage,
+    exact: true,
+    key: 'Revenue',
+  },
+  {
+    title: 'editprofile',
+    path: '/dashboard/editprofile',
+    component: EditProfile,
+    exact: true,
+    key: 'editprofile',
+  },
+  {
+    title: 'changepassword',
+    path: '/dashboard/changepassword',
+    component: ChangePassword,
+    exact: true,
+    key: 'changepassword',
+  },
+  {
+    title: 'Settings',
+    path: '/dashboard/Settings',
+    component: DashboardSettings,
+    exact: true,
+    key: 'Settings',
+  },
+  {
+    title: 'paymentsettings',
+    path: '/dashboard/paymentsettings',
+    component: PaymentSettings,
+    exact: true,
+    key: 'paymentsettings',
+  },
+  {
+    title: 'staff',
+    path: '/dashboard/staff',
+    component: StaffList,
+    exact: true,
+    key: 'staff',
+  },
+  {
+    title: 'yourstatistics',
+    path: '/dashboard/yourstatistics',
+    component: Statistics,
+    exact: true,
+    key: 'yourstatistics',
+  },
+  {
+    title: 'payout',
+    path: '/dashboard/payout',
+    component: PayoutPage,
+    exact: true,
+    key: 'payout',
+  },
+  {
+    title: 'yourvideos',
+    path: '/dashboard/yourvideos',
+    component: VideoList,
+    exact: true,
+    key: 'yourvideos',
+  },
+  {
+    title: 'newusers',
+    path: '/dashboard/newusers',
+    component: NewUsers,
+    exact: true,
+    key: 'newusers',
+  },
+  {
+    title: 'userlist',
+    path: '/dashboard/userlist',
+    component: UserListPage,
+    exact: true,
+
+    key: 'userlist',
+  },
+];
+
+export { routes, adminRoutes };
