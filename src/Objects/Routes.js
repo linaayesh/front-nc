@@ -16,6 +16,7 @@ import {
   ResetPasswordPage,
   NewUsers,
   UserListPage,
+  VerifyEmailPage,
 } from '../Pages';
 
 const routes = [
@@ -48,6 +49,12 @@ const routes = [
     component: TermsPage,
     title: 'Terms & Conditions',
     key: 'terms',
+  },
+  {
+    path: 'verifyEmail',
+    component: VerifyEmailPage,
+    title: 'Verify Email',
+    key: 'verifyEmail',
   },
 ];
 const adminRoutes = [
