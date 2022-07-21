@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar, SideBar } from '../Components';
+import axiosCall from '../Services/ApiCall';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
@@ -17,6 +18,10 @@ export default function DashboardLayout() {
       sideBarInLayout.current.style.display = 'none';
     }
   };
+  const handleLogout = () => {
+    axiosCall('/api/v1/auth/logout', 'get', null);
+    window.location.href = '/';
+  };
 
   return (
     <div className="both">
@@ -24,7 +29,7 @@ export default function DashboardLayout() {
         <SideBar handleClick={handleClick} />
       </div>
       <div ref={navbarInLayout} className="navbarinlayout">
-        <Navbar handleClick={handleClick} />
+        <Navbar handleClick={handleClick} handleLogout={handleLogout} />
         <div className="Outletstyle">
           <Outlet />
         </div>
