@@ -1,16 +1,17 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import {
   Input, Button, message, Space, Table, Popconfirm,
 } from '../../AntDesign';
+import axiosCall from '../../../Services/ApiCall';
 
 function ManageUSer() {
   const [data, setData] = useState([]);
   const [value, setValue] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('/api/v1/user/notApprovedUsers');
+      const result = await axiosCall('/api/v1/user/notApprovedUsers', 'get', null);
+
       setData(
         result.data.data.map((item) => ({ ...item, key: item.id + Date.now() })),
       );
@@ -27,8 +28,7 @@ function ManageUSer() {
   }, [data]);
 
   const approveuser = (id) => {
-    axios
-      .get(`/api/v1/user/approveUser/${id}`)
+    axiosCall(`/api/v1/user/approveUser/${id}`, 'get', null)
       .then(() => {
         const newData = dataSource.filter((item) => item.id !== id);
         setDataSource(newData);
@@ -38,9 +38,7 @@ function ManageUSer() {
       });
   };
   const rejectuser = (id) => {
-    // remove user from dataSource
-    axios
-      .get(`/api/v1/user/rejectUser/${id}`)
+    axiosCall(`/api/v1/user/rejectUser/${id}`, 'get', null)
       .then(() => {
         const newData = dataSource.filter((item) => item.id !== id);
         setDataSource(newData);

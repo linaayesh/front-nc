@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {
   Input, Typography, Button, Form, message, Checkbox,
@@ -10,6 +9,7 @@ import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
 import './style.css';
+import axiosCall from '../../../Services/ApiCall';
 
 export default function LogInForm() {
   const { Text } = Typography;
@@ -19,7 +19,8 @@ export default function LogInForm() {
   const onFinish = async (values) => {
     const { email, password } = values;
     try {
-      const response = await axios.post('/api/v1/auth/login', { email, password });
+      const response = await axiosCall('/api/v1/auth/login', 'post', { email, password });
+
       message.success(response.data.message);
       navigate('/dashboard');
       const {

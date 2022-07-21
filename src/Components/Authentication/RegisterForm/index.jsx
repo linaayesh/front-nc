@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axiosCall from '../../../Services/ApiCall';
 import {
   Input, Typography, Button, Form, message, Checkbox,
 } from '../../AntDesign';
@@ -14,7 +14,7 @@ export default function RegisterForm() {
   const onFinish = async (values) => {
     const { username, email, password } = values;
     try {
-      const response = await axios.post('/api/v1/auth/signup', { username, email, password });
+      const response = await axiosCall('/api/v1/auth/signup', 'post', { username, email, password });
       message.success(response.data.message);
       form.resetFields();
     } catch (error) {

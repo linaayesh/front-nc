@@ -1,15 +1,15 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import {
   Input, Table,
 } from '../../AntDesign';
+import axiosCall from '../../../Services/ApiCall';
 
 function UsersList() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('/api/v1/user/approvedUsers');
+      const result = await axiosCall('/api/v1/user/approvedUsers', 'get', null);
       setData(result.data.data.map((item, index) => ({ ...item, key: index })));
     };
     fetchData();
