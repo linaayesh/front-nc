@@ -12,12 +12,6 @@ export default function ProtectedRoute({ children }) {
     }
   }
 
-  // if (!auth.isLoggedIn && !auth.isLoading) {
-  // // console.log(auth);
-  //   // console.log('invalid');
-  // }
-  console.log(auth);
-  // console.log(auth);
   return children;
 }
 
