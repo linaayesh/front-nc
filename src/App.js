@@ -5,7 +5,7 @@ import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import { UserDashboard, NotFound, LogInPage } from './Pages';
 import ProtectedRoute from './Middleware';
-import { routes, adminRoutes } from './Services/Routes';
+import { routes, adminRoutes } from './Objects/Routes';
 
 function App() {
   return (
