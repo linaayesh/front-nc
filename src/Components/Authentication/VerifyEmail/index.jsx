@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './style.css';
 
 function VerifyEmail() {
@@ -11,11 +10,6 @@ function VerifyEmail() {
       </p>
       <img src="https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png" alt="background" className="verify-img" />
 
-      <Link to="/">
-        <button type="button" className="btn-verify">
-          Go to Login
-        </button>
-      </Link>
     </div>
   );
 }
