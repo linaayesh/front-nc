@@ -9,19 +9,35 @@ export default function userAuthHook() {
   useEffect(() => {
     const fetchData = () => {
       axios.get('/api/v1/auth/userAuth').then(
-        (result) => {
+        ({
+          data: {
+            data: {
+              id, username, email, roleId,
+            },
+          },
+        }) => {
           dispatch(
             setAuth({
-              id: result.data.id,
-              username: result.data.username,
-              email: result.data.email,
-              roleId: result.data.roleId,
+              id,
+              username,
+              email,
+              roleId,
               isLoggedIn: true,
+              isLoading: false,
             }),
           );
         },
-      ).catch((error) => {
-        console.log(error);
+      ).catch(() => {
+        dispatch(
+          setAuth({
+            id: null,
+            username: null,
+            email: null,
+            roleId: null,
+            isLoggedIn: false,
+            isLoading: false,
+          }),
+        );
       });
     };
     fetchData();
