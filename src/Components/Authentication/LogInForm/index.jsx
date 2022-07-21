@@ -9,6 +9,7 @@ import {
 import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
+import './style.css';
 
 export default function LogInForm() {
   const { Text } = Typography;
@@ -41,14 +42,14 @@ export default function LogInForm() {
   // test thing
 
   return (
-    <div className="auth-container">
+    <div className="auth-container-login">
       <Logo />
       <Text className="auth-text title-text">Welcome back please login to your account.</Text>
       <Form
         name="basic"
         onFinish={onFinish}
         autoComplete="off"
-        className="auth-form"
+        className="auth-form-login"
       >
         <Form.Item
           name="email"
