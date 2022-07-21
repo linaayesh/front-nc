@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
+import axiosCall from '../../../Services/ApiCall';
 
 import {
   Input, Typography, Button, Form,
@@ -12,7 +13,7 @@ function ResetPasswordForm() {
 
   const onFinish = async (values) => {
     try {
-      console.log(values);
+      axiosCall('/api/v1/auth/resetPassword', 'POST', values);
     } catch (error) {
       console.log(error);
     }

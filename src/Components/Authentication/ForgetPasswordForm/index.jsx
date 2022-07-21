@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import axiosCall from '../../../Services/ApiCall';
 import {
   Input, Typography, Button, Form,
 } from '../../AntDesign';
@@ -12,7 +13,7 @@ export default function ForgetPasswordForm() {
 
   const onFinish = async (values) => {
     try {
-      console.log(values);
+      axiosCall('/api/v1/auth/forgetPassword', 'POST', values);
     } catch (error) {
       console.log(error);
     }
