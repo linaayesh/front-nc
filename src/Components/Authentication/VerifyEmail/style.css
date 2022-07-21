@@ -24,7 +24,6 @@
 }
 .verify-btn-div p{
     font-size: 24px;
-    width: 500px;
     text-align: center;
     font-weight: bold;
     align-items: center;
@@ -36,3 +35,8 @@
     width: 100px;
     height: 100px;
 }
+
+@media screen and (max-width: 600px) {
+  .verify{
+    height: 100vh
+  }}
