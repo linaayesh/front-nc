@@ -12,6 +12,7 @@ function SideBar({ handleClick }) {
   const { roleId } = userAuthHook();
   useEffect(
     () => {
+      // roleId === 1 = SuperAdmin | roleId === 2 = Admin
       if (roleId === 1) {
         setItems(itemsSuperAdmin);
       } else if (roleId === 2) {
