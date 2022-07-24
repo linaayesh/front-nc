@@ -13,7 +13,7 @@ export default function ForgetPasswordForm() {
 
   const onFinish = async (values) => {
     try {
-      axiosCall('/api/v1/auth/forgetPassword', 'POST', values);
+      axiosCall('/api/v1/auth/forgetPassword', 'post', values);
     } catch (error) {
       console.log(error);
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import svg from '../Assets/Images/NotFound.svg';
+import { ReactComponent as NotFound } from '../Assets/Images/NotFound.svg';
 
 export default function Notfound({ link, pageClassName, title }) {
   return (
@@ -13,11 +13,7 @@ export default function Notfound({ link, pageClassName, title }) {
         </Link>
       </div>
       <div className="not-found-section" id="box">
-        <img
-          src={svg}
-          alt="not found"
-          className="notFound"
-        />
+        <NotFound className="notFound" />
 
         <h1 className="not-found-title">404</h1>
       </div>

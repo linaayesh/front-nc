@@ -25,12 +25,15 @@ const routes = [
     component: RegisterPage,
     title: 'Sign Up',
     key: 'signup',
+    pro: true,
+
   },
   {
     path: 'login',
     component: LogInPage,
     title: 'Log In',
     key: 'login',
+    pro: true,
   },
   {
     path: 'forgetPassword',
@@ -39,10 +42,10 @@ const routes = [
     key: 'forgetPassword',
   },
   {
-    path: 'resetpassword',
+    path: 'resetPassword',
     component: ResetPasswordPage,
     title: 'Reset Password',
-    key: 'resetpassword',
+    key: 'resetPassword',
   },
   {
     path: 'terms',
@@ -71,16 +74,16 @@ const adminRoutes = [
     key: 'Revenue',
   },
   {
-    title: 'editprofile',
-    path: '/dashboard/editprofile',
+    title: 'editProfile',
+    path: '/dashboard/editProfile',
     component: EditProfile,
-    key: 'editprofile',
+    key: 'editProfile',
   },
   {
-    title: 'changepassword',
-    path: '/dashboard/changepassword',
+    title: 'changePassword',
+    path: '/dashboard/changePassword',
     component: ChangePassword,
-    key: 'changepassword',
+    key: 'changePassword',
   },
   {
     title: 'Settings',
@@ -89,10 +92,10 @@ const adminRoutes = [
     key: 'Settings',
   },
   {
-    title: 'paymentsettings',
-    path: '/dashboard/paymentsettings',
+    title: 'paymentSettings',
+    path: '/dashboard/paymentSettings',
     component: PaymentSettings,
-    key: 'paymentsettings',
+    key: 'paymentSettings',
   },
   {
     title: 'staff',
@@ -101,10 +104,10 @@ const adminRoutes = [
     key: 'staff',
   },
   {
-    title: 'yourstatistics',
-    path: '/dashboard/yourstatistics',
+    title: 'yourStatistics',
+    path: '/dashboard/yourStatistics',
     component: Statistics,
-    key: 'yourstatistics',
+    key: 'yourStatistics',
   },
   {
     title: 'payout',
@@ -113,22 +116,22 @@ const adminRoutes = [
     key: 'payout',
   },
   {
-    title: 'yourvideos',
-    path: '/dashboard/yourvideos',
+    title: 'yourVideos',
+    path: '/dashboard/yourVideos',
     component: VideoList,
-    key: 'yourvideos',
+    key: 'yourVideos',
   },
   {
-    title: 'newusers',
-    path: '/dashboard/newusers',
+    title: 'newUsers',
+    path: '/dashboard/newUsers',
     component: NewUsers,
-    key: 'newusers',
+    key: 'newUsers',
   },
   {
-    title: 'userlist',
-    path: '/dashboard/userlist',
+    title: 'userList',
+    path: '/dashboard/userList',
     component: UserListPage,
-    key: 'userlist',
+    key: 'userList',
   },
 ];
 

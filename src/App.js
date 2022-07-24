@@ -4,14 +4,21 @@ import { Routes, Route } from 'react-router-dom';
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
 import { UserDashboard, NotFound, LogInPage } from './Pages';
-import ProtectedRoute from './Middleware';
+import { ProtectLogin, ProtectedRoute } from './Middleware';
 import { routes, adminRoutes } from './Objects/Routes';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}>
-        <Route index element={<LogInPage />} />
+        <Route
+          index
+          element={(
+            <ProtectLogin>
+              <LogInPage />
+            </ProtectLogin>
+          )}
+        />
         {routes.map((route) => (
           <Route
             key={route.path}
