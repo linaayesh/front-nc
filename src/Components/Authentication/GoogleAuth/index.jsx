@@ -22,8 +22,7 @@ export default function GoogleAuth({ label }) {
   const successResponse = async (response) => {
     const { tokenId } = response;
     try {
-      const responseAPI = await axios.post('/api/v1/auth/sign/google', { tokenId });
-      console.log('response', responseAPI.data);
+      await axios.post('/api/v1/auth/sign/google', { tokenId });
     } catch (error) {
       message.warning(error.response.data.message);
     }
