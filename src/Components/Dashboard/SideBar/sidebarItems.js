@@ -1,22 +1,18 @@
 const itemsSuperAdmin = [
+
   {
     title: 'Home',
-    icon: 'fa fa-home',
-    path: '/dashboard/home',
-  },
-  {
-    title: 'Dashboard',
     icon: 'fa fa-dashboard',
     children: [
-      {
-        title: 'Video List ',
-        path: '/dashboard/yourvideos',
-        key: 'yourvideos',
-      },
       {
         title: 'Your Statistics ',
         path: '/dashboard/yourstatistics',
         key: 'yourstatistics',
+      },
+      {
+        title: 'Video List ',
+        path: '/dashboard/yourvideos',
+        key: 'yourvideos',
       },
       {
         title: 'Staff List ',
