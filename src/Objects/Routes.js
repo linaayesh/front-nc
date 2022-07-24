@@ -1,5 +1,4 @@
 import {
-  UserDashboard,
   RegisterPage,
   LogInPage,
   TermsPage,
@@ -12,7 +11,7 @@ import {
   PaymentSettings,
   DashboardSettings,
   ChangePassword,
-  EditProfile,
+  EditProfilePage,
   ResetPasswordPage,
   NewUsers,
   UserListPage,
@@ -62,12 +61,6 @@ const routes = [
 ];
 const adminRoutes = [
   {
-    title: 'Home',
-    path: '/dashboard/home',
-    component: UserDashboard,
-    key: 'home',
-  },
-  {
     title: 'Revenue',
     path: '/dashboard/Revenue',
     component: RevenewPage,
@@ -76,7 +69,7 @@ const adminRoutes = [
   {
     title: 'editProfile',
     path: '/dashboard/editProfile',
-    component: EditProfile,
+    component: EditProfilePage,
     key: 'editProfile',
   },
   {

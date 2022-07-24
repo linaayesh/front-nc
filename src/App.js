@@ -3,7 +3,9 @@ import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
 import './app.css';
 import { Home, DashboardLayout } from './Layouts';
-import { UserDashboard, NotFound, LogInPage } from './Pages';
+import {
+  NotFound, LogInPage, Statistics,
+} from './Pages';
 import { ProtectLogin, ProtectedRoute } from './Middleware';
 import { routes, adminRoutes } from './Objects/Routes';
 
@@ -35,7 +37,7 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        <Route index element={<UserDashboard />} />
+        <Route index element={<Statistics />} />
         {adminRoutes.map((route) => (
           <Route
             key={route.key}
