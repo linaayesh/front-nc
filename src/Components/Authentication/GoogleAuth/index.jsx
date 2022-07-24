@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import {
-  message,
-} from 'antd';
 import { GoogleLogin } from 'react-google-login';
 import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
+import {
+  message,
+} from '../../AntDesign';
 
 export default function GoogleAuth({ label }) {
   const clientID = process.env.REACT_APP_CLIENT_ID;

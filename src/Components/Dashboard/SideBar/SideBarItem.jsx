@@ -5,7 +5,7 @@ import PropsTypes from 'prop-types';
 export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
 
-  if (item.childrens) {
+  if (item.children) {
     return (
       <div className={open ? 'sidebar-item open ' : 'sidebar-item title'}>
         <div className="sidebar-title">
@@ -18,7 +18,7 @@ export default function SidebarItem({ item }) {
           </button>
         </div>
         <div className="sidebar-content">
-          {item.childrens.map((child) => (
+          {item.children.map((child) => (
             <SidebarItem key={child.key} item={child} />
           ))}
         </div>
@@ -42,7 +42,7 @@ SidebarItem.propTypes = {
     title: PropsTypes.string.isRequired,
     icon: PropsTypes.string,
     path: PropsTypes.string,
-    childrens: PropsTypes.arrayOf(
+    children: PropsTypes.arrayOf(
       PropsTypes.shape({
         title: PropsTypes.string.isRequired,
         icon: PropsTypes.string,

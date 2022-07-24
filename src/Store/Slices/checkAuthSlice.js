@@ -8,7 +8,7 @@ const initialState = {
     email: null,
     roleId: null,
     isLoggedIn: false,
-
+    isLoading: true,
   },
 };
 

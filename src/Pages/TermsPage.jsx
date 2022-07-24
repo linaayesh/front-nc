@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Typography,
-} from 'antd';
+} from '../Components/AntDesign';
 
 function TermsPage() {
   const { Title } = Typography;
