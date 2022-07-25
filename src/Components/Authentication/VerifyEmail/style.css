@@ -1,0 +1,31 @@
+.verify{
+    display: flex;
+  }
+
+
+.verify-btn-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+}
+.verify-btn-div p{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    align-items: center;
+    height: 50px;
+
+
+}
+.verify-img{
+    width: 100px;
+    height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .verify{
+    height: 100vh
+  }}

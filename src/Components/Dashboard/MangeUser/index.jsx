@@ -1,17 +1,20 @@
-import {
-  Button, Input, Space, Table, Popconfirm, message,
-} from 'antd';
 import './style.css';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import {
+  Input, Button, message, Space, Table, Popconfirm,
+} from '../../AntDesign';
+import axiosCall from '../../../Services/ApiCall';
 
 function ManageUSer() {
   const [data, setData] = useState([]);
   const [value, setValue] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('/api/v1/user/notApprovedUsers');
-      setData(result.data.data.map((item) => ({ ...item, key: (item.id + Date.now()) })));
+      const result = await axiosCall('/api/v1/user/notApprovedUsers', 'get', null);
+
+      setData(
+        result.data.data.map((item) => ({ ...item, key: item.id + Date.now() })),
+      );
     };
     fetchData();
   }, []);
@@ -25,12 +28,24 @@ function ManageUSer() {
   }, [data]);
 
   const approveuser = (id) => {
-    axios.get(`/api/v1/user/approveUser/${id}`).then(() => {
-      const newData = dataSource.filter((item) => item.id !== id);
-      setDataSource(newData);
-    }).catch(() => {
-      error();
-    });
+    axiosCall(`/api/v1/user/approveUser/${id}`, 'get', null)
+      .then(() => {
+        const newData = dataSource.filter((item) => item.id !== id);
+        setDataSource(newData);
+      })
+      .catch(() => {
+        error();
+      });
+  };
+  const rejectuser = (id) => {
+    axiosCall(`/api/v1/user/rejectUser/${id}`, 'get', null)
+      .then(() => {
+        const newData = dataSource.filter((item) => item.id !== id);
+        setDataSource(newData);
+      })
+      .catch(() => {
+        error();
+      });
   };
 
   const FilterByNameInput = (
@@ -90,7 +105,7 @@ function ManageUSer() {
             okText="Yes"
             cancelText="No"
             onConfirm={() => {
-              approveuser(b.key);
+              rejectuser(b.key);
             }}
           >
             <Button type="danger">Reject</Button>

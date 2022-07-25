@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  Typography, Input, Form, Button, Checkbox, message,
-} from 'antd';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axiosCall from '../../../Services/ApiCall';
+import {
+  Input, Typography, Button, Form, message, Checkbox,
+} from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
@@ -14,7 +14,7 @@ export default function RegisterForm() {
   const onFinish = async (values) => {
     const { username, email, password } = values;
     try {
-      const response = await axios.post('/api/v1/auth/signup', { username, email, password });
+      const response = await axiosCall('/api/v1/auth/signup', 'post', { username, email, password });
       message.success(response.data.message);
       form.resetFields();
     } catch (error) {
@@ -33,7 +33,6 @@ export default function RegisterForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* USER NAME */}
         <Form.Item
           name="username"
           rules={[
@@ -45,7 +44,6 @@ export default function RegisterForm() {
         >
           <Input placeholder="Name" />
         </Form.Item>
-        {/* EMAIL */}
         <Form.Item
           name="email"
           rules={[
@@ -58,7 +56,6 @@ export default function RegisterForm() {
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
-        {/* Password */}
         <Form.Item
           name="password"
           rules={[
@@ -72,7 +69,6 @@ export default function RegisterForm() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Confirm Password */}
         <Form.Item
           name="confirm"
           dependencies={['password']}
@@ -95,7 +91,6 @@ export default function RegisterForm() {
         >
           <Input.Password placeholder="Confirm Password" />
         </Form.Item>
-        {/* Terms and conditions */}
         <Form.Item
           name="agreement"
           valuePropName="checked"
@@ -112,19 +107,15 @@ export default function RegisterForm() {
             <Link to="/terms" target="_blank" style={{ fontWeight: 500 }}>Terms and Conditions</Link>
           </Checkbox>
         </Form.Item>
-        {/* Sign Up button */}
         <Form.Item>
           <Button className="form-button" type="primary" htmlType="submit">
             Sign Up
           </Button>
         </Form.Item>
       </Form>
-      {/* Sign up with google */}
       <GoogleAuth label="Sign Up With Google" />
-      {/* Have an account  */}
       <Text className="have-account-text">
         Already have an account?
-        {' '}
         <Link to="/" className="sign-in-link">Sign In.</Link>
       </Text>
     </div>

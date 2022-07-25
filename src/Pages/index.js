@@ -4,10 +4,10 @@ import NotFound from './NotFound';
 import LogInPage from './LogInPage';
 import TermsPage from './TermsPage';
 import ForgetPasswordPage from './ForgetPasswordPage';
+
 import {
   RevenewPage,
-  UserDashboard,
-  EditProfile,
+  EditProfilePage,
   ChangePassword,
   DashboardSettings,
   PaymentSettings,
@@ -18,7 +18,9 @@ import {
   UserListPage,
   NewUsers,
 } from './UserPages';
+
 import ResetPasswordPage from './ResetPasswordPage';
+import VerifyEmailPage from './VerifyEmailPage';
 
 export {
   HomePage,
@@ -28,8 +30,7 @@ export {
   TermsPage,
   ForgetPasswordPage,
   RevenewPage,
-  UserDashboard,
-  EditProfile,
+  EditProfilePage,
   ChangePassword,
   DashboardSettings,
   PaymentSettings,
@@ -40,4 +41,5 @@ export {
   ResetPasswordPage,
   UserListPage,
   NewUsers,
+  VerifyEmailPage,
 };
