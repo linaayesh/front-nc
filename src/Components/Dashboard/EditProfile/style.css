@@ -4,10 +4,9 @@
 }
 .container{
     width: 100%;
-    height: 400px;
     background-color: white;
     border-radius: 12px;
-    padding: 20px;
+    padding: px;
 
 }
 /* Title */
@@ -31,7 +30,7 @@
    font-size: 16px;
     font-weight: bold;
 }
-
+/* form */
 .edit-form{
     width: 100%;
     display: flex;
@@ -39,17 +38,17 @@
     padding: 20px;
     margin-top: 10px;
 }
-.ayman{
+.edit-form-f{
     display: flex;
     flex-direction: row;
     margin-top: 15px;
 }
-.ayman2{
+.edit-form-s{
     display: flex;
     flex-direction: column;
     width: 50%;
 }
-.ayman3{
+.edit-form-t{
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -61,12 +60,18 @@
     margin-top: 15px; 
     
 }
+.edit-switch p{
+    padding-right: 5px;
+}
+.switch{
+    background-color: #0eb6ad;
+}
 .edit-button{
     margin-top: 15px;
 
     width: 25%;
     height: 40px;
-    color: #01050A;
+    color: white;
     background-color: var(--main-color);
     border: none;
     border-radius: 4px;
@@ -86,14 +91,14 @@
     .edit-form{
         width: 100%;
     }
-    .ayman{
+    .edit-form-f{
         flex-direction: column;
     }
-    .ayman2{
+    .edit-form-s{
         width: 100%;
     }
 
-    .ayman3{
+    .edit-form-t{
         width: 100%;
     }
     .edit-button{
