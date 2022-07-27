@@ -7,18 +7,18 @@
     height: 400px;
     background-color: white;
     border-radius: 12px;
-    padding: 10px;
+    padding: 20px;
 
 }
-
-.editicon{
+/* Title */
+.edit-icon{
    background-color: #13e0d5;
    width: 16px;
    height: 32px;
     border-radius: 4px;
 
 }
-.editnav{
+.edit-nav{
 
     display: flex;
     align-items: center;
@@ -27,16 +27,76 @@
     gap :10px;
 }
 
-.nameeidt{
+.title-eidt{
    font-size: 16px;
     font-weight: bold;
 }
-.editPageContent{
+
+.edit-form{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
     margin-top: 10px;
-    border: 1px solid red;
+}
+.ayman{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.ayman2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.ayman3{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.edit-switch{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px; 
+    
+}
+.edit-button{
+    margin-top: 15px;
+
+    width: 25%;
+    height: 40px;
+    color: #01050A;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: none;
+  }
+  .edit-button.ant-btn-primary:hover, .ant-btn-primary:focus {
+    color: #fff;
+    border-color:  var(--main-color);
+    background: #0eb6ad;
+  }
+@media screen and (max-width: 700px) {
+    .edit-form{
+        width: 100%;
+        flex-direction: column;
+    }
+    .edit-form{
+        width: 100%;
+    }
+    .ayman{
+        flex-direction: column;
+    }
+    .ayman2{
+        width: 100%;
+    }
+
+    .ayman3{
+        width: 100%;
+    }
+    .edit-button{
+        width: 100%;
+    }
 }
