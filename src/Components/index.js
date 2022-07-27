@@ -1,5 +1,7 @@
 import Navbar from './Navbar';
-import { ManageUSer, SideBar, UsersList } from './Dashboard';
+import {
+  ManageUSer, SideBar, UsersList, RejectedUsers,
+} from './Dashboard';
 import LogInForm from './Authentication/LogInForm';
 import RegisterForm from './Authentication/RegisterForm';
 import ForgetPasswordForm from './Authentication/ForgetPasswordForm';
@@ -15,5 +17,6 @@ export {
   ForgetPasswordForm,
   ResetPasswordForm,
   UsersList,
+  RejectedUsers,
   VerifyEmail,
 };
