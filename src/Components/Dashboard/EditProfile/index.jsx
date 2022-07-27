@@ -86,11 +86,11 @@ function EditProfile() {
 
               />
             </div>
-            <Form.Item>
-              <Button className="edit-button" type="primary" htmlType="submit">
-                Sign Up
-              </Button>
-            </Form.Item>
+
+            <Button className="edit-button" type="primary" htmlType="submit">
+              Edit Profile
+            </Button>
+
           </Form>
 
         </div>

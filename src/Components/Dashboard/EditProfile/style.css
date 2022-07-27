@@ -76,7 +76,6 @@
     border: none;
     border-radius: 4px;
     font-weight: 500;
-    margin-bottom: none;
   }
   .edit-button.ant-btn-primary:hover, .ant-btn-primary:focus {
     color: #fff;
