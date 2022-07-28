@@ -12,7 +12,7 @@ import {
   PayoutPage,
   VideoList,
   UserListPage,
-  NewUsers,
+  NewUsersPage,
   RejectedUsersPage,
 } from './UserPages';
 import {
@@ -40,7 +40,7 @@ export {
   VideoList,
   ResetPasswordPage,
   UserListPage,
-  NewUsers,
+  NewUsersPage,
   VerifyEmailPage,
   RejectedUsersPage,
 };

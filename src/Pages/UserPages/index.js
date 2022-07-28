@@ -12,7 +12,7 @@ import {
   ChangePassword,
   DashboardSettings,
 } from './Common';
-import { NewUsers, RejectedUsersPage, UserListPage } from './Admin';
+import { NewUsersPage, RejectedUsersPage, UserListPage } from './Admin';
 
 export {
   RevenewPage,
@@ -25,6 +25,6 @@ export {
   PayoutPage,
   VideoList,
   UserListPage,
-  NewUsers,
+  NewUsersPage,
   RejectedUsersPage,
 };

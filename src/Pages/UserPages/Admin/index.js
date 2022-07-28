@@ -1,5 +1,5 @@
-import NewUsers from './NewUsers';
+import NewUsersPage from './NewUsersPage';
 import RejectedUsersPage from './RejectedUsersPage';
 import UserListPage from './UserListPage';
 
-export { NewUsers, RejectedUsersPage, UserListPage };
+export { NewUsersPage, RejectedUsersPage, UserListPage };
