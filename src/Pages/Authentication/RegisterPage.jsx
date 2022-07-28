@@ -1,6 +1,6 @@
 import React from 'react';
-import authImage from '../Assets/Images/authImage.png';
-import { RegisterForm } from '../Components';
+import authImage from '../../Assets/Images/authImage.png';
+import { RegisterForm } from '../../Components';
 
 function RegisterPage() {
   return (

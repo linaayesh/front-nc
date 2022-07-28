@@ -1,8 +1,5 @@
-import RegisterPage from './RegisterPage';
 import NotFound from './NotFound';
-import LogInPage from './LogInPage';
 import TermsPage from './TermsPage';
-import ForgetPasswordPage from './ForgetPasswordPage';
 
 import {
   RevenewPage,
@@ -18,9 +15,13 @@ import {
   NewUsers,
   RejectedUsersPage,
 } from './UserPages';
-
-import ResetPasswordPage from './ResetPasswordPage';
-import VerifyEmailPage from './VerifyEmailPage';
+import {
+  ForgetPasswordPage,
+  LogInPage,
+  RegisterPage,
+  ResetPasswordPage,
+  VerifyEmailPage,
+} from './Authentication';
 
 export {
   RegisterPage,
