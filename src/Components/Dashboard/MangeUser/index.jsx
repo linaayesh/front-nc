@@ -13,7 +13,7 @@ function ManageUSer() {
       const result = await axiosCall('/api/v1/user/pendingUsers', 'get', null);
 
       setData(
-        result.data.data.map((item) => ({ ...item, key: item.id + Date.now() })),
+        result.data.data.map((item) => ({ ...item, key: item.id })),
       );
     };
     fetchData();

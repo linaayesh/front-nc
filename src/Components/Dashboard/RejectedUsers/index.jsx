@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import {
   Input, Table,
@@ -30,7 +29,8 @@ function RejectedUsers() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase().includes(currValue));
+        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+          .includes(currValue));
         setDataSource(filteredData);
       }}
     />
