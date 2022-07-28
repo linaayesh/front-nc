@@ -1,5 +1,5 @@
 import React from 'react';
-import { ManageUSer } from '../../Components';
+import { ManageUSer } from '../../../Components';
 
 function NewUsers() {
   return (
