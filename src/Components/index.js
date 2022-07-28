@@ -1,6 +1,6 @@
 import Navbar from './Navbar';
 import {
-  ManageUSer, SideBar, UsersList, RejectedUsers,
+  NewUsers, SideBar, UsersList, RejectedUsers,
 } from './Dashboard';
 import LogInForm from './Authentication/LogInForm';
 import RegisterForm from './Authentication/RegisterForm';
@@ -10,7 +10,7 @@ import VerifyEmail from './Authentication/VerifyEmail';
 
 export {
   Navbar,
-  ManageUSer,
+  NewUsers,
   SideBar,
   LogInForm,
   RegisterForm,

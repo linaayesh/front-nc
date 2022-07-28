@@ -3,6 +3,7 @@ import {
   Input, Table,
 } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
+import columns from '../../../Objects/Users';
 
 function UsersList() {
   const [data, setData] = useState([]);
@@ -36,30 +37,6 @@ function UsersList() {
     />
   );
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'username',
-      key: 'username',
-      width: '20%',
-    },
-
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Registereion Date',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-    },
-    {
-      title: 'Role',
-      dataIndex: 'roleName',
-      key: 'roleName',
-    },
-  ];
   return (
     <div className="sort">
       <div className="search">{FilterByNameInput}</div>

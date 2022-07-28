@@ -1,15 +1,18 @@
-import RevenewPage from './RevenuePage';
-import EditProfilePage from './EditProfilePage';
-import ChangePassword from './ChangePassword';
-import DashboardSettings from './DashboardSettings';
-import PaymentSettings from './PaymentSettings';
-import StaffList from './StaffList';
-import Statistics from './Statistics';
-import PayoutPage from './PayoutPage';
-import VideoList from './VideoList';
-import UserListPage from './UserListPage';
-import NewUsers from './NewUsers';
-import RejectedUsersPage from './RejectedUsersPage';
+import {
+  PayoutPage,
+  RevenewPage,
+  Statistics,
+  StaffList,
+  VideoList,
+  PaymentSettings,
+} from './EndUser';
+
+import {
+  EditProfilePage,
+  ChangePassword,
+  DashboardSettings,
+} from './Common';
+import { NewUsersPage, RejectedUsersPage, UserListPage } from './Admin';
 
 export {
   RevenewPage,
@@ -22,6 +25,6 @@ export {
   PayoutPage,
   VideoList,
   UserListPage,
-  NewUsers,
+  NewUsersPage,
   RejectedUsersPage,
 };
