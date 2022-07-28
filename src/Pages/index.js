@@ -1,4 +1,3 @@
-import HomePage from './HomePage';
 import RegisterPage from './RegisterPage';
 import NotFound from './NotFound';
 import LogInPage from './LogInPage';
@@ -24,7 +23,6 @@ import ResetPasswordPage from './ResetPasswordPage';
 import VerifyEmailPage from './VerifyEmailPage';
 
 export {
-  HomePage,
   RegisterPage,
   NotFound,
   LogInPage,
