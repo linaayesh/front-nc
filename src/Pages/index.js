@@ -17,6 +17,7 @@ import {
   VideoList,
   UserListPage,
   NewUsers,
+  RejectedUsersPage,
 } from './UserPages';
 
 import ResetPasswordPage from './ResetPasswordPage';
@@ -42,4 +43,5 @@ export {
   UserListPage,
   NewUsers,
   VerifyEmailPage,
+  RejectedUsersPage,
 };

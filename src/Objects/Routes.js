@@ -16,6 +16,7 @@ import {
   NewUsers,
   UserListPage,
   VerifyEmailPage,
+  RejectedUsersPage,
 } from '../Pages';
 
 const routes = [
@@ -125,6 +126,12 @@ const adminRoutes = [
     path: '/dashboard/userList',
     component: UserListPage,
     key: 'userList',
+  },
+  {
+    title: 'rejectedUsers',
+    path: '/dashboard/rejectedUsers',
+    component: RejectedUsersPage,
+    key: 'rejectedUsers',
   },
 ];
 

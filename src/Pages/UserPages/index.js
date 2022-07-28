@@ -9,6 +9,7 @@ import PayoutPage from './PayoutPage';
 import VideoList from './VideoList';
 import UserListPage from './UserListPage';
 import NewUsers from './NewUsers';
+import RejectedUsersPage from './RejectedUsersPage';
 
 export {
   RevenewPage,
@@ -22,4 +23,5 @@ export {
   VideoList,
   UserListPage,
   NewUsers,
+  RejectedUsersPage,
 };

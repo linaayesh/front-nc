@@ -87,7 +87,7 @@ background-color: white;
   display: none;
 
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .buttonround {
     display: block;
   }
