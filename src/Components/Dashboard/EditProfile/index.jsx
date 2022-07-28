@@ -1,27 +1,15 @@
 import React from 'react';
 import './style.css';
-import { Switch } from 'antd';
 import {
-  Input, Button, Form, message,
+  Input, Button, Form, Switch,
 } from '../../AntDesign';
-
-import axiosCall from '../../../Services/ApiCall';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const onChange = (checked) => {
-    console.log(`switch to ${checked}`);
-  };
+
   const onFinish = async (values) => {
     const { username, email } = values;
     console.log(username, email);
-    try {
-      const response = await axiosCall('/api/v1/auth/editProfile', 'post', { username, email });
-      message.success(response.data.message);
-      form.resetFields();
-    } catch (error) {
-      message.error(error.response.data.message);
-    }
   };
   return (
     <div className="eidtProfileDiv">
@@ -77,12 +65,11 @@ function EditProfile() {
             </div>
             <div className="edit-switch">
               <p>
-                Lorem Iplsum dolor sit amet, consectetur adipiscing elit.
+                Approve Notifications
               </p>
               <Switch
                 className="switch"
                 defaultChecked
-                onChange={onChange}
 
               />
             </div>
