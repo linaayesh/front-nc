@@ -10,7 +10,7 @@ function ManageUser() {
   const [value, setValue] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/pendingUsers', 'get', null);
+      const result = await axiosCall('/api/v1/user/waiting-list', 'get', null);
 
       setData(
         result.data.data.map((item) => ({ ...item, key: item.id })),
@@ -28,7 +28,7 @@ function ManageUser() {
   }, [data]);
 
   const approveuser = (id) => {
-    axiosCall(`/api/v1/user/approveUser/${id}`, 'get', null)
+    axiosCall(`/api/v1/user/approve/${id}`, 'patch', null)
       .then(() => {
         const newData = dataSource.filter((item) => item.id !== id);
         setDataSource(newData);
@@ -38,7 +38,7 @@ function ManageUser() {
       });
   };
   const rejectuser = (id) => {
-    axiosCall(`/api/v1/user/rejectUser/${id}`, 'get', null)
+    axiosCall(`/api/v1/user/reject/${id}`, 'patch', null)
       .then(() => {
         const newData = dataSource.filter((item) => item.id !== id);
         setDataSource(newData);

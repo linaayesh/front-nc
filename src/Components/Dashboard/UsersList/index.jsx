@@ -8,7 +8,7 @@ function UsersList() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/approvedUsers', 'get', null);
+      const result = await axiosCall('/api/v1/user/approved-list', 'get', null);
       setData(result.data.data.map((item) => ({ ...item, key: item.id })));
     };
     fetchData();

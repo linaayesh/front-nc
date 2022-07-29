@@ -8,7 +8,7 @@ function RejectedUsers() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/rejectedUsers', 'get', null);
+      const result = await axiosCall('/api/v1/user/rejected-list', 'get', null);
       setData(result.data.data.map((item) => ({ ...item, key: item.id })));
     };
     fetchData();
