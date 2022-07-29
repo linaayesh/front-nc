@@ -1,8 +1,7 @@
-/* eslint-disable no-console */
-import React from 'react';
-
 import { Link } from 'react-router-dom';
-import axiosCall from '../../../Services/ApiCall';
+
+import userService from '../../../Services/user';
+
 import {
   Input, Typography, Button, Form,
 } from '../../AntDesign';
@@ -13,7 +12,7 @@ export default function ForgetPasswordForm() {
 
   const onFinish = async (values) => {
     try {
-      axiosCall('/api/v1/auth/forgetPassword', 'post', values);
+      userService.forgetPassword(values);
     } catch (error) {
       console.log(error);
     }
