@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import './style.css';
 import {
   Input, Button, Form, Switch, message,
 } from '../../AntDesign';
 import ImageUploader from './uploadImage';
 import axiosCall from '../../../Services/ApiCall';
+import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
   const [form] = Form.useForm();
   const [image, setImage] = useState('');
+  const currentUser = useAuth();
+
+  useEffect(() => {
+    form.setFieldsValue({
+      username: currentUser.username,
+      email: currentUser.email,
+    });
+  }, [currentUser]);
 
   const onFinish = async (values) => {
     const { username } = values;

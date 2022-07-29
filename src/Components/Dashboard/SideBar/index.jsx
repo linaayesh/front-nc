@@ -5,11 +5,11 @@ import { Button } from 'antd';
 import SidebarItem from './SideBarItem';
 import './style.css';
 import { itemsSuperAdmin, itemsAdmin } from './sidebarItems';
-import userAuthHook from '../../../Hooks/userAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
-  const { roleId } = userAuthHook();
+  const { roleId } = useAuth();
   useEffect(
     () => {
       // roleId === 1 = SuperAdmin | roleId === 2 = Admin

@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAuth } from '../Store/Slices/checkAuthSlice';
 import axiosCall from '../Services/ApiCall';
 
-export default function userAuthHook() {
+export default function useAuth() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = () => {
-      axiosCall('/api/v1/auth/userAuth', 'get', null)
+      axiosCall('/api/v1/auth/user', 'get', null)
         .then(
           ({
             data: {
