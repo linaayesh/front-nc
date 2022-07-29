@@ -1,16 +1,10 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 
-import {
-  Button,
-  message,
-  Upload,
-  Avatar,
-  ImgCrop,
-  LoadingOutlined,
-  PlusOutlined,
-  DeleteOutlined,
-} from '../../../AntDesign';
+import UploadButton from './UploadButton';
+import DeleteButton from './DeleteButton';
+import { Upload, Avatar, ImgCrop } from '../../../AntDesign';
+import imageValidation from '../../../../Utils/imageValidation';
 import './style.css';
 
 const getBase64 = (img, callback) => {
@@ -19,26 +13,11 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
-const beforeUpload = (file) => {
-  console.log('before upload - file', file);
-  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-
-  if (!isJpgOrPng) {
-    message.error('Only JPG/PNG images are accepted!');
-  }
-
-  // is less than 2MB
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error('Image must be smaller than 2MB!');
-  }
-
-  return isJpgOrPng && isLt2M;
-};
-
 function ImageUploader({ submitImageToForm }) {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
+
+  const beforeUpload = (file) => imageValidation(file);
 
   const handleChange = (info) => {
     if (info.file.status === 'uploading') {
@@ -58,29 +37,6 @@ function ImageUploader({ submitImageToForm }) {
     setImageUrl('');
     submitImageToForm('');
   };
-
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div
-        style={{
-          marginTop: 8,
-        }}
-      >
-        Upload
-      </div>
-    </div>
-  );
-
-  const deleteButton = (
-    <div>
-      {imageUrl && (
-        <Button danger icon={<DeleteOutlined />} size="medium" onClick={handleDelete}>
-          Remove
-        </Button>
-      )}
-    </div>
-  );
 
   return (
     <div>
@@ -103,11 +59,11 @@ function ImageUploader({ submitImageToForm }) {
               />
             </div>
           ) : (
-            uploadButton
+            <UploadButton loading={loading} />
           )}
         </Upload>
       </ImgCrop>
-      {imageUrl && deleteButton}
+      {imageUrl && <DeleteButton imageUrl={imageUrl} handleDelete={handleDelete} />}
     </div>
   );
 }
