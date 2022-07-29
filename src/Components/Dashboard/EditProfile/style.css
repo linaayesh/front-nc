@@ -95,6 +95,7 @@
 
   .edit-form-t {
     width: 100%;
+    align-self: center;
   }
   .edit-button {
     width: 100%;
