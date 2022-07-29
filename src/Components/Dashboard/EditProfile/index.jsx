@@ -1,16 +1,26 @@
-import React from 'react';
+import { useState } from 'react';
 import './style.css';
 import {
-  Input, Button, Form, Switch,
+  Input, Button, Form, Switch, message,
 } from '../../AntDesign';
+import ImageUploader from './uploadImage';
+import axiosCall from '../../../Services/ApiCall';
 
 function EditProfile() {
   const [form] = Form.useForm();
+  const [image, setImage] = useState('');
 
   const onFinish = async (values) => {
-    const { username, email } = values;
-    console.log(username, email);
+    const { username } = values;
+    const userUpdatedInfo = image ? { username, image } : { username };
+
+    try {
+      axiosCall('/api/v1/user/edit-profile', 'post', userUpdatedInfo);
+    } catch (error) {
+      message.error(error.response.data.message);
+    }
   };
+
   return (
     <div className="eidtProfileDiv">
       <div className="editProfileHeader">
@@ -44,18 +54,13 @@ function EditProfile() {
                 </Form.Item>
                 <Form.Item
                   name="email"
-                  rules={[
-                    {
-                      type: 'email',
-                      required: true,
-                      message: 'Please enter a vaild email!',
-                    },
-                  ]}
                 >
-                  <Input placeholder="Email" type="email" />
+                  <Input placeholder="Email" type="email" disabled />
                 </Form.Item>
               </div>
-              <div className="edit-form-t">upload</div>
+              <div className="edit-form-t">
+                <ImageUploader submitImageToForm={(url) => setImage(url)} />
+              </div>
 
             </div>
             <div className="edit-nav">

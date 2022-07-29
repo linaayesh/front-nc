@@ -35,7 +35,7 @@ const beforeUpload = (file) => {
   return isJpgOrPng && isLt2M;
 };
 
-function ImageUploader() {
+function ImageUploader({ submitImageToForm }) {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(DEFAULT_AVATAR);
 
@@ -48,12 +48,14 @@ function ImageUploader() {
       getBase64(info.file.originFileObj, (url) => {
         setLoading(false);
         setImageUrl(url);
+        submitImageToForm(url);
       });
     }
   };
 
   const handleDelete = () => {
     setImageUrl('');
+    submitImageToForm('');
   };
 
   const uploadButton = (
@@ -110,3 +112,7 @@ function ImageUploader() {
 }
 
 export default ImageUploader;
+
+ImageUploader.propTypes = {
+  submitImageToForm: PropsTypes.func.isRequired,
+};
