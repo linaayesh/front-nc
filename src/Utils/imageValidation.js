@@ -1,6 +1,6 @@
 import { message } from '../Components/AntDesign';
 
-const imageValidation = (file) => {
+function imageValidation(file) {
   const isJpgOrPng = (file.type === 'image/jpeg' || file.type === 'image/png');
 
   if (!isJpgOrPng) {
@@ -13,6 +13,6 @@ const imageValidation = (file) => {
     message.error('Image must be smaller than 2MB!');
   }
   return isJpgOrPng && isLt2M;
-};
+}
 
 export default imageValidation;

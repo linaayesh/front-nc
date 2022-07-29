@@ -1,16 +1,19 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { setAuth } from '../Store/Slices/checkAuthSlice';
-import axiosCall from '../Services/ApiCall';
+import userService from '../Services/user';
+import { DEFAULT_USER_STATE } from '../Constants';
 
 export default function useAuth() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = () => {
-      axiosCall('/api/v1/auth/user', 'get', null)
+      userService
+        .getUser()
         .then(
-          ({
+          () => (({
             data: {
               data: {
                 id, username, email, roleId,
@@ -27,18 +30,9 @@ export default function useAuth() {
                 isLoading: false,
               }),
             );
-          },
+          }),
         ).catch(() => {
-          dispatch(
-            setAuth({
-              id: null,
-              username: null,
-              email: null,
-              roleId: null,
-              isLoggedIn: false,
-              isLoading: false,
-            }),
-          );
+          dispatch(setAuth(DEFAULT_USER_STATE));
         });
     };
     fetchData();

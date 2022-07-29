@@ -2,7 +2,9 @@ import React from 'react';
 import './style.css';
 import 'font-awesome/css/font-awesome.min.css';
 import PropTypes from 'prop-types';
+
 import { Button, Space } from '../AntDesign';
+import { DEFAULT_AVATAR } from '../../Constants';
 
 function Navbar({ handleClick, handleLogout }) {
   return (
@@ -19,7 +21,7 @@ function Navbar({ handleClick, handleLogout }) {
 
         <Space onClick={handleLogout}>
           <img
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+            src={DEFAULT_AVATAR}
             alt="logo"
             className="userimg"
           />
