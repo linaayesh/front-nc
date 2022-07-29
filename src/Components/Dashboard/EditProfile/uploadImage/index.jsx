@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
-import {
-  PlusOutlined, LoadingOutlined, DeleteOutlined,
-} from '@ant-design/icons';
+
 import {
   Button,
-  message, Upload,
+  message,
+  Upload,
   Avatar,
-} from 'antd';
-import ImgCrop from 'antd-img-crop';
-
-import { DEFAULT_AVATAR } from '../../../../Constants';
+  ImgCrop,
+  LoadingOutlined,
+  PlusOutlined,
+  DeleteOutlined,
+} from '../../../AntDesign';
+import './style.css';
 
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
@@ -37,7 +38,7 @@ const beforeUpload = (file) => {
 
 function ImageUploader({ submitImageToForm }) {
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState(DEFAULT_AVATAR);
+  const [imageUrl, setImageUrl] = useState();
 
   const handleChange = (info) => {
     if (info.file.status === 'uploading') {

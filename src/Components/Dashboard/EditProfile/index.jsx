@@ -22,7 +22,7 @@ function EditProfile() {
   };
 
   return (
-    <div className="eidtProfileDiv">
+    <div className="editProfileDiv">
       <div className="editProfileHeader">
         <h1>Edit Profile</h1>
         <div className="container">
@@ -36,7 +36,7 @@ function EditProfile() {
           >
             <div className="edit-nav">
               <div className="edit-icon" />
-              <div className="title-eidt">Change Your Information</div>
+              <div className="title-edit">Change Your Information</div>
             </div>
 
             <div className="edit-form-f">
@@ -65,7 +65,7 @@ function EditProfile() {
             </div>
             <div className="edit-nav">
               <div className="edit-icon" />
-              <div className="title-eidt">Notification</div>
+              <div className="title-edit">Notification</div>
 
             </div>
             <div className="edit-switch">

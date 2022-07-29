@@ -8,7 +8,28 @@ import Space from './Space/Space';
 import Popconfirm from './Popconfirm/Popconfirm';
 import Table from './Table/Table';
 import Switch from './Switch/Switch';
+import Upload from './Upload';
+import Avatar from './Avatar';
+import ImgCrop from './ImgCrop';
+import PlusOutlined from './Icons/PlusOutlined';
+import LoadingOutlined from './Icons/LoadingOutlined';
+import DeleteOutlined from './Icons/DeleteOutlined';
 
 export {
-  Input, Typography, Button, message, Form, Checkbox, Space, Popconfirm, Table, Switch,
+  Input,
+  Typography,
+  Button,
+  message,
+  Form,
+  Checkbox,
+  Space,
+  Popconfirm,
+  Table,
+  Switch,
+  Upload,
+  Avatar,
+  ImgCrop,
+  PlusOutlined,
+  LoadingOutlined,
+  DeleteOutlined,
 };
