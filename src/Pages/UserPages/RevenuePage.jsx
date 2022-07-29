@@ -1,9 +1,9 @@
 import React from 'react';
 
-function RevenewPage() {
+function RevenuePage() {
   return (
-    <div>RevenewPage</div>
+    <div>RevenuePage</div>
   );
 }
 
-export default RevenewPage;
+export default RevenuePage;

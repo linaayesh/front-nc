@@ -3,7 +3,7 @@ import {
   LogInPage,
   TermsPage,
   ForgetPasswordPage,
-  RevenewPage,
+  RevenuePage,
   VideoList,
   PayoutPage,
   Statistics,
@@ -64,7 +64,7 @@ const adminRoutes = [
   {
     title: 'Revenue',
     path: '/dashboard/Revenue',
-    component: RevenewPage,
+    component: RevenuePage,
     key: 'Revenue',
   },
   {

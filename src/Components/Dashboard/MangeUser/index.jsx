@@ -5,7 +5,7 @@ import {
 } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
 
-function ManageUSer() {
+function ManageUser() {
   const [data, setData] = useState([]);
   const [value, setValue] = useState('');
   useEffect(() => {
@@ -129,4 +129,4 @@ function ManageUSer() {
   );
 }
 
-export default ManageUSer;
+export default ManageUser;

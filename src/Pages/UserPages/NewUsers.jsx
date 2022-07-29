@@ -1,9 +1,9 @@
 import React from 'react';
-import { ManageUSer } from '../../Components';
+import { ManageUser } from '../../Components';
 
 function NewUsers() {
   return (
-    <div><ManageUSer /></div>
+    <div><ManageUser /></div>
   );
 }
 
