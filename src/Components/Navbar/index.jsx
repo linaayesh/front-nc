@@ -24,6 +24,8 @@ function Navbar({ handleClick, handleLogout }) {
             src={DEFAULT_AVATAR}
             alt="logo"
             className="userimg"
+            loading="lazy"
+            decoding="async"
           />
         </Space>
       </div>
