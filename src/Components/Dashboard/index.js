@@ -1,9 +1,5 @@
-import ManageUSer from './MangeUser';
-import SideBar from './SideBar';
-import UsersList from './UsersList';
-import EditProfile from './EditProfile';
-import RejectedUsers from './RejectedUsers';
-
-export {
-  SideBar, ManageUSer, UsersList, EditProfile, RejectedUsers,
-};
+export { default as SideBar } from './SideBar';
+export { default as ManageUser } from './MangeUser';
+export { default as UsersList } from './UsersList';
+export { default as EditProfile } from './EditProfile';
+export { default as RejectedUsers } from './RejectedUsers';

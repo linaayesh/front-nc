@@ -1,47 +1,20 @@
-import HomePage from './HomePage';
-import RegisterPage from './RegisterPage';
-import NotFound from './NotFound';
-import LogInPage from './LogInPage';
-import TermsPage from './TermsPage';
-import ForgetPasswordPage from './ForgetPasswordPage';
-
-import {
-  RevenewPage,
-  EditProfilePage,
-  ChangePassword,
-  DashboardSettings,
-  PaymentSettings,
-  StaffList,
-  Statistics,
-  PayoutPage,
-  VideoList,
-  UserListPage,
-  NewUsers,
-  RejectedUsersPage,
-} from './UserPages';
-
-import ResetPasswordPage from './ResetPasswordPage';
-import VerifyEmailPage from './VerifyEmailPage';
-
-export {
-  HomePage,
-  RegisterPage,
-  NotFound,
-  LogInPage,
-  TermsPage,
-  ForgetPasswordPage,
-  RevenewPage,
-  EditProfilePage,
-  ChangePassword,
-  DashboardSettings,
-  PaymentSettings,
-  StaffList,
-  Statistics,
-  PayoutPage,
-  VideoList,
-  ResetPasswordPage,
-  UserListPage,
-  NewUsers,
-  VerifyEmailPage,
-  RejectedUsersPage,
-};
+export { default as HomePage } from './HomePage';
+export { default as RegisterPage } from './RegisterPage';
+export { default as NotFound } from './NotFound';
+export { default as LogInPage } from './LogInPage';
+export { default as TermsPage } from './TermsPage';
+export { default as ForgetPasswordPage } from './ForgetPasswordPage';
+export { default as ResetPasswordPage } from './ResetPasswordPage';
+export { default as VerifyEmailPage } from './VerifyEmailPage';
+export { default as RevenuePage } from './UserPages/RevenuePage';
+export { default as EditProfilePage } from './UserPages/EditProfilePage';
+export { default as ChangePassword } from './UserPages/ChangePassword';
+export { default as DashboardSettings } from './UserPages/DashboardSettings';
+export { default as PaymentSettings } from './UserPages/PaymentSettings';
+export { default as StaffList } from './UserPages/StaffList';
+export { default as Statistics } from './UserPages/Statistics';
+export { default as PayoutPage } from './UserPages/PayoutPage';
+export { default as VideoList } from './UserPages/VideoList';
+export { default as UserListPage } from './UserPages/UserListPage';
+export { default as NewUsers } from './UserPages/NewUsers';
+export { default as RejectedUsersPage } from './UserPages/RejectedUsersPage';
