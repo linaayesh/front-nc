@@ -14,7 +14,7 @@ export default function RegisterForm() {
   const onFinish = async (values) => {
     const { username, email, password } = values;
 
-    userService.registerUser({ username, email, password }).then((response) => {
+    userService.createUser({ username, email, password }).then((response) => {
       if (response.message === 'CHECK EMAIL') {
         message.success('Successfully registered! Please check your email to verify your account.');
         form.resetFields();

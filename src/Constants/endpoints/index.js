@@ -8,6 +8,7 @@ export const LOGOUT_URL = `${BASE_URL}/api/v1/auth/logout`;
 export const GOOGLE_LOGIN_URL = `${BASE_URL}/api/v1/auth/sign/google`;
 export const FORGET_PASSWORD_URL = `${BASE_URL}/api/v1/auth/forget-password`;
 export const RESET_PASSWORD_URL = `${BASE_URL}/api/v1/auth/reset-password`;
+export const EDIT_PROFILE_URL = `${BASE_URL}/api/v1/auth/edit-profile`;
 
 //* user endpoints - |ADMIN USER|
 export const USER_WAITING_LIST_URL = `${BASE_URL}/api/v1/user/waiting-list`;

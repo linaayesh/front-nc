@@ -7,22 +7,33 @@ import {
   GOOGLE_LOGIN_URL,
   FORGET_PASSWORD_URL,
   RESET_PASSWORD_URL,
+  EDIT_PROFILE_URL,
 } from '../../Constants/endpoints';
 
 export default {
-  getUser: async () => { //* suggestion: use username at least as a param
+  createUser: async (userInfo) => {
     try {
-      const response = await axios.get(USER_URL);
+      const response = await axios.post(REGISTER_URL, userInfo);
       return response.data;
     } catch (error) {
-      console.log(error);
       throw new Error(error.response.data.message);
     }
   },
 
-  registerUser: async (userInfo) => {
+  updateUser: async (userInfo) => {
     try {
-      const response = await axios.post(REGISTER_URL, userInfo);
+      const response = await axios.patch(EDIT_PROFILE_URL, userInfo);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  },
+
+  getUser: async () => { //* suggestion: use username at least as a param
+    try {
+      console.log('getUser');
+      const response = await axios.get(USER_URL);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);

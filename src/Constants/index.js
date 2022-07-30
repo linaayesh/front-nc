@@ -6,6 +6,7 @@ export const DEFAULT_USER_STATE = {
   id: null,
   username: null,
   email: null,
+  image: null,
   roleId: null,
   isLoggedIn: false,
   isLoading: false,

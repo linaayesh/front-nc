@@ -5,7 +5,7 @@ import {
   Input, Button, Form, Switch, message,
 } from '../../AntDesign';
 import ImageUploader from './uploadImage';
-import axiosCall from '../../../Services/ApiCall';
+import userService from '../../../Services/user';
 import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
@@ -22,13 +22,19 @@ function EditProfile() {
 
   const onFinish = async (values) => {
     const { username } = values;
-    const userUpdatedInfo = image ? { username, image } : { username };
+    const userUpdatedInfo = image
+      ? { username, image, updatedBy: currentUser.roleId }
+      : { username, updatedBy: currentUser.roleId };
 
-    try {
-      axiosCall('/api/v1/user/edit-profile', 'post', userUpdatedInfo);
-    } catch (error) {
-      message.error(error.response.data.message);
-    }
+    userService
+      .updateUser(userUpdatedInfo)
+      .then((res) => {
+        if (res.status === 204) {
+          message.success('Profile updated successfully');
+        }
+      })
+      .catch((error) => message.error(error.message))
+      .finally(() => setImage(''));
   };
 
   return (
