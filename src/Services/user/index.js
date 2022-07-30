@@ -9,11 +9,12 @@ import {
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
 } from '../../Constants/endpoints';
+import axiosCall from '../ApiCall';
 
 export default {
   createUser: async (userInfo) => {
     try {
-      const response = await axios.post(REGISTER_URL, userInfo);
+      const response = await axiosCall(REGISTER_URL,'GET', userInfo);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -22,7 +23,7 @@ export default {
 
   updateUser: async (userInfo) => {
     try {
-      const response = await axios.patch(EDIT_PROFILE_URL, userInfo);
+      const response = await axiosCall(EDIT_PROFILE_URL,'PATCH', userInfo);
       return response;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -31,9 +32,7 @@ export default {
 
   getUser: async () => { //* suggestion: use username at least as a param
     try {
-      console.log('getUser');
-      const response = await axios.get(USER_URL);
-      console.log(response.data);
+      const response = await axiosCall(USER_URL,'GET');
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -42,7 +41,7 @@ export default {
 
   loginUser: async (credentials) => {
     try {
-      const response = await axios.post(LOGIN_URL, credentials);
+      const response = await axiosCall(LOGIN_URL,'POST', credentials);
       return response.data;
     } catch (error) {
       throw new Error(error.message);
@@ -51,7 +50,7 @@ export default {
 
   logoutUser: async () => {
     try {
-      const response = await axios.get(LOGOUT_URL);
+      const response = await axiosCall(LOGOUT_URL, 'GET');
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -60,7 +59,7 @@ export default {
 
   googleLogin: async () => {
     try {
-      const response = await axios.post(GOOGLE_LOGIN_URL);
+      const response = await axiosCall(GOOGLE_LOGIN_URL, 'POST');
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -69,7 +68,7 @@ export default {
 
   forgetPassword: async (email) => {
     try {
-      const response = await axios.post(FORGET_PASSWORD_URL, email);
+      const response = await axiosCall(FORGET_PASSWORD_URL,'POST', email);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -78,7 +77,7 @@ export default {
 
   resetPassword: async (values) => { // TODO: send the token too
     try {
-      const response = await axios.post(RESET_PASSWORD_URL, values);
+      const response = await axiosCall(RESET_PASSWORD_URL,'POST', values);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
