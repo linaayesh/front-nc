@@ -13,27 +13,21 @@ export default function useAuth() {
       userService
         .getUser()
         .then(
-          () => (({
-            data: {
-              data: {
-                id, username, email, roleId,
-              },
-            },
-          }) => {
-            dispatch(
-              setAuth({
-                id,
-                username,
-                email,
-                roleId,
-                isLoggedIn: true,
-                isLoading: false,
-              }),
-            );
+          ((res) => {
+            const {
+              id, username, email, roleId, image,
+            } = res.data;
+            dispatch(setAuth({
+              id,
+              username,
+              email,
+              roleId,
+              isLoggedIn: true,
+              isLoading: false,
+              image,
+            }));
           }),
-        ).catch(() => {
-          dispatch(setAuth(DEFAULT_USER_STATE));
-        });
+        ).catch(() => dispatch(setAuth(DEFAULT_USER_STATE)));
     };
     fetchData();
   }, [dispatch]);
