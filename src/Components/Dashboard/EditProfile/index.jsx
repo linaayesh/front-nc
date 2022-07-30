@@ -10,8 +10,11 @@ import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(null);
+  const [isFormChanged, setFormChanged] = useState(false);
   const currentUser = useAuth();
+
+  const isUsernameUpdated = currentUser.username !== form.getFieldValue('username');
 
   useEffect(() => {
     form.setFieldsValue({
@@ -20,11 +23,18 @@ function EditProfile() {
     });
   }, [currentUser]);
 
+  useEffect(() => {
+    setFormChanged(image || isUsernameUpdated);
+  }, [form.getFieldValue('username'), image]);
+
   const onFinish = async (values) => {
     const { username } = values;
-    const userUpdatedInfo = image
-      ? { username, image, updatedBy: currentUser.roleId }
-      : { username, updatedBy: currentUser.roleId };
+
+    const userUpdatedInfo = {
+      ...isUsernameUpdated && { username },
+      ...image && { image },
+      updatedBy: currentUser.roleId,
+    };
 
     userService
       .updateUser(userUpdatedInfo)
@@ -66,7 +76,10 @@ function EditProfile() {
                     },
                   ]}
                 >
-                  <Input placeholder="Name" />
+                  <Input
+                    placeholder="Name"
+                    onChange={() => setFormChanged(!isFormChanged)}
+                  />
                 </Form.Item>
                 <Form.Item
                   name="email"
@@ -90,12 +103,11 @@ function EditProfile() {
               </p>
               <Switch
                 className="switch"
-                defaultChecked
-
+                defaultChecked={currentUser.notification}
               />
             </div>
 
-            <Button className="edit-button" type="primary" htmlType="submit">
+            <Button className="edit-button" type="primary" htmlType="submit" disabled={!isFormChanged}>
               Edit Profile
             </Button>
 
