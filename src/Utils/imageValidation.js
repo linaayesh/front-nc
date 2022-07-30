@@ -1,7 +1,7 @@
 import { message } from '../Components/AntDesign';
 
 function imageValidation(file) {
-  const isJpgOrPng = (file.type === 'image/jpeg' || file.type === 'image/png');
+  const isJpgOrPng = (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/webp');
 
   if (!isJpgOrPng) {
     message.error('Only JPG/PNG images are accepted!');
