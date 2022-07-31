@@ -19,6 +19,7 @@
   align-items: center;
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   gap: 10px;
 }
 
@@ -36,7 +37,7 @@
 }
 .edit-form-f {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 15px;
 }
 .edit-form-s {
@@ -44,10 +45,16 @@
   flex-direction: column;
   width: 50%;
 }
+.subcontainer{
+  display: flex;
+  flex-direction: row;
+gap:10%;
+}
 .edit-form-t {
   display: flex;
   flex-direction: column;
   width: 50%;
+
 }
 
 .edit-switch {
@@ -99,5 +106,12 @@
   }
   .edit-button {
     width: 100%;
+  }
+  .subcontainer{
+    flex-direction: column;
+  }
+  .edit-nav{
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 }
