@@ -14,7 +14,7 @@ export default function ForgetPasswordForm() {
     try {
       userService.forgetPassword(values);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { message } from 'antd';
 
 import { setAuth } from '../Store/Slices/checkAuthSlice';
 import userService from '../Services/user';
@@ -27,7 +28,10 @@ export default function useAuth() {
               image,
             }));
           }),
-        ).catch(() => dispatch(setAuth(DEFAULT_USER_STATE)));
+        ).catch((err) => {
+          message.error(err.message);
+          return dispatch(setAuth(DEFAULT_USER_STATE));
+        });
     };
     fetchData();
   }, [dispatch]);

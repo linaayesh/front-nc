@@ -1,5 +1,7 @@
 export { default as Navbar } from './Navbar';
-export { NewUsers, SideBar, UsersList, RejectedUsers } from "./Dashboard";
+export {
+  NewUsers, SideBar, UsersList, RejectedUsers,
+} from './Dashboard';
 export { default as LogInForm } from './Authentication/LogInForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
 export { default as ResetPasswordForm } from './Authentication/ResetPasswordForm';

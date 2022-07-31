@@ -1,6 +1,6 @@
-export { default as NotFound } from "./NotFound";
-export { default as TermsPage } from "./TermsPage";
-export { default as NewUsers } from "./UserPages/NewUsers";
+export { default as NotFound } from './NotFound';
+export { default as TermsPage } from './TermsPage';
+
 export {
   RevenuePage,
   EditProfilePage,
@@ -14,11 +14,12 @@ export {
   UserListPage,
   NewUsersPage,
   RejectedUsersPage,
-} from "./UserPages";
+} from './UserPages';
+
 export {
   ForgetPasswordPage,
   LogInPage,
   RegisterPage,
   ResetPasswordPage,
   VerifyEmailPage,
-} from "./Authentication";
+} from './Authentication';
