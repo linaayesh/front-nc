@@ -100,7 +100,7 @@ function EditProfile() {
                 </div>
               </div>
 
-              <div className="edit-nav">
+              <div className="edit-nav noti">
                 <div className="edit-icon" />
                 <div className="title-edit">Notification</div>
 
