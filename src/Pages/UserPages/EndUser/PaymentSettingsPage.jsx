@@ -1,9 +1,9 @@
 import React from 'react';
 
-function PaymentSettings() {
+function PaymentSettingsPage() {
   return (
     <div>PaymentSettings</div>
   );
 }
 
-export default PaymentSettings;
+export default PaymentSettingsPage;
