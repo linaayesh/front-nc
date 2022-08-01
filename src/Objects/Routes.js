@@ -13,7 +13,7 @@ import {
   ChangePassword,
   EditProfilePage,
   ResetPasswordPage,
-  NewUsers,
+  NewUsersPage,
   UserListPage,
   VerifyEmailPage,
   RejectedUsersPage,
@@ -118,7 +118,7 @@ const adminRoutes = [
   {
     title: 'newUsers',
     path: '/dashboard/newUsers',
-    component: NewUsers,
+    component: NewUsersPage,
     key: 'newUsers',
   },
   {

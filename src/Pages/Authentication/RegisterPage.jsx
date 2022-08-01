@@ -1,8 +1,8 @@
 import React from 'react';
-import authImage from '../Assets/Images/authImage.png';
-import { ForgetPasswordForm } from '../Components';
+import authImage from '../../Assets/Images/authImage.png';
+import { RegisterForm } from '../../Components';
 
-function ForgetPasswordPage() {
+function RegisterPage() {
   return (
     <div className="register">
       <img
@@ -12,9 +12,9 @@ function ForgetPasswordPage() {
         loading="lazy"
         decoding="async"
       />
-      <ForgetPasswordForm />
+      <RegisterForm />
     </div>
   );
 }
 
-export default ForgetPasswordPage;
+export default RegisterPage;

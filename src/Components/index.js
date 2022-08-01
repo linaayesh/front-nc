@@ -1,6 +1,6 @@
 export { default as Navbar } from './Navbar';
 export {
-  ManageUser, SideBar, UsersList, RejectedUsers,
+  NewUsers, SideBar, UsersList, RejectedUsers,
 } from './Dashboard';
 export { default as LogInForm } from './Authentication/LogInForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';

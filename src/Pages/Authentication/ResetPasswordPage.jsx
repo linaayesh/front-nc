@@ -1,6 +1,6 @@
 import React from 'react';
-import authImage from '../Assets/Images/authImage.png';
-import { ResetPasswordForm } from '../Components';
+import authImage from '../../Assets/Images/authImage.png';
+import { ResetPasswordForm } from '../../Components';
 
 function ResetPasswordPage() {
   return (

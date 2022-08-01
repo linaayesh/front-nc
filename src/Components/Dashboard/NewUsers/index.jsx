@@ -1,11 +1,11 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Input, Button, message, Space, Table, Popconfirm,
 } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
 
-function ManageUser() {
+function NewUsers() {
   const [data, setData] = useState([]);
   const [value, setValue] = useState('');
   useEffect(() => {
@@ -129,4 +129,4 @@ function ManageUser() {
   );
 }
 
-export default ManageUser;
+export default NewUsers;

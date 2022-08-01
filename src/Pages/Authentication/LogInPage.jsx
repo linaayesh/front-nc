@@ -1,8 +1,8 @@
 import React from 'react';
-import authImage from '../Assets/Images/authImage.png';
-import { RegisterForm } from '../Components';
+import { LogInForm } from '../../Components';
+import authImage from '../../Assets/Images/authImage.png';
 
-function RegisterPage() {
+function LoginPage() {
   return (
     <div className="register">
       <img
@@ -12,9 +12,9 @@ function RegisterPage() {
         loading="lazy"
         decoding="async"
       />
-      <RegisterForm />
+      <LogInForm />
     </div>
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

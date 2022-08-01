@@ -61,51 +61,60 @@ function EditProfile() {
             autoComplete="off"
             className="edit-form"
           >
-            <div className="edit-nav">
-              <div className="edit-icon" />
-              <div className="title-edit">Change Your Information</div>
-            </div>
 
             <div className="edit-form-f">
-              <div className="edit-form-s">
-                <Form.Item
-                  name="username"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please enter your name!',
-                    },
-                  ]}
-                >
-                  <Input
-                    placeholder="Name"
-                    onChange={() => setFormChanged(!isFormChanged)}
-                  />
-                </Form.Item>
-                <Form.Item
-                  name="email"
-                >
-                  <Input placeholder="Email" type="email" disabled />
-                </Form.Item>
-              </div>
-              <div className="edit-form-t">
-                <ImageUploader submitImageToForm={(url) => setImage(url)} />
+              <div className="subcontainer">
+
+                <div className="edit-form-s">
+                  <div className="edit-nav">
+                    <div className="edit-icon" />
+                    <div className="title-edit">Change Your Information</div>
+                  </div>
+
+                  <Form.Item
+                    name="username"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please enter your name!',
+                      },
+                    ]}
+                  >
+                    <Input
+                      placeholder="Name"
+                      onChange={() => setFormChanged(!isFormChanged)}
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    name="email"
+                  >
+                    <Input placeholder="Email" type="email" disabled />
+                  </Form.Item>
+                </div>
+                <div className="edit-form-t">
+                  <div className="edit-nav">
+                    <div className="edit-icon" />
+                    <div className="title-edit">Change Your Profile Pic</div>
+                  </div>
+
+                  <ImageUploader submitImageToForm={(url) => setImage(url)} />
+                </div>
               </div>
 
-            </div>
-            <div className="edit-nav">
-              <div className="edit-icon" />
-              <div className="title-edit">Notification</div>
+              <div className="edit-nav noti">
+                <div className="edit-icon" />
+                <div className="title-edit">Notification</div>
 
-            </div>
-            <div className="edit-switch">
-              <p>
-                Approve Notifications
-              </p>
-              <Switch
-                className="switch"
-                defaultChecked={currentUser.notification}
-              />
+              </div>
+              <div className="edit-switch">
+                <p>
+                  Approve Notifications
+                </p>
+                <Switch
+                  className="switch"
+                  defaultChecked={currentUser.notification}
+                />
+              </div>
             </div>
 
             <Button className="edit-button" type="primary" htmlType="submit" disabled={!isFormChanged}>

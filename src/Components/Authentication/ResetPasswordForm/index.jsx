@@ -12,7 +12,7 @@ function ResetPasswordForm() {
     try {
       userService.resetPassword(values);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
