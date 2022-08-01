@@ -8,7 +8,7 @@ import {
   PayoutPage,
   Statistics,
   StaffList,
-  PaymentSettings,
+  PaymentSettingsPage,
   DashboardSettings,
   ChangePassword,
   EditProfilePage,
@@ -88,7 +88,7 @@ const adminRoutes = [
   {
     title: 'paymentSettings',
     path: '/dashboard/paymentSettings',
-    component: PaymentSettings,
+    component: PaymentSettingsPage,
     key: 'paymentSettings',
   },
   {
