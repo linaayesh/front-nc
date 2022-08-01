@@ -6,7 +6,7 @@ export {
   EditProfilePage,
   ChangePassword,
   DashboardSettings,
-  PaymentSettings,
+  PaymentSettingsPage,
   StaffList,
   Statistics,
   PayoutPage,
