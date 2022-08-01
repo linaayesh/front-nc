@@ -31,6 +31,7 @@ function EditProfile() {
     const { username } = values;
 
     const userUpdatedInfo = {
+      id: currentUser.id,
       ...isUsernameUpdated && { username },
       ...image && { image },
       updatedBy: currentUser.roleId,
