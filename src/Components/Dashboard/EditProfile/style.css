@@ -1,11 +1,10 @@
 .editProfileDiv {
   padding: 20px;
 }
-.container {
+.editProfilecontainer {
   width: 100%;
   background-color: white;
   border-radius: 12px;
-  padding: px;
 }
 /* Title */
 .edit-icon {

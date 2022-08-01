@@ -52,7 +52,7 @@ function EditProfile() {
     <div className="editProfileDiv">
       <div className="editProfileHeader">
         <h1>Edit Profile</h1>
-        <div className="container">
+        <div className="editProfilecontainer">
 
           <Form
             form={form}
