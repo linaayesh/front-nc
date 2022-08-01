@@ -19,7 +19,15 @@ export default function RegisterForm() {
         message.success('Successfully registered! Please check your email to verify your account.');
         form.resetFields();
       }
-    }).catch((error) => message.error(error.message));
+    }).catch((error) => {
+      if (error.message === 'APPROVED ACCOUNT') {
+        message.error('User already exists!'); // That's vulnerable
+      } else if (error.message === ' WAITING APPROVAL') {
+        message.error('this user is waiting for approval');
+      } else {
+        message.error(error.message);
+      }
+    });
   };
 
   return (
