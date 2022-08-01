@@ -31,9 +31,7 @@ export default {
 
   getUser: async () => { //* suggestion: use username at least as a param
     try {
-      console.log('getUser');
       const response = await axios.get(USER_URL);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -45,7 +43,7 @@ export default {
       const response = await axios.post(LOGIN_URL, credentials);
       return response.data;
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error(error.response.data.message);
     }
   },
 

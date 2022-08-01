@@ -27,6 +27,7 @@ export default function useAuth() {
             isLoading: false,
             image,
           }));
+
           setIsLoading(false);
         }),
       ).catch((err) => {
@@ -35,6 +36,7 @@ export default function useAuth() {
         }
         return dispatch(setAuth(DEFAULT_USER_STATE));
       });
+
     fetchData();
   }, [dispatch]);
 
