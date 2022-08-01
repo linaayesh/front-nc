@@ -12,7 +12,8 @@ export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const { username, email, password } = values;
+    const { username, password } = values;
+    const email = values.email.toLowerCase();
 
     userService.createUser({ username, email, password }).then((response) => {
       if (response.message === 'CHECK EMAIL') {
@@ -22,7 +23,7 @@ export default function RegisterForm() {
     }).catch((error) => {
       if (error.message === 'APPROVED ACCOUNT') {
         message.error('User already exists!'); // That's vulnerable
-      } else if (error.message === ' WAITING APPROVAL') {
+      } else if (error.message === 'WAITING APPROVAL') {
         message.error('this user is waiting for approval');
       } else {
         message.error(error.message);
