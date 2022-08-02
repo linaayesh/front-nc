@@ -18,4 +18,4 @@ export const APPROVE_USER_BY_ID_URL = `${BASE_URL}/api/v1/user/approve`;
 export const REJECT_USER_BY_ID_URL = `${BASE_URL}/api/v1/user/reject`;
 
 //* user endpoints - |EndUser USER|
-export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial_information`;
+export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
