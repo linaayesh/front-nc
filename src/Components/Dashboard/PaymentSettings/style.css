@@ -1,0 +1,92 @@
+.paymentDiv {
+    padding: 20px;
+  }
+
+  .paymentContainer {
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+  }
+
+  /* form */
+.add-pay-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 10px;
+}
+.pay-nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.pay-form {
+  display: flex;
+  flex-direction: column; 
+
+}
+.pay-form-items{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+
+  height: auto;
+
+}
+.pay-button{
+  margin-top: 15px;
+
+  width: 25%;
+  height: 40px;
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.paymentDivs {
+  padding: 20px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.paymentLogo{
+  width: 23%;
+  height: auto;
+  margin-top: 10px;
+}
+.paymentText{
+  font-size:20px;
+  font-weight: 500;
+}
+.pay-button:hover,
+.pay-button:focus {
+  color: #fff;
+  border-color: var(--main-color);
+  background: #0eb6ad;
+}
+
+@media screen and (max-width: 700px) {
+  .pay-form-items {
+width: 100%;
+ }
+
+.pay-button{
+  width: 100%;
+}
+.paymentText{
+  font-size: 14px;
+}
+.paymentLogo{
+  width: 100%;
+
+}
+
+}

@@ -1,11 +1,10 @@
-.eidtProfileDiv {
+.editProfileDiv {
   padding: 20px;
 }
-.container {
+.editProfilecontainer {
   width: 100%;
   background-color: white;
   border-radius: 12px;
-  padding: px;
 }
 /* Title */
 .edit-icon {
@@ -19,10 +18,11 @@
   align-items: center;
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   gap: 10px;
 }
 
-.title-eidt {
+.title-edit {
   font-size: 16px;
   font-weight: bold;
 }
@@ -36,7 +36,7 @@
 }
 .edit-form-f {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 15px;
 }
 .edit-form-s {
@@ -44,10 +44,16 @@
   flex-direction: column;
   width: 50%;
 }
+.subcontainer{
+  display: flex;
+  flex-direction: row;
+gap:10%;
+}
 .edit-form-t {
   display: flex;
   flex-direction: column;
   width: 50%;
+
 }
 
 .edit-switch {
@@ -95,8 +101,25 @@
 
   .edit-form-t {
     width: 100%;
+    align-self: center;
   }
   .edit-button {
     width: 100%;
+  }
+  .subcontainer{
+    flex-direction: column;
+  }
+  .edit-nav{
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .noti{
+    margin-top: 10px;
+
+  }
+  .ImageUploader{
+
+    text-align: center;
+
   }
 }

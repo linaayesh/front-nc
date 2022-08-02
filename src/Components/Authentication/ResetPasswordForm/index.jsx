@@ -1,7 +1,4 @@
-/* eslint-disable no-console */
-import React from 'react';
-import axiosCall from '../../../Services/ApiCall';
-
+import userService from '../../../Services/user';
 import {
   Input, Typography, Button, Form,
 } from '../../AntDesign';
@@ -13,9 +10,9 @@ function ResetPasswordForm() {
 
   const onFinish = async (values) => {
     try {
-      axiosCall('/api/v1/auth/resetPassword', 'POST', values);
+      userService.resetPassword(values);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

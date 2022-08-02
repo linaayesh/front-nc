@@ -1,15 +1,15 @@
 import PayoutPage from './PayoutPage';
-import RevenewPage from './RevenuePage';
+import RevenuePage from './RevenuePage';
 import Statistics from './Statistics';
 import StaffList from './StaffList';
 import VideoList from './VideoList';
-import PaymentSettings from './PaymentSettings';
+import PaymentSettingsPage from './PaymentSettingsPage';
 
 export {
   PayoutPage,
-  RevenewPage,
+  RevenuePage,
   Statistics,
   StaffList,
   VideoList,
-  PaymentSettings,
+  PaymentSettingsPage,
 };

@@ -3,12 +3,12 @@ import {
   LogInPage,
   TermsPage,
   ForgetPasswordPage,
-  RevenewPage,
+  RevenuePage,
   VideoList,
   PayoutPage,
   Statistics,
   StaffList,
-  PaymentSettings,
+  PaymentSettingsPage,
   DashboardSettings,
   ChangePassword,
   EditProfilePage,
@@ -64,7 +64,7 @@ const adminRoutes = [
   {
     title: 'Revenue',
     path: '/dashboard/Revenue',
-    component: RevenewPage,
+    component: RevenuePage,
     key: 'Revenue',
   },
   {
@@ -88,7 +88,7 @@ const adminRoutes = [
   {
     title: 'paymentSettings',
     path: '/dashboard/paymentSettings',
-    component: PaymentSettings,
+    component: PaymentSettingsPage,
     key: 'paymentSettings',
   },
   {

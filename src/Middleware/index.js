@@ -1,4 +1,2 @@
-import ProtectedRoute from './ProtectedRoutes';
-import ProtectLogin from './ProtectLogin';
-
-export { ProtectLogin, ProtectedRoute };
+export { default as ProtectedRoute } from './ProtectedRoutes';
+export { default as ProtectLogin } from './ProtectLogin';
