@@ -6,20 +6,24 @@ import {
 } from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
+import { HTTP_EXCEPTIONS_MESSAGES } from '../../../Constants';
 import './style.css';
 
 export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const { username, email, password } = values;
+    const { username, password } = values;
+    const email = values.email.toLowerCase();
 
     userService.createUser({ username, email, password }).then((response) => {
-      if (response.message === 'CHECK EMAIL') {
-        message.success('Successfully registered! Please check your email to verify your account.');
+      if (HTTP_EXCEPTIONS_MESSAGES[response.message]) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[response.message]);
         form.resetFields();
       }
-    }).catch((error) => message.error(error.message));
+    }).catch((error) => {
+      message.error(HTTP_EXCEPTIONS_MESSAGES[error.message]);
+    });
   };
 
   return (

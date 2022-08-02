@@ -14,7 +14,7 @@ import axiosCall from '../ApiCall';
 export default {
   createUser: async (userInfo) => {
     try {
-      const response = await axiosCall(REGISTER_URL, 'GET', userInfo);
+      const response = await axiosCall(REGISTER_URL, 'POST', userInfo);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -75,7 +75,7 @@ export default {
     }
   },
 
-  resetPassword: async (values) => { // TODO: send the token too
+  resetPassword: async (values) => {
     try {
       const response = await axiosCall(RESET_PASSWORD_URL, 'POST', values);
       return response.data;
