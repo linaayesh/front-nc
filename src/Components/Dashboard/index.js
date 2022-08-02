@@ -1,8 +1,9 @@
-import ManageUSer from './MangeUser';
+import NewUsers from './NewUsers';
 import SideBar from './SideBar';
 import UsersList from './UsersList';
 import EditProfile from './EditProfile';
+import RejectedUsers from './RejectedUsers';
 
 export {
-  SideBar, ManageUSer, UsersList, EditProfile,
+  SideBar, NewUsers, UsersList, EditProfile, RejectedUsers,
 };

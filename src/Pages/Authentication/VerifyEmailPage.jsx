@@ -1,6 +1,6 @@
 import React from 'react';
-import { VerifyEmail } from '../Components';
-import authImage from '../Assets/Images/authImage.png';
+import { VerifyEmail } from '../../Components';
+import authImage from '../../Assets/Images/authImage.png';
 
 function VerifyEmailPage() {
   return (

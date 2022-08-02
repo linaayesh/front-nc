@@ -53,6 +53,11 @@ const itemsSuperAdmin = [
         path: '/dashboard/newusers',
         key: 'newusers',
       },
+      {
+        title: 'List of Rejected Users',
+        path: '/dashboard/rejectedusers',
+        key: 'rejectedusers',
+      },
     ],
   },
   {

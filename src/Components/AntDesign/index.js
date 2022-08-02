@@ -7,7 +7,8 @@ import Checkbox from './Checkbox/Checkbox';
 import Space from './Space/Space';
 import Popconfirm from './Popconfirm/Popconfirm';
 import Table from './Table/Table';
+import Switch from './Switch/Switch';
 
 export {
-  Input, Typography, Button, message, Form, Checkbox, Space, Popconfirm, Table,
+  Input, Typography, Button, message, Form, Checkbox, Space, Popconfirm, Table, Switch,
 };
