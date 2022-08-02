@@ -96,8 +96,10 @@ function EditProfile() {
                     <div className="edit-icon" />
                     <div className="title-edit">Change Your Profile Pic</div>
                   </div>
+                  <div className="ImageUploader">
+                    <ImageUploader submitImageToForm={(url) => setImage(url)} />
 
-                  <ImageUploader submitImageToForm={(url) => setImage(url)} />
+                  </div>
                 </div>
               </div>
 
