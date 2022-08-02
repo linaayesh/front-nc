@@ -33,14 +33,12 @@ export default function LogInForm() {
           email,
           roleId,
           isLoggedIn: true,
-
         }),
       );
     } catch (error) {
       message.error(error.response.data.message);
     }
   };
-  // test thing
 
   return (
     <div className="auth-container-login">
@@ -94,7 +92,7 @@ export default function LogInForm() {
           </Button>
         </Form.Item>
       </Form>
-      <GoogleAuth label="Log In With Google" />
+      <GoogleAuth label="Log In With Google" method="log" />
       <Text className="have-account-text">
         Does not have an account?
         {' '}

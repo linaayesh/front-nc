@@ -1,13 +1,13 @@
-import React from 'react';
-import { EditProfile } from '../../Components/Dashboard';
+// import React from 'react';
+// import { EditProfile } from '../../Components/Dashboard';
 
-function EditProfilePage() {
-  return (
-    <div>
+// function EditProfilePage() {
+//   return (
+//     <div>
 
-      <EditProfile />
-    </div>
-  );
-}
+//       <EditProfile />
+//     </div>
+//   );
+// }
 
-export default EditProfilePage;
+// export default EditProfilePage;
