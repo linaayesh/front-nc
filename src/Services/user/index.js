@@ -7,6 +7,7 @@ import {
   FORGET_PASSWORD_URL,
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
+  FINANCIAL_STATUS_URL,
 } from '../../Constants/endpoints';
 import axiosCall from '../ApiCall';
 
@@ -82,4 +83,29 @@ export default {
       throw new Error(error.response.data.message);
     }
   },
+  getFinancialData: async () => {
+    try {
+      const response = await axiosCall(FINANCIAL_STATUS_URL, 'GET');
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  },
+  addFinancialData: async (userInfo) => {
+    try {
+      const response = await axiosCall(FINANCIAL_STATUS_URL, 'POST', userInfo);
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  },
+  updateFinancialData: async (userInfo) => {
+    try {
+      const response = await axiosCall(FINANCIAL_STATUS_URL, 'PATCH', userInfo);
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  },
+
 };
