@@ -1,13 +1,15 @@
 import React from 'react';
-import {
-  Typography, Input, Form, Button, Checkbox, message,
-} from 'antd';
+
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import {
+  Input, Typography, Button, Form, message, Checkbox,
+} from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
+import './style.css';
+import axiosCall from '../../../Services/ApiCall';
 
 export default function LogInForm() {
   const { Text } = Typography;
@@ -17,7 +19,8 @@ export default function LogInForm() {
   const onFinish = async (values) => {
     const { email, password } = values;
     try {
-      const response = await axios.post('/api/v1/auth/login', { email, password });
+      const response = await axiosCall('/api/v1/auth/login', 'post', { email, password });
+
       message.success(response.data.message);
       navigate('/dashboard');
       const {
@@ -40,16 +43,15 @@ export default function LogInForm() {
   // test thing
 
   return (
-    <div className="auth-container">
+    <div className="auth-container-login">
       <Logo />
       <Text className="auth-text title-text">Welcome back please login to your account.</Text>
       <Form
         name="basic"
         onFinish={onFinish}
         autoComplete="off"
-        className="auth-form"
+        className="auth-form-login"
       >
-        {/* Email */}
         <Form.Item
           name="email"
           rules={[
@@ -62,7 +64,6 @@ export default function LogInForm() {
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
-        {/* Password */}
         <Form.Item
           name="password"
           rules={[
@@ -75,7 +76,6 @@ export default function LogInForm() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Remember me and forget password */}
         <div style={{
           display: 'flex', justifyContent: 'space-between',
         }}
@@ -88,16 +88,13 @@ export default function LogInForm() {
           </Form.Item>
           <Link to="/forgetPassword" className="auth-text forget-password-link">Forget Password</Link>
         </div>
-        {/* Log In Button */}
         <Form.Item>
           <Button className="form-button" type="primary" htmlType="submit">
             Log In
           </Button>
         </Form.Item>
       </Form>
-      {/* Log in with google */}
       <GoogleAuth label="Log In With Google" />
-      {/* navigate to sign up */}
       <Text className="have-account-text">
         Does not have an account?
         {' '}

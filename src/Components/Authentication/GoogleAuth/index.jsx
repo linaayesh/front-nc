@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import {
-  message,
-} from 'antd';
 import { GoogleLogin } from 'react-google-login';
 import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
-import axios from 'axios';
+import { axios } from 'axios';
+import { message } from '../../AntDesign';
 
+const clientID = process.env.REACT_APP_CLIENT_ID;
 export default function GoogleAuth({ label }) {
-  const clientID = process.env.REACT_APP_CLIENT_ID;
   useEffect(() => {
     const start = () => {
       gapi.client.init({
@@ -26,7 +24,7 @@ export default function GoogleAuth({ label }) {
       console.log(googleResponse.data.message);
     } catch (error) {
       console.log(22222, error.response.data.message);
-      // message.error(error.response.data.message);
+      message.error(error.response.data.message);
     }
   };
 

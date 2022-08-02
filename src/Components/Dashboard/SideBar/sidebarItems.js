@@ -1,23 +1,18 @@
-// create array and export it
 const itemsSuperAdmin = [
+
   {
     title: 'Home',
-    icon: 'fa fa-home',
-    path: '/dashboard/home',
-  },
-  {
-    title: 'Dashboard',
     icon: 'fa fa-dashboard',
-    childrens: [
-      {
-        title: 'Video List ',
-        path: '/dashboard/yourvideos',
-        key: 'yourvideos',
-      },
+    children: [
       {
         title: 'Your Statistics ',
         path: '/dashboard/yourstatistics',
         key: 'yourstatistics',
+      },
+      {
+        title: 'Video List ',
+        path: '/dashboard/yourvideos',
+        key: 'yourvideos',
       },
       {
         title: 'Staff List ',
@@ -29,7 +24,7 @@ const itemsSuperAdmin = [
   {
     title: 'Finance',
     icon: 'fa fa-money',
-    childrens: [
+    children: [
       {
         title: 'Revenue',
         path: '/dashboard/revenue',
@@ -46,7 +41,7 @@ const itemsSuperAdmin = [
   {
     title: 'User Management',
     icon: 'fa fa-users',
-    childrens: [
+    children: [
       {
         title: 'User List',
         path: '/dashboard/userlist',
@@ -64,7 +59,7 @@ const itemsSuperAdmin = [
     title: 'Account Settings',
     icon: 'fa fa-cog',
 
-    childrens: [
+    children: [
       {
         title: 'Edit Profile',
         path: '/dashboard/editprofile',
@@ -104,7 +99,7 @@ const itemsAdmin = [
   {
     title: 'Dashboard',
     icon: 'fa fa-dashboard',
-    childrens: [
+    children: [
       {
         title: 'Video List ',
         path: '/dashboard/yourvideos',
@@ -127,7 +122,7 @@ const itemsAdmin = [
     title: 'Account Settings',
     icon: 'fa fa-cog',
 
-    childrens: [
+    children: [
       {
         title: 'Edit Profile',
         path: '/dashboard/editprofile',

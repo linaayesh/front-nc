@@ -1,6 +1,5 @@
 import RevenewPage from './RevenuePage';
-import UserDashboard from './UserDashboard';
-import EditProfile from './EditProfile';
+import EditProfilePage from './EditProfilePage';
 import ChangePassword from './ChangePassword';
 import DashboardSettings from './DashboardSettings';
 import PaymentSettings from './PaymentSettings';
@@ -13,8 +12,7 @@ import NewUsers from './NewUsers';
 
 export {
   RevenewPage,
-  UserDashboard,
-  EditProfile,
+  EditProfilePage,
   ChangePassword,
   DashboardSettings,
   PaymentSettings,
