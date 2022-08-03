@@ -1,22 +1,9 @@
-import Navbar from './Navbar';
-import {
-  NewUsers, SideBar, UsersList, RejectedUsers,
-} from './Dashboard';
-import LogInForm from './Authentication/LogInForm';
-import RegisterForm from './Authentication/RegisterForm';
-import ForgetPasswordForm from './Authentication/ForgetPasswordForm';
-import ResetPasswordForm from './Authentication/ResetPasswordForm';
-import VerifyEmail from './Authentication/VerifyEmail';
-
+export { default as Navbar } from './Navbar';
 export {
-  Navbar,
-  NewUsers,
-  SideBar,
-  LogInForm,
-  RegisterForm,
-  ForgetPasswordForm,
-  ResetPasswordForm,
-  UsersList,
-  RejectedUsers,
-  VerifyEmail,
-};
+  NewUsers, SideBar, UsersList, RejectedUsers, PaymentSettings,
+} from './Dashboard';
+export { default as LogInForm } from './Authentication/LogInForm';
+export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
+export { default as ResetPasswordForm } from './Authentication/ResetPasswordForm';
+export { default as RegisterForm } from './Authentication/RegisterForm';
+export { default as VerifyEmail } from './Authentication/VerifyEmail';

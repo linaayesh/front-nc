@@ -1,30 +1,16 @@
-import {
+export {
   PayoutPage,
-  RevenewPage,
+  RevenuePage,
   Statistics,
   StaffList,
   VideoList,
-  PaymentSettings,
+  PaymentSettingsPage,
 } from './EndUser';
 
-import {
+export {
   EditProfilePage,
   ChangePassword,
   DashboardSettings,
 } from './Common';
-import { NewUsersPage, RejectedUsersPage, UserListPage } from './Admin';
 
-export {
-  RevenewPage,
-  EditProfilePage,
-  ChangePassword,
-  DashboardSettings,
-  PaymentSettings,
-  StaffList,
-  Statistics,
-  PayoutPage,
-  VideoList,
-  UserListPage,
-  NewUsersPage,
-  RejectedUsersPage,
-};
+export { NewUsersPage, RejectedUsersPage, UserListPage } from './Admin';
