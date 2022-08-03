@@ -46,7 +46,8 @@ export default function GoogleAuth({ label, method }) {
         );
       }
     } catch (error) {
-      if (error.response.data.message === 'APPROVED ACCOUNT') message.error('Waiting for approval');
+      message.error(error.response.data.message);
+      if (error.response.data.message === 'APPROVED ACCOUNT') message.error('Waiting for approval || already approved account');
     }
   };
 
