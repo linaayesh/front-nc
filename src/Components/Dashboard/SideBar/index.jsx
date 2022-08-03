@@ -5,7 +5,7 @@ import { Button } from 'antd';
 
 import SidebarItem from './SideBarItem';
 import './style.css';
-import { itemsSuperAdmin, itemsAdmin } from './sidebarItems';
+import { itemsSuperAdmin, itemsAdmin } from '../../../Objects/sidebarItems';
 import useAuth from '../../../Hooks/useAuth';
 import { LOGO } from '../../../Constants';
 
