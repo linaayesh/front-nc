@@ -13,6 +13,13 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
+const dummyRequest = ({ onSuccess }) => new Promise((resolve) => {
+  setTimeout(() => {
+    onSuccess('ok');
+    resolve();
+  }, 0);
+});
+
 function ImageUploader({ submitImageToForm }) {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -24,7 +31,7 @@ function ImageUploader({ submitImageToForm }) {
       setLoading(true);
     }
 
-    if (info.file.percent === 100) {
+    if (info.file.status === 'done') {
       getBase64(info.file.originFileObj, (url) => {
         setLoading(false);
         setImageUrl(url);
@@ -48,6 +55,7 @@ function ImageUploader({ submitImageToForm }) {
           showUploadList={false}
           beforeUpload={beforeUpload}
           onChange={handleChange}
+          customRequest={dummyRequest}
         >
           {imageUrl ? (
             <div className="avatar-image">
