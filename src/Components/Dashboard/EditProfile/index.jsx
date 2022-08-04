@@ -39,7 +39,7 @@ function EditProfile() {
     userService
       .updateUser(userUpdatedInfo)
       .then((res) => {
-        if (res.status === 204) {
+        if (res.status === 200) {
           message.success('Profile updated successfully');
         }
       })
