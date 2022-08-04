@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 import {
-
   Button,
   Space,
   message,
@@ -90,12 +89,8 @@ function ModalForm({ user, dataSource, setDataSource }) {
           </Button>,
         ]}
       >
-        <p>
-          Are you sure that you want to reject this user？
-        </p>
-        <p>
-        Choose the reason for rejection
-        </p>
+        <p>Are you sure that you want to reject this user？</p>
+        <p>Choose the reason for rejection</p>
         <Radio.Group onChange={onChange} value={value}>
           <Space direction="vertical">
             <Radio value={1}>Option A</Radio>
@@ -114,7 +109,6 @@ function ModalForm({ user, dataSource, setDataSource }) {
             </Radio>
           </Space>
         </Radio.Group>
-
       </Modal>
     </Space>
   );
@@ -139,5 +133,4 @@ ModalForm.propTypes = {
     }),
   ).isRequired,
   setDataSource: PropsTypes.func.isRequired,
-
 };
