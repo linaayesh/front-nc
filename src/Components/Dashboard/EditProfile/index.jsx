@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './style.css';
 import {
@@ -10,21 +10,21 @@ import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const [image, setImage] = useState(null);
-  const [isFormChanged, setFormChanged] = useState(false);
   const currentUser = useAuth();
-
+  const [image, setImage] = useState(null);
+  const [isFormChanged, setIsFormChanged] = useState(false);
   const isUsernameUpdated = currentUser.username !== form.getFieldValue('username');
 
   useEffect(() => {
-    form.setFieldsValue({
-      username: currentUser.username,
-      email: currentUser.email,
-    });
-  }, [currentUser]);
+    form.setFieldsValue(currentUser);
+    setIsFormChanged(false);
+  }, [form, currentUser]);
 
   useEffect(() => {
-    setFormChanged(image || isUsernameUpdated);
+    if (image) {
+      setIsFormChanged(true);
+    }
+    return () => setIsFormChanged(false);
   }, [form.getFieldValue('username'), image]);
 
   const onFinish = async (values) => {
@@ -45,7 +45,7 @@ function EditProfile() {
         }
       })
       .catch((error) => message.error(error.message))
-      .finally(() => setImage(''));
+      .finally(() => setIsFormChanged(false));
   };
 
   return (
@@ -60,6 +60,8 @@ function EditProfile() {
             onFinish={onFinish}
             autoComplete="off"
             className="edit-form"
+            initialValues={currentUser}
+            onValuesChange={() => setIsFormChanged(true)}
           >
 
             <div className="edit-form-f">
@@ -82,7 +84,7 @@ function EditProfile() {
                   >
                     <Input
                       placeholder="Name"
-                      onChange={() => setFormChanged(!isFormChanged)}
+                      onChange={() => setIsFormChanged(!isFormChanged)}
                     />
                   </Form.Item>
                   <Form.Item
@@ -98,7 +100,6 @@ function EditProfile() {
                   </div>
                   <div className="ImageUploader">
                     <ImageUploader submitImageToForm={(url) => setImage(url)} />
-
                   </div>
                 </div>
               </div>
