@@ -13,7 +13,6 @@ function EditProfile() {
   const currentUser = useAuth();
   const [image, setImage] = useState(null);
   const [isFormChanged, setIsFormChanged] = useState(false);
-  const isUsernameUpdated = currentUser.username !== form.getFieldValue('username');
 
   useEffect(() => {
     form.setFieldsValue(currentUser);
@@ -25,14 +24,14 @@ function EditProfile() {
       setIsFormChanged(true);
     }
     return () => setIsFormChanged(false);
-  }, [form.getFieldValue('username'), image]);
+  }, [form, image]);
 
   const onFinish = async (values) => {
     const { username } = values;
 
     const userUpdatedInfo = {
       id: currentUser.id,
-      ...isUsernameUpdated && { username },
+      ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
       updatedBy: currentUser.roleId,
     };
@@ -84,7 +83,9 @@ function EditProfile() {
                   >
                     <Input
                       placeholder="Name"
-                      onChange={() => setIsFormChanged(!isFormChanged)}
+                      onChange={() => setIsFormChanged(
+                        form.getFieldValue('username') !== currentUser.username,
+                      )}
                     />
                   </Form.Item>
                   <Form.Item
