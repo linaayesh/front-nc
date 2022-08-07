@@ -1,7 +1,7 @@
 import './style.css';
 import { useEffect, useState } from 'react';
 import { Input, Table } from '../../AntDesign';
-import axiosCall from '../../../Services/ApiCall';
+import adminService from '../../../Services/admin';
 import ModalForm from './Modal';
 
 function NewUsers() {
@@ -11,9 +11,11 @@ function NewUsers() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/waiting-list', 'get', null);
-
-      setData(result.data.data.map((item) => ({ ...item, key: item.id })));
+      adminService.getWaitingList().then(
+        (res) => {
+          setData(res.data.map((item) => ({ ...item, key: item.id })));
+        },
+      );
     };
     fetchData();
   }, []);

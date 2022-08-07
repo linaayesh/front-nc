@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Input, Table,
+  Input, Table, message,
 } from '../../AntDesign';
-import axiosCall from '../../../Services/ApiCall';
+import adminService from '../../../Services/admin';
 import columns from '../../../Objects/Users';
 
 function UsersList() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/approved-list', 'get', null);
-      setData(result.data.data.map((item) => ({ ...item, key: item.id })));
-    };
-    fetchData();
+    adminService.getApprovedList().then(
+      (res) => setData(res.data.map((item) => ({ ...item, key: item.id }))),
+    ).catch((error) => {
+      message.error(error.message);
+    });
   }, []);
 
   const [dataSource, setDataSource] = useState([]);

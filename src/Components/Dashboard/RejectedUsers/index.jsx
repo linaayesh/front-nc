@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Input, Table,
+  Input, Table, message,
 } from '../../AntDesign';
-import axiosCall from '../../../Services/ApiCall';
+import adminService from '../../../Services/admin';
 import columns from '../../../Objects/Users';
 
 function RejectedUsers() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/rejected-list', 'get', null);
-      setData(result.data.data.map((item) => ({ ...item, key: item.id })));
-    };
-    fetchData();
+    adminService.getRejectedList()
+      .then(
+        (res) => setData(res.data.map((item) => ({ ...item, key: item.id }))),
+      ).catch((error) => {
+        message.error(error.message);
+      });
   }, []);
 
   const [dataSource, setDataSource] = useState([]);

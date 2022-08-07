@@ -9,7 +9,7 @@ import {
   Radio,
   Input,
 } from '../../../AntDesign';
-import axiosCall from '../../../../Services/ApiCall';
+import adminService from '../../../../Services/admin';
 
 function ModalForm({ user, dataSource, setDataSource }) {
   const [value, setValue] = useState(1);
@@ -20,9 +20,6 @@ function ModalForm({ user, dataSource, setDataSource }) {
   };
   const [isModalVisible, setIsModalVisible] = useState(false);
   const userId = user.id;
-  const error = () => {
-    message.error('This is an error message');
-  };
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -31,29 +28,32 @@ function ModalForm({ user, dataSource, setDataSource }) {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const approveuser = (id) => {
-    axiosCall(`/api/v1/user/approve/${id}`, 'patch', null)
-      .then(() => {
-        const newData = dataSource.filter((item) => item.id !== id);
-        setDataSource(newData);
-      })
-      .catch(() => {
-        error();
-      });
+  const approveUser = (id) => {
+    adminService.approveUser(id).then((res) => {
+      console.log({ res });
+      const data = dataSource.filter((item) => item.id !== id);
+      setDataSource(data);
+    }).catch((error) => {
+      message.error(error.message);
+    }).finally(() => {
+      setIsModalVisible(false);
+    });
   };
-  const rejectuser = (id) => {
-    axiosCall(`/api/v1/user/reject/${id}`, 'patch', null)
-      .then(() => {
-        const newData = dataSource.filter((item) => item.id !== id);
-        setDataSource(newData);
-      })
-      .catch(() => {
-        error();
-      });
+  const rejectUser = (id) => {
+    adminService.rejectUser(id).then((res) => {
+      console.log(res);
+      const filtered = dataSource.filter((item) => item.id !== id);
+      setDataSource(filtered);
+    }).catch((error) => {
+      message.error(error.message);
+    }).finally(() => {
+      setIsModalVisible(false);
+    });
   };
+
   const handleReject = (userID) => {
     setIsModalVisible(false);
-    rejectuser(userID);
+    rejectUser(userID);
   };
   return (
     <Space size="middle">
@@ -62,7 +62,7 @@ function ModalForm({ user, dataSource, setDataSource }) {
         okText="Yes"
         cancelText="No"
         onConfirm={() => {
-          approveuser(userId);
+          approveUser(userId);
         }}
       >
         <Button>Approve</Button>
