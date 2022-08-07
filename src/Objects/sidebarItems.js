@@ -30,12 +30,6 @@ const itemsSuperAdmin = [
         path: '/dashboard/revenue',
         key: 'revenue',
       },
-
-      {
-        title: 'Payout',
-        path: '/dashboard/payout',
-        key: 'payout',
-      },
     ],
   },
   {
@@ -75,11 +69,7 @@ const itemsSuperAdmin = [
         path: '/dashboard/changepassword',
         key: 'changepassword',
       },
-      {
-        title: 'Payment Settings',
-        path: '/dashboard/paymentsettings',
-        key: 'paymentsettings',
-      },
+
     ],
     path: '/dashboard/AccountSettings',
   },
