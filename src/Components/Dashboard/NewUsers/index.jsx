@@ -1,15 +1,21 @@
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 import { getWaitingList } from 'Store/Slices/adminSlice';
-import { Input, Table } from '../../AntDesign';
+import { Input, Table, Spin } from '../../AntDesign';
 import ModalForm from './Modal';
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function NewUsers() {
   const [dataSource, setDataSource] = useState([]);
   const [value, setValue] = useState('');
-  const [waitingList] = useSelector((state) => [state.admin.waitingList]);
+  const [waitingList, isLoading] = useSelector((state) => [
+    state.admin.waitingList,
+    state.admin.isLoading,
+  ]);
 
   const dispatch = useDispatch();
 
@@ -72,17 +78,19 @@ function NewUsers() {
     },
   ];
   return (
-    <div className="sort">
-      <div className="search">{FilterByNameInput}</div>
-      <div className="table">
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          pagination={{ pageSize: 5 }}
-          scroll={{ x: 500 }}
-        />
+    !isLoading ? (
+      <div className="sort">
+        <div className="search">{FilterByNameInput}</div>
+        <div className="table">
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            pagination={{ pageSize: 5 }}
+            scroll={{ x: 500 }}
+          />
+        </div>
       </div>
-    </div>
+    ) : <Spin indicator={antIcon} />
   );
 }
 
