@@ -1,28 +1,25 @@
 import './style.css';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { useEffect, useState } from 'react';
+import { getWaitingList } from 'Store/Slices/adminSlice';
 import { Input, Table } from '../../AntDesign';
-import adminService from '../../../Services/admin';
 import ModalForm from './Modal';
 
 function NewUsers() {
-  const [data, setData] = useState([]);
   const [dataSource, setDataSource] = useState([]);
   const [value, setValue] = useState('');
+  const [waitingList] = useSelector((state) => [state.admin.waitingList]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      adminService.getWaitingList().then(
-        (res) => {
-          setData(res.data.map((item) => ({ ...item, key: item.id })));
-        },
-      );
-    };
-    fetchData();
+    dispatch(getWaitingList());
   }, []);
 
   useEffect(() => {
-    setDataSource(data);
-  }, [data]);
+    setDataSource(waitingList);
+  }, [waitingList]);
 
   const FilterByNameInput = (
     <Input
@@ -32,7 +29,7 @@ function NewUsers() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+        const filteredData = waitingList.filter((entry) => entry.username.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}
