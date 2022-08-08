@@ -5,9 +5,8 @@ import {
   APPROVE_USER_BY_ID_URL,
   REJECT_USER_BY_ID_URL,
 } from 'Constants/endpoints';
-import axiosCall from '../ApiCall';
+import axiosCall from './ApiCall';
 
-console.log(USER_WAITING_LIST_URL);
 export default {
   approveUser: async (userId) => {
     try {
@@ -29,7 +28,6 @@ export default {
 
   getWaitingList: async () => {
     try {
-      console.log('getWaitingList');
       const response = await axiosCall(USER_WAITING_LIST_URL, 'GET');
       return response.data;
     } catch (error) {

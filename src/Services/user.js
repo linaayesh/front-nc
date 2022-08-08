@@ -8,8 +8,8 @@ import {
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
-} from '../../Constants/endpoints';
-import axiosCall from '../ApiCall';
+} from '../Constants/endpoints';
+import axiosCall from './ApiCall';
 
 export default {
   createUser: async (userInfo) => {
