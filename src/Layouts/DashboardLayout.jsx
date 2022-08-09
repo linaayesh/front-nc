@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import { Navbar, SideBar } from '../Components';
-import axiosCall from '../Services/ApiCall';
+import userService from '../Services/user';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
@@ -19,7 +20,7 @@ export default function DashboardLayout() {
     }
   };
   const handleLogout = () => {
-    axiosCall('/api/v1/auth/logout', 'get', null);
+    userService.logoutUser();
     window.location.href = '/';
   };
 

@@ -1,45 +1,25 @@
-import HomePage from './HomePage';
-import RegisterPage from './RegisterPage';
-import NotFound from './NotFound';
-import LogInPage from './LogInPage';
-import TermsPage from './TermsPage';
-import ForgetPasswordPage from './ForgetPasswordPage';
-
-import {
-  RevenewPage,
-  EditProfilePage,
-  ChangePassword,
-  DashboardSettings,
-  PaymentSettings,
-  StaffList,
-  Statistics,
-  PayoutPage,
-  VideoList,
-  UserListPage,
-  NewUsers,
-} from './UserPages';
-
-import ResetPasswordPage from './ResetPasswordPage';
-import VerifyEmailPage from './VerifyEmailPage';
+export { default as NotFound } from './NotFound';
+export { default as TermsPage } from './TermsPage';
 
 export {
-  HomePage,
-  RegisterPage,
-  NotFound,
-  LogInPage,
-  TermsPage,
-  ForgetPasswordPage,
-  RevenewPage,
+  RevenuePage,
   EditProfilePage,
   ChangePassword,
   DashboardSettings,
-  PaymentSettings,
+  PaymentSettingsPage,
   StaffList,
   Statistics,
   PayoutPage,
   VideoList,
-  ResetPasswordPage,
   UserListPage,
-  NewUsers,
+  NewUsersPage,
+  RejectedUsersPage,
+} from './UserPages';
+
+export {
+  ForgetPasswordPage,
+  LogInPage,
+  RegisterPage,
+  ResetPasswordPage,
   VerifyEmailPage,
-};
+} from './Authentication';

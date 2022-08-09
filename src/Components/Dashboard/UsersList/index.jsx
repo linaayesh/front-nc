@@ -1,15 +1,15 @@
-/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import {
   Input, Table,
 } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
+import columns from '../../../Objects/Users';
 
 function UsersList() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axiosCall('/api/v1/user/approvedUsers', 'get', null);
+      const result = await axiosCall('/api/v1/user/approved-list', 'get', null);
       setData(result.data.data.map((item) => ({ ...item, key: item.id })));
     };
     fetchData();
@@ -30,36 +30,13 @@ function UsersList() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase().includes(currValue));
+        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+          .includes(currValue));
         setDataSource(filteredData);
       }}
     />
   );
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'username',
-      key: 'username',
-      width: '20%',
-    },
-
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Registereion Date',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-    },
-    {
-      title: 'Role',
-      dataIndex: 'roleName',
-      key: 'roleName',
-    },
-  ];
   return (
     <div className="sort">
       <div className="search">{FilterByNameInput}</div>

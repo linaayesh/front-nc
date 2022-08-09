@@ -1,25 +1,29 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import axiosCall from '../../../Services/ApiCall';
+
+import userService from '../../../Services/user';
 import {
   Input, Typography, Button, Form, message, Checkbox,
 } from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
+import { HTTP_EXCEPTIONS_MESSAGES } from '../../../Constants';
 import './style.css';
 
 export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const { username, email, password } = values;
-    try {
-      const response = await axiosCall('/api/v1/auth/signup', 'post', { username, email, password });
-      message.success(response.data.message);
-      form.resetFields();
-    } catch (error) {
-      message.error(error.response.data.message);
-    }
+    const { username, password } = values;
+    const email = values.email.toLowerCase();
+
+    userService.createUser({ username, email, password }).then((response) => {
+      if (HTTP_EXCEPTIONS_MESSAGES[response.message]) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[response.message]);
+        form.resetFields();
+      }
+    }).catch((error) => {
+      message.error(HTTP_EXCEPTIONS_MESSAGES[error.message]);
+    });
   };
 
   return (

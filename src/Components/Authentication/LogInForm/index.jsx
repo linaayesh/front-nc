@@ -1,15 +1,15 @@
-import React from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import {
   Input, Typography, Button, Form, message, Checkbox,
 } from '../../AntDesign';
 import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
-import './style.css';
+import userService from '../../../Services/user';
 import axiosCall from '../../../Services/ApiCall';
+import './style.css';
 
 export default function LogInForm() {
   const { Text } = Typography;
@@ -38,6 +38,27 @@ export default function LogInForm() {
     } catch (error) {
       message.error(error.response.data.message);
     }
+
+    userService.loginUser({ email, password })
+      .then((response) => {
+        if (response.message === 'SUCCESS LOGIN') {
+          message.success(response.message);
+          navigate('/dashboard');
+          const {
+            id, username, roleId,
+          } = response.payload;
+          dispatch(
+            setAuth({
+              id,
+              username,
+              email,
+              roleId,
+              isLoggedIn: true,
+            }),
+          );
+        }
+      })
+      .catch((error) => message.error(error.message));
   };
 
   return (

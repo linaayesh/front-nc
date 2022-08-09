@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
+
 import SidebarItem from './SideBarItem';
 import './style.css';
-import { itemsSuperAdmin, itemsAdmin } from './sidebarItems';
-import userAuthHook from '../../../Hooks/userAuth';
+import { itemsSuperAdmin, itemsAdmin } from '../../../Objects/sidebarItems';
+import useAuth from '../../../Hooks/useAuth';
+import { LOGO } from '../../../Constants';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
-  const { roleId } = userAuthHook();
+  const { roleId } = useAuth();
   useEffect(
     () => {
       // roleId === 1 = SuperAdmin | roleId === 2 = Admin
@@ -26,9 +28,11 @@ function SideBar({ handleClick }) {
     <div className="sidebar">
       <div className="logodiv">
         <img
-          src="https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png"
+          src={LOGO}
           alt="logo"
           className="logo"
+          loading="lazy"
+          decoding="async"
         />
         <div className="buttonround">
           <Button

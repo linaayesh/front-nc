@@ -1,13 +1,18 @@
-import Input from './Input/Input';
-import Typography from './Typography/Typography';
-import Button from './Button/Button';
-import message from './Message/Message';
-import Form from './Form/Form';
-import Checkbox from './Checkbox/Checkbox';
-import Space from './Space/Space';
-import Popconfirm from './Popconfirm/Popconfirm';
-import Table from './Table/Table';
-
-export {
-  Input, Typography, Button, message, Form, Checkbox, Space, Popconfirm, Table,
-};
+export { default as Input } from './Input/Input';
+export { default as Typography } from './Typography/Typography';
+export { default as Button } from './Button/Button';
+export { default as message } from './Message/Message';
+export { default as Form } from './Form/Form';
+export { default as Checkbox } from './Checkbox/Checkbox';
+export { default as Space } from './Space/Space';
+export { default as Popconfirm } from './Popconfirm/Popconfirm';
+export { default as Table } from './Table/Table';
+export { default as Switch } from './Switch/Switch';
+export { default as Upload } from './Upload/index';
+export { default as Radio } from './Radio/Radio';
+export { default as Avatar } from './Avatar';
+export { default as ImgCrop } from './ImgCrop';
+export { default as Modal } from './Modal/Modal';
+export { default as PlusOutlined } from './Icons/PlusOutlined';
+export { default as LoadingOutlined } from './Icons/LoadingOutlined';
+export { default as DeleteOutlined } from './Icons/DeleteOutlined';
