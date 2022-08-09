@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditProfile } from '../../../Components';
+import { EditProfile } from 'Components';
 
 function EditProfilePage() {
   return (

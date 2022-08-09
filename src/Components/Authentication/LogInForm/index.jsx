@@ -8,6 +8,7 @@ import GoogleAuth from '../GoogleAuth';
 import Logo from '../RegisterForm/logo';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
 import userService from '../../../Services/user';
+import axiosCall from '../../../Services/ApiCall';
 import './style.css';
 
 export default function LogInForm() {
@@ -17,6 +18,26 @@ export default function LogInForm() {
 
   const onFinish = async (values) => {
     const { email, password } = values;
+    try {
+      const response = await axiosCall('/api/v1/auth/login', 'post', { email, password });
+
+      message.success(response.data.message);
+      navigate('/dashboard');
+      const {
+        id, username, roleId,
+      } = response.data.payload;
+      dispatch(
+        setAuth({
+          id,
+          username,
+          email,
+          roleId,
+          isLoggedIn: true,
+        }),
+      );
+    } catch (error) {
+      message.error(error.response.data.message);
+    }
 
     userService.loginUser({ email, password })
       .then((response) => {
@@ -39,7 +60,6 @@ export default function LogInForm() {
       })
       .catch((error) => message.error(error.message));
   };
-  // test thing
 
   return (
     <div className="auth-container-login">
@@ -93,7 +113,7 @@ export default function LogInForm() {
           </Button>
         </Form.Item>
       </Form>
-      <GoogleAuth label="Log In With Google" />
+      <GoogleAuth label="Log In With Google" method="log" />
       <Text className="have-account-text">
         Does not have an account?
         {' '}
