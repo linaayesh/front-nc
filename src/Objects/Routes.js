@@ -17,7 +17,7 @@ import {
   VerifyEmailPage,
   RejectedUsersPage,
   AddNewUserPage,
-} from '../Pages';
+} from 'Pages';
 
 const routes = [
   {

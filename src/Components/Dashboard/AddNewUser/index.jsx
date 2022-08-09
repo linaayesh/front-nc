@@ -1,5 +1,5 @@
 import { Input, Button, Form } from 'Components/AntDesign';
-import addUser from 'Hooks/addUser';
+import useAddUser from 'Hooks/useAddUser';
 import './style.css';
 
 export default function AddNewUser() {
@@ -7,7 +7,7 @@ export default function AddNewUser() {
   const onFinish = async (values) => {
     const { username, password } = values;
     const email = values.email.toLowerCase();
-    addUser(username, email, password);
+    useAddUser(username, email, password);
   };
 
   return (

@@ -93,22 +93,17 @@ const itemsSuperAdmin = [
 const itemsAdmin = [
   {
     title: 'Home',
-    icon: 'fa fa-home',
-    path: '/dashboard/home',
-  },
-  {
-    title: 'Dashboard',
     icon: 'fa fa-dashboard',
     children: [
-      {
-        title: 'Video List ',
-        path: '/dashboard/yourvideos',
-        key: 'yourvideos',
-      },
       {
         title: 'Your Statistics ',
         path: '/dashboard/yourstatistics',
         key: 'yourstatistics',
+      },
+      {
+        title: 'Video List ',
+        path: '/dashboard/yourvideos',
+        key: 'yourvideos',
       },
       {
         title: 'Staff List ',
@@ -133,11 +128,7 @@ const itemsAdmin = [
         path: '/dashboard/changepassword',
         key: 'changepassword',
       },
-      {
-        title: 'Payment Settings',
-        path: '/dashboard/paymentsettings',
-        key: 'paymentsettings',
-      },
+
     ],
     path: '/dashboard/AccountSettings',
   },
