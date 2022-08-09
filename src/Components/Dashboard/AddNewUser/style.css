@@ -1,5 +1,5 @@
 .add-new-user-container {
-  padding: 20px;
+  padding: 1.4em;
 }
 .add-new-user-subcontainer {
   width: 100%;
@@ -13,7 +13,7 @@
   padding: 20px;
 }
 .add-new-user-icon {
-  background-color: #13e0d5;
+  background-color:  var(--main-color);
   width: 16px;
   height: 32px;
   border-radius: 4px;
