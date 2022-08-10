@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getRejectedList } from 'Store/Slices/adminSlice';
 import {
-  Input, Table, message,
+  Input, Table, LoadingOutlined, Spin,
 } from '../../AntDesign';
-import adminService from '../../../Services/admin';
 import columns from '../../../Objects/Users';
 
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 function RejectedUsers() {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const [rejectedList, isLoading] = useSelector((state) => [
+    state.admin.rejectedList,
+    state.admin.isLoading,
+  ]);
 
   useEffect(() => {
-    adminService.getRejectedList()
-      .then(
-        (res) => setData(res.data.map((item) => ({ ...item, key: item.id }))),
-      ).catch((error) => {
-        message.error(error.message);
-      });
+    dispatch(getRejectedList());
   }, []);
 
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
-    setDataSource(data);
-  }, [data]);
+    setDataSource(rejectedList);
+  }, [rejectedList]);
 
   const [value, setValue] = useState('');
 
@@ -32,7 +34,7 @@ function RejectedUsers() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+        const filteredData = rejectedList.filter((entry) => entry.username.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}
@@ -40,18 +42,19 @@ function RejectedUsers() {
   );
 
   return (
-    <div className="sort">
-      <div className="search">{FilterByNameInput}</div>
-      <div className="table">
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          pagination={{ pageSize: 5 }}
-          scroll={{ x: 500 }}
-        />
+    !isLoading ? (
+      <div className="sort">
+        <div className="search">{FilterByNameInput}</div>
+        <div className="table">
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            pagination={{ pageSize: 5 }}
+            scroll={{ x: 500 }}
+          />
+        </div>
       </div>
-    </div>
-  );
+    ) : (<Spin indicator={antIcon} />));
 }
 
 export default RejectedUsers;
