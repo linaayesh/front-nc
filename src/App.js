@@ -1,13 +1,12 @@
-import React from 'react';
 import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
 import './app.css';
-import { Home, DashboardLayout } from './Layouts';
+import { Home, DashboardLayout } from 'layouts';
 import {
   NotFound, LogInPage, Statistics,
-} from './Pages';
-import { ProtectLogin, ProtectedRoute } from './Middleware';
-import { routes, adminRoutes } from './Objects/Routes';
+} from 'pages';
+import { ProtectLogin, ProtectedRoute } from 'middleware';
+import { routes, adminRoutes } from 'objects/Routes';
 
 function App() {
   return (
