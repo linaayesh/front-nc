@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import Payment from 'Assets/Images/payment.png';
+import userService from 'Services/user';
 import { AddData, EditData } from './PayComponents';
-import userService from '../../../Services/user';
-import Payment from '../../../Assets/Images/payment.png';
 
 function PaymentSettings() {
   const [paymentSettings, setPaymentSettings] = useState(false);

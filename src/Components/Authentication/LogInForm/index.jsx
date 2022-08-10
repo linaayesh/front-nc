@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 
 import {
   Input, Typography, Button, Form, message, Checkbox,
-} from '../../AntDesign';
-import GoogleAuth from '../GoogleAuth';
-import Logo from '../RegisterForm/logo';
-import { setAuth } from '../../../Store/Slices/checkAuthSlice';
-import userService from '../../../Services/user';
+} from 'AntDesign';
+import GoogleAuth from 'GoogleAuth';
+import Logo from 'RegisterForm/logo';
+import { setAuth } from 'Store/Slices/checkAuthSlice';
+import userService from 'Services/user';
 import './style.css';
 
 export default function LogInForm() {

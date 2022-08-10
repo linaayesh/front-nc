@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import userService from '../../../../../Services/user';
+import { useState } from 'react';
+import userService from 'Services/user';
 import {
   Button, Form, Input, message,
-} from '../../../../AntDesign';
+} from 'AntDesign';
 
 function AddData() {
   const [form] = Form.useForm();

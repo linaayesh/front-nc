@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 import './style.css';
+import userService from 'Services/user';
+import useAuth from 'Hooks/useAuth';
 import {
   Input, Button, Form, Switch, message,
-} from '../../AntDesign';
+} from 'AntDesign';
 import ImageUploader from './uploadImage';
-import userService from '../../../Services/user';
-import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
   const [form] = Form.useForm();

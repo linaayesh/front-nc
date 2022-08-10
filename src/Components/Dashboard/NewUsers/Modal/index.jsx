@@ -8,8 +8,8 @@ import {
   Modal,
   Radio,
   Input,
-} from '../../../AntDesign';
-import adminService from '../../../../Services/admin';
+} from 'AntDesign';
+import adminService from 'Services/admin';
 
 function ModalForm({ user, dataSource, setDataSource }) {
   const [value, setValue] = useState(1);

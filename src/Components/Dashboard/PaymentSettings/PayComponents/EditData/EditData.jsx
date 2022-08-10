@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropsTypes from 'prop-types';
-import userService from '../../../../../Services/user';
+import userService from 'Services/user';
 import {
   Button, Form, Input, message,
-} from '../../../../AntDesign';
+} from 'AntDesign';
 
 function EditData({ currentUser }) {
   const [form] = Form.useForm();

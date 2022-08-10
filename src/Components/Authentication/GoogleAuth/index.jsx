@@ -5,7 +5,7 @@ import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
 import {
   message,
-} from '../../AntDesign';
+} from 'AntDesign';
 
 export default function GoogleAuth({ label }) {
   const clientID = process.env.REACT_APP_CLIENT_ID;

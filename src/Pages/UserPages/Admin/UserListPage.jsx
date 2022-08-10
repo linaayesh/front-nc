@@ -1,5 +1,4 @@
-import React from 'react';
-import { UsersList } from '../../../Components';
+import { UsersList } from 'Components';
 
 function UserPape() {
   return (

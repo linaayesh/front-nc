@@ -1,5 +1,4 @@
-import React from 'react';
-import logo from '../../../Assets/Images/NextUpLogo.png';
+import logo from 'Assets/Images/NextUpLogo.png';
 import './style.css';
 
 export default function Logo() {

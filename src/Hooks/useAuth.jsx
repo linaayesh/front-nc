@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setAuth } from '../Store/Slices/checkAuthSlice';
-import userService from '../Services/user';
-import { DEFAULT_USER_STATE } from '../Constants';
-import { message } from '../Components/AntDesign';
+import { setAuth } from 'Store/Slices/checkAuthSlice';
+import userService from 'Services/user';
+import { DEFAULT_USER_STATE } from 'Constants';
+import { message } from 'Components/AntDesign';
 
 export default function useAuth() {
   const dispatch = useDispatch();

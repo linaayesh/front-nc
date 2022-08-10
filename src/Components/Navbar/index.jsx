@@ -1,10 +1,9 @@
-import React from 'react';
 import './style.css';
 import 'font-awesome/css/font-awesome.min.css';
 import PropTypes from 'prop-types';
 
+import { DEFAULT_AVATAR } from 'Constants';
 import { Button, Space } from '../AntDesign';
-import { DEFAULT_AVATAR } from '../../Constants';
 
 function Navbar({ handleClick, handleLogout }) {
   return (

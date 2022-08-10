@@ -1,5 +1,4 @@
-import React from 'react';
-import { PaymentSettings } from '../../../Components';
+import { PaymentSettings } from 'Components';
 
 function PaymentSettingsPage() {
   return (

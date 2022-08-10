@@ -1,6 +1,6 @@
 import PropsTypes from 'prop-types';
 
-import { Button, DeleteOutlined } from '../../../AntDesign';
+import { Button, DeleteOutlined } from 'AntDesign';
 
 function DeleteButton({ imageUrl, handleDelete }) {
   return (

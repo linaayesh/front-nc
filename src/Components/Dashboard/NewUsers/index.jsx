@@ -1,10 +1,12 @@
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { LoadingOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
+
 import { getWaitingList } from 'Store/Slices/adminSlice';
-import { Input, Table, Spin } from '../../AntDesign';
+import {
+  Input, Table, Spin, LoadingOutlined,
+} from 'AntDesign';
 import ModalForm from './Modal';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -27,7 +29,7 @@ function NewUsers() {
     setDataSource(waitingList);
   }, [waitingList]);
 
-  const FilterByNameInput = (
+  const FilterByNameInput = ( // TODO: add filter to admin redux actions
     <Input
       placeholder="Search user by Name"
       allowClear
@@ -70,7 +72,7 @@ function NewUsers() {
       key: 'action',
       render: (_, b) => (
         <ModalForm
-          dataSource={dataSource}
+          dataSource={waitingList}
           setDataSource={setDataSource}
           user={b}
         />

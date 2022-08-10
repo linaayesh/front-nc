@@ -1,5 +1,4 @@
-import React from 'react';
-import { EditProfile } from '../../../Components/Dashboard';
+import { EditProfile } from 'Components/Dashboard';
 
 function EditProfilePage() {
   return (

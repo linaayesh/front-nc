@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import userService from '../../../Services/user';
-
 import {
   Input, Typography, Button, Form,
-} from '../../AntDesign';
-import Logo from '../RegisterForm/logo';
+} from 'AntDesign';
+import userService from 'Services/user';
+
+import Logo from 'RegisterForm/logo';
 
 export default function ForgetPasswordForm() {
   const { Text } = Typography;

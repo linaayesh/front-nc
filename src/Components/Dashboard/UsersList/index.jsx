@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getApprovedList } from 'Store/Slices/adminSlice';
+
 import {
   Input, Table, Spin, LoadingOutlined,
-} from '../../AntDesign';
-import columns from '../../../Objects/Users';
+} from 'AntDesign';
+import columns from 'Objects/Users';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 

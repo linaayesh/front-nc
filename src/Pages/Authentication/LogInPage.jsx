@@ -1,6 +1,5 @@
-import React from 'react';
-import { LogInForm } from '../../Components';
-import authImage from '../../Assets/Images/authImage.png';
+import { LogInForm } from 'Components';
+import authImage from 'Assets/Images/authImage.png';
 
 function LoginPage() {
   return (

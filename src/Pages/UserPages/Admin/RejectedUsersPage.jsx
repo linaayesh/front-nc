@@ -1,5 +1,4 @@
-import React from 'react';
-import { RejectedUsers } from '../../../Components';
+import { RejectedUsers } from 'Components';
 
 function RejectedUsersPage() {
   return (

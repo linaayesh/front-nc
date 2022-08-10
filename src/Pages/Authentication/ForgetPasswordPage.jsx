@@ -1,6 +1,5 @@
-import React from 'react';
-import authImage from '../../Assets/Images/authImage.png';
-import { ForgetPasswordForm } from '../../Components';
+import authImage from 'Assets/Images/authImage.png';
+import { ForgetPasswordForm } from 'Components';
 
 function ForgetPasswordPage() {
   return (

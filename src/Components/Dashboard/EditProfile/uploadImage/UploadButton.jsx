@@ -1,6 +1,6 @@
 import PropsTypes from 'prop-types';
 
-import { LoadingOutlined, PlusOutlined } from '../../../AntDesign';
+import { LoadingOutlined, PlusOutlined } from 'AntDesign';
 
 function UploadButton({ loading }) {
   return (

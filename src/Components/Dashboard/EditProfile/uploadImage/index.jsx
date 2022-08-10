@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 
+import imageValidation from 'Utils/imageValidation';
+import { Upload, Avatar, ImgCrop } from 'AntDesign';
 import UploadButton from './UploadButton';
 import DeleteButton from './DeleteButton';
-import { Upload, Avatar, ImgCrop } from '../../../AntDesign';
-import imageValidation from '../../../../Utils/imageValidation';
 import './style.css';
 
 const getBase64 = (img, callback) => {

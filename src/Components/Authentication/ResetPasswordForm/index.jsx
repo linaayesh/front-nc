@@ -1,8 +1,7 @@
-import userService from '../../../Services/user';
+import userService from 'Services/user';
 import {
   Input, Typography, Button, Form,
-} from '../../AntDesign';
-
+} from 'AntDesign';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {

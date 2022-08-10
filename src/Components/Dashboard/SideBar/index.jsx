@@ -3,11 +3,11 @@ import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
+import { itemsSuperAdmin, itemsAdmin } from 'Objects/sidebarItems';
+import { LOGO } from 'Constants';
+import useAuth from 'Hooks/useAuth';
 import SidebarItem from './SideBarItem';
 import './style.css';
-import { itemsSuperAdmin, itemsAdmin } from '../../../Objects/sidebarItems';
-import useAuth from '../../../Hooks/useAuth';
-import { LOGO } from '../../../Constants';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
