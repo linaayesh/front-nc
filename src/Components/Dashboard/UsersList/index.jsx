@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getApprovedList } from 'Store/Slices/adminSlice';
 import {
-  Input, Table, message,
+  Input, Table, Spin, LoadingOutlined,
 } from '../../AntDesign';
-import adminService from '../../../Services/admin';
 import columns from '../../../Objects/Users';
 
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 function UsersList() {
-  const [data, setData] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
+  const [approvedList, isLoading] = useSelector((state) => [
+    state.admin.approvedList,
+    state.admin.isLoading,
+  ]);
+
   useEffect(() => {
-    adminService.getApprovedList().then(
-      (res) => setData(res.data.map((item) => ({ ...item, key: item.id }))),
-    ).catch((error) => {
-      message.error(error.message);
-    });
+    dispatch(getApprovedList());
   }, []);
 
-  const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
-    setDataSource(data);
-  }, [data]);
-
-  const [value, setValue] = useState('');
+    setDataSource(approvedList);
+  }, [approvedList]);
 
   const FilterByNameInput = (
     <Input
@@ -30,7 +33,7 @@ function UsersList() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+        const filteredData = approvedList.filter((entry) => entry.username.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}
@@ -38,18 +41,19 @@ function UsersList() {
   );
 
   return (
-    <div className="sort">
-      <div className="search">{FilterByNameInput}</div>
-      <div className="table">
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          pagination={{ pageSize: 5 }}
-          scroll={{ x: 500 }}
-        />
+    !isLoading ? (
+      <div className="sort">
+        <div className="search">{FilterByNameInput}</div>
+        <div className="table">
+          <Table
+            columns={columns}
+            dataSource={dataSource}
+            pagination={{ pageSize: 5 }}
+            scroll={{ x: 500 }}
+          />
+        </div>
       </div>
-    </div>
-  );
+    ) : (<Spin indicator={antIcon} />));
 }
 
 export default UsersList;

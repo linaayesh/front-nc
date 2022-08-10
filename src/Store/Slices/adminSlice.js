@@ -7,6 +7,7 @@ import { adminService } from 'Services';
 
 const initialState = {
   waitingList: [],
+  approvedList: [],
   isLoading: false,
 };
 
@@ -17,6 +18,19 @@ export const getWaitingList = createAsyncThunk(
       const response = await adminService.getWaitingListService();
       return response.data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const getApprovedList = createAsyncThunk(
+  'admin/getApprovedList',
+  async (_params, { rejectWithValue }) => {
+    try {
+      const response = await adminService.getApprovedListService();
+      return response.data.data.map((item) => ({ ...item, key: nanoid() }));
+    } catch (error) {
+      console.log(error.response.data);
       return rejectWithValue(error.response.data);
     }
   },
@@ -35,6 +49,17 @@ const adminSlice = createSlice({
       state.isLoading = false;
     },
     [getWaitingList.rejected]: (state, action) => {
+      state.isLoading = false;
+      return action.payload;
+    },
+    [getApprovedList.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getApprovedList.fulfilled]: (state, action) => {
+      state.approvedList = action.payload;
+      state.isLoading = false;
+    },
+    [getApprovedList.rejected]: (state, action) => {
       state.isLoading = false;
       return action.payload;
     },
