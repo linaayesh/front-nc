@@ -1,4 +1,4 @@
-import authImage from 'assets/Images/authImage.png';
+import authImage from 'assets/images/authImage.png';
 import { ResetPasswordForm } from 'components';
 
 function ResetPasswordPage() {

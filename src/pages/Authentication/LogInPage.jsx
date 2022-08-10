@@ -1,5 +1,5 @@
 import { LogInForm } from 'components';
-import authImage from 'assets/Images/authImage.png';
+import authImage from 'assets/images/authImage.png';
 
 function LoginPage() {
   return (

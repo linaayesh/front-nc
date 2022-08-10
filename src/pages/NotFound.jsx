@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ReactComponent as NotFound } from 'assets/Images/NotFound.svg';
+import { ReactComponent as NotFound } from 'assets/images/NotFound.svg';
 
 export default function Notfound({ link, pageClassName, title }) {
   return (
