@@ -8,48 +8,13 @@ import {
 import axiosCall from './apiCall';
 
 export default {
-  approveUser: async (userId) => {
-    try {
-      const response = await axiosCall(APPROVE_USER_BY_ID_URL(userId), 'PATCH');
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.message);
-    }
-  },
+  approveUser: async (userId) => axiosCall(APPROVE_USER_BY_ID_URL(userId), 'PATCH'),
 
-  rejectUser: async (userId) => {
-    try {
-      const response = await axiosCall(REJECT_USER_BY_ID_URL(userId), 'PATCH');
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.message);
-    }
-  },
+  rejectUser: async (userId) => axiosCall(REJECT_USER_BY_ID_URL(userId), 'PATCH'),
 
-  getWaitingList: async () => {
-    try {
-      const response = await axiosCall(USER_WAITING_LIST_URL, 'GET');
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.message);
-    }
-  },
+  getWaitingList: async () => axiosCall(USER_WAITING_LIST_URL, 'GET'),
 
-  getApprovedList: async () => {
-    try {
-      const response = await axiosCall(USER_APPROVED_LIST_URL, 'GET');
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.message);
-    }
-  },
+  getApprovedList: async () => axiosCall(USER_APPROVED_LIST_URL, 'GET'),
 
-  getRejectedList: async () => {
-    try {
-      const response = await axiosCall(USER_REJECTED_LIST_URL, 'GET');
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.message);
-    }
-  },
+  getRejectedList: async () => axiosCall(USER_REJECTED_LIST_URL, 'GET'),
 };

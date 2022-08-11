@@ -28,7 +28,7 @@ export const getApprovedList = createAsyncThunk(
   'admin/getApprovedList',
   async (_params, { rejectWithValue }) => {
     try {
-      const response = await adminService.getApprovedListService();
+      const response = await adminService.getApprovedList();
       return response.data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
       console.log(error.response.data);
