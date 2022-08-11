@@ -9,7 +9,7 @@ import {
   Radio,
   Input,
 } from 'components/AntDesign';
-import { approveUser, rejectUser } from 'store/admin/slice';
+import { approveUser, rejectUser } from 'store/admin/thunk';
 import { useDispatch, useSelector } from 'react-redux';
 
 function ModalForm({ user, setDataSource }) {
