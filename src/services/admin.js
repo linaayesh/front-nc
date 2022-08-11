@@ -5,7 +5,7 @@ import {
   APPROVE_USER_BY_ID_URL,
   REJECT_USER_BY_ID_URL,
 } from 'constants/endpoints';
-import axiosCall from './apiCall';
+import { axiosCall } from '../utils';
 
 export default {
   approveUser: async (userId) => axiosCall(APPROVE_USER_BY_ID_URL(userId), 'PATCH'),

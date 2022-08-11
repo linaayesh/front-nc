@@ -9,7 +9,7 @@ import {
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
 } from 'constants/endpoints';
-import axiosCall from './apiCall';
+import { axiosCall } from '../utils';
 
 export default {
   createUser: async (userInfo) => {

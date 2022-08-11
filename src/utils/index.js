@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as imageValidation } from './validation/imageSize';
+export { default as axiosCall } from './axios';
