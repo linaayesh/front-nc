@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getApprovedList } from 'store/slices/adminSlice';
+import { getApprovedList } from 'store/admin/slice';
 import {
   Input, Table, Spin, LoadingOutlined,
 } from 'components/AntDesign';

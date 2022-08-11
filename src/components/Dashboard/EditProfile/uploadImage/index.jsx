@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 
-import imageValidation from 'utils/imageValidation';
+import { imageValidation } from 'utils';
 import { Upload, Avatar, ImgCrop } from 'components/AntDesign';
 import UploadButton from './UploadButton';
 import DeleteButton from './DeleteButton';

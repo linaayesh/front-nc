@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setAuth } from 'store/slices/checkAuthSlice';
+import { setAuth } from 'store/auth/slice';
 import userService from 'services/user';
 import { DEFAULT_USER_STATE } from 'constants';
 import { message } from 'components/AntDesign';

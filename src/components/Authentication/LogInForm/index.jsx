@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { setAuth } from 'store/slices/checkAuthSlice';
+import { setAuth } from 'store/auth/slice';
 import userService from 'services/user';
 import {
   Input, Typography, Button, Form, message, Checkbox,

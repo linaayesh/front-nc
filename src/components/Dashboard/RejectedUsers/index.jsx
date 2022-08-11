@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getRejectedList } from 'store/slices/adminSlice';
+import { getRejectedList } from 'store/admin/slice';
 import columns from 'objects/Users';
 import {
   Input, Table, LoadingOutlined, Spin,

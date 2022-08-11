@@ -1,4 +1,4 @@
-import logo from 'assets/Images/NextUpLogo.png';
+import logo from 'assets/images/NextUpLogo.png';
 import './style.css';
 
 export default function Logo() {

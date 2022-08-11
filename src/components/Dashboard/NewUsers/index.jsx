@@ -2,7 +2,7 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getWaitingList } from 'store/slices/adminSlice';
+import { getWaitingList } from 'store/admin/slice';
 import {
   Input, Table, Spin, LoadingOutlined,
 } from 'components/AntDesign';
