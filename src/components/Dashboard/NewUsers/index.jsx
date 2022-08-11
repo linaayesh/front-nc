@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { getWaitingList } from 'store/admin/thunk';
 import {
   Input, Table, Spin, LoadingOutlined,
@@ -13,12 +13,11 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 function NewUsers() {
   const [dataSource, setDataSource] = useState([]);
   const [value, setValue] = useState('');
-  const [waitingList, isLoading] = useSelector((state) => [
+  const dispatch = useAppDispatch();
+  const [waitingList, isLoading] = useAppSelector((state) => [
     state.admin.waitingList,
     state.admin.isLoading,
   ]);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getWaitingList());

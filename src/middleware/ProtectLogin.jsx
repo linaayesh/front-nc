@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
+import { useAppSelector } from 'hooks';
 
 export default function Pro({ children }) {
-  const auth = useSelector(({ checkAuth }) => checkAuth.auth);
+  const auth = useAppSelector(({ checkAuth }) => checkAuth.auth);
   if (auth.isLoading) {
     if (!auth.isLoggedIn) {
       return <Navigate to="/dashboard" />;

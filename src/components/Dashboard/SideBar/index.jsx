@@ -3,15 +3,16 @@ import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
+import { useAuth } from 'hooks';
 import { itemsSuperAdmin, itemsAdmin } from 'objects/sidebarItems';
 import { LOGO } from 'constants';
-import useAuth from 'hooks/useAuth';
 import SidebarItem from './SideBarItem';
 import './style.css';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
   const { roleId } = useAuth();
+
   useEffect(
     () => {
       // roleId === 1 = SuperAdmin | roleId === 2 = Admin

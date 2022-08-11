@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { setAuth } from 'store/auth/slice';
 import userService from 'services/user';
 import { DEFAULT_USER_STATE } from 'constants';
 import { message } from 'components/AntDesign';
+import { useAppDispatch, useAppSelector } from './useRedux';
 
 export default function useAuth() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -40,5 +40,5 @@ export default function useAuth() {
     fetchData();
   }, [dispatch]);
 
-  return useSelector(({ checkAuth }) => checkAuth.auth);
+  return useAppSelector(({ checkAuth }) => checkAuth.auth);
 }

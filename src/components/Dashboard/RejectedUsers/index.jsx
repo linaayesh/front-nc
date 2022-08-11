@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { getRejectedList } from 'store/admin/thunk';
 import columns from 'objects/Users';
 import {
@@ -10,8 +10,10 @@ import {
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function RejectedUsers() {
-  const dispatch = useDispatch();
-  const [rejectedList, isLoading] = useSelector((state) => [
+  const [value, setValue] = useState('');
+  const [dataSource, setDataSource] = useState([]);
+  const dispatch = useAppDispatch();
+  const [rejectedList, isLoading] = useAppSelector((state) => [
     state.admin.rejectedList,
     state.admin.isLoading,
   ]);
@@ -20,12 +22,9 @@ function RejectedUsers() {
     dispatch(getRejectedList());
   }, []);
 
-  const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
     setDataSource(rejectedList);
   }, [rejectedList]);
-
-  const [value, setValue] = useState('');
 
   const FilterByNameInput = (
     <Input

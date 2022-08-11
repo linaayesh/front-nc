@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
+import { useAppDispatch } from 'hooks';
 import { setAuth } from 'store/auth/slice';
-import userService from 'services/user';
+import { userService } from 'services';
 import {
   Input, Typography, Button, Form, message, Checkbox,
 } from 'components/AntDesign';
@@ -13,7 +13,7 @@ import './style.css';
 export default function LogInForm() {
   const { Text } = Typography;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onFinish = async (values) => {
     const { email, password } = values;

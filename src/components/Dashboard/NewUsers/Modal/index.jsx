@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { approveUser, rejectUser } from 'store/admin/thunk';
 import {
   Button,
   Space,
@@ -9,13 +11,11 @@ import {
   Radio,
   Input,
 } from 'components/AntDesign';
-import { approveUser, rejectUser } from 'store/admin/thunk';
-import { useDispatch, useSelector } from 'react-redux';
 
 function ModalForm({ user, setDataSource }) {
   const [value, setValue] = useState(1);
-  const dispatch = useDispatch();
-  const [waitingList] = useSelector((state) => state.admin.waitingList);
+  const dispatch = useAppDispatch();
+  const [waitingList] = useAppSelector((state) => state.admin.waitingList);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onChange = (e) => {
