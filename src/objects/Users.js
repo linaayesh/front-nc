@@ -12,9 +12,13 @@ const columns = [
     key: 'email',
   },
   {
-    title: 'Registereion Date',
+    title: 'Registration Date',
     dataIndex: 'createdAt',
     key: 'createdAt',
+    render: (item) => {
+      const [date, time] = [item.split('T')[0], item.split('T')[1].split('.')[0].slice(0, -3)];
+      return `${date} / ${time}`;
+    },
   },
   {
     title: 'Role',

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getWaitingList } from 'store/admin/thunk';
+import columns from 'objects/Users';
 import {
   Input, Table, Spin, LoadingOutlined,
 } from 'components/AntDesign';
@@ -42,29 +43,8 @@ function NewUsers() {
     />
   );
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'username',
-      key: 'username',
-      width: '20%',
-    },
-
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: 'Registereion Date',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-    },
-    {
-      title: 'Role',
-      dataIndex: 'roleName',
-      key: 'roleName',
-    },
+  const columnsWithAction = [
+    ...columns,
     {
       title: 'Action',
       key: 'action',
@@ -82,7 +62,7 @@ function NewUsers() {
         <div className="search">{FilterByNameInput}</div>
         <div className="table">
           <Table
-            columns={columns}
+            columns={columnsWithAction}
             dataSource={dataSource}
             pagination={{ pageSize: 5 }}
             scroll={{ x: 500 }}
