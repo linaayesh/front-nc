@@ -69,11 +69,8 @@ const adminSlice = createSlice({
         const filteredList = state.waitingList.filter(
           (item) => item.id !== action.payload.user.id,
         );
-        console.log(filteredList);
-        console.log('lame user', action.payload.user);
         state.waitingList = filteredList;
         state.approvedList.push(action.payload.user);
-        console.log('lost myself here', state.waitingList);
       })
       .addCase(approveUser.rejected, (state, action) => {
         state.isLoading = false;

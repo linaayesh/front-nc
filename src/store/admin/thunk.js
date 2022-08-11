@@ -20,7 +20,6 @@ export const getApprovedList = createAsyncThunk(
       const response = await adminService.getApprovedList();
       return response.data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
-      console.log(error.response.data);
       return rejectWithValue(error.response.data);
     }
   },
