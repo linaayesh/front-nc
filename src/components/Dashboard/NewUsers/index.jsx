@@ -1,4 +1,3 @@
-import './style.css';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -7,6 +6,7 @@ import {
   Input, Table, Spin, LoadingOutlined,
 } from 'components/AntDesign';
 import ModalForm from './Modal';
+import './style.css';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 

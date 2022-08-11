@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-import './style.css';
 import userService from 'services/user';
 import useAuth from 'hooks/useAuth';
 import {
   Input, Button, Form, Switch, message,
 } from 'components/AntDesign';
 import ImageUploader from './uploadImage';
+import './style.css';
 
 function EditProfile() {
   const [form] = Form.useForm();
@@ -33,7 +33,7 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.roleId,
+      updatedBy: currentUser.userRoleId,
     };
 
     userService

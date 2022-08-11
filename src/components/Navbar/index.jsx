@@ -1,9 +1,9 @@
-import './style.css';
 import 'font-awesome/css/font-awesome.min.css';
 import PropTypes from 'prop-types';
 
 import { DEFAULT_AVATAR } from 'constants';
 import { Button, Space } from 'components/AntDesign';
+import './style.css';
 
 function Navbar({ handleClick, handleLogout }) {
   return (
