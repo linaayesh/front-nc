@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { userService } from 'services';
 import {
-  Input, Typography, Button, Form, message, Checkbox,
+  Input, Typography, Button, Form, Checkbox, message,
 } from 'components/AntDesign';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'constants';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'constants/index';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { createUser } from 'store/user/thunk';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
@@ -12,19 +13,29 @@ import './style.css';
 export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
+  const dispatch = useAppDispatch();
+  const [data, error, isLoading] = useAppSelector((state) => [
+    state.user.data,
+    state.user.error,
+    state.user.isLoading,
+  ]);
 
   const onFinish = async (values) => {
     const { username, password } = values;
     const email = values.email.toLowerCase();
+    dispatch(createUser({ username, email, password }));
 
-    userService.createUser({ username, email, password }).then((response) => {
-      if (HTTP_EXCEPTIONS_MESSAGES[response.message]) {
-        message.success(HTTP_EXCEPTIONS_MESSAGES[response.message]);
-        form.resetFields();
+    // TODO:  huston we have a problem - we need to wait for the response from the server  error 400
+    if (!isLoading) {
+      if (data) {
+        if (HTTP_EXCEPTIONS_MESSAGES[data.message]) {
+          message.success(HTTP_EXCEPTIONS_MESSAGES[data.message]);
+          form.resetFields();
+        }
+      } else {
+        message.error(HTTP_EXCEPTIONS_MESSAGES[error.message]);
       }
-    }).catch((error) => {
-      message.error(HTTP_EXCEPTIONS_MESSAGES[error.message]);
-    });
+    }
   };
 
   return (
