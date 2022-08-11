@@ -69,11 +69,10 @@ function NewUsers() {
     {
       title: 'Action',
       key: 'action',
-      render: (_, b) => (
+      render: (_, user) => (
         <ModalForm
-          dataSource={waitingList}
           setDataSource={setDataSource}
-          user={b}
+          user={user}
         />
       ),
     },

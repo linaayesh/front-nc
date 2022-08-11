@@ -4,23 +4,24 @@ import PropsTypes from 'prop-types';
 import {
   Button,
   Space,
-  message,
   Popconfirm,
   Modal,
   Radio,
   Input,
 } from 'components/AntDesign';
-import adminService from 'services/admin';
+import { approveUser, rejectUser } from 'store/slices/adminSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-function ModalForm({ user, dataSource, setDataSource }) {
+function ModalForm({ user, setDataSource }) {
   const [value, setValue] = useState(1);
+  const dispatch = useDispatch();
+  const [waitingList] = useSelector((state) => state.admin.waitingList);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onChange = (e) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const userId = user.id;
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -29,33 +30,17 @@ function ModalForm({ user, dataSource, setDataSource }) {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  const approveUser = (id) => {
-    adminService.approveUser(id).then((res) => {
-      console.log({ res });
-      const data = dataSource.filter((item) => item.id !== id);
-      setDataSource(data);
-    }).catch((error) => {
-      message.error(error.message);
-    }).finally(() => {
-      setIsModalVisible(false);
-    });
-  };
-  const rejectUser = (id) => {
-    adminService.rejectUser(id).then((res) => {
-      console.log(res);
-      const filtered = dataSource.filter((item) => item.id !== id);
-      setDataSource(filtered);
-    }).catch((error) => {
-      message.error(error.message);
-    }).finally(() => {
-      setIsModalVisible(false);
-    });
+  const handleApproveUser = (info) => {
+    dispatch(approveUser(info));
+    setDataSource(waitingList);
+    setIsModalVisible(false);
   };
 
-  const handleReject = (userID) => {
+  const handleRejectUser = (userInfo) => {
+    dispatch(rejectUser(userInfo));
     setIsModalVisible(false);
-    rejectUser(userID);
   };
+
   return (
     <Space size="middle">
       <Popconfirm
@@ -63,7 +48,7 @@ function ModalForm({ user, dataSource, setDataSource }) {
         okText="Yes"
         cancelText="No"
         onConfirm={() => {
-          approveUser(userId);
+          handleApproveUser(user);
         }}
       >
         <Button>Approve</Button>
@@ -75,7 +60,7 @@ function ModalForm({ user, dataSource, setDataSource }) {
       <Modal
         title="Reject User"
         visible={isModalVisible}
-        onOk={() => handleReject(userId)}
+        onOk={() => handleRejectUser(user)}
         onCancel={handleCancel}
         footer={[
           <Button key="back" onClick={handleCancel}>
@@ -84,7 +69,7 @@ function ModalForm({ user, dataSource, setDataSource }) {
           <Button
             key="submit"
             type="danger"
-            onClick={() => handleReject(userId)}
+            onClick={() => handleRejectUser(user)}
           >
             Reject
           </Button>,
@@ -124,14 +109,5 @@ ModalForm.propTypes = {
     createdAt: PropsTypes.string,
     roleName: PropsTypes.string,
   }).isRequired,
-  dataSource: PropsTypes.arrayOf(
-    PropsTypes.shape({
-      id: PropsTypes.number,
-      username: PropsTypes.string,
-      email: PropsTypes.string,
-      createdAt: PropsTypes.string,
-      roleName: PropsTypes.string,
-    }),
-  ).isRequired,
   setDataSource: PropsTypes.func.isRequired,
 };

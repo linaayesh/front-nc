@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import './style.css';
-import Payment from 'assets/Images/payment.png';
+import Payment from 'assets/images/payment.png';
 import userService from 'services/user';
 import { AddData, EditData } from './PayComponents';
 

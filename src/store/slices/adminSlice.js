@@ -49,6 +49,30 @@ export const getRejectedList = createAsyncThunk(
   },
 );
 
+export const approveUser = createAsyncThunk(
+  'admin/approveUser',
+  async (user, { rejectWithValue }) => {
+    try {
+      const approvePromise = await adminService.approveUserService(user.id);
+      return { message: approvePromise.data, user };
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const rejectUser = createAsyncThunk(
+  'admin/rejectUser',
+  async (user, { rejectWithValue }) => {
+    try {
+      const rejectPromise = await adminService.rejectUserService(user.id);
+      return { message: rejectPromise.data, user };
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 const adminSlice = createSlice({
   name: 'admin',
   initialState,
@@ -86,6 +110,37 @@ const adminSlice = createSlice({
     [getRejectedList.rejected]: (state, action) => {
       state.isLoading = false;
       return action.payload;
+    },
+    [approveUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [approveUser.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      const filteredList = state.waitingList.filter(
+        (item) => item.id !== action.payload.user.id,
+      );
+      state.waitingList = filteredList;
+      state.approvedList.push(action.payload.user);
+      console.log('lost myself there', state.waitingList);
+    },
+    [approveUser.rejected]: (state, action) => {
+      state.isLoading = false;
+      return action.payload.message;
+    },
+    [rejectUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [rejectUser.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      const filteredList = state.waitingList.filter(
+        (item) => item.id !== action.payload.user.id,
+      );
+      state.waitingList = filteredList;
+      state.rejectedList.push(action.payload.user);
+    },
+    [rejectUser.rejected]: (state, action) => {
+      state.isLoading = false;
+      return action.payload.message;
     },
   },
 });
