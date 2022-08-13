@@ -33,9 +33,9 @@ export const forgetPassword = createAsyncThunk(
   async (email, { rejectWithValue }) => {
     try {
       const { data } = await userService.forgetPasswords(email);
-      return data;
+      return data.message;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );

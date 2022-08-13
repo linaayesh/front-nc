@@ -21,4 +21,5 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'Internal Server Error': 'Something went wrong. Please try again later.',
   'ALREADY REJECTED': 'This account has already been rejected.',
   'SUCCESS EDIT': 'Successfully edited your profile.',
+  'NOT EXIST USER': 'This user does not exist.',
 };
