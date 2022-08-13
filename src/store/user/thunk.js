@@ -5,10 +5,10 @@ export const createUser = createAsyncThunk(
   'user/createUser',
   async (userInfo, { rejectWithValue }) => {
     try {
-      const { data } = await userService.createUser(userInfo);
-      return data;
+      const { data } = await userService.createUsers(userInfo);
+      return data.message;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -17,7 +17,7 @@ export const getUser = createAsyncThunk(
   'user/getUser',
   async (_params, { rejectWithValue }) => {
     try {
-      const { data } = await userService.getUser();
+      const { data } = await userService.getUsers();
       console.log(data);
       return data;
     } catch (error) {
@@ -30,43 +30,7 @@ export const updateUser = createAsyncThunk(
   'user/updateUser',
   async (userInfo, { rejectWithValue }) => {
     try {
-      const { data } = await userService.updateUser(userInfo);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  },
-);
-
-export const loginUser = createAsyncThunk(
-  'user/loginUser',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const { data } = await userService.loginUser(credentials);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  },
-);
-
-export const logoutUser = createAsyncThunk(
-  'user/logoutUser',
-  async (_params, { rejectWithValue }) => {
-    try {
-      const { data } = await userService.logoutUser();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  },
-);
-
-export const googleLogin = createAsyncThunk(
-  'user/googleLogin',
-  async (_params, { rejectWithValue }) => {
-    try {
-      const { data } = await userService.googleLogin();
+      const { data } = await userService.updateUsers(userInfo);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -78,7 +42,7 @@ export const forgetPassword = createAsyncThunk(
   'user/forgetPassword',
   async (email, { rejectWithValue }) => {
     try {
-      const { data } = await userService.forgetPassword(email);
+      const { data } = await userService.forgetPasswords(email);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -90,19 +54,7 @@ export const resetPassword = createAsyncThunk(
   'user/resetPassword',
   async (values, { rejectWithValue }) => {
     try {
-      const { data } = await userService.resetPassword(values);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  },
-);
-
-export const getFinancialData = createAsyncThunk(
-  'user/getFinancialData',
-  async (_params, { rejectWithValue }) => {
-    try {
-      const { data } = await userService.getFinancialData();
+      const { data } = await userService.resetPasswords(values);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -114,7 +66,19 @@ export const createFinancialData = createAsyncThunk(
   'user/createFinancialData',
   async (financialData, { rejectWithValue }) => {
     try {
-      const { data } = await userService.createFinancialData(financialData);
+      const { data } = await userService.createFinancialStatuss(financialData);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const getFinancialData = createAsyncThunk(
+  'user/getFinancialData',
+  async (_params, { rejectWithValue }) => {
+    try {
+      const { data } = await userService.getFinancialStatuss();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -126,7 +90,7 @@ export const updateFinancialData = createAsyncThunk(
   'user/updateFinancialData',
   async (financialData, { rejectWithValue }) => {
     try {
-      const { data } = await userService.updateFinancialData(financialData);
+      const { data } = await userService.updateFinancialStatuss(financialData);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
