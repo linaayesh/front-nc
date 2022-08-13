@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropsTypes from 'prop-types';
 
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { approveUser, rejectUser } from 'store/admin/thunk';
 import {
   Button,
@@ -12,10 +12,9 @@ import {
   Input,
 } from 'components/AntDesign';
 
-function ModalForm({ user, setDataSource }) {
+function ModalForm({ user }) {
   const [value, setValue] = useState(1);
   const dispatch = useAppDispatch();
-  const [waitingList] = useAppSelector((state) => state.admin.waitingList);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onChange = (e) => {
@@ -32,7 +31,6 @@ function ModalForm({ user, setDataSource }) {
   };
   const handleApproveUser = (info) => {
     dispatch(approveUser(info));
-    setDataSource(waitingList);
     setIsModalVisible(false);
   };
 
@@ -109,5 +107,4 @@ ModalForm.propTypes = {
     createdAt: PropsTypes.string,
     roleName: PropsTypes.string,
   }).isRequired,
-  setDataSource: PropsTypes.func.isRequired,
 };

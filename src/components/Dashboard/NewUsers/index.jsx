@@ -50,7 +50,6 @@ function NewUsers() {
       key: 'action',
       render: (_, user) => (
         <ModalForm
-          setDataSource={setDataSource}
           user={user}
         />
       ),
