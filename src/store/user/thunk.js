@@ -13,26 +13,16 @@ export const createUser = createAsyncThunk(
   },
 );
 
-export const getUser = createAsyncThunk(
-  'user/getUser',
-  async (_params, { rejectWithValue }) => {
-    try {
-      const { data } = await userService.getUsers();
-      console.log(data);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  },
-);
-
 export const updateUser = createAsyncThunk(
   'user/updateUser',
   async (userInfo, { rejectWithValue }) => {
     try {
+      console.log('born to burn', userInfo);
       const { data } = await userService.updateUsers(userInfo);
-      return data;
+      console.log('remember the life you had', data.message);
+      return data.message;
     } catch (error) {
+      console.log('comes in waves', error.response.data);
       return rejectWithValue(error.response.data);
     }
   },
