@@ -17,12 +17,9 @@ export const updateUser = createAsyncThunk(
   'user/updateUser',
   async (userInfo, { rejectWithValue }) => {
     try {
-      console.log('born to burn', userInfo);
       const { data } = await userService.updateUsers(userInfo);
-      console.log('remember the life you had', data.message);
       return data.message;
     } catch (error) {
-      console.log('comes in waves', error.response.data);
       return rejectWithValue(error.response.data);
     }
   },
