@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import userService from 'services/user';
-import { useAuth } from 'hooks';
+import { useAppDispatch, useAppSelector, useAuth } from 'hooks';
+import { updateUser } from 'store/user/thunk';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'constants';
 import {
   Input, Button, Form, Switch, message,
 } from 'components/AntDesign';
@@ -11,8 +12,14 @@ import './style.css';
 function EditProfile() {
   const [form] = Form.useForm();
   const currentUser = useAuth();
+  const dispatch = useAppDispatch();
   const [image, setImage] = useState(null);
   const [isFormChanged, setIsFormChanged] = useState(false);
+  const [data, error, isLoading] = useAppSelector((state) => [
+    state.user.data,
+    state.user.error,
+    state.user.isLoading,
+  ]);
 
   useEffect(() => {
     form.setFieldsValue(currentUser);
@@ -35,16 +42,16 @@ function EditProfile() {
       ...image && { image },
       updatedBy: currentUser.roleId,
     };
+    try {
+      await dispatch(updateUser(userUpdatedInfo));
 
-    userService
-      .updateUser(userUpdatedInfo)
-      .then((res) => {
-        if (res.status === 200) {
-          message.success('Profile updated successfully');
-        }
-      })
-      .catch((error) => message.error(error.message))
-      .finally(() => setIsFormChanged(false));
+      // TODO: fix that dummy act here when showing a response/error messages
+      if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
+      if (error) message.error(error);
+      if (isLoading) message.loading('Loading...');
+    } finally {
+      setIsFormChanged(false);
+    }
   };
 
   return (
