@@ -8,7 +8,7 @@ export const getWaitingList = createAsyncThunk(
       const { data } = await adminService.getWaitingList();
       return data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -20,7 +20,7 @@ export const getApprovedList = createAsyncThunk(
       const { data } = await adminService.getApprovedList();
       return data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -32,7 +32,7 @@ export const getRejectedList = createAsyncThunk(
       const { data } = await adminService.getRejectedList();
       return data.data.map((item) => ({ ...item, key: nanoid() }));
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -42,9 +42,9 @@ export const approveUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const { data } = await adminService.approveUser(user.id);
-      return { message: data, user };
+      return { message: data.message, user };
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -54,9 +54,9 @@ export const rejectUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const { data } = await adminService.rejectUser(user.id);
-      return { message: data, user };
+      return { message: data.message, user };
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );

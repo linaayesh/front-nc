@@ -23,17 +23,16 @@ export default function RegisterForm() {
   const onFinish = async (values) => {
     const { username, password } = values;
     const email = values.email.toLowerCase();
-    dispatch(createUser({ username, email, password }));
+    await dispatch(createUser({ username, email, password }));
 
-    // TODO:  huston we have a problem - we need to wait for the response from the server  error 400
     if (!isLoading) {
       if (data) {
-        if (HTTP_EXCEPTIONS_MESSAGES[data.message]) {
-          message.success(HTTP_EXCEPTIONS_MESSAGES[data.message]);
+        if (HTTP_EXCEPTIONS_MESSAGES[data]) {
+          message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
           form.resetFields();
         }
       } else {
-        message.error(HTTP_EXCEPTIONS_MESSAGES[error.message]);
+        message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
       }
     }
   };
