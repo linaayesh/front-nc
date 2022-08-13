@@ -6,7 +6,9 @@ export const getWaitingList = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getWaitingList();
-      return data.data.map((item) => ({ ...item, key: nanoid() }));
+      return data.data
+        .map((item) => ({ ...item, key: nanoid() }))
+        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -18,7 +20,9 @@ export const getApprovedList = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getApprovedList();
-      return data.data.map((item) => ({ ...item, key: nanoid() }));
+      return data.data
+        .map((item) => ({ ...item, key: nanoid() }))
+        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -30,7 +34,9 @@ export const getRejectedList = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getRejectedList();
-      return data.data.map((item) => ({ ...item, key: nanoid() }));
+      return data.data
+        .map((item) => ({ ...item, key: nanoid() }))
+        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
