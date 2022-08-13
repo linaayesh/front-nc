@@ -30,9 +30,10 @@ export const logoutUser = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await userService.logoutUsers();
-      return data;
+      console.log('this house doesnt burn down slowly', data.message);
+      return data.message;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );

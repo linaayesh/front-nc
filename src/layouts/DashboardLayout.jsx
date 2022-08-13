@@ -2,11 +2,16 @@ import { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Navbar, SideBar } from 'components';
-import userService from 'services/user';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { message } from 'components/AntDesign';
+import { logoutUser } from 'store/auth/thunk';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
   const navbarInLayout = useRef(null);
+  const dispatch = useAppDispatch();
+  const { data, error } = useAppSelector((state) => state.checkAuth);
+
   const handleClick = () => {
     const navbar = sideBarInLayout.current.style.display;
     if (navbar === 'none') {
@@ -19,8 +24,10 @@ export default function DashboardLayout() {
       sideBarInLayout.current.style.display = 'none';
     }
   };
-  const handleLogout = () => {
-    userService.logoutUser();
+  const handleLogout = async () => {
+    await dispatch(logoutUser());
+    if (data) message.success(data);
+    if (error) message.error(error);
     window.location.href = '/';
   };
 

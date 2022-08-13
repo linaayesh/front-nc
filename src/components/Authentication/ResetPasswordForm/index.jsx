@@ -1,18 +1,19 @@
-import userService from 'services/user';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { resetPassword } from 'store/user/thunk';
 import {
-  Input, Typography, Button, Form,
+  Input, Typography, Button, Form, message,
 } from 'components/AntDesign';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {
   const { Text } = Typography;
+  const dispatch = useAppDispatch();
+  const { data, error } = useAppSelector((state) => state.user);
 
-  const onFinish = async (values) => {
-    try {
-      userService.resetPassword(values);
-    } catch (error) {
-      console.error(error);
-    }
+  const onFinish = async ({ password }) => {
+    dispatch(resetPassword({ password }));
+    if (data) message.success(data);
+    if (error) message.error(error);
   };
 
   return (

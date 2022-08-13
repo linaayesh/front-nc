@@ -16,10 +16,12 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.
   'APPROVED ACCOUNT': 'Something went wrong. Please try again later.',
   'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
-  UNAUTHORIZED: 'You are not authorized to access this page.',
+  UNAUTHORIZED: 'Stop right there! you are not authorized to do this action.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
   'Internal Server Error': 'Something went wrong. Please try again later.',
   'ALREADY REJECTED': 'This account has already been rejected.',
   'SUCCESS EDIT': 'Successfully edited your profile.',
+  'SUCCESS LOGIN': 'Successfully logged in.',
+  'SUCCESS LOGOUT': 'Successfully logged out.',
   'NOT EXIST USER': 'This user does not exist.',
 };
