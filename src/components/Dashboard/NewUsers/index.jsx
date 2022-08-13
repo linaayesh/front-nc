@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getWaitingList } from 'store/admin/thunk';
 import columns from 'objects/Users';
+import { Loader } from 'shared/components';
 import {
-  Input, Table, Spin, LoadingOutlined,
+  Input, Table,
 } from 'components/AntDesign';
 import ModalForm from './Modal';
 import './style.css';
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function NewUsers() {
   const [dataSource, setDataSource] = useState([]);
@@ -68,7 +67,7 @@ function NewUsers() {
           />
         </div>
       </div>
-    ) : <Spin indicator={antIcon} />
+    ) : <Loader />
   );
 }
 

@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getRejectedList } from 'store/admin/thunk';
 import columns from 'objects/Users';
+import { Loader } from 'shared/components';
 import {
-  Input, Table, LoadingOutlined, Spin,
+  Input, Table,
 } from 'components/AntDesign';
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function RejectedUsers() {
   const [value, setValue] = useState('');
@@ -54,7 +53,7 @@ function RejectedUsers() {
           />
         </div>
       </div>
-    ) : (<Spin indicator={antIcon} />));
+    ) : <Loader />);
 }
 
 export default RejectedUsers;

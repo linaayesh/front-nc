@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getApprovedList } from 'store/admin/thunk';
+import { Loader } from 'shared/components';
 import {
-  Input, Table, Spin, LoadingOutlined,
+  Input, Table,
 } from 'components/AntDesign';
 import columns from 'objects/Users';
-
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 function UsersList() {
   const [dataSource, setDataSource] = useState([]);
@@ -54,7 +53,7 @@ function UsersList() {
           />
         </div>
       </div>
-    ) : (<Spin indicator={antIcon} />));
+    ) : <Loader />);
 }
 
 export default UsersList;
