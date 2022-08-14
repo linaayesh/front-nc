@@ -4,6 +4,7 @@ import userService from 'services/user';
 import {
   Button, Form, Input, message,
 } from 'components/AntDesign';
+import { validationMessages } from 'utils';
 
 function AddData() {
   const [form] = Form.useForm();
@@ -39,12 +40,7 @@ function AddData() {
           <Form.Item
             noStyle
             name="Name"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your Name!',
-              },
-            ]}
+            rules={validationMessages.fullName}
           >
             <Input
               placeholder="Name"
@@ -54,12 +50,7 @@ function AddData() {
           <Form.Item
             noStyle
             name="Country"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your Country!',
-              },
-            ]}
+            rules={validationMessages.country}
           >
             <Input
               placeholder="Country"
@@ -69,12 +60,7 @@ function AddData() {
           <Form.Item
             noStyle
             name="State"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your State!',
-              },
-            ]}
+            rules={validationMessages.state}
           >
             <Input
               placeholder="State"
@@ -84,12 +70,7 @@ function AddData() {
           <Form.Item
             noStyle
             name="City"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your City!',
-              },
-            ]}
+            rules={validationMessages.city}
           >
             <Input
               placeholder="City"
@@ -100,12 +81,7 @@ function AddData() {
           <Form.Item
             noStyle
             name="Address"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your Address!',
-              },
-            ]}
+            rules={validationMessages.address}
           >
             <Input
               placeholder="Address"

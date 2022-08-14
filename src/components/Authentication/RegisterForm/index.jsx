@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import {
   Input, Typography, Button, Form, Checkbox, message,
 } from 'components/AntDesign';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import { useAppDispatch, useAppSelector } from 'hooks';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
+import { validationMessages } from 'utils';
 import { createUser } from 'store/user/thunk';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
@@ -46,35 +47,19 @@ export default function RegisterForm() {
       >
         <Form.Item
           name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Please enter your name!',
-            },
-          ]}
+          rules={validationMessages.username}
         >
           <Input placeholder="Name" />
         </Form.Item>
         <Form.Item
           name="email"
-          rules={[
-            {
-              type: 'email',
-              required: true,
-              message: 'Please enter a vaild email!',
-            },
-          ]}
+          rules={validationMessages.email}
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
+          rules={validationMessages.password}
           hasFeedback
           className="input-password"
         >
@@ -84,20 +69,7 @@ export default function RegisterForm() {
           name="confirm"
           dependencies={['password']}
           hasFeedback
-          rules={[
-            {
-              required: true,
-              message: 'Please confirm your password!',
-            },
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(new Error('The two passwords that you entered do not match!'));
-              },
-            }),
-          ]}
+          rules={validationMessages.confirmPassword}
           className="input-password"
         >
           <Input.Password placeholder="Confirm Password" />
@@ -105,12 +77,7 @@ export default function RegisterForm() {
         <Form.Item
           name="agreement"
           valuePropName="checked"
-          rules={[
-            {
-              required: true,
-              message: 'Please read and check the terms and condition!',
-            },
-          ]}
+          rules={validationMessages.agreement}
         >
           <Checkbox style={{ color: '#6F767E' }}>
             I agree with

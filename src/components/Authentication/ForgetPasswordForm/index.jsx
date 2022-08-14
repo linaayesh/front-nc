@@ -5,6 +5,7 @@ import {
 } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { forgetPassword } from 'store/user/thunk';
+import { validationMessages } from 'utils';
 import Logo from '../RegisterForm/logo';
 
 export default function ForgetPasswordForm() {
@@ -30,13 +31,7 @@ export default function ForgetPasswordForm() {
       >
         <Form.Item
           name="email"
-          rules={[
-            {
-              type: 'email',
-              required: true,
-              message: 'Please enter a valid email!',
-            },
-          ]}
+          rules={validationMessages.email}
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>

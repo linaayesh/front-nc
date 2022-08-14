@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector, useAuth } from 'hooks';
 import { updateUser } from 'store/user/thunk';
 import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
+import { validationMessages } from 'utils';
 import {
   Input, Button, Form, Switch, message,
 } from 'components/AntDesign';
@@ -36,7 +37,7 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.roleId,
+      updatedBy: currentUser.userRoleId,
     };
     try {
       await dispatch(updateUser(userUpdatedInfo));
@@ -77,12 +78,7 @@ function EditProfile() {
 
                   <Form.Item
                     name="username"
-                    rules={[
-                      {
-                        required: true,
-                        message: 'Please enter your name!',
-                      },
-                    ]}
+                    rules={validationMessages.username}
                   >
                     <Input
                       placeholder="Name"

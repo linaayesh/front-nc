@@ -3,6 +3,7 @@ import { resetPassword } from 'store/user/thunk';
 import {
   Input, Typography, Button, Form, message,
 } from 'components/AntDesign';
+import { validationMessages } from 'utils';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {
@@ -26,39 +27,20 @@ function ResetPasswordForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* Password */}
         <Form.Item
           name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please Enter your password!',
-            },
-          ]}
+          rules={validationMessages.password}
           hasFeedback
           className="input-password"
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Confirm Password */}
+
         <Form.Item
           name="confirm"
           dependencies={['password']}
           hasFeedback
-          rules={[
-            {
-              required: true,
-              message: 'Please confirm your password!',
-            },
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(new Error('The two passwords that you entered do not match!'));
-              },
-            }),
-          ]}
+          rules={validationMessages.confirmPassword}
           className="input-password"
         >
           <Input.Password placeholder="Confirm Password" />
