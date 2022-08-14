@@ -37,7 +37,7 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.userRoleId,
+      updatedBy: currentUser.roleId,
     };
     try {
       await dispatch(updateUser(userUpdatedInfo));

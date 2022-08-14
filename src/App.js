@@ -1,12 +1,12 @@
 import 'antd/dist/antd.min.css';
 import { Routes, Route } from 'react-router-dom';
-import './app.css';
 import { Home, DashboardLayout } from 'layouts';
 import {
   NotFound, LogInPage, Statistics,
 } from 'pages';
 import { ProtectLogin, ProtectedRoute } from 'middleware';
-import { routes, adminRoutes } from 'objects/Routes';
+import { routes, adminRoutes } from 'shared/objects/Routes';
+import './app.css';
 
 function App() {
   return (

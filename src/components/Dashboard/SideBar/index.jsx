@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
 import { useAuth } from 'hooks';
-import { itemsSuperAdmin, itemsAdmin } from 'objects/sidebarItems';
+import { itemsSuperAdmin, itemsAdmin } from 'shared/objects/sidebarItems';
 import { LOGO } from 'shared/constants';
 import SidebarItem from './SideBarItem';
 import './style.css';

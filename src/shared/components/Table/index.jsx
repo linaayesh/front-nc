@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { Loader } from 'shared/components';
 import { Input, Table } from 'components/AntDesign';
 import ModalForm from 'components/Dashboard/NewUsers/Modal';
-import columns from 'objects/Users';
+import columns from 'shared/objects/Users';
 
 function UsersTable({ listToDisplay, thunkFunction }) {
   const [dataSource, setDataSource] = useState([]);
