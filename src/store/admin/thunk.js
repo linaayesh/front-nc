@@ -1,14 +1,16 @@
 import { createAsyncThunk, nanoid } from '@reduxjs/toolkit';
 import { adminService } from 'services';
 
+export const modifiedResponse = (res) => res.data
+  .map((item) => ({ ...item, key: nanoid() })) // generate unique key for each item
+  .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)); // newest first
+
 export const getWaitingList = createAsyncThunk(
   'admin/getWaitingList',
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getWaitingList();
-      return data.data
-        .map((item) => ({ ...item, key: nanoid() }))
-        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+      return modifiedResponse(data);
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -20,9 +22,7 @@ export const getApprovedList = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getApprovedList();
-      return data.data
-        .map((item) => ({ ...item, key: nanoid() }))
-        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+      return modifiedResponse(data);
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
@@ -34,9 +34,7 @@ export const getRejectedList = createAsyncThunk(
   async (_params, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getRejectedList();
-      return data.data
-        .map((item) => ({ ...item, key: nanoid() }))
-        .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+      return modifiedResponse(data);
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }
