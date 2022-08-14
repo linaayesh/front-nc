@@ -14,11 +14,7 @@ export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
-  const [data, error, isLoading] = useAppSelector((state) => [
-    state.user.data,
-    state.user.error,
-    state.user.isLoading,
-  ]);
+  const { data, error, isLoading } = useAppSelector((state) => state.user);
 
   const onFinish = async (values) => {
     const { username, password } = values;

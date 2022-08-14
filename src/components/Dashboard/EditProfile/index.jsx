@@ -15,11 +15,7 @@ function EditProfile() {
   const dispatch = useAppDispatch();
   const [image, setImage] = useState(null);
   const [isFormChanged, setIsFormChanged] = useState(false);
-  const [data, error, isLoading] = useAppSelector((state) => [
-    state.user.data,
-    state.user.error,
-    state.user.isLoading,
-  ]);
+  const { data, error, isLoading } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     form.setFieldsValue(currentUser);
@@ -40,7 +36,7 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.roleId,
+      updatedBy: currentUser.userRoleId,
     };
     try {
       await dispatch(updateUser(userUpdatedInfo));
