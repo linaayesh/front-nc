@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector, useAuth } from 'hooks';
 import { updateUser } from 'store/user/thunk';
 import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
+import { Loader } from 'shared/components';
 import { validationMessages } from 'utils';
 import {
   Input, Button, Form, Switch, message,
@@ -37,99 +38,100 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.roleId,
+      updatedBy: currentUser.userRoleId,
     };
+
     try {
       await dispatch(updateUser(userUpdatedInfo));
 
       // TODO: fix that dummy act here when showing a response/error messages
       if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
       if (error) message.error(error);
-      if (isLoading) message.loading('Loading...');
     } finally {
       setIsFormChanged(false);
     }
   };
 
   return (
-    <div className="editProfileDiv">
-      <div className="editProfileHeader">
-        <h1>Edit Profile</h1>
-        <div className="editProfilecontainer">
+    !isLoading ? (
+      <div className="editProfileDiv">
+        <div className="editProfileHeader">
+          <h1>Edit Profile</h1>
+          <div className="editProfilecontainer">
 
-          <Form
-            form={form}
-            name="basic"
-            onFinish={onFinish}
-            autoComplete="off"
-            className="edit-form"
-            initialValues={currentUser}
-            onValuesChange={() => setIsFormChanged(true)}
-          >
+            <Form
+              form={form}
+              name="basic"
+              onFinish={onFinish}
+              autoComplete="off"
+              className="edit-form"
+              initialValues={currentUser}
+              onValuesChange={() => setIsFormChanged(true)}
+            >
 
-            <div className="edit-form-f">
-              <div className="subcontainer">
+              <div className="edit-form-f">
+                <div className="subcontainer">
 
-                <div className="edit-form-s">
-                  <div className="edit-nav">
-                    <div className="edit-icon" />
-                    <div className="title-edit">Change Your Information</div>
+                  <div className="edit-form-s">
+                    <div className="edit-nav">
+                      <div className="edit-icon" />
+                      <div className="title-edit">Change Your Information</div>
+                    </div>
+
+                    <Form.Item
+                      name="username"
+                      rules={validationMessages.username}
+                    >
+                      <Input
+                        placeholder="Name"
+                        onChange={() => setIsFormChanged(
+                          form.getFieldValue('username') !== currentUser.username,
+                        )}
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="email"
+                    >
+                      <Input placeholder="Email" type="email" disabled />
+                    </Form.Item>
                   </div>
-
-                  <Form.Item
-                    name="username"
-                    rules={validationMessages.username}
-                  >
-                    <Input
-                      placeholder="Name"
-                      onChange={() => setIsFormChanged(
-                        form.getFieldValue('username') !== currentUser.username,
-                      )}
-                    />
-                  </Form.Item>
-                  <Form.Item
-                    name="email"
-                  >
-                    <Input placeholder="Email" type="email" disabled />
-                  </Form.Item>
+                  <div className="edit-form-t">
+                    <div className="edit-nav">
+                      <div className="edit-icon" />
+                      <div className="title-edit">Change Your Profile Pic</div>
+                    </div>
+                    <div className="ImageUploader">
+                      <ImageUploader submitImageToForm={(url) => setImage(url)} />
+                    </div>
+                  </div>
                 </div>
-                <div className="edit-form-t">
-                  <div className="edit-nav">
-                    <div className="edit-icon" />
-                    <div className="title-edit">Change Your Profile Pic</div>
-                  </div>
-                  <div className="ImageUploader">
-                    <ImageUploader submitImageToForm={(url) => setImage(url)} />
-                  </div>
+
+                <div className="edit-nav noti">
+                  <div className="edit-icon" />
+                  <div className="title-edit">Notification</div>
+
+                </div>
+                <div className="edit-switch">
+                  <p>
+                    Approve Notifications
+                  </p>
+                  <Switch
+                    className="switch"
+                    defaultChecked={currentUser.notification}
+                  />
                 </div>
               </div>
 
-              <div className="edit-nav noti">
-                <div className="edit-icon" />
-                <div className="title-edit">Notification</div>
+              <Button className="edit-button" type="primary" htmlType="submit" disabled={!isFormChanged}>
+                Edit Profile
+              </Button>
 
-              </div>
-              <div className="edit-switch">
-                <p>
-                  Approve Notifications
-                </p>
-                <Switch
-                  className="switch"
-                  defaultChecked={currentUser.notification}
-                />
-              </div>
-            </div>
+            </Form>
 
-            <Button className="edit-button" type="primary" htmlType="submit" disabled={!isFormChanged}>
-              Edit Profile
-            </Button>
-
-          </Form>
-
+          </div>
         </div>
       </div>
-    </div>
-  );
+    ) : <Loader />);
 }
 
 export default EditProfile;

@@ -13,7 +13,7 @@ function PaymentSettings() {
     userService
       .getFinancialData()
       .then((res) => {
-        if (res.data !== null) {
+        if (res.data) {
           setPaymentSettings(true);
           setCurrentUser(res.data);
         }

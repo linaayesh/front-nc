@@ -4,12 +4,13 @@ import {
   Input, Typography, Button, Form, message,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
+import { Loader } from 'shared/components';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {
   const { Text } = Typography;
   const dispatch = useAppDispatch();
-  const { data, error } = useAppSelector((state) => state.user);
+  const { data, error, isLoading } = useAppSelector((state) => state.user);
 
   const onFinish = async ({ password }) => {
     dispatch(resetPassword({ password }));
@@ -18,41 +19,42 @@ function ResetPasswordForm() {
   };
 
   return (
-    <div className="auth-container">
-      <Logo />
-      <Text className="auth-text title-text">Please enter your new password</Text>
-      <Form
-        name="basic"
-        onFinish={onFinish}
-        autoComplete="off"
-        className="auth-form"
-      >
-        <Form.Item
-          name="password"
-          rules={validationMessages.password}
-          hasFeedback
-          className="input-password"
+    !isLoading ? (
+      <div className="auth-container">
+        <Logo />
+        <Text className="auth-text title-text">Please enter your new password</Text>
+        <Form
+          name="basic"
+          onFinish={onFinish}
+          autoComplete="off"
+          className="auth-form"
         >
-          <Input.Password placeholder="Password" />
-        </Form.Item>
+          <Form.Item
+            name="password"
+            rules={validationMessages.password}
+            hasFeedback
+            className="input-password"
+          >
+            <Input.Password placeholder="Password" />
+          </Form.Item>
 
-        <Form.Item
-          name="confirm"
-          dependencies={['password']}
-          hasFeedback
-          rules={validationMessages.confirmPassword}
-          className="input-password"
-        >
-          <Input.Password placeholder="Confirm Password" />
-        </Form.Item>
-        <Form.Item>
-          <Button className="form-button" type="primary" htmlType="submit">
-            Change Password
-          </Button>
-        </Form.Item>
-      </Form>
-
-    </div>
+          <Form.Item
+            name="confirm"
+            dependencies={['password']}
+            hasFeedback
+            rules={validationMessages.confirmPassword}
+            className="input-password"
+          >
+            <Input.Password placeholder="Confirm Password" />
+          </Form.Item>
+          <Form.Item>
+            <Button className="form-button" type="primary" htmlType="submit">
+              Change Password
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    ) : <Loader />
 
   );
 }
