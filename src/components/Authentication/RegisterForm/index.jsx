@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Input, Typography, Button, Form, Checkbox, message,
 } from 'components/AntDesign';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'constants/index';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { createUser } from 'store/user/thunk';
 import GoogleAuth from '../GoogleAuth';

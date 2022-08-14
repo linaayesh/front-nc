@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector, useAuth } from 'hooks';
 import { updateUser } from 'store/user/thunk';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'constants';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import {
   Input, Button, Form, Switch, message,
 } from 'components/AntDesign';
@@ -36,7 +36,7 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
-      updatedBy: currentUser.userRoleId,
+      updatedBy: currentUser.roleId,
     };
     try {
       await dispatch(updateUser(userUpdatedInfo));

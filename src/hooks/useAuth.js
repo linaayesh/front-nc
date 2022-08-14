@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { setAuth } from 'store/auth/slice';
 import userService from 'services/user';
-import { DEFAULT_USER_STATE } from 'constants';
+import { DEFAULT_USER_STATE } from 'shared/constants';
 import { message } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from './useRedux';
 
@@ -24,7 +24,6 @@ export default function useAuth() {
             email,
             roleId,
             isLoggedIn: true,
-            isLoading: false,
             image,
           }));
 

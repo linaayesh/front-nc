@@ -4,7 +4,7 @@ import {
   USER_REJECTED_LIST_URL,
   APPROVE_USER_BY_ID_URL,
   REJECT_USER_BY_ID_URL,
-} from 'constants/endpoints';
+} from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
 export default {

@@ -1,7 +1,7 @@
 import 'font-awesome/css/font-awesome.min.css';
 import PropTypes from 'prop-types';
 
-import { DEFAULT_AVATAR } from 'constants';
+import { DEFAULT_AVATAR } from 'shared/constants';
 import { Button, Space } from 'components/AntDesign';
 import './style.css';
 
