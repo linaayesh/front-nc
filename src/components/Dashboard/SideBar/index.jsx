@@ -5,7 +5,7 @@ import { Button } from 'antd';
 
 import { useAuth } from 'hooks';
 import { itemsSuperAdmin, itemsAdmin } from 'shared/objects/sidebarItems';
-import { LOGO } from 'shared/constants';
+import { LOGO, ROLES } from 'shared/constants';
 import SidebarItem from './SideBarItem';
 import './style.css';
 
@@ -15,10 +15,9 @@ function SideBar({ handleClick }) {
 
   useEffect(
     () => {
-      // roleId === 1 = SuperAdmin | roleId === 2 = Admin
-      if (roleId === 1) {
+      if (roleId === ROLES.SYSTEM) {
         setItems(itemsSuperAdmin);
-      } else if (roleId === 2) {
+      } else if (roleId === ROLES.MASTER_ADMIN) {
         setItems(itemsAdmin);
       }
     },
