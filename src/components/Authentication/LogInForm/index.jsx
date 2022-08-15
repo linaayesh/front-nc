@@ -1,11 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-import { useAppDispatch } from 'hooks';
-import { setAuth } from 'store/auth/slice';
-import { userService } from 'services';
+import { useAppDispatch, useAppSelector } from 'hooks';
+
+import { getUser, loginUser } from 'store/auth/thunk';
 import {
-  Input, Typography, Button, Form, message, Checkbox,
+  Input, Typography, Button, Form, Checkbox, message,
 } from 'components/AntDesign';
+import { validationMessages } from 'utils';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 import GoogleAuth from '../GoogleAuth';
 import './style.css';
@@ -14,32 +16,23 @@ export default function LogInForm() {
   const { Text } = Typography;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { data, error } = useAppSelector((state) => state.checkAuth);
 
   const onFinish = async (values) => {
     const { email, password } = values;
 
-    userService.loginUser({ email, password })
-      .then((response) => {
-        if (response.message === 'SUCCESS LOGIN') {
-          message.success(response.message);
-          navigate('/dashboard');
-          const {
-            id, username, roleId,
-          } = response.payload;
-          dispatch(
-            setAuth({
-              id,
-              username,
-              email,
-              roleId,
-              isLoggedIn: true,
-            }),
-          );
-        }
-      })
-      .catch((error) => message.error(error.message));
+    dispatch(loginUser({ email: email.toLowerCase(), password }));
+    if (data) {
+      if (data === 'SUCCESS LOGIN') {
+        navigate('/dashboard');
+        message.success(data);
+        dispatch(getUser());
+      }
+    }
+    if (error) {
+      message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
+    }
   };
-  // test thing
 
   return (
     <div className="auth-container-login">
@@ -53,24 +46,13 @@ export default function LogInForm() {
       >
         <Form.Item
           name="email"
-          rules={[
-            {
-              type: 'email',
-              required: true,
-              message: 'Please enter a valid email!',
-            },
-          ]}
+          rules={validationMessages.email}
         >
           <Input placeholder="Email" type="email" />
         </Form.Item>
         <Form.Item
           name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
+          rules={validationMessages.password}
           className="input-password"
         >
           <Input.Password placeholder="Password" />
