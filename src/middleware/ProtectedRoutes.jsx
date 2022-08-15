@@ -4,10 +4,10 @@ import { Navigate } from 'react-router-dom';
 import { useAppSelector } from 'hooks';
 
 export default function ProtectedRoute({ children }) {
-  const auth = useAppSelector(({ checkAuth }) => checkAuth.auth);
+  const { isLoading, isLoggedIn } = useAppSelector(({ checkAuth }) => checkAuth);
 
-  if (!auth.isLoading) {
-    if (!auth.isLoggedIn) {
+  if (isLoading) {
+    if (!isLoggedIn) {
       return <Navigate to="/" />;
     }
   }

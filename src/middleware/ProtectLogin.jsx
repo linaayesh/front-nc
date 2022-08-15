@@ -4,9 +4,10 @@ import { Navigate } from 'react-router-dom';
 import { useAppSelector } from 'hooks';
 
 export default function Pro({ children }) {
-  const auth = useAppSelector(({ checkAuth }) => checkAuth.auth);
-  if (auth.isLoading) {
-    if (!auth.isLoggedIn) {
+  const { isLoading, isLoggedIn } = useAppSelector(({ checkAuth }) => checkAuth);
+
+  if (!isLoading) {
+    if (isLoggedIn) {
       return <Navigate to="/dashboard" />;
     }
   }
