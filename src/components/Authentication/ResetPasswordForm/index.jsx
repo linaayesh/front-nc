@@ -5,6 +5,7 @@ import {
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 import { Loader } from 'shared/components';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {
@@ -14,8 +15,8 @@ function ResetPasswordForm() {
 
   const onFinish = async ({ password }) => {
     dispatch(resetPassword({ password }));
-    if (data) message.success(data);
-    if (error) message.error(error);
+    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
+    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
   };
 
   return (

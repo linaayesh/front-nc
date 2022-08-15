@@ -6,6 +6,7 @@ import {
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { forgetPassword } from 'store/user/thunk';
 import { validationMessages } from 'utils';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 
 export default function ForgetPasswordForm() {
@@ -15,8 +16,8 @@ export default function ForgetPasswordForm() {
 
   const onFinish = async (email) => {
     dispatch(forgetPassword(email));
-    if (data) message.success(data);
-    if (error) message.error(error);
+    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
+    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
   };
 
   return (

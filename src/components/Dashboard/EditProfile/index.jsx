@@ -46,7 +46,7 @@ function EditProfile() {
 
       // TODO: fix that dummy act here when showing a response/error messages
       if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-      if (error) message.error(error);
+      if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
     } finally {
       setIsFormChanged(false);
     }

@@ -5,6 +5,7 @@ import { Navbar, SideBar } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { message } from 'components/AntDesign';
 import { logoutUser } from 'store/auth/thunk';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
@@ -26,8 +27,8 @@ export default function DashboardLayout() {
   };
   const handleLogout = async () => {
     await dispatch(logoutUser());
-    if (data) message.success(data);
-    if (error) message.error(error);
+    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
+    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
     window.location.href = '/';
   };
 
