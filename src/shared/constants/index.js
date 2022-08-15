@@ -1,6 +1,6 @@
 export const DEFAULT_USER_STATE = {
   id: null,
-  username: null,
+  name: null,
   email: null,
   image: null,
   roleId: null,

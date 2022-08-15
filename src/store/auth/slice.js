@@ -7,9 +7,9 @@ import {
 const initialState = {
   user: {
     id: null,
-    username: null,
+    name: null,
     email: null,
-    userRoleId: null,
+    roleId: null,
   },
   data: null,
   error: null,

@@ -5,9 +5,9 @@ import './style.css';
 export default function AddNewUser() {
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const { username, password } = values;
+    const { name, password } = values;
     const email = values.email.toLowerCase();
-    useAddUser(username, email, password);
+    useAddUser(name, email, password);
   };
 
   return (
@@ -27,7 +27,7 @@ export default function AddNewUser() {
               <div className="title-add-new-user">Add New User</div>
             </div>
             <Form.Item
-              name="username"
+              name="name"
               rules={[
                 {
                   required: true,

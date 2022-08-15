@@ -19,9 +19,9 @@ export default function RegisterForm() {
   const { data, error, isLoading } = useAppSelector((state) => state.user);
 
   const onFinish = async (values) => {
-    const { username, password } = values;
+    const { name, password } = values;
     const email = values.email.toLowerCase();
-    await dispatch(createUser({ username, email, password }));
+    await dispatch(createUser({ name, email, password }));
 
     if (!isLoading) {
       if (data) {
@@ -48,8 +48,8 @@ export default function RegisterForm() {
           className="auth-form"
         >
           <Form.Item
-            name="username"
-            rules={validationMessages.username}
+            name="name"
+            rules={validationMessages.name}
           >
             <Input placeholder="Name" />
           </Form.Item>

@@ -102,7 +102,7 @@ export default ModalForm;
 ModalForm.propTypes = {
   user: PropsTypes.shape({
     id: PropsTypes.number,
-    username: PropsTypes.string,
+    name: PropsTypes.string,
     email: PropsTypes.string,
     createdAt: PropsTypes.string,
     roleName: PropsTypes.string,

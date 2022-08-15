@@ -1,8 +1,8 @@
 const columns = [
   {
     title: 'Name',
-    dataIndex: 'username',
-    key: 'username',
+    dataIndex: 'name',
+    key: 'name',
     width: '20%',
   },
 

@@ -1,5 +1,5 @@
 const validationMessages = {
-  username: [
+  name: [
     {
       required: true,
       message: 'Please enter your name!',

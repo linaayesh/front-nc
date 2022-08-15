@@ -33,7 +33,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = list.filter((entry) => entry.username.toLowerCase()
+        const filteredData = list.filter((entry) => entry.name.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}

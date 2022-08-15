@@ -32,13 +32,13 @@ function EditProfile() {
   }, [form, image]);
 
   const onFinish = async (values) => {
-    const { username } = values;
+    const { name } = values;
 
     const userUpdatedInfo = {
       id: currentUser.id,
-      ...currentUser.username !== form.getFieldValue('username') && { username },
+      ...currentUser.name !== form.getFieldValue('name') && { name },
       ...image && { image },
-      updatedBy: currentUser.userRoleId,
+      updatedBy: currentUser.roleId,
     };
 
     try {
@@ -79,13 +79,13 @@ function EditProfile() {
                     </div>
 
                     <Form.Item
-                      name="username"
-                      rules={validationMessages.username}
+                      name="name"
+                      rules={validationMessages.name}
                     >
                       <Input
                         placeholder="Name"
                         onChange={() => setIsFormChanged(
-                          form.getFieldValue('username') !== currentUser.username,
+                          form.getFieldValue('name') !== currentUser.name,
                         )}
                       />
                     </Form.Item>
