@@ -8,7 +8,7 @@ export const getUser = createAsyncThunk(
       const { data } = await userService.getUsers();
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -20,7 +20,7 @@ export const loginUser = createAsyncThunk(
       const { data } = await userService.loginUsers(credentials);
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );
@@ -44,7 +44,7 @@ export const googleLogin = createAsyncThunk(
       const { data } = await userService.googleLogins();
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data.message);
     }
   },
 );

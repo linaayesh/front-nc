@@ -20,6 +20,7 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
   UNAUTHORIZED: 'Stop right there! you are not authorized to do this action.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
+  'Incorrect email or password': 'Incorrect email or password.',
   'Internal Server Error': 'Something went wrong. Please try again later.',
   'ALREADY REJECTED': 'This account has already been rejected.',
   'SUCCESS EDIT': 'Successfully edited your profile.',

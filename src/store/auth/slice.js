@@ -1,33 +1,52 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser, logoutUser, googleLogin } from './thunk';
+import {
+  loginUser, logoutUser, googleLogin, getUser,
+} from './thunk';
 
 const initialState = {
-  auth: {
+  user: {
     id: null,
     username: null,
     email: null,
     userRoleId: null,
-    isLoggedIn: false,
   },
   data: null,
   error: null,
   isLoading: false,
+  isLoggedIn: false,
 };
 
 const extraReducers = (builder) => {
+  builder
+    .addCase(getUser.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(getUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      console.log('getUser ', action.payload);
+      state.user = action.payload.data;
+      state.isLoggedIn = true;
+    })
+    .addCase(getUser.rejected, (state, action) => {
+      console.log('error slicer getUser', action.payload);
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+
   builder
     .addCase(loginUser.pending, (state) => {
       state.isLoading = true;
     })
     .addCase(loginUser.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.auth = action.payload.payload;
+      state.user = action.payload.payload;
       state.data = action.payload.message;
+      state.isLoggedIn = true;
     })
     .addCase(loginUser.rejected, (state, action) => {
-      state.error = action.payload.message;
       state.isLoading = false;
+      state.error = action.payload;
     });
 
   builder
@@ -37,6 +56,7 @@ const extraReducers = (builder) => {
     .addCase(logoutUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
+      state.isLoggedIn = false;
     })
     .addCase(logoutUser.rejected, (state, action) => {
       state.isLoading = false;
@@ -61,14 +81,10 @@ const extraReducers = (builder) => {
 export const checkAuthSlice = createSlice({
   name: 'checkAuth',
   initialState,
-  reducers: {
-    setAuth: (state, action) => {
-      state.auth = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => extraReducers(builder),
 });
 
-export const { setAuth } = checkAuthSlice.actions;
+// export const { setAuth } = checkAuthSlice.actions;
 
 export default checkAuthSlice.reducer;
