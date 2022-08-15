@@ -26,5 +26,4 @@ export default {
   createFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'POST', data),
   getFinancialStatus: () => axiosCall(FINANCIAL_STATUS_URL, 'GET'),
   updateFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'PATCH', data),
-
 };

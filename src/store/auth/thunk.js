@@ -5,7 +5,7 @@ export const getUser = createAsyncThunk(
   'user/getUser',
   async (_params, { rejectWithValue }) => {
     try {
-      const { data } = await userService.getUsers();
+      const { data } = await userService.getUser();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -17,7 +17,7 @@ export const loginUser = createAsyncThunk(
   'user/loginUser',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await userService.loginUsers(credentials);
+      const { data } = await userService.loginUser(credentials);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -29,7 +29,7 @@ export const logoutUser = createAsyncThunk(
   'user/logoutUser',
   async (_params, { rejectWithValue }) => {
     try {
-      const { data } = await userService.logoutUsers();
+      const { data } = await userService.logoutUser();
       return data.message;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -41,7 +41,7 @@ export const googleLogin = createAsyncThunk(
   'user/googleLogin',
   async (_params, { rejectWithValue }) => {
     try {
-      const { data } = await userService.googleLogins();
+      const { data } = await userService.googleLogin();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
