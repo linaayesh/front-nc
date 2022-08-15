@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 
-import { getUser, loginUser } from 'store/auth/thunk';
+import { loginUser } from 'store/auth/thunk';
 import {
   Input, Typography, Button, Form, Checkbox, message,
 } from 'components/AntDesign';
@@ -21,14 +21,14 @@ export default function LogInForm() {
   const onFinish = async (values) => {
     const { email, password } = values;
 
-    dispatch(loginUser({ email: email.toLowerCase(), password }));
+    await dispatch(loginUser({ email: email.toLowerCase(), password }));
     if (data) {
       if (data === 'SUCCESS LOGIN') {
         navigate('/dashboard');
         message.success(data);
-        dispatch(getUser());
       }
     }
+
     if (error) {
       message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
     }

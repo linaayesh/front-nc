@@ -29,7 +29,7 @@ export default function RegisterForm() {
           message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
           form.resetFields();
         }
-      } else {
+      } else if (error) {
         message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
       }
     }

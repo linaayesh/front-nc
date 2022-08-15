@@ -8,7 +8,7 @@ import {
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
-} from 'constants/endpoints';
+} from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
 export default {
@@ -21,10 +21,7 @@ export default {
   googleLogin: () => axiosCall(GOOGLE_LOGIN_URL, 'POST'),
 
   forgetPassword: (email) => axiosCall(FORGET_PASSWORD_URL, 'POST', email),
-  resetPassword: (email) => {
-    console.log(email);
-    return axiosCall(RESET_PASSWORD_URL, 'POST', email);
-  },
+  resetPassword: (email) => axiosCall(RESET_PASSWORD_URL, 'POST', email),
 
   createFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'POST', data),
   getFinancialStatus: () => axiosCall(FINANCIAL_STATUS_URL, 'GET'),
