@@ -64,3 +64,15 @@ export const rejectUser = createAsyncThunk(
     }
   },
 );
+
+export const createUser = createAsyncThunk(
+  'admin/createUser',
+  async (user, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.createUser(user);
+      return { message: data.message, user };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);

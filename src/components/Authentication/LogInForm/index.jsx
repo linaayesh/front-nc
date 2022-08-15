@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
-
 import { loginUser } from 'store/auth/thunk';
 import {
   Input, Typography, Button, Form, Checkbox, message,
@@ -75,7 +74,7 @@ export default function LogInForm() {
           </Button>
         </Form.Item>
       </Form>
-      <GoogleAuth label="Log In With Google" />
+      <GoogleAuth label="Log In With Google" method="log" />
       <Text className="have-account-text">
         Does not have an account?
         {' '}

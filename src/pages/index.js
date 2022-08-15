@@ -14,6 +14,7 @@ export {
   UserListPage,
   NewUsersPage,
   RejectedUsersPage,
+  AddNewUserPage,
 } from './UserPages';
 
 export {

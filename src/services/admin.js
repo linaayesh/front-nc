@@ -4,6 +4,7 @@ import {
   USER_REJECTED_LIST_URL,
   APPROVE_USER_BY_ID_URL,
   REJECT_USER_BY_ID_URL,
+  REGISTER_URL,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
@@ -11,6 +12,8 @@ export default {
   approveUser: async (userId) => axiosCall(APPROVE_USER_BY_ID_URL(userId), 'PATCH'),
 
   rejectUser: async (userId) => axiosCall(REJECT_USER_BY_ID_URL(userId), 'PATCH'),
+
+  createUser: async (userInfo) => axiosCall(REGISTER_URL, 'POST', userInfo),
 
   getWaitingList: async () => axiosCall(USER_WAITING_LIST_URL, 'GET'),
 
