@@ -18,15 +18,15 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.
   'APPROVED ACCOUNT': 'Something went wrong. Please try again later.',
   'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
-  UNAUTHORIZED: 'Stop right there! you are not authorized to do this action.',
+  UNAUTHORIZED: 'Stop right there, mate! you dont have the authority to do this action.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
-  'Incorrect email or password': 'Incorrect email or password.',
-  'Internal Server Error': 'Something went wrong. Please try again later.',
-  'ALREADY REJECTED': 'This account has already been rejected.',
-  'SUCCESS EDIT': 'Successfully edited your profile.',
-  'SUCCESS LOGIN': 'Successfully logged in.',
-  'SUCCESS LOGOUT': 'Successfully logged out.',
-  'NOT EXIST USER': 'This user does not exist.',
+  'Incorrect email or password': 'We could not recognize your email or password. Please bother us later.',
+  'Internal Server Error': 'It is us! something went wrong. Please try again later.',
+  'ALREADY REJECTED': 'This account has already been rejected.', // TODO: find a better message to humiliate him more professionally
+  'SUCCESS EDIT': 'Congratulation, you edited your profile successfully!',
+  'SUCCESS LOGIN': 'Successfully logged in, blow it up!',
+  'SUCCESS LOGOUT': 'Successfully logged out, cant wait to see your face again!',
+  'NOT EXIST USER': 'This user does not exist in our universe.',
 };
 
 export const IMAGE_VALIDATION_MESSAGES = {
