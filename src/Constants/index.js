@@ -11,6 +11,12 @@ export const DEFAULT_USER_STATE = {
   isLoggedIn: false,
   isLoading: false,
 };
+export const ROLES = {
+  SYSTEM: 1,
+  MASTER_ADMIN: 2,
+  ADMIN: 3,
+  COMEDIAN: 4,
+};
 
 export const HTTP_EXCEPTIONS_MESSAGES = {
   'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.

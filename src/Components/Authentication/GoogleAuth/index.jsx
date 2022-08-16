@@ -1,13 +1,18 @@
-/* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
-import { axios } from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAuth } from '../../../Store/Slices/checkAuthSlice';
+import axiosCall from '../../../Services/ApiCall';
 import { message } from '../../AntDesign';
 
 const clientID = process.env.REACT_APP_CLIENT_ID;
-export default function GoogleAuth({ label }) {
+export default function GoogleAuth({ label, method }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const start = () => {
       gapi.client.init({
@@ -17,20 +22,36 @@ export default function GoogleAuth({ label }) {
     };
     gapi.load('client:auth2', start);
   }, []);
+
   const successResponse = async (response) => {
     const { tokenId } = response;
     try {
-      const googleResponse = await axios.post('/api/v1/auth/sign/google', { tokenId });
-      console.log(googleResponse.data.message);
+      const googleResponse = await axiosCall(`/api/v1/auth/${method}/google`, 'post', { tokenId });
+      if (googleResponse.status === 201) message.success('Sign Up Successfully. Wait for approval');
+      if (googleResponse.status === 200) {
+        message.success(googleResponse.data.message);
+        navigate('/dashboard');
+        const {
+          id, username, roleId, email,
+        } = googleResponse.data.payload;
+        dispatch(
+          setAuth({
+            id,
+            username,
+            email,
+            roleId,
+            isLoggedIn: true,
+          }),
+        );
+      }
     } catch (error) {
-      console.log(22222, error.response.data.message);
       message.error(error.response.data.message);
+      if (error.response.data.message === 'APPROVED ACCOUNT') message.error('Waiting for approval || already approved account');
     }
   };
 
   const failureResponse = (response) => {
-    console.log('error', response);
-    message.error(response); // something went wrong try a gain later
+    message.error(response);
   };
   return (
     <GoogleLogin
@@ -40,11 +61,11 @@ export default function GoogleAuth({ label }) {
       onSuccess={successResponse}
       onFailure={failureResponse}
       cookiePolicy="single_host_origin"
-      isSignedIn
     />
 
   );
 }
 GoogleAuth.propTypes = {
   label: PropsTypes.string.isRequired,
+  method: PropsTypes.string.isRequired,
 };

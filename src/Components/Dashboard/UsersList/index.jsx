@@ -30,7 +30,7 @@ function UsersList() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+        const filteredData = data.filter((entry) => entry.name.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}

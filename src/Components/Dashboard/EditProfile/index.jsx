@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './style.css';
 import {
@@ -10,29 +10,28 @@ import useAuth from '../../../Hooks/useAuth';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const [image, setImage] = useState(null);
-  const [isFormChanged, setFormChanged] = useState(false);
   const currentUser = useAuth();
-
-  const isUsernameUpdated = currentUser.username !== form.getFieldValue('username');
-
-  useEffect(() => {
-    form.setFieldsValue({
-      username: currentUser.username,
-      email: currentUser.email,
-    });
-  }, [currentUser]);
+  const [image, setImage] = useState(null);
+  const [isFormChanged, setIsFormChanged] = useState(false);
 
   useEffect(() => {
-    setFormChanged(image || isUsernameUpdated);
-  }, [form.getFieldValue('username'), image]);
+    form.setFieldsValue(currentUser);
+    setIsFormChanged(false);
+  }, [form, currentUser]);
+
+  useEffect(() => {
+    if (image) {
+      setIsFormChanged(true);
+    }
+    return () => setIsFormChanged(false);
+  }, [form, image]);
 
   const onFinish = async (values) => {
     const { username } = values;
 
     const userUpdatedInfo = {
       id: currentUser.id,
-      ...isUsernameUpdated && { username },
+      ...currentUser.username !== form.getFieldValue('username') && { username },
       ...image && { image },
       updatedBy: currentUser.roleId,
     };
@@ -40,12 +39,12 @@ function EditProfile() {
     userService
       .updateUser(userUpdatedInfo)
       .then((res) => {
-        if (res.status === 204) {
+        if (res.status === 200) {
           message.success('Profile updated successfully');
         }
       })
       .catch((error) => message.error(error.message))
-      .finally(() => setImage(''));
+      .finally(() => setIsFormChanged(false));
   };
 
   return (
@@ -60,6 +59,8 @@ function EditProfile() {
             onFinish={onFinish}
             autoComplete="off"
             className="edit-form"
+            initialValues={currentUser}
+            onValuesChange={() => setIsFormChanged(true)}
           >
 
             <div className="edit-form-f">
@@ -82,7 +83,9 @@ function EditProfile() {
                   >
                     <Input
                       placeholder="Name"
-                      onChange={() => setFormChanged(!isFormChanged)}
+                      onChange={() => setIsFormChanged(
+                        form.getFieldValue('username') !== currentUser.username,
+                      )}
                     />
                   </Form.Item>
                   <Form.Item
@@ -98,7 +101,6 @@ function EditProfile() {
                   </div>
                   <div className="ImageUploader">
                     <ImageUploader submitImageToForm={(url) => setImage(url)} />
-
                   </div>
                 </div>
               </div>

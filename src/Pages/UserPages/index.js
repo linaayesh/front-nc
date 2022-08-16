@@ -13,4 +13,6 @@ export {
   DashboardSettings,
 } from './Common';
 
-export { NewUsersPage, RejectedUsersPage, UserListPage } from './Admin';
+export {
+  NewUsersPage, RejectedUsersPage, UserListPage, AddNewUserPage,
+} from './Admin';

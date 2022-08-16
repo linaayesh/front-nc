@@ -5,9 +5,9 @@ import { Button } from 'antd';
 
 import SidebarItem from './SideBarItem';
 import './style.css';
-import { itemsSuperAdmin, itemsAdmin } from './sidebarItems';
+import { itemsSuperAdmin, itemsAdmin } from '../../../Objects/sidebarItems';
 import useAuth from '../../../Hooks/useAuth';
-import { LOGO } from '../../../Constants';
+import { LOGO, ROLES } from '../../../Constants';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
@@ -15,9 +15,9 @@ function SideBar({ handleClick }) {
   useEffect(
     () => {
       // roleId === 1 = SuperAdmin | roleId === 2 = Admin
-      if (roleId === 1) {
+      if (roleId === ROLES.ADMIN) {
         setItems(itemsSuperAdmin);
-      } else if (roleId === 2) {
+      } else if (ROLES.COMEDIAN) {
         setItems(itemsAdmin);
       }
     },

@@ -20,7 +20,14 @@ export default {
       throw new Error(error.response.data.message);
     }
   },
-
+  addUser: async (userInfo) => {
+    try {
+      const response = await axiosCall(REGISTER_URL, 'POST', userInfo);
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.message);
+    }
+  },
   updateUser: async (userInfo) => {
     try {
       const response = await axiosCall(EDIT_PROFILE_URL, 'PATCH', userInfo);

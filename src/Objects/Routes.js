@@ -8,7 +8,6 @@ import {
   PayoutPage,
   Statistics,
   StaffList,
-  PaymentSettingsPage,
   DashboardSettings,
   ChangePassword,
   EditProfilePage,
@@ -17,7 +16,8 @@ import {
   UserListPage,
   VerifyEmailPage,
   RejectedUsersPage,
-} from '../Pages';
+  AddNewUserPage,
+} from 'Pages';
 
 const routes = [
   {
@@ -86,12 +86,6 @@ const adminRoutes = [
     key: 'Settings',
   },
   {
-    title: 'paymentSettings',
-    path: '/dashboard/paymentSettings',
-    component: PaymentSettingsPage,
-    key: 'paymentSettings',
-  },
-  {
     title: 'staff',
     path: '/dashboard/staff',
     component: StaffList,
@@ -132,6 +126,12 @@ const adminRoutes = [
     path: '/dashboard/rejectedUsers',
     component: RejectedUsersPage,
     key: 'rejectedUsers',
+  },
+  {
+    title: 'addNewUser',
+    path: '/dashboard/addNewUser',
+    component: AddNewUserPage,
+    key: 'addNewUser',
   },
 ];
 

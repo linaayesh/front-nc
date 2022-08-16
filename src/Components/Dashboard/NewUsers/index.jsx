@@ -1,52 +1,26 @@
 import './style.css';
 import { useEffect, useState } from 'react';
-import {
-  Input, Button, message, Space, Table, Popconfirm,
-} from '../../AntDesign';
+import { Input, Table } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
+import ModalForm from './Modal';
 
 function NewUsers() {
   const [data, setData] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
   const [value, setValue] = useState('');
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axiosCall('/api/v1/user/waiting-list', 'get', null);
 
-      setData(
-        result.data.data.map((item) => ({ ...item, key: item.id })),
-      );
+      setData(result.data.data.map((item) => ({ ...item, key: item.id })));
     };
     fetchData();
   }, []);
-  const error = () => {
-    message.error('This is an error message');
-  };
 
-  const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
     setDataSource(data);
   }, [data]);
-
-  const approveuser = (id) => {
-    axiosCall(`/api/v1/user/approve/${id}`, 'patch', null)
-      .then(() => {
-        const newData = dataSource.filter((item) => item.id !== id);
-        setDataSource(newData);
-      })
-      .catch(() => {
-        error();
-      });
-  };
-  const rejectuser = (id) => {
-    axiosCall(`/api/v1/user/reject/${id}`, 'patch', null)
-      .then(() => {
-        const newData = dataSource.filter((item) => item.id !== id);
-        setDataSource(newData);
-      })
-      .catch(() => {
-        error();
-      });
-  };
 
   const FilterByNameInput = (
     <Input
@@ -56,7 +30,8 @@ function NewUsers() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.name.toLowerCase().includes(currValue));
+        const filteredData = data.filter((entry) => entry.name.toLowerCase()
+          .includes(currValue));
         setDataSource(filteredData);
       }}
     />
@@ -65,8 +40,8 @@ function NewUsers() {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'username',
-      key: 'username',
+      dataIndex: 'name',
+      key: 'name',
       width: '20%',
     },
 
@@ -89,28 +64,11 @@ function NewUsers() {
       title: 'Action',
       key: 'action',
       render: (_, b) => (
-        <Space size="middle">
-          <Popconfirm
-            title="Are you sure that you want to Approve this user？"
-            okText="Yes"
-            cancelText="No"
-            onConfirm={() => {
-              approveuser(b.id);
-            }}
-          >
-            <Button>Approve</Button>
-          </Popconfirm>
-          <Popconfirm
-            title="Are you sure that you want to reject this user？"
-            okText="Yes"
-            cancelText="No"
-            onConfirm={() => {
-              rejectuser(b.key);
-            }}
-          >
-            <Button type="danger">Reject</Button>
-          </Popconfirm>
-        </Space>
+        <ModalForm
+          dataSource={dataSource}
+          setDataSource={setDataSource}
+          user={b}
+        />
       ),
     },
   ];

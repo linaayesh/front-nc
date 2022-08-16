@@ -30,12 +30,6 @@ const itemsSuperAdmin = [
         path: '/dashboard/revenue',
         key: 'revenue',
       },
-
-      {
-        title: 'Payout',
-        path: '/dashboard/payout',
-        key: 'payout',
-      },
     ],
   },
   {
@@ -58,6 +52,11 @@ const itemsSuperAdmin = [
         path: '/dashboard/rejectedusers',
         key: 'rejectedusers',
       },
+      {
+        title: 'Add New User',
+        path: '/dashboard/addNewUser',
+        key: 'addNewUser',
+      },
     ],
   },
   {
@@ -75,11 +74,7 @@ const itemsSuperAdmin = [
         path: '/dashboard/changepassword',
         key: 'changepassword',
       },
-      {
-        title: 'Payment Settings',
-        path: '/dashboard/paymentsettings',
-        key: 'paymentsettings',
-      },
+
     ],
     path: '/dashboard/AccountSettings',
   },
@@ -98,22 +93,17 @@ const itemsSuperAdmin = [
 const itemsAdmin = [
   {
     title: 'Home',
-    icon: 'fa fa-home',
-    path: '/dashboard/home',
-  },
-  {
-    title: 'Dashboard',
     icon: 'fa fa-dashboard',
     children: [
-      {
-        title: 'Video List ',
-        path: '/dashboard/yourvideos',
-        key: 'yourvideos',
-      },
       {
         title: 'Your Statistics ',
         path: '/dashboard/yourstatistics',
         key: 'yourstatistics',
+      },
+      {
+        title: 'Video List ',
+        path: '/dashboard/yourvideos',
+        key: 'yourvideos',
       },
       {
         title: 'Staff List ',
@@ -138,11 +128,7 @@ const itemsAdmin = [
         path: '/dashboard/changepassword',
         key: 'changepassword',
       },
-      {
-        title: 'Payment Settings',
-        path: '/dashboard/paymentsettings',
-        key: 'paymentsettings',
-      },
+
     ],
     path: '/dashboard/AccountSettings',
   },
