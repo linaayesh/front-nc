@@ -75,9 +75,9 @@ export default {
     }
   },
 
-  resetPassword: async (values) => {
+  resetPassword: async ({ password }) => {
     try {
-      const response = await axiosCall(RESET_PASSWORD_URL, 'POST', values);
+      const response = await axiosCall(RESET_PASSWORD_URL, 'POST', { password });
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);

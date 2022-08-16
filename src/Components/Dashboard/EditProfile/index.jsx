@@ -33,7 +33,6 @@ function EditProfile() {
       id: currentUser.id,
       ...currentUser.name !== form.getFieldValue('name') && { name },
       ...image && { image },
-      updatedBy: currentUser.roleId,
     };
 
     userService
