@@ -25,4 +25,5 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   UNAUTHORIZED: 'You are not authorized to access this page.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
   'ALREADY APPROVED': 'This account is already registered!',
+  'SUCCESS PROCESS': 'Successfully created!',
 };

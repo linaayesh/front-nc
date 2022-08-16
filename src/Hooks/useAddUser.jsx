@@ -1,11 +1,11 @@
-import userService from 'Services/user';
+import adminService from 'Services/admin';
 import { HTTP_EXCEPTIONS_MESSAGES } from 'Constants';
 import {
   message,
 } from 'Components/AntDesign';
 
 export default function useAddUser(name, email, roleId) {
-  userService.addUser({ name, email, roleId }).then((response) => {
+  adminService.addUser({ name, email, roleId }).then((response) => {
     if (HTTP_EXCEPTIONS_MESSAGES[response.message]) {
       message.success(HTTP_EXCEPTIONS_MESSAGES[response.message]);
     }
