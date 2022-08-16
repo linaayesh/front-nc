@@ -30,7 +30,7 @@ function NewUsers() {
       onChange={(e) => {
         const currValue = e.target.value;
         setValue(currValue);
-        const filteredData = data.filter((entry) => entry.username.toLowerCase()
+        const filteredData = data.filter((entry) => entry.name.toLowerCase()
           .includes(currValue));
         setDataSource(filteredData);
       }}
@@ -40,8 +40,8 @@ function NewUsers() {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'username',
-      key: 'username',
+      dataIndex: 'name',
+      key: 'name',
       width: '20%',
     },
 
