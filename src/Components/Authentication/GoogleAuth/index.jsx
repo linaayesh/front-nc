@@ -32,12 +32,12 @@ export default function GoogleAuth({ label, method }) {
         message.success(googleResponse.data.message);
         navigate('/dashboard');
         const {
-          id, username, roleId, email,
+          id, name, roleId, email,
         } = googleResponse.data.payload;
         dispatch(
           setAuth({
             id,
-            username,
+            name,
             email,
             roleId,
             isLoggedIn: true,

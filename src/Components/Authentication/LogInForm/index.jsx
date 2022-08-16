@@ -24,12 +24,12 @@ export default function LogInForm() {
       message.success(response.data.message);
       navigate('/dashboard');
       const {
-        id, username, roleId,
+        id, name, roleId,
       } = response.data.payload;
       dispatch(
         setAuth({
           id,
-          username,
+          name,
           email,
           roleId,
           isLoggedIn: true,
@@ -45,12 +45,12 @@ export default function LogInForm() {
           message.success(response.message);
           navigate('/dashboard');
           const {
-            id, username, roleId,
+            id, name, roleId,
           } = response.payload;
           dispatch(
             setAuth({
               id,
-              username,
+              name,
               email,
               roleId,
               isLoggedIn: true,

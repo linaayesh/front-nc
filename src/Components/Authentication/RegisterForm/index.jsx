@@ -13,10 +13,10 @@ export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const { username, password } = values;
+    const { name, password } = values;
     const email = values.email.toLowerCase();
 
-    userService.createUser({ username, email, password }).then((response) => {
+    userService.createUser({ name, email, password }).then((response) => {
       if (HTTP_EXCEPTIONS_MESSAGES[response.message]) {
         message.success(HTTP_EXCEPTIONS_MESSAGES[response.message]);
         form.resetFields();
@@ -38,7 +38,7 @@ export default function RegisterForm() {
         className="auth-form"
       >
         <Form.Item
-          name="username"
+          name="name"
           rules={[
             {
               required: true,

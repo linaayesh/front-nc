@@ -4,7 +4,7 @@ export const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1633332755192-7
 
 export const DEFAULT_USER_STATE = {
   id: null,
-  username: null,
+  name: null,
   email: null,
   image: null,
   roleId: null,
@@ -21,7 +21,8 @@ export const ROLES = {
 export const HTTP_EXCEPTIONS_MESSAGES = {
   'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.
   'APPROVED ACCOUNT': 'Something went wrong. Please try again later.',
-  'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
+  'PENDING ACCOUNT': 'This account is waiting for approval, hang tight!',
   UNAUTHORIZED: 'You are not authorized to access this page.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
+  'ALREADY APPROVED': 'This account is already registered!',
 };

@@ -3,6 +3,7 @@ import {
   LOGIN_URL,
   LOGOUT_URL,
   REGISTER_URL,
+  ADD_USER_URL,
   GOOGLE_LOGIN_URL,
   FORGET_PASSWORD_URL,
   RESET_PASSWORD_URL,
@@ -22,7 +23,7 @@ export default {
   },
   addUser: async (userInfo) => {
     try {
-      const response = await axiosCall(REGISTER_URL, 'POST', userInfo);
+      const response = await axiosCall(ADD_USER_URL, 'POST', userInfo);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
@@ -37,7 +38,7 @@ export default {
     }
   },
 
-  getUser: async () => { //* suggestion: use username at least as a param
+  getUser: async () => { //* suggestion: use name at least as a param
     try {
       const response = await axiosCall(USER_URL, 'GET');
       return response.data;

@@ -16,11 +16,11 @@ export default function useAuth() {
       .then(
         ((res) => {
           const {
-            id, username, email, roleId, image,
+            id, name, email, roleId, image,
           } = res.data;
           dispatch(setAuth({
             id,
-            username,
+            name,
             email,
             roleId,
             isLoggedIn: true,

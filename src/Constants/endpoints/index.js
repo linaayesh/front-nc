@@ -16,6 +16,7 @@ export const USER_APPROVED_LIST_URL = `${BASE_URL}/api/v1/user/approved-list`;
 export const USER_REJECTED_LIST_URL = `${BASE_URL}/api/v1/user/rejected-list`;
 export const APPROVE_USER_BY_ID_URL = `${BASE_URL}/api/v1/user/approve`;
 export const REJECT_USER_BY_ID_URL = `${BASE_URL}/api/v1/user/reject`;
+export const ADD_USER_URL = `${BASE_URL}/api/v1/user/add-user`;
 
 //* user endpoints - |EndUser USER|
 export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
