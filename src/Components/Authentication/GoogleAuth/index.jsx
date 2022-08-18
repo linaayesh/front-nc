@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { CLIENT_ID } from 'Constants/config';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'Constants';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
 import userService from '../../../Services/user';
 import { message } from '../../AntDesign';
@@ -27,10 +28,13 @@ export default function GoogleAuth({ label, method }) {
   const successResponse = async (response) => {
     const { tokenId } = response;
     try {
-      const googleResponse = userService.googleLogin(method, tokenId);
-      if (googleResponse.status === 201) message.success('Sign Up Successfully. Wait for approval');
+      const googleResponse = await userService.googleLogin(method, tokenId);
+
+      if (googleResponse.status === 201) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[googleResponse.data.message]);
+      }
       if (googleResponse.status === 200) {
-        message.success(googleResponse.data.message);
+        message.success(HTTP_EXCEPTIONS_MESSAGES[googleResponse.data.message]);
         navigate('/dashboard');
         const {
           id, name, roleId, email,
@@ -46,8 +50,12 @@ export default function GoogleAuth({ label, method }) {
         );
       }
     } catch (error) {
-      message.error(error.response.data.message);
-      if (error.response.data.message === 'APPROVED ACCOUNT') message.error('Waiting for approval || already approved account');
+      console.log(error);
+      if (error.toString().includes('NOT EXIST USER')) {
+        message.error(HTTP_EXCEPTIONS_MESSAGES['NOT EXIST USER']);
+      } else if (error.toString().includes(' ALREADY APPROVED')) {
+        message.error(HTTP_EXCEPTIONS_MESSAGES['APPROVED ACCOUNT']);
+      }
     }
   };
 

@@ -60,7 +60,7 @@ export default {
   googleLogin: async (method, tokenId) => {
     try {
       const response = await axiosCall(GOOGLE_LOGIN_URL(method), 'POST', { tokenId });
-      return response.data;
+      return response;
     } catch (error) {
       throw new Error(error.response.data.message);
     }
