@@ -23,6 +23,8 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'Incorrect email or password': 'We could not recognize your email or password. Please bother us later.',
   'Internal Server Error': 'It is us! something went wrong. Please try again later.',
   'ALREADY REJECTED': 'This account has already been rejected.', // TODO: find a better message to humiliate him more professionally
+  'ALREADY APPROVED': 'This account is already registered!',
+  'SUCCESS PROCESS': 'Successfully created!',
   'SUCCESS EDIT': 'Congratulation, you edited your profile successfully!',
   'SUCCESS LOGIN': 'Successfully logged in, blow it up!',
   'SUCCESS LOGOUT': 'Successfully logged out, cant wait to see your face again!',

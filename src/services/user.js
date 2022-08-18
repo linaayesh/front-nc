@@ -18,7 +18,7 @@ export default {
 
   loginUser: (credentials) => axiosCall(LOGIN_URL, 'POST', credentials),
   logoutUser: () => axiosCall(LOGOUT_URL, 'GET'),
-  googleLogin: () => axiosCall(GOOGLE_LOGIN_URL, 'POST'),
+  googleLogin: (method, token) => axiosCall(GOOGLE_LOGIN_URL(method), 'POST', { token }),
 
   forgetPassword: (email) => axiosCall(FORGET_PASSWORD_URL, 'POST', email),
   resetPassword: (email) => axiosCall(RESET_PASSWORD_URL, 'POST', email),

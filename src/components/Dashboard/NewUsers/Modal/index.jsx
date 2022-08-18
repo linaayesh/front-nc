@@ -18,7 +18,6 @@ function ModalForm({ user }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onChange = (e) => {
-    console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
 
