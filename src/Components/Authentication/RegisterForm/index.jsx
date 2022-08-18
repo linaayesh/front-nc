@@ -27,7 +27,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container-register">
       <Logo />
       <Text className="auth-text title-text">Please compleat to create your account</Text>
       <Form
