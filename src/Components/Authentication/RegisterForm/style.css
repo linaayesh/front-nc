@@ -10,7 +10,7 @@
   object-fit: cover;
 }
 /* Auth container */
-.auth-container{
+.auth-container-register{
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@
   .home-layout-image{
       display: none;
   }
-  .auth-container{
+  .auth-container-register{
     width: 100%;
     margin-top: 20%;
   }
