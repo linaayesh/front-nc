@@ -5,7 +5,7 @@ export const USER_URL = `${BASE_URL}/api/v1/auth/user`;
 export const REGISTER_URL = `${BASE_URL}/api/v1/auth/signup`;
 export const LOGIN_URL = `${BASE_URL}/api/v1/auth/login`;
 export const LOGOUT_URL = `${BASE_URL}/api/v1/auth/logout`;
-export const GOOGLE_LOGIN_URL = `${BASE_URL}/api/v1/auth/sign/google`;
+export const GOOGLE_LOGIN_URL = (method) => `${BASE_URL}/api/v1/auth/${method}/google`;
 export const FORGET_PASSWORD_URL = `${BASE_URL}/api/v1/auth/forget-password`;
 export const RESET_PASSWORD_URL = `${BASE_URL}/api/v1/auth/reset-password`;
 export const EDIT_PROFILE_URL = `${BASE_URL}/api/v1/auth/edit-profile`;
