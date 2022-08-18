@@ -4,11 +4,12 @@ import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+import { CLIENT_ID } from 'Constants/config';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
-import axiosCall from '../../../Services/ApiCall';
+import userService from '../../../Services/user';
 import { message } from '../../AntDesign';
 
-const clientID = process.env.REACT_APP_CLIENT_ID;
 export default function GoogleAuth({ label, method }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function GoogleAuth({ label, method }) {
   useEffect(() => {
     const start = () => {
       gapi.client.init({
-        clientId: clientID,
+        clientId: CLIENT_ID,
         scope: 'email',
       });
     };
@@ -26,7 +27,7 @@ export default function GoogleAuth({ label, method }) {
   const successResponse = async (response) => {
     const { tokenId } = response;
     try {
-      const googleResponse = await axiosCall(`/api/v1/auth/${method}/google`, 'post', { tokenId });
+      const googleResponse = userService.googleLogin(method, tokenId);
       if (googleResponse.status === 201) message.success('Sign Up Successfully. Wait for approval');
       if (googleResponse.status === 200) {
         message.success(googleResponse.data.message);
@@ -57,7 +58,7 @@ export default function GoogleAuth({ label, method }) {
     <GoogleLogin
       className="google-sign-up-button"
       buttonText={label}
-      clientId={clientID}
+      clientId={CLIENT_ID}
       onSuccess={successResponse}
       onFailure={failureResponse}
       cookiePolicy="single_host_origin"
