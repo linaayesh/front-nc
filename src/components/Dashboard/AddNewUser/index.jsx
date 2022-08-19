@@ -1,6 +1,6 @@
 import { useAddUser } from 'hooks';
-import { Input, Button, Form } from 'Components/AntDesign';
-import { ROLES } from 'Constants/index';
+import { Input, Button, Form } from 'components/AntDesign';
+import { ROLES } from 'shared/constants';
 import './style.css';
 
 export default function AddNewUser() {
