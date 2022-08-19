@@ -1,36 +1,21 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { loginUser } from 'store/auth/thunk';
 import {
-  Input, Typography, Button, Form, Checkbox, message,
+  Input, Typography, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 import GoogleAuth from '../GoogleAuth';
 import './style.css';
 
 export default function LogInForm() {
   const { Text } = Typography;
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { data, error } = useAppSelector((state) => state.checkAuth);
-
   const onFinish = async (values) => {
     const { email, password } = values;
-
     await dispatch(loginUser({ email: email.toLowerCase(), password }));
-    if (data) {
-      if (data === 'SUCCESS LOGIN') {
-        navigate('/dashboard');
-        message.success(data);
-      }
-    }
-
-    if (error) {
-      message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
-    }
   };
 
   return (

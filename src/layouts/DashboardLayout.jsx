@@ -1,17 +1,15 @@
 import { useRef } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 import { Navbar, SideBar } from 'components';
-import { useAppDispatch, useAppSelector } from 'hooks';
-import { message } from 'components/AntDesign';
+import { useAppDispatch } from 'hooks';
 import { logoutUser } from 'store/auth/thunk';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
   const navbarInLayout = useRef(null);
   const dispatch = useAppDispatch();
-  const { data, error } = useAppSelector((state) => state.checkAuth);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     const navbar = sideBarInLayout.current.style.display;
@@ -27,9 +25,7 @@ export default function DashboardLayout() {
   };
   const handleLogout = async () => {
     await dispatch(logoutUser());
-    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
-    window.location.href = '/';
+    navigate('/');
   };
 
   return (
