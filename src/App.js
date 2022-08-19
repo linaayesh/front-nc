@@ -4,30 +4,40 @@ import { Home, DashboardLayout } from 'layouts';
 import {
   NotFound, LogInPage, Statistics,
 } from 'pages';
-import { ProtectLogin, ProtectedRoute } from 'middleware';
+import { ProtectLogin, ProtectedRoute, Logout } from 'middleware';
 import { routes, adminRoutes } from 'shared/objects/Routes';
 import './app.css';
+import { useAppSelector } from 'hooks';
+import { useEffect } from 'react';
+import { message } from 'antd';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 
 function App() {
+  const { data, error } = useAppSelector((state) => state.checkAuth);
+  useEffect(() => {
+    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
+    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
+  }, [data, error]);
+
   return (
     <Routes>
-      <Route path="/" element={<Home />}>
-        <Route
-          index
-          element={(
-            <ProtectLogin>
-              <LogInPage />
-            </ProtectLogin>
+      <Route path="/" element={<Home />} />
+      <Route path="/logout" element={<Logout />} />
+      <Route
+        index
+        element={(
+          <ProtectLogin>
+            <LogInPage />
+          </ProtectLogin>
           )}
+      />
+      {routes.map((route) => (
+        <Route
+          key={route.path}
+          path={route.path}
+          element={<route.component />}
         />
-        {routes.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={<route.component />}
-          />
-        ))}
-      </Route>
+      ))}
       <Route
         path="dashboard"
         element={(

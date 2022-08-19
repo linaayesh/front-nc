@@ -86,7 +86,7 @@ const itemsSuperAdmin = [
   {
     title: 'Logout',
     icon: 'fa fa-sign-out',
-    path: '/',
+    path: '/logout',
   },
 
 ];
@@ -140,7 +140,7 @@ const itemsAdmin = [
   {
     title: 'Logout',
     icon: 'fa fa-sign-out',
-    path: '/',
+    path: '/logout',
   },
 
 ];
