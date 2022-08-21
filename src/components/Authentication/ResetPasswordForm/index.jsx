@@ -21,7 +21,7 @@ function ResetPasswordForm() {
 
   return (
     !isLoading ? (
-      <div className="auth-container">
+      <div className="auth-container-reset">
         <Logo />
         <Text className="auth-text title-text">Please enter your new password</Text>
         <Form

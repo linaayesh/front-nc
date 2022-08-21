@@ -21,7 +21,7 @@ export default function ForgetPasswordForm() {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container-forget">
       <Logo />
       <Text className="auth-text title-text">Please enter your email to reset your password.</Text>
       <Form
