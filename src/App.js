@@ -1,6 +1,6 @@
 import 'antd/dist/antd.min.css';
-import { Routes, Route } from 'react-router-dom';
-import { Home, DashboardLayout } from 'layouts';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import { DashboardLayout } from 'layouts';
 import {
   NotFound, LogInPage, Statistics,
 } from 'pages';
@@ -21,23 +21,24 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/logout" element={<Logout />} />
-      <Route
-        index
-        element={(
-          <ProtectLogin>
-            <LogInPage />
-          </ProtectLogin>
-          )}
-      />
-      {routes.map((route) => (
+      <Route path="/" element={<Outlet />}>
+        <Route path="/logout" element={<Logout />} />
         <Route
-          key={route.path}
-          path={route.path}
-          element={<route.component />}
+          index
+          element={(
+            <ProtectLogin>
+              <LogInPage />
+            </ProtectLogin>
+          )}
         />
-      ))}
+        {routes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={<route.component />}
+          />
+        ))}
+      </Route>
       <Route
         path="dashboard"
         element={(
