@@ -4,11 +4,13 @@ import PropsTypes from 'prop-types';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+import { CLIENT_ID } from 'Constants/config';
+import { HTTP_EXCEPTIONS_MESSAGES } from 'Constants';
 import { setAuth } from '../../../Store/Slices/checkAuthSlice';
-import axiosCall from '../../../Services/ApiCall';
+import userService from '../../../Services/user';
 import { message } from '../../AntDesign';
 
-const clientID = process.env.REACT_APP_CLIENT_ID;
 export default function GoogleAuth({ label, method }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ export default function GoogleAuth({ label, method }) {
   useEffect(() => {
     const start = () => {
       gapi.client.init({
-        clientId: clientID,
+        clientId: CLIENT_ID,
         scope: 'email',
       });
     };
@@ -26,10 +28,13 @@ export default function GoogleAuth({ label, method }) {
   const successResponse = async (response) => {
     const { tokenId } = response;
     try {
-      const googleResponse = await axiosCall(`/api/v1/auth/${method}/google`, 'post', { tokenId });
-      if (googleResponse.status === 201) message.success('Sign Up Successfully. Wait for approval');
+      const googleResponse = await userService.googleLogin(method, tokenId);
+
+      if (googleResponse.status === 201) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[googleResponse.data.message]);
+      }
       if (googleResponse.status === 200) {
-        message.success(googleResponse.data.message);
+        message.success(HTTP_EXCEPTIONS_MESSAGES[googleResponse.data.message]);
         navigate('/dashboard');
         const {
           id, name, roleId, email,
@@ -45,8 +50,11 @@ export default function GoogleAuth({ label, method }) {
         );
       }
     } catch (error) {
-      message.error(error.response.data.message);
-      if (error.response.data.message === 'APPROVED ACCOUNT') message.error('Waiting for approval || already approved account');
+      if (error.toString().includes('NOT EXIST USER')) {
+        message.error(HTTP_EXCEPTIONS_MESSAGES['NOT EXIST USER']);
+      } else if (error.toString().includes(' ALREADY APPROVED')) {
+        message.error(HTTP_EXCEPTIONS_MESSAGES['APPROVED ACCOUNT']);
+      }
     }
   };
 
@@ -57,7 +65,7 @@ export default function GoogleAuth({ label, method }) {
     <GoogleLogin
       className="google-sign-up-button"
       buttonText={label}
-      clientId={clientID}
+      clientId={CLIENT_ID}
       onSuccess={successResponse}
       onFailure={failureResponse}
       cookiePolicy="single_host_origin"
