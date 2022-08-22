@@ -50,7 +50,6 @@ export default function GoogleAuth({ label, method }) {
         );
       }
     } catch (error) {
-      console.log(error);
       if (error.toString().includes('NOT EXIST USER')) {
         message.error(HTTP_EXCEPTIONS_MESSAGES['NOT EXIST USER']);
       } else if (error.toString().includes(' ALREADY APPROVED')) {
