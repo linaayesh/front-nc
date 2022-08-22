@@ -8,18 +8,18 @@ import {
 function EditData({ currentUser }) {
   const [form] = Form.useForm();
   const [isFormChanged, setFormChanged] = useState(false);
-  const [aCountry, aState, aCity, aAddress] = currentUser.address.split('-');
+  const [userCountry, userState, userCity, userAddresss] = currentUser.address.split('-');
   const [address] = useState({
-    aCountry, aState, aCity, aAddress,
+    userCountry, userState, userCity, userAddresss,
   });
 
   useEffect(() => {
     form.setFieldsValue({
-      aName: currentUser.name,
-      aCountry: address.Country,
-      aState: address.State,
-      aCity: address.City,
-      aAddress: address.Address,
+      Name: currentUser.name,
+      userCountry: address.Country,
+      userState: address.State,
+      userCity: address.City,
+      userAddresss: address.Address,
 
     });
   }, [currentUser]);
