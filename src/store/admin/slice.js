@@ -8,6 +8,7 @@ import {
   getRejectedList,
   approveUser,
   rejectUser,
+  createUser,
 } from './thunk';
 
 const initialState = {
@@ -18,6 +19,19 @@ const initialState = {
 };
 
 const extraReducers = (builder) => {
+  builder
+    .addCase(createUser.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(createUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      console.log('action', action.payload);
+      state.approvedList.push(action.payload.user);
+    })
+    .addCase(createUser.rejected, (state) => {
+      state.isLoading = false;
+    });
+
   builder
     .addCase(getWaitingList.pending, (state) => {
       state.isLoading = true;

@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import { Loader } from 'shared/components';
 import { validationMessages } from 'utils';
-import { createUser } from 'store/user/thunk';
+import { createUser } from 'store/admin/thunk';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
@@ -93,7 +93,7 @@ export default function RegisterForm() {
             </Button>
           </Form.Item>
         </Form>
-        <GoogleAuth label="Sign Up With Google" />
+        <GoogleAuth label="Sign Up With Google" method="sign" />
         <Text className="have-account-text">
           Already have an account?
           <Link to="/" className="sign-in-link">Sign In.</Link>

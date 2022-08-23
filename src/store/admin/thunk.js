@@ -70,6 +70,7 @@ export const createUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const { data } = await adminService.createUser(user);
+      // TODO: we should be extracting user from data.user coming from backend:
       return { message: data.message, user };
     } catch (error) {
       return rejectWithValue(error.response.data.message);
