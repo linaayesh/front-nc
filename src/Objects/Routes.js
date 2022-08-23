@@ -9,7 +9,7 @@ import {
   Statistics,
   StaffList,
   DashboardSettings,
-  ChangePassword,
+  ChangePasswordPage,
   EditProfilePage,
   ResetPasswordPage,
   NewUsersPage,
@@ -76,7 +76,7 @@ const adminRoutes = [
   {
     title: 'changePassword',
     path: '/dashboard/changePassword',
-    component: ChangePassword,
+    component: ChangePasswordPage,
     key: 'changePassword',
   },
   {
