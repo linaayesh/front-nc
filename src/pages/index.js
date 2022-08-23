@@ -19,7 +19,7 @@ export {
 
 export {
   ForgetPasswordPage,
-  LogInPage,
+  LoginPage,
   RegisterPage,
   ResetPasswordPage,
   VerifyEmailPage,

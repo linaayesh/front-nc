@@ -1,6 +1,6 @@
 import {
   RegisterPage,
-  LogInPage,
+  LoginPage,
   TermsPage,
   ForgetPasswordPage,
   RevenuePage,
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: 'login',
-    component: LogInPage,
+    component: LoginPage,
     title: 'Log In',
     key: 'login',
     pro: true,

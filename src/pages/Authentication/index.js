@@ -1,12 +1,12 @@
 import ForgetPasswordPage from './ForgetPasswordPage';
-import LogInPage from './LogInPage';
+import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import ResetPasswordPage from './ResetPasswordPage';
 import VerifyEmailPage from './VerifyEmailPage';
 
 export {
   ForgetPasswordPage,
-  LogInPage,
+  LoginPage,
   RegisterPage,
   ResetPasswordPage,
   VerifyEmailPage,

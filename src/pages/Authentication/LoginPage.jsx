@@ -1,4 +1,4 @@
-import { LogInForm } from 'components';
+import { LoginForm } from 'components';
 import authImage from 'assets/images/authImage.png';
 
 function LoginPage() {
@@ -11,7 +11,7 @@ function LoginPage() {
         loading="lazy"
         decoding="async"
       />
-      <LogInForm />
+      <LoginForm />
     </div>
   );
 }

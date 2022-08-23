@@ -10,12 +10,13 @@ import Logo from '../RegisterForm/logo';
 import GoogleAuth from '../GoogleAuth';
 import './style.css';
 
-export default function LogInForm() {
+export default function LoginForm() {
   const { Text } = Typography;
   const dispatch = useAppDispatch();
+
   const onFinish = async (values) => {
     const { email, password } = values;
-    await dispatch(loginUser({ email: email.toLowerCase(), password }));
+    dispatch(loginUser({ email: email.toLowerCase(), password }));
   };
 
   return (
