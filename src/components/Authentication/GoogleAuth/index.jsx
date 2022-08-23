@@ -5,7 +5,7 @@ import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from 'hooks';
-import { googleLogin } from 'store/auth/thunk';
+import { getUser, googleLogin } from 'store/auth/thunk';
 import { message } from 'components/AntDesign';
 import { CLIENT_ID } from 'shared/constants/config';
 
@@ -28,6 +28,7 @@ export default function GoogleAuth({ label, method }) {
 
     await dispatch(googleLogin({ method, tokenId })).unwrap();
     navigate('/dashboard');
+    dispatch(getUser());
   };
 
   const failureResponse = (response) => {
