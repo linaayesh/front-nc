@@ -69,7 +69,7 @@ const extraReducers = (builder) => {
     })
     .addCase(googleLogin.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.auth = action.payload.payload;
+      state.user = action.payload.user;
       state.data = action.payload.message;
     })
     .addCase(googleLogin.rejected, (state, action) => {

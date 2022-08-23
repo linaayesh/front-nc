@@ -1,15 +1,19 @@
-import { useAddUser } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { Input, Button, Form } from 'components/AntDesign';
 import { ROLES } from 'shared/constants';
 import './style.css';
+import { createUser } from 'store/admin/thunk';
 
 export default function AddNewUser() {
   const [form] = Form.useForm();
+  const dispatch = useAppDispatch();
+
   const onFinish = async (values) => {
     const { name } = values;
     const email = values.email.toLowerCase();
     const roleId = ROLES.COMEDIAN;
-    useAddUser(name, email, roleId);
+    dispatch(createUser({ name, email, roleId }));
+
     form.resetFields();
   };
 

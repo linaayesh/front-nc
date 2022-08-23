@@ -14,11 +14,11 @@ import { axiosCall } from '../utils';
 export default {
   createUser: (userInfo) => axiosCall(REGISTER_URL, 'POST', userInfo),
   getUser: () => axiosCall(USER_URL, 'GET'),
-  updateUsers: (userInfo) => axiosCall(EDIT_PROFILE_URL, 'PATCH', userInfo),
+  updateUser: (userInfo) => axiosCall(EDIT_PROFILE_URL, 'PATCH', userInfo),
 
   loginUser: (credentials) => axiosCall(LOGIN_URL, 'POST', credentials),
   logoutUser: () => axiosCall(LOGOUT_URL, 'GET'),
-  googleLogin: (method, token) => axiosCall(GOOGLE_LOGIN_URL(method), 'POST', { token }),
+  googleLogin: (method, tokenId) => axiosCall(GOOGLE_LOGIN_URL(method), 'POST', { tokenId }),
 
   forgetPassword: (email) => axiosCall(FORGET_PASSWORD_URL, 'POST', email),
   resetPassword: (email) => axiosCall(RESET_PASSWORD_URL, 'POST', email),

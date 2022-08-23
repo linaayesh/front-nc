@@ -39,9 +39,9 @@ export const logoutUser = createAsyncThunk(
 
 export const googleLogin = createAsyncThunk(
   'user/googleLogin',
-  async (_params, { rejectWithValue }) => {
+  async ({ method, tokenId }, { rejectWithValue }) => {
     try {
-      const { data } = await userService.googleLogin();
+      const { data } = await userService.googleLogin(method, tokenId);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
