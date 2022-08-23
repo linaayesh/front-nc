@@ -4,7 +4,7 @@ export { default as TermsPage } from './TermsPage';
 export {
   RevenuePage,
   EditProfilePage,
-  ChangePassword,
+  ChangePasswordPage,
   DashboardSettings,
   PaymentSettingsPage,
   StaffList,
