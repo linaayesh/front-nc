@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
 
-import { useAuth } from 'hooks';
+import { useAppSelector } from 'hooks';
 import { itemsSuperAdmin, itemsAdmin } from 'shared/objects/sidebarItems';
 import { LOGO, ROLES } from 'shared/constants';
 import SidebarItem from './SideBarItem';
@@ -11,7 +11,7 @@ import './style.css';
 
 function SideBar({ handleClick }) {
   const [items, setItems] = useState([]);
-  const { roleId } = useAuth();
+  const { user: { roleId } } = useAppSelector((state) => state.checkAuth);
 
   useEffect(
     () => {

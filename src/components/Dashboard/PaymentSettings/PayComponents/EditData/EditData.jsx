@@ -3,7 +3,7 @@ import PropsTypes from 'prop-types';
 
 import userService from 'services/user';
 import {
-  Button, Form, Input, message,
+  Button, Form, Input,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 
@@ -39,12 +39,9 @@ function EditData({ currentUser }) {
     };
     userService
       .updateFinancialData(userInfo)
-      .then((res) => {
-        if (res.message) {
-          message.success('Successfully updated');
-          setFormChanged(false);
-        }
-      });
+      .finally(
+        setFormChanged(false),
+      );
   };
   return (
     <Form form={form} name="basic" onFinish={onFinish} autoComplete="off" className="add-pay-form">

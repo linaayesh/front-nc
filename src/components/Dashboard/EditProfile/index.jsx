@@ -1,28 +1,27 @@
 import { useState, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector, useAuth } from 'hooks';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { updateUser } from 'store/user/thunk';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import { Loader } from 'shared/components';
 import { validationMessages } from 'utils';
 import {
-  Input, Button, Form, Switch, message,
+  Input, Button, Form, Switch,
 } from 'components/AntDesign';
 import ImageUploader from './uploadImage';
 import './style.css';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const currentUser = useAuth();
+  const { user } = useAppSelector((state) => state.checkAuth);
   const dispatch = useAppDispatch();
   const [image, setImage] = useState(null);
   const [isFormChanged, setIsFormChanged] = useState(false);
-  const { data, error, isLoading } = useAppSelector((state) => state.user);
+  const { isLoading } = useAppSelector((state) => state.user);
 
   useEffect(() => {
-    form.setFieldsValue(currentUser);
+    form.setFieldsValue(user);
     setIsFormChanged(false);
-  }, [form, currentUser]);
+  }, [form, user]);
 
   useEffect(() => {
     if (image) {
@@ -35,17 +34,13 @@ function EditProfile() {
     const { name } = values;
 
     const userUpdatedInfo = {
-      id: currentUser.id,
-      ...currentUser.name !== form.getFieldValue('name') && { name },
+      id: user.id,
+      ...user.name !== form.getFieldValue('name') && { name },
       ...image && { image },
     };
 
     try {
       await dispatch(updateUser(userUpdatedInfo));
-
-      // TODO: fix that dummy act here when showing a response/error messages
-      if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-      if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
     } finally {
       setIsFormChanged(false);
     }
@@ -64,7 +59,7 @@ function EditProfile() {
               onFinish={onFinish}
               autoComplete="off"
               className="edit-form"
-              initialValues={currentUser}
+              initialValues={user}
               onValuesChange={() => setIsFormChanged(true)}
             >
 
@@ -84,7 +79,7 @@ function EditProfile() {
                       <Input
                         placeholder="Name"
                         onChange={() => setIsFormChanged(
-                          form.getFieldValue('name') !== currentUser.name,
+                          form.getFieldValue('name') !== user.name,
                         )}
                       />
                     </Form.Item>
@@ -116,7 +111,7 @@ function EditProfile() {
                   </p>
                   <Switch
                     className="switch"
-                    defaultChecked={currentUser.notification}
+                    defaultChecked={user.notification}
                   />
                 </div>
               </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import userService from 'services/user';
 import {
-  Button, Form, Input, message,
+  Button, Form, Input,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 
@@ -20,13 +20,6 @@ function AddData() {
     };
     userService
       .addFinancialData(userInfo)
-      .then((res) => {
-        if (res.message) {
-          message.success('Payment details added successfully');
-          setFormChanged(false);
-        }
-      })
-      .catch((error) => message.error(error.message))
       .finally(() => setFormChanged(false));
   };
   return (

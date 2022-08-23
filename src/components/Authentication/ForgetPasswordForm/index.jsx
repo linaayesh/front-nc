@@ -1,23 +1,19 @@
 import { Link } from 'react-router-dom';
 
 import {
-  Input, Typography, Button, Form, message,
+  Input, Typography, Button, Form,
 } from 'components/AntDesign';
-import { useAppDispatch, useAppSelector } from 'hooks';
+import { useAppDispatch } from 'hooks';
 import { forgetPassword } from 'store/user/thunk';
 import { validationMessages } from 'utils';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 
 export default function ForgetPasswordForm() {
   const { Text } = Typography;
   const dispatch = useAppDispatch();
-  const { data, error } = useAppSelector((state) => state.user);
 
   const onFinish = async (email) => {
     dispatch(forgetPassword(email));
-    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
   };
 
   return (

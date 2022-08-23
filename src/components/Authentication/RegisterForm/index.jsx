@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import {
-  Input, Typography, Button, Form, Checkbox, message,
+  Input, Typography, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import { Loader } from 'shared/components';
 import { validationMessages } from 'utils';
-import { createUser } from 'store/admin/thunk';
+import { createUser } from 'store/user/thunk';
 import GoogleAuth from '../GoogleAuth';
 import Logo from './logo';
 import './style.css';
@@ -16,23 +15,15 @@ export default function RegisterForm() {
   const { Text } = Typography;
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
-  const { data, error, isLoading } = useAppSelector((state) => state.user);
+  const { isLoading } = useAppSelector((state) => state.user);
 
   const onFinish = async (values) => {
     const { name, password } = values;
     const email = values.email.toLowerCase();
-    await dispatch(createUser({ name, email, password }));
 
-    if (!isLoading) {
-      if (data) {
-        if (HTTP_EXCEPTIONS_MESSAGES[data]) {
-          message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-          form.resetFields();
-        }
-      } else if (error) {
-        message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
-      }
-    }
+    await dispatch(createUser({ name, email, password })).finally(
+      form.resetFields(),
+    );
   };
 
   return (

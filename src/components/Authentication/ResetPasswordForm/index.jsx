@@ -1,22 +1,19 @@
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { resetPassword } from 'store/user/thunk';
 import {
-  Input, Typography, Button, Form, message,
+  Input, Typography, Button, Form,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 import { Loader } from 'shared/components';
-import { HTTP_EXCEPTIONS_MESSAGES } from 'shared/constants';
 import Logo from '../RegisterForm/logo';
 
 function ResetPasswordForm() {
   const { Text } = Typography;
   const dispatch = useAppDispatch();
-  const { data, error, isLoading } = useAppSelector((state) => state.user);
+  const { isLoading } = useAppSelector((state) => state.user);
 
   const onFinish = async ({ password }) => {
     dispatch(resetPassword({ password }));
-    if (data) message.success(HTTP_EXCEPTIONS_MESSAGES[data]);
-    if (error) message.error(HTTP_EXCEPTIONS_MESSAGES[error]);
   };
 
   return (
