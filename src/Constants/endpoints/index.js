@@ -20,3 +20,4 @@ export const ADD_USER_URL = `${BASE_URL}/api/v1/user/add-user`;
 
 //* user endpoints - |EndUser USER|
 export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
+export const STATISTICS_DATA_URL = `${BASE_URL}/api/v1/user/statistics`;

@@ -16,3 +16,5 @@ export { default as Modal } from './Modal/Modal';
 export { default as PlusOutlined } from './Icons/PlusOutlined';
 export { default as LoadingOutlined } from './Icons/LoadingOutlined';
 export { default as DeleteOutlined } from './Icons/DeleteOutlined';
+export { default as Card } from './Card/Card';
+export { default as Statistic } from './Statistic/Statistic';
