@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { columns } from 'Objects/Users';
+import axiosCall from 'Services/ApiCall';
 import {
   Input, Table,
-} from '../../AntDesign';
-import axiosCall from '../../../Services/ApiCall';
-import columns from '../../../Objects/Users';
+} from 'Components/AntDesign';
 
 function RejectedUsers() {
   const [data, setData] = useState([]);

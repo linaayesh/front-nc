@@ -1,8 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-export default function MainTitle(props) {
-  const { title } = props;
+export default function MainTitle({ title }) {
   return (
     <div className="main-title-container">
       <div className="main-title-icon" />

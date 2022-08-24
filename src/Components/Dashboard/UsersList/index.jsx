@@ -3,7 +3,7 @@ import {
   Input, Table,
 } from '../../AntDesign';
 import axiosCall from '../../../Services/ApiCall';
-import columns from '../../../Objects/Users';
+import { columns } from '../../../Objects/Users';
 
 function UsersList() {
   const [data, setData] = useState([]);

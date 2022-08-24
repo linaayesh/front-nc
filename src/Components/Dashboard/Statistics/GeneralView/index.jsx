@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { AntComponents, StatisticsGrid } from 'Components';
 import { ComponentLayout } from 'Layouts';
 import PropsTypes from 'prop-types';
 import { MainTitle } from 'shared';
 import './style.css';
 
-export default function GeneralView(data) {
-  const { count, balance, earning } = data;
-
+export default function GeneralView({ count, balance }) {
   const arr = [
     {
       icon: 'https://joeschmoe.io/api/v1/random',
@@ -22,12 +19,12 @@ export default function GeneralView(data) {
     {
       icon: 'https://joeschmoe.io/api/v1/random',
       title: 'Earning',
-      value: earning,
+      value: balance,
     },
     {
       icon: 'https://joeschmoe.io/api/v1/random',
       title: 'Payouts',
-      value: 22,
+      value: 0,
     },
   ];
   const { Card } = AntComponents;
@@ -45,12 +42,7 @@ export default function GeneralView(data) {
   );
 }
 
-GeneralView.prototype = {
+GeneralView.propTypes = {
   count: PropsTypes.number.isRequired,
   balance: PropsTypes.number.isRequired,
-  earning: PropsTypes.number.isRequired,
 };
-
-// GeneralView.defaultProps = {
-//   count: 0,
-// };

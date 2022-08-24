@@ -1,9 +1,8 @@
 import Proptypes from 'prop-types';
+import { Card, Avatar, Statistic } from 'Components/AntDesign';
 import './style.css';
-import { AntComponents } from 'Components';
 
 export default function StatisticsGrid({ icon, title, value }) {
-  const { Card, Avatar, Statistic } = AntComponents;
   return (
     <Card.Grid>
       <Avatar

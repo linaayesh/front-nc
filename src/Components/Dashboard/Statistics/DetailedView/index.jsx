@@ -1,40 +1,31 @@
+import PropsTypes from 'prop-types';
 import { ComponentLayout } from 'Layouts';
+import { statisticsColumns } from 'Objects/Users';
 import { MainTitle } from 'shared';
-import { Table } from '../../../AntDesign';
+import { Table } from 'Components/AntDesign';
 
-export default function DetailedView(data) {
-  const columns = [
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'name',
-    },
-    {
-      title: 'Watched Seconds',
-      dataIndex: 'watchedSeconds',
-      key: 'watchedSeconds',
-    },
-    {
-      title: 'Revenue',
-      dataIndex: 'owedRevenue',
-      key: 'owedRevenue',
-    },
-    {
-      title: 'Ticket',
-      dataIndex: 'tvodTicketsCount',
-      key: 'tvodTicketsCount',
-    },
-  ];
-  const { rows } = data;
+export default function DetailedView({ rows }) {
   return (
     <ComponentLayout>
       <MainTitle title="Detailed View" />
       <Table
-        columns={columns}
-        dataSource={rows}
+        columns={statisticsColumns}
+        dataSource={
+          rows.map(({ title, contentReports }) => (
+            {
+              title,
+              watchedSeconds: contentReports[0].watchedSeconds,
+              owedRevenue: contentReports[0].owedRevenue,
+              tvodTicketsCount: contentReports[0].tvodTicketsCount,
+            }))
+}
         pagination={{ pageSize: 5 }}
         scroll={{ x: 500 }}
       />
     </ComponentLayout>
   );
 }
+
+DetailedView.propTypes = {
+  rows: PropsTypes.arrayOf.isRequired,
+};

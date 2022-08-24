@@ -1,4 +1,4 @@
 .statistic-grid-avatar{
-  background-color: #f2f5f7;
+  background-color: var(--secondary-color);
   margin-bottom: 10%;
 }
