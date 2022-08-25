@@ -6,10 +6,8 @@ import { useAppSelector } from 'hooks';
 export default function ProtectedRoute({ children }) {
   const { isLoading, isLoggedIn } = useAppSelector(({ checkAuth }) => checkAuth);
 
-  if (isLoading) {
-    if (!isLoggedIn) {
-      return <Navigate to="/" />;
-    }
+  if (isLoading && !isLoggedIn) {
+    return <Navigate to="/" />;
   }
 
   return children;

@@ -6,10 +6,8 @@ import { useAppSelector } from 'hooks';
 export default function Pro({ children }) {
   const { isLoading, isLoggedIn } = useAppSelector(({ checkAuth }) => checkAuth);
 
-  if (!isLoading) {
-    if (isLoggedIn) {
-      return <Navigate to="/dashboard" />;
-    }
+  if (!isLoading && isLoggedIn) {
+    return <Navigate to="/dashboard" />;
   }
 
   return children;
