@@ -5,3 +5,4 @@ export { default as EditProfile } from './EditProfile';
 export { default as RejectedUsers } from './RejectedUsers';
 export { default as PaymentSettings } from './PaymentSettings';
 export { default as AddNewUser } from './AddNewUser';
+export { default as ChangePassword } from './ChangePassword';
