@@ -1,11 +1,17 @@
-import { useAppDispatch } from 'hooks';
+import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+
+import { useAppDispatch } from 'hooks';
 import { logoutUser } from 'store/auth/thunk';
 
 export default function Logout() {
   const dispatch = useAppDispatch();
-  (async () => {
-    await dispatch(logoutUser());
-  })();
+
+  useEffect(() => {
+    (async () => {
+      await dispatch(logoutUser());
+    })();
+  }, []);
+
   return <Navigate to="/" />;
 }
