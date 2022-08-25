@@ -13,6 +13,7 @@ const validationMessages = {
     },
   ],
 
+  // TODO: use regex for proper email validation, integrate yup maybe.
   email: [
     {
       type: 'email',
@@ -28,7 +29,7 @@ const validationMessages = {
     },
   ],
 
-  confirmPassword: [
+  confirm: [
     {
       required: true,
       message: 'Please confirm your password!',

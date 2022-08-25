@@ -1,16 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { DEFAULT_USER_STATE } from 'shared/constants';
 import {
   loginUser, logoutUser, googleLogin, getUser,
 } from './thunk';
 
 const initialState = {
-  user: {
-    id: null,
-    name: null,
-    email: null,
-    roleId: null,
-  },
+  user: DEFAULT_USER_STATE,
   data: null,
   error: null,
   isLoading: false,
@@ -24,7 +20,6 @@ const extraReducers = (builder) => {
     })
     .addCase(getUser.fulfilled, (state, action) => {
       state.isLoading = false;
-      console.log('getUser ', action.payload);
       state.user = action.payload.data;
       state.isLoggedIn = true;
     })

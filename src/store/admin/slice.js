@@ -25,7 +25,6 @@ const extraReducers = (builder) => {
     })
     .addCase(createUser.fulfilled, (state, action) => {
       state.isLoading = false;
-      console.log('action', action.payload);
       state.approvedList.push(action.payload.user);
     })
     .addCase(createUser.rejected, (state) => {
