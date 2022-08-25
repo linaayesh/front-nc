@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChangePassword } from 'Components';
+import { ChangePassword } from 'components';
 
 function ChangePasswordPage() {
   return (

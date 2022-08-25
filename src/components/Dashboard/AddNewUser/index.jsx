@@ -3,6 +3,7 @@ import { Input, Button, Form } from 'components/AntDesign';
 import { ROLES } from 'shared/constants';
 import './style.css';
 import { createUser } from 'store/admin/thunk';
+import { validationMessages } from 'utils';
 
 export default function AddNewUser() {
   const [form] = Form.useForm();
@@ -35,24 +36,13 @@ export default function AddNewUser() {
             </div>
             <Form.Item
               name="name"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please enter your name!',
-                },
-              ]}
+              rules={validationMessages.name}
             >
               <Input placeholder="Name" />
             </Form.Item>
             <Form.Item
               name="email"
-              rules={[
-                {
-                  type: 'email',
-                  required: true,
-                  message: 'Please enter a vaild email!',
-                },
-              ]}
+              rules={validationMessages.email}
             >
               <Input placeholder="Email" type="email" />
             </Form.Item>

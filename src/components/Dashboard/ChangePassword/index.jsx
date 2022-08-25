@@ -1,6 +1,7 @@
-import { Input, Button, Form } from 'Components/AntDesign';
+import { Input, Button, Form } from 'components/AntDesign';
 
 import React from 'react';
+import { validationMessages } from 'utils';
 import './style.css';
 
 function ChangePassword() {
@@ -54,20 +55,7 @@ function ChangePassword() {
                 name="confirm"
                 dependencies={['password']}
                 hasFeedback
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please confirm your password!',
-                  },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue('password') === value) {
-                        return Promise.resolve();
-                      }
-                      return Promise.reject(new Error('The two passwords that you entered do not match!'));
-                    },
-                  }),
-                ]}
+                rules={validationMessages.confirm}
                 className="input-password"
               >
                 <Input.Password placeholder="Confirm Password" />
