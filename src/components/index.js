@@ -4,7 +4,6 @@ export {
   SideBar,
   UsersList,
   RejectedUsers,
-  PaymentSettings,
   AddNewUser,
   EditProfile,
   ChangePassword,

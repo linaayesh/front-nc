@@ -4,7 +4,6 @@ export {
   Statistics,
   StaffList,
   VideoList,
-  PaymentSettingsPage,
 } from './EndUser';
 
 export {
