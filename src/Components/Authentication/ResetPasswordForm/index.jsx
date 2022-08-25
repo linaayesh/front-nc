@@ -17,7 +17,7 @@ function ResetPasswordForm() {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container-reset">
       <Logo />
       <Text className="auth-text title-text">Please enter your new password</Text>
       <Form
@@ -26,7 +26,6 @@ function ResetPasswordForm() {
         autoComplete="off"
         className="auth-form"
       >
-        {/* Password */}
         <Form.Item
           name="password"
           rules={[
@@ -40,7 +39,6 @@ function ResetPasswordForm() {
         >
           <Input.Password placeholder="Password" />
         </Form.Item>
-        {/* Confirm Password */}
         <Form.Item
           name="confirm"
           dependencies={['password']}

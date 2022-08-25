@@ -26,4 +26,6 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'INVALID CREDENTIALS': 'Invalid credentials.',
   'ALREADY APPROVED': 'This account is already registered!',
   'SUCCESS PROCESS': 'Successfully created!',
+  'SUCCESS LOGIN': 'Successfully logged in!',
+  'NOT EXIST USER': 'User does not exist.',
 };

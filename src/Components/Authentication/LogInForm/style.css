@@ -14,18 +14,31 @@
   align-items: center;
   justify-content: center;
 }
+.auth-container-reset{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-container-forget{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .auth-form-login{
   width: 50%;
 }
 .auth-form .ant-form-item{
   margin-bottom: 5%;
 }
-/* LOGO */
 .home-layout-logo{
   width: 175px;
   height: 93px;
 }
-/* Title */
 .title-text{
   margin: 2% 0;
 }
@@ -95,6 +108,15 @@
     width: 100%;
     margin-top: 20%;
   }
+  .auth-container-forget{
+    width: 100%;
+    margin-top: 20%;
+  }
+  .auth-container-reset{
+    width: 100%;
+    margin-top: 20%;
+  }
+
   .auth-form-login{
     width: 75%;
   }
