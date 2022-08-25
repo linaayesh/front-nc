@@ -1,5 +1,5 @@
-import ChangePasswordPage from './ChangePasswordPage';
+import ChangePassword from './ChangePassword';
 import EditProfilePage from './EditProfilePage';
 import DashboardSettings from './DashboardSettings';
 
-export { ChangePasswordPage, EditProfilePage, DashboardSettings };
+export { ChangePassword, EditProfilePage, DashboardSettings };
