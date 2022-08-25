@@ -7,7 +7,11 @@ export {
   UsersList,
   RejectedUsers,
   PaymentSettings,
-  AddNewUser, EditProfile, GeneralView, DetailedView,
+  GeneralView,
+  DetailedView,
+  AddNewUser,
+  EditProfile,
+  ChangePassword,
 } from './Dashboard';
 export { default as LogInForm } from './Authentication/LogInForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
