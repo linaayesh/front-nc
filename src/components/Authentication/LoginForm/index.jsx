@@ -6,7 +6,7 @@ import {
   Input, Typography, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
-import Logo from '../RegisterForm/logo';
+import { Logo } from 'shared/components';
 import GoogleAuth from '../GoogleAuth';
 import './style.css';
 

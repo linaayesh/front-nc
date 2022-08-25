@@ -4,11 +4,10 @@ import {
   Input, Typography, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { Loader } from 'shared/components';
+import { Loader, Logo } from 'shared/components';
 import { validationMessages } from 'utils';
 import { createUser } from 'store/user/thunk';
 import GoogleAuth from '../GoogleAuth';
-import Logo from './logo';
 import './style.css';
 
 export default function RegisterForm() {
@@ -62,7 +61,7 @@ export default function RegisterForm() {
             name="confirm"
             dependencies={['password']}
             hasFeedback
-            rules={validationMessages.confirmPassword}
+            rules={validationMessages.confirm}
             className="input-password"
           >
             <Input.Password placeholder="Confirm Password" />
