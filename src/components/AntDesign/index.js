@@ -1,5 +1,5 @@
 export { default as Input } from './Input/Input';
-export { default as Typography } from './Typography/Typography';
+export { Text, Title } from './Typography/Typography';
 export { default as Button } from './Button/Button';
 export { default as message } from './Message/Message';
 export { default as Form } from './Form/Form';

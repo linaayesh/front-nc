@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from 'hooks';
 import { loginUser } from 'store/auth/thunk';
 import {
-  Input, Typography, Button, Form, Checkbox,
+  Input, Text, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 import { Logo } from 'shared/components';
@@ -11,7 +11,6 @@ import GoogleAuth from '../GoogleAuth';
 import './style.css';
 
 export default function LoginForm() {
-  const { Text } = Typography;
   const dispatch = useAppDispatch();
 
   const onFinish = async (values) => {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import {
-  Input, Typography, Button, Form, Checkbox,
+  Input, Text, Button, Form, Checkbox,
 } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { Loader, Logo } from 'shared/components';
@@ -11,7 +11,6 @@ import GoogleAuth from '../GoogleAuth';
 import './style.css';
 
 export default function RegisterForm() {
-  const { Text } = Typography;
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector((state) => state.user);

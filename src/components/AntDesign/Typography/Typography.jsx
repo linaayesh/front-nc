@@ -1,3 +1,5 @@
 import { Typography } from 'antd';
 
-export default Typography;
+const { Text, Title } = Typography;
+
+export { Text, Title };
