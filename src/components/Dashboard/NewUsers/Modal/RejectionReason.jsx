@@ -28,6 +28,6 @@ function ReasonOfRejection({ value, onChange }) {
 export default ReasonOfRejection;
 
 ReasonOfRejection.propTypes = {
-  value: PropsTypes.string.isRequired,
+  value: PropsTypes.number.isRequired,
   onChange: PropsTypes.func.isRequired,
 };
