@@ -9,7 +9,7 @@ export {
 
 export {
   EditProfilePage,
-  ChangePasswordPage,
+  ChangePassword,
   DashboardSettings,
 } from './Common';
 
