@@ -8,28 +8,22 @@ import {
   Space,
   Popconfirm,
   Modal,
-  Radio,
-  Input,
 } from 'components/AntDesign';
+import ReasonOfRejection from './RejectionReason';
 
 function ModalForm({ user }) {
   const [value, setValue] = useState(1);
   const dispatch = useAppDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
+  const onChange = (e) => setValue(e.target.value);
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  const showModal = () => setIsModalVisible(true);
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-  const handleApproveUser = (info) => {
-    dispatch(approveUser(info));
+  const handleCancel = () => setIsModalVisible(false);
+
+  const handleApproveUser = (userInfo) => {
+    dispatch(approveUser(userInfo));
     setIsModalVisible(false);
   };
 
@@ -72,26 +66,7 @@ function ModalForm({ user }) {
           </Button>,
         ]}
       >
-        <p>Are you sure that you want to reject this user？</p>
-        <p>Choose the reason for rejection</p>
-        <Radio.Group onChange={onChange} value={value}>
-          <Space direction="vertical">
-            <Radio value={1}>Option A</Radio>
-            <Radio value={2}>Option B</Radio>
-            <Radio value={3}>Option C</Radio>
-            <Radio value={4}>
-              Other
-              {value === 4 ? (
-                <Input
-                  style={{
-                    width: 100,
-                    marginLeft: 10,
-                  }}
-                />
-              ) : null}
-            </Radio>
-          </Space>
-        </Radio.Group>
+        <ReasonOfRejection value={value} onChange={onChange} />
       </Modal>
     </Space>
   );
