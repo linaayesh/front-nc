@@ -38,9 +38,7 @@ function ModalForm({ user }) {
         title="Are you sure that you want to Approve this user？"
         okText="Yes"
         cancelText="No"
-        onConfirm={() => {
-          handleApproveUser(user);
-        }}
+        onConfirm={() => handleApproveUser(user)}
       >
         <Button>Approve</Button>
       </Popconfirm>
@@ -73,6 +71,7 @@ function ModalForm({ user }) {
 }
 
 export default ModalForm;
+
 ModalForm.propTypes = {
   user: PropsTypes.shape({
     id: PropsTypes.number,

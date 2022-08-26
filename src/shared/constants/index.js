@@ -31,23 +31,7 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'SUCCESS LOGOUT': 'Successfully logged out.',
   'NOT EXIST USER': 'This user does not exist in our universe.',
   'PENDING ACCOUNT': 'This account is still pending for approval.',
-
-};
-
-export const HTTP_SUCCESS_MESSAGES = {
-  'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.
-  'APPROVED ACCOUNT': 'Something went wrong. Please try again later.',
-  'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
-  UNAUTHORIZED: 'Stop right there, mate! you dont have the authority to do this action.',
-
-  'ALREADY REJECTED': 'This account has already been rejected.', // TODO: find a better message to humiliate him more professionally
-  'ALREADY APPROVED': 'This account is already registered!',
-  'SUCCESS PROCESS': 'Successfully created!',
-  'SUCCESS EDIT': 'Congratulation, you edited your profile successfully!',
-  'SUCCESS LOGIN': 'Successfully logged in, blow it up!',
-  'SUCCESS LOGOUT': 'Successfully logged out, cant wait to see your face again!',
-  'NOT EXIST USER': 'This user does not exist in our universe.',
-  'PENDING ACCOUNT': 'This account is still pending for approval.',
+  'RESET PASSWORD': 'This password has been reset.',
 };
 
 export const IMAGE_VALIDATION_MESSAGES = {
