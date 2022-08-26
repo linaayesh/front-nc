@@ -19,17 +19,17 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'CHECK EMAIL': 'Successfully registered! Please check your email to verify your account.', // update the backend to specify the email type -reset password, etc.
   'APPROVED ACCOUNT': 'Something went wrong. Please try again later.',
   'WAITING APPROVAL': 'This account is waiting for approval, hang tight!',
-  UNAUTHORIZED: 'Stop right there, mate! you dont have the authority to do this action.',
+  UNAUTHORIZED: 'You dont have the authority to do this action.',
   'INVALID CREDENTIALS': 'Invalid credentials.',
-  'Incorrect email or password': 'We could not recognize your email or password. Please bother us later.',
+  'Incorrect email or password': 'We could not recognize your email or password.',
   'Internal Server Error': 'It is us! something went wrong. Please try again later.',
-  'ALREADY REJECTED': 'This account has already been rejected.', // TODO: find a better message to humiliate him more professionally
+  'ALREADY REJECTED': 'This account has already been rejected.', // TODO: find a better message to humiliate them professionally
   'ALREADY APPROVED': 'This account is already registered!',
   'SUCCESS PROCESS': 'Successfully created!',
   'SUCCESS EDIT': 'Congratulation, you edited your profile successfully!',
-  'SUCCESS LOGIN': 'Successfully logged in, blow it up!',
+  'SUCCESS LOGIN': 'Successfully logged in.',
   'SUCCESS LOGOUT': 'Successfully logged out.',
-  'NOT EXIST USER': 'This user does not exist in our universe.',
+  'NOT EXIST USER': 'This user does not exist.',
   'PENDING ACCOUNT': 'This account is still pending for approval.',
   'RESET PASSWORD': 'This password has been reset.',
 };
