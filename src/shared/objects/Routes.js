@@ -1,3 +1,4 @@
+import { ProtectLogin } from 'middleware';
 import {
   RegisterPage,
   LoginPage,
@@ -19,6 +20,14 @@ import {
   AddNewUserPage,
 } from 'pages';
 
+function ProtectedLoginPage() {
+  return (
+    <ProtectLogin>
+      <LoginPage />
+    </ProtectLogin>
+  );
+}
+
 const routes = [
   {
     path: 'signup',
@@ -30,7 +39,7 @@ const routes = [
   },
   {
     path: 'login',
-    component: LoginPage,
+    component: ProtectedLoginPage,
     title: 'Log In',
     key: 'login',
     pro: true,
