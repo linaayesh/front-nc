@@ -44,6 +44,15 @@ const validationMessages = {
     }),
   ],
 
+  oldPassword: [
+    [
+      {
+        required: true,
+        message: 'Please enter your old password!',
+      },
+    ],
+  ],
+
   agreement: [
     {
       required: true,

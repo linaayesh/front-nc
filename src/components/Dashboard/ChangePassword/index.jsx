@@ -1,6 +1,5 @@
 import { Input, Button, Form } from 'components/AntDesign';
 
-import React from 'react';
 import { validationMessages } from 'utils';
 import './style.css';
 
@@ -28,24 +27,14 @@ function ChangePassword() {
 
             <Form.Item
               name="oldPassword"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please enter your old password!',
-                },
-              ]}
+              rules={validationMessages.oldPassword}
             >
               <Input placeholder="Old Password" type="password" />
             </Form.Item>
             <div className="newPasswordDiv">
               <Form.Item
                 name="password"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please input your password!',
-                  },
-                ]}
+                rules={validationMessages.password}
                 hasFeedback
                 className="input-password"
               >
