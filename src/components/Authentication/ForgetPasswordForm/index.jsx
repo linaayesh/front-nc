@@ -1,43 +1,25 @@
 import { Link } from 'react-router-dom';
 
-import {
-  Input, Typography, Button, Form,
-} from 'components/AntDesign';
 import { useAppDispatch } from 'hooks';
 import { forgetPassword } from 'store/user/thunk';
-import { validationMessages } from 'utils';
-import Logo from '../RegisterForm/logo';
+import { Text, Form } from 'components/AntDesign';
+import FormModel from 'shared/components/Form';
+import fieldRenderProps from 'shared/objects/FormsFields';
 
 export default function ForgetPasswordForm() {
-  const { Text } = Typography;
-  const dispatch = useAppDispatch();
+  const [form] = Form.useForm();
 
-  const onFinish = async (email) => {
-    dispatch(forgetPassword(email));
-  };
+  const dispatch = useAppDispatch();
+  const { forgetPasswordForm } = fieldRenderProps;
+
+  const onFinish = async (email) => dispatch(forgetPassword(email));
+
+  forgetPasswordForm.onFinish = onFinish;
 
   return (
     <div className="auth-container-forget">
-      <Logo />
-      <Text className="auth-text title-text">Please enter your email to reset your password.</Text>
-      <Form
-        name="basic"
-        onFinish={onFinish}
-        autoComplete="off"
-        className="auth-form"
-      >
-        <Form.Item
-          name="email"
-          rules={validationMessages.email}
-        >
-          <Input placeholder="Email" type="email" />
-        </Form.Item>
-        <Form.Item>
-          <Button className="form-button" type="primary" htmlType="submit">
-            Send a reset email
-          </Button>
-        </Form.Item>
-      </Form>
+      <FormModel form={form} fieldRenderProps={forgetPasswordForm} />
+
       <Text className="have-account-text">
         Remember it?
         <Link to="/" className="sign-in-link">Sign in.</Link>
