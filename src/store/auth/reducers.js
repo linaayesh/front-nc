@@ -16,7 +16,6 @@ const extraReducers = (builder) => {
       state.isLoggedIn = true;
     })
     .addCase(getUser.rejected, (state, action) => {
-      console.log('error slicer getUser', action.payload);
       state.isLoading = false;
       state.error = action.payload;
     });
