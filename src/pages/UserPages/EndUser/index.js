@@ -1,8 +1,8 @@
-import PayoutPage from './PayoutPage';
-import RevenuePage from './RevenuePage';
-import Statistics from './Statistics';
-import StaffList from './StaffList';
-import VideoList from './VideoList';
+import PayoutPage from './Payout.page';
+import RevenuePage from './Revenue.page';
+import Statistics from './Statistics.page';
+import StaffList from './StaffList.page';
+import VideoList from './VideoList.page';
 
 export {
   PayoutPage,

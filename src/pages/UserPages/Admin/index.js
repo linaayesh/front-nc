@@ -1,7 +1,7 @@
-import NewUsersPage from './NewUsersPage';
-import RejectedUsersPage from './RejectedUsersPage';
-import UserListPage from './UserListPage';
-import AddNewUserPage from './AddNewUserPage';
+import NewUsersPage from './NewUsers.page';
+import RejectedUsersPage from './RejectedUsers.page';
+import UserListPage from './UserList.page';
+import AddNewUserPage from './AddNewUser.page';
 
 export {
   NewUsersPage, RejectedUsersPage, UserListPage, AddNewUserPage,

@@ -1,8 +1,8 @@
-import ForgetPasswordPage from './ForgetPasswordPage';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
-import ResetPasswordPage from './ResetPasswordPage';
-import VerifyEmailPage from './VerifyEmailPage';
+import ForgetPasswordPage from './ForgetPassword.page';
+import LoginPage from './Login.page';
+import RegisterPage from './Register.page';
+import ResetPasswordPage from './ResetPassword.page';
+import VerifyEmailPage from './VerifyEmail.page';
 
 export {
   ForgetPasswordPage,

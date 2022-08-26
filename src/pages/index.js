@@ -1,5 +1,5 @@
-export { default as NotFound } from './NotFound';
-export { default as TermsPage } from './TermsPage';
+export { default as NotFound } from './NotFound.page';
+export { default as TermsPage } from './Terms.page';
 
 export {
   RevenuePage,
