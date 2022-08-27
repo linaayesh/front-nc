@@ -40,7 +40,7 @@ function EditProfile() {
     };
 
     try {
-      await dispatch(updateUser(userUpdatedInfo));
+      dispatch(updateUser(userUpdatedInfo));
     } finally {
       setIsFormChanged(false);
     }

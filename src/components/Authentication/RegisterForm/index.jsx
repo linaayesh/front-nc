@@ -19,9 +19,11 @@ export default function RegisterForm() {
     const { name, password } = values;
     const email = values.email.toLowerCase();
 
-    await dispatch(createUser({ name, email, password })).finally(
-      form.resetFields(),
-    );
+    try {
+      dispatch(createUser({ name, email, password }));
+    } finally {
+      form.resetFields();
+    }
   };
 
   return (

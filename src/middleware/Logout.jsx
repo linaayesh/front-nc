@@ -9,7 +9,7 @@ export default function Logout() {
 
   useEffect(() => {
     (async () => {
-      await dispatch(logoutUser());
+      dispatch(logoutUser());
     })();
   }, []);
 

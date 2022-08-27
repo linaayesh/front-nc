@@ -13,9 +13,12 @@ export default function AddNewUser() {
     const { name } = values;
     const email = values.email.toLowerCase();
     const roleId = ROLES.COMEDIAN;
-    dispatch(createUser({ name, email, roleId }));
 
-    form.resetFields();
+    try {
+      dispatch(createUser({ name, email, roleId }));
+    } finally {
+      form.resetFields();
+    }
   };
 
   return (
