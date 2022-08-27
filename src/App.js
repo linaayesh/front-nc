@@ -1,23 +1,27 @@
-import React from 'react';
 import 'antd/dist/antd.min.css';
-import { Routes, Route } from 'react-router-dom';
-import './app.css';
-import { Home, DashboardLayout } from './Layouts';
+import { Routes, Route, Outlet } from 'react-router-dom';
+
+import { DashboardLayout } from 'layouts';
 import {
-  NotFound, LogInPage, Statistics,
-} from './Pages';
-import { ProtectLogin, ProtectedRoute } from './Middleware';
-import { routes, adminRoutes } from './Objects/Routes';
+  NotFound, LoginPage, Statistics,
+} from 'pages';
+import { ProtectLogin, ProtectedRoute, Logout } from 'middleware';
+import { routes, adminRoutes } from 'shared/objects/Routes';
+import { useAuth } from 'hooks';
+import './app.css';
 
 function App() {
+  useAuth();
+
   return (
     <Routes>
-      <Route path="/" element={<Home />}>
+      <Route path="/" element={<Outlet />}>
+        <Route path="/logout" element={<Logout />} />
         <Route
           index
           element={(
             <ProtectLogin>
-              <LogInPage />
+              <LoginPage />
             </ProtectLogin>
           )}
         />

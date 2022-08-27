@@ -1,0 +1,103 @@
+/* var(--main-color) */
+/* var(--secondary-color) */
+.register{
+  display: flex;
+}
+/* Cover Image */
+.home-layout-image{
+  width: 50%;
+  height: 100vh;
+  object-fit: cover;
+}
+/* Auth container */
+.auth-container-register{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-form{
+  width: 50%;
+}
+.auth-form .ant-form-item{
+  margin-bottom: 5%;
+}
+
+/* Title */
+.title-text{
+  margin: 2% 0;
+}
+/* Auth items */
+.auth-form Input{
+  width: 100%;
+  border-radius: 4px;
+}
+.input-password{
+  width: 100%;
+}
+/* Auth action Buttons => Log In Sign Up */
+.form-button{
+  width: 100%;
+  height: 40px;
+  color: #01050A;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: none;
+}
+.form-button.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #fff;
+  border-color:  var(--main-color);
+  background: #0eb6ad;
+}
+/* Auth text */
+.auth-text{
+  color: var(--secondary-color);
+}
+/* Forget Password hover */
+.forget-password-link:hover{
+  color:  var(--main-color);
+}
+/* Navigation link sign up log in  */
+.sign-in-link.ant-typography, .ant-typography a{
+  font-weight: 700;
+  color:  var(--main-color);
+}
+.terms-link{
+  font-weight: 600;
+}
+/* Google Button */
+.google-sign-up-button{
+  width: 50%;
+  height: 40px;
+  border: 1.5px solid #EFEFEF !important;
+  margin-bottom: 10px;
+  justify-content: center;
+  box-shadow: none !important;
+  background-color: #FCFCFC !important;
+}
+.google-sign-up-button div{
+  background: none !important;
+}
+.google-sign-up-button.ant-btn:hover, .ant-btn:focus {
+  color:  var(--main-color);
+}
+
+
+@media screen and (max-width: 600px){
+  .home-layout-image{
+      display: none;
+  }
+  .auth-container-register{
+    width: 100%;
+    margin-top: 20%;
+  }
+  .auth-form{
+    width: 75%;
+  }
+  .google-sign-up-button{
+    width: 75%;
+  }
+}
