@@ -8,8 +8,7 @@ export default function useAuth() {
   const { user } = useAppSelector((state) => state.checkAuth);
 
   useEffect(() => {
-    (() => dispatch(getUser())
-    )();
+    dispatch(getUser());
   }, []);
   return user;
 }
