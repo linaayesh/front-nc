@@ -5,15 +5,16 @@ export {
   RevenuePage,
   EditProfilePage,
   ChangePasswordPage,
-  DashboardSettings,
-  StaffList,
-  Statistics,
+  DashboardSettingsPage,
+  StaffListPage,
+  // StatisticsPage,
   PayoutPage,
-  VideoList,
+  VideoListPage,
   UserListPage,
   NewUsersPage,
   RejectedUsersPage,
   AddNewUserPage,
+  ContentListPage,
 } from './UserPages';
 
 export {

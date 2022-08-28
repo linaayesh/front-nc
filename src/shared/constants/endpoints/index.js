@@ -17,6 +17,14 @@ export const USER_REJECTED_LIST_URL = `${BASE_URL}/api/v1/user/rejected-list`;
 export const APPROVE_USER_BY_ID_URL = (userId) => `${BASE_URL}/api/v1/user/approve/${userId}`;
 export const REJECT_USER_BY_ID_URL = (userId) => `${BASE_URL}/api/v1/user/reject/${userId}`;
 export const ADD_USER_URL = `${BASE_URL}/api/v1/user/add-user`;
+export const GET_PAGINATED_CONTENT = ({ limit, page }) => `${BASE_URL}/api/v1/user/contents?limit=${limit}&page=${page}`;
+export const GET_USERS = `${BASE_URL}/api/v1/user/users`;
+export const GET_CONTENT_BY_ID = (contentId) => `${BASE_URL}/api/v1/user/contents?limit=1&page=1&id=${contentId}`;
+export const GET_USERS_URL = `${BASE_URL}/api/v1/user/users`;
+export const GET_POSSIBLE_CONTENTS = (title) => `${BASE_URL}/api/v1/user/contents?limit=1&page=1&title=${title}`;
+export const MATCH_USER_CONTENT = `${BASE_URL}/api/v1/user/match-user-content`;
 
 //* user endpoints - |EndUser USER|
 export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
+export const CHANGE_PASSWORD_URL = `${BASE_URL}/api/v1/user/change-password`;
+export const STATISTICS_DATA_URL = `${BASE_URL}/api/v1/user/statistics`;

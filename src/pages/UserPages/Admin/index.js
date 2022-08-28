@@ -1,8 +1,5 @@
-import NewUsersPage from './NewUsers.page';
-import RejectedUsersPage from './RejectedUsers.page';
-import UserListPage from './UserList.page';
-import AddNewUserPage from './AddNewUser.page';
-
-export {
-  NewUsersPage, RejectedUsersPage, UserListPage, AddNewUserPage,
-};
+export { default as NewUsersPage } from './NewUsers.page';
+export { default as RejectedUsersPage } from './RejectedUsers.page';
+export { default as UserListPage } from './UserList.page';
+export { default as AddNewUserPage } from './AddNewUser.page';
+export { default as ContentListPage } from './ContentList.page';

@@ -6,6 +6,7 @@ import App from './App';
 import store from './store';
 
 const root = createRoot(document.getElementById('root'));
+
 root.render(
   <StrictMode>
     <Router>

@@ -27,4 +27,27 @@ const columns = [
   },
 ];
 
-export default columns;
+const statisticsColumns = [
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'name',
+  },
+  {
+    title: 'Watched Seconds',
+    dataIndex: 'watchedSeconds',
+    key: 'watchedSeconds',
+  },
+  {
+    title: 'Revenue',
+    dataIndex: 'owedRevenue',
+    key: 'owedRevenue',
+  },
+  {
+    title: 'Ticket',
+    dataIndex: 'tvodTicketsCount',
+    key: 'tvodTicketsCount',
+  },
+];
+
+export { columns, statisticsColumns };

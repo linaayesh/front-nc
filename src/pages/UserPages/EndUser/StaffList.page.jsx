@@ -1,6 +1,11 @@
+import React from 'react';
+import { ComponentLayout } from 'components/Layout';
+
 function StaffList() {
   return (
-    <div>StaffList</div>
+    <ComponentLayout title="Staff List">
+      <div>StaffList</div>
+    </ComponentLayout>
   );
 }
 

@@ -1,13 +1,5 @@
-import PayoutPage from './Payout.page';
-import RevenuePage from './Revenue.page';
-import Statistics from './Statistics.page';
-import StaffList from './StaffList.page';
-import VideoList from './VideoList.page';
-
-export {
-  PayoutPage,
-  RevenuePage,
-  Statistics,
-  StaffList,
-  VideoList,
-};
+export { default as PayoutPage } from './Payout.page';
+export { default as RevenuePage } from './Revenue.page';
+// export { default as StatisticsPage } from './Statistics.page';
+export { default as StaffListPage } from './StaffList.page';
+export { default as VideoListPage } from './VideoList.page';

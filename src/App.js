@@ -1,9 +1,8 @@
 import 'antd/dist/antd.min.css';
 import { Routes, Route, Outlet } from 'react-router-dom';
-
-import { DashboardLayout } from 'layouts';
+import { DashboardLayout } from 'components/Layout';
 import {
-  NotFound, LoginPage, Statistics,
+  NotFound, LoginPage,
 } from 'pages';
 import { ProtectLogin, ProtectedRoute, Logout } from 'middleware';
 import { routes, adminRoutes } from 'shared/objects/Routes';
@@ -25,11 +24,11 @@ function App() {
             </ProtectLogin>
           )}
         />
-        {routes.map((route) => (
+        {routes.map(({ key, path, Component }) => (
           <Route
-            key={route.path}
-            path={route.path}
-            element={<route.component />}
+            key={key}
+            path={path}
+            element={<Component />}
           />
         ))}
       </Route>
@@ -41,12 +40,12 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        <Route index element={<Statistics />} />
-        {adminRoutes.map((route) => (
+        {/* <Route index element={<StatisticsPage />} /> */}
+        {adminRoutes.map(({ key, path, Component }) => (
           <Route
-            key={route.key}
-            path={route.path}
-            element={<route.component />}
+            key={key}
+            path={path}
+            element={<Component />}
           />
         ))}
 

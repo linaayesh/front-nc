@@ -1,5 +1,4 @@
 const itemsSuperAdmin = [
-
   {
     title: 'Home',
     icon: 'fa fa-dashboard',
@@ -18,6 +17,11 @@ const itemsSuperAdmin = [
         title: 'Staff List ',
         path: '/dashboard/staff',
         key: 'staff',
+      },
+      {
+        title: 'Content List',
+        path: '/dashboard/contentlist',
+        key: 'contentlist',
       },
     ],
   },
@@ -109,6 +113,11 @@ const itemsAdmin = [
         title: 'Staff List ',
         path: '/dashboard/staff',
         key: 'staff',
+      },
+      {
+        title: 'Content List',
+        path: '/dashboard/contentlist',
+        key: 'contentlist',
       },
     ],
   },
