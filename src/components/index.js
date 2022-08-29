@@ -3,7 +3,6 @@ import * as Ant from './AntDesign';
 const AntComponents = Ant;
 export { AntComponents };
 export { default as Navbar } from './Navbar';
-// export { default as StatisticsGrid } from './StatisticsGrid';
 export {
   NewUsers,
   SideBar,
@@ -11,8 +10,6 @@ export {
   RejectedUsers,
   AddNewUser,
   EditProfile,
-  // GeneralView,
-  // DetailedView,
   ContentList,
   MatchContent,
   ChangePassword,
