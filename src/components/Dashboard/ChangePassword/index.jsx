@@ -22,14 +22,14 @@ function ChangePassword() {
 
   return (
     <ComponentLayout title="Change Password Page">
-      <Form
-        form={form}
-        name="basic"
-        onFinish={onFinish}
-        autoComplete="off"
-        className="add-new-user-form"
-      >
-        <div className="add-new-user-form-form-f">
+      <div className="hero">
+        <Form
+          form={form}
+          name="basic"
+          className="my-form"
+          onFinish={onFinish}
+          autoComplete="off"
+        >
           <div className="add-new-user-nav">
             <div className="add-new-user-icon" />
             <div className="title-add-new-user">Change Your Password</div>
@@ -46,47 +46,34 @@ function ChangePassword() {
           >
             <Input placeholder="Old Password" type="password" />
           </Form.Item>
+
           <div className="newPasswordDiv">
             <Form.Item
-              name="oldPassword"
-              rules={validationMessages.oldPassword}
+              name="password"
+              rules={validationMessages.password}
+              hasFeedback
+              className="input-password"
             >
               <Input.Password placeholder="Password" />
             </Form.Item>
-            <div className="newPasswordDiv">
-              <Form.Item
-                name="password"
-                rules={validationMessages.password}
-                hasFeedback
-                className="input-password"
-              >
-                <Input.Password placeholder="Password" />
-              </Form.Item>
-              <Form.Item
-                name="confirm"
-                dependencies={['password']}
-                hasFeedback
-                rules={validationMessages.confirm}
-                className="input-password"
-              >
-                <Input.Password placeholder="Confirm Password" />
-              </Form.Item>
-            </div>
-            <Form.Item noStyle>
-              <Button className="form-button" type="primary" htmlType="submit">
-                Change Password
-                {' '}
-              </Button>
+            <Form.Item
+              name="confirm"
+              dependencies={['password']}
+              hasFeedback
+              rules={validationMessages.confirm}
+              className="input-password"
+            >
+              <Input.Password placeholder="Confirm Password" />
             </Form.Item>
           </div>
+
           <Form.Item noStyle>
             <Button className="form-button" type="primary" htmlType="submit">
               Change Password
-              {' '}
             </Button>
           </Form.Item>
-        </div>
-      </Form>
+        </Form>
+      </div>
     </ComponentLayout>
   );
 }
