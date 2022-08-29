@@ -32,6 +32,8 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'NOT EXIST USER': 'This user does not exist.',
   'PENDING ACCOUNT': 'This account is still pending for approval.',
   'RESET PASSWORD': 'This password has been reset.',
+  'INCORRECT PASSWORD': 'Your old password is incorrect.',
+  'PASSWORD CHANGED': 'Your password has been changed.',
 };
 
 export const IMAGE_VALIDATION_MESSAGES = {

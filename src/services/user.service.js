@@ -32,5 +32,4 @@ export default {
 
   updateFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'PATCH', data),
   changePassword: (data) => axiosCall(CHANGE_PASSWORD_URL, 'PATCH', data),
-
 };

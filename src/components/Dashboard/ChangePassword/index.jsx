@@ -3,21 +3,19 @@ import {
   Input,
   Button,
   Form,
-  message,
 } from 'components/AntDesign';
-import { userService } from 'services';
 import { validationMessages } from 'utils';
+import { useAppDispatch } from 'hooks';
+import { changePassword } from 'store/user/thunk';
 import './style.css';
 
 function ChangePassword() {
+  const dispatch = useAppDispatch();
   const [form] = Form.useForm();
   const onFinish = async (values) => {
-    const responseMessage = await userService.changePassword(values);
-    if (responseMessage === 'INCORRECT_PASSWORD') {
-      message.error(responseMessage);
-    } else if (responseMessage === 'PASSWORD_CHANGED') {
-      message.success(responseMessage);
-    }
+    const { password, oldPassword } = values;
+
+    if (oldPassword.trim() !== password.trim()) dispatch(changePassword(values));
   };
 
   return (

@@ -14,7 +14,9 @@ function axiosCall(url, method, data) {
     const excludedMessages = ['APPROVED USERS', 'PENDING USERS', 'REJECTED USERS', 'APPROVED ACCOUNT'];
     // TODO: wait for the backend to update `resetPassword` response, to remove what after &&
     if (!excludedMessages.includes(msg) && !res.data.redirect) {
-      message.success(HTTP_EXCEPTIONS_MESSAGES[msg]);
+      if (msg) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[msg]);
+      }
     }
 
     // TODO: handle the redirect properly, possibly elsewhere.
