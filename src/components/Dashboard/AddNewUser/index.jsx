@@ -16,6 +16,7 @@ export default function AddNewUser() {
     const email = values.email.toLowerCase();
     const roleId = ROLES.COMEDIAN;
     dispatch(createUser({ name, email, roleId }));
+
     form.resetFields();
   };
 

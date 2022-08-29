@@ -8,9 +8,7 @@ export default function Logout() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      await dispatch(logoutUser());
-    })();
+    dispatch(logoutUser());
   }, []);
 
   return <Navigate to="/" />;

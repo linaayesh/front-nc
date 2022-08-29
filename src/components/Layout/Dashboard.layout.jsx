@@ -24,7 +24,7 @@ export default function DashboardLayout() {
     }
   };
   const handleLogout = async () => {
-    await dispatch(logoutUser());
+    dispatch(logoutUser());
     navigate('/');
   };
 
