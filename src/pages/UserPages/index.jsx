@@ -8,7 +8,6 @@ export {
 export {
   EditProfilePage,
   ChangePasswordPage,
-  DashboardSettingsPage,
 } from './Common';
 
 export {
@@ -17,4 +16,5 @@ export {
   RejectedUsersPage,
   UserListPage,
   AddNewUserPage,
+  DashboardSettingsPage,
 } from './Admin';
