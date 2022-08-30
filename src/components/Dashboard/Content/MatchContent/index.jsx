@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ComponentLayout } from 'components/Layout';
+import { ComponentLayout } from 'Layout';
 import { matchUserContent } from 'store/matchContent/thunk';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import defaultPoster from 'assets/images/default-poster.jpg';

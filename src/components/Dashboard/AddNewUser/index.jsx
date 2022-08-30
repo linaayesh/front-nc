@@ -1,7 +1,7 @@
 import { useAppDispatch } from 'hooks';
 import { Input, Button, Form } from 'components/AntDesign';
 import { ROLES } from 'shared/constants';
-import { ComponentLayout } from 'components/Layout';
+import { ComponentLayout } from 'Layout';
 import { createUser } from 'store/admin/thunk';
 import { validationMessages } from 'utils';
 import './style.css';
