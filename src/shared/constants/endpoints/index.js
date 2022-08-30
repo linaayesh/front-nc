@@ -25,6 +25,7 @@ export const GET_CONTENT_BY_ID = (contentId) => `${BASE_URL}/api/v1/user/content
 export const GET_USERS_URL = `${BASE_URL}/api/v1/user/users`;
 export const GET_POSSIBLE_CONTENTS = (title) => `${BASE_URL}/api/v1/user/contents?limit=1&page=1&title=${title}`;
 export const MATCH_USER_CONTENT = `${BASE_URL}/api/v1/user/match-user-content`;
+export const UPDATE_DASHBOARD_SETTINGS = `${BASE_URL}/api/v1/user/update-dashboard-settings`;
 
 //* user endpoints - |EndUser USER|
 export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
