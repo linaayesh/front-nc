@@ -77,3 +77,15 @@ export const createUser = createAsyncThunk(
     }
   },
 );
+
+export const updateDashboardSettings = createAsyncThunk(
+  'admin/updateDashboardSettings',
+  async (settings, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.updateDashboardSettings(settings);
+      return { message: data.message, settings };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
