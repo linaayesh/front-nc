@@ -122,6 +122,43 @@ const validationMessages = {
       message: 'Please specify launch date',
     },
   ],
+  splitRatio: [
+    {
+      required: true,
+      message: 'Please specify split ratio',
+    },
+  ],
+  VIEWLLIFT_EMAIL: [
+    {
+      required: true,
+      message: 'Please enter your Viewlift email!',
+    },
+  ],
+  VIEWLLIFT_PASSWORD: [
+    {
+      required: true,
+      message: 'Please enter your Viewlift password!',
+    },
+  ],
+  VIEWLIFT_ENDPOINT: [
+    {
+      required: true,
+      message: 'Please enter your Viewlift endpoint!',
+    },
+  ],
+  VIEWLIFT_WATCHES_FETCH_LIMIT: [
+    {
+      required: true,
+      message: 'Please enter your Viewlift watches fetch limit!',
+    },
+  ],
+  SYSTEM_ACTIVATING_DATE: [
+    {
+      required: true,
+      message: 'Please enter your system activating date!',
+    },
+  ],
+
 };
 
 export default validationMessages;
