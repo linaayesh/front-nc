@@ -7,7 +7,6 @@ import {
   RevenuePage,
   VideoListPage,
   PayoutPage,
-  // StatisticsPage,
   StaffListPage,
   DashboardSettingsPage,
   ChangePasswordPage,
@@ -102,12 +101,6 @@ const adminRoutes = [
     Component: StaffListPage,
     key: 'staff',
   },
-  // {
-  //   title: 'yourStatistics',
-  //   path: '/dashboard/yourStatistics',
-  //   component: StatisticsPage,
-  //   key: 'yourStatistics',
-  // },
   {
     title: 'payout',
     path: '/dashboard/payout',

@@ -116,3 +116,14 @@
   line-height: 1.1;
   width: 270px;
 }
+
+.match-content-btn {
+  background-color: var(--main-color);
+  color: black;
+  border: none;
+}
+
+.match-content-btn:hover {
+  background-color: #0fb9b1;
+  color: black;
+}

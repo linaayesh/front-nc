@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentLayout } from 'components/Layout';
 
 function VideoList() {

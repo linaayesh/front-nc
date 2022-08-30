@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal } from 'components/AntDesign';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { setVisible } from 'store/matchContent/slice';

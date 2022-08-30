@@ -1,7 +1,6 @@
 export {
   PayoutPage,
   RevenuePage,
-  // StatisticsPage,
   StaffListPage,
   VideoListPage,
 } from './EndUser';

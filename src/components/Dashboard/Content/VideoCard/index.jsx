@@ -1,8 +1,9 @@
-import React from 'react';
 import PropsTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+
 import defaultPoster from 'assets/images/default-poster.jpg';
 import { Card } from 'components/AntDesign';
+import { MATCH_CONTENT_ENDPOINT } from 'shared/constants/endpoints';
 import '../ContentList/style.css';
 
 function VideoCard({ id, title, permalink }) {
@@ -10,7 +11,7 @@ function VideoCard({ id, title, permalink }) {
 
   return (
     <Card
-      onClick={() => navigate(`/dashboard/contentlist/matchcontent/${id}`)}
+      onClick={() => navigate(MATCH_CONTENT_ENDPOINT(id))}
       hoverable
     >
       <div className="contents-list__video-card">

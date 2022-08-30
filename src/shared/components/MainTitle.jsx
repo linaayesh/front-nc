@@ -1,5 +1,4 @@
-import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default function MainTitle({ title }) {
   return (
@@ -13,5 +12,5 @@ export default function MainTitle({ title }) {
 }
 
 MainTitle.propTypes = {
-  title: Proptypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

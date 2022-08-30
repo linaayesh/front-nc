@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { adminService } from 'services';
-import { message } from 'components/AntDesign';
 
 export const getContentById = createAsyncThunk(
   'matchContents/getContentById',
@@ -55,7 +54,6 @@ export const matchUserContent = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const { data: { data } } = await adminService.matchUserContent(payload);
-      message.success('Content matched successfully!');
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

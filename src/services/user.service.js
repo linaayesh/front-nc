@@ -8,7 +8,6 @@ import {
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
-  GET_USERS_URL,
   CHANGE_PASSWORD_URL,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
@@ -17,8 +16,6 @@ export default {
   createUser: (userInfo) => axiosCall(REGISTER_URL, 'POST', userInfo),
   getUser: () => axiosCall(USER_URL, 'GET'),
   updateUser: (userInfo) => axiosCall(EDIT_PROFILE_URL, 'PATCH', userInfo),
-
-  getUsers: () => axiosCall(GET_USERS_URL, 'GET'),
 
   loginUser: (credentials) => axiosCall(LOGIN_URL, 'POST', credentials),
   logoutUser: () => axiosCall(LOGOUT_URL, 'GET'),

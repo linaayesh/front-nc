@@ -24,9 +24,12 @@ function axiosCall(url, method, data) {
       message.success(HTTP_EXCEPTIONS_MESSAGES[msg.message]);
       return <Navigate to={res.data.redirect} />;
     }
+
     return res;
   }).catch((error) => {
-    message.error(HTTP_EXCEPTIONS_MESSAGES[error.response.data.message]);
+    if (error.response.data.message) {
+      message.error(HTTP_EXCEPTIONS_MESSAGES[error.response.data.message]);
+    }
     throw error;
   });
 }

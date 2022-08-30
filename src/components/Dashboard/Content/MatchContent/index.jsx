@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { ComponentLayout } from 'components/Layout';
 import { matchUserContent } from 'store/matchContent/thunk';
 import { useAppDispatch, useAppSelector } from 'hooks';
@@ -11,11 +12,15 @@ import {
   Input,
   message,
 } from 'components/AntDesign';
+import { validationMessages } from 'utils';
+import { CONTENT_LIST_URL } from 'shared/constants/endpoints';
+import { INVALID_USER_MESSAGE } from 'shared/constants';
 
 function MatchContent() {
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
+
   const { curContent, usersToMatch } = useAppSelector((state) => state.matchContents);
   const { title, permalink } = curContent;
   const modifiedUsers = usersToMatch.map(({ name, email }) => ({ value: email, label: `${name} - ${email}` }));
@@ -30,10 +35,10 @@ function MatchContent() {
       userId: usersToMatch.find(({ email }) => email === values.userId)?.id,
     };
 
-    if (!modifiedValues.userId) message.error('Please select a valid user');
+    if (!modifiedValues.userId) message.error(INVALID_USER_MESSAGE);
 
-    dispatch(matchUserContent(modifiedValues));
-    navigate('/dashboard/contentlist');
+    const { payload } = await dispatch(matchUserContent(modifiedValues));
+    if (payload) navigate(CONTENT_LIST_URL);
   };
 
   const onChange = (text) => {
@@ -62,7 +67,7 @@ function MatchContent() {
             <Form.Item
               label="Select By User Email"
               name="userId"
-              rules={[{ required: true, message: 'Please select a user to match this content to' }]}
+              rules={validationMessages.userId}
             >
               <AutoComplete
                 size="large"
@@ -79,14 +84,14 @@ function MatchContent() {
               <Form.Item
                 label="Filming Costs"
                 name="filmingCosts"
-                rules={[{ required: true, message: 'Please specify filming cost' }]}
+                rules={validationMessages.filmingCosts}
               >
                 <Input placeholder="Filming cost" type="number" size="large" />
               </Form.Item>
               <Form.Item
                 label="Fee Paid"
                 name="feePaid"
-                rules={[{ required: true, message: 'Please specify fee paid' }]}
+                rules={validationMessages.feePaid}
               >
                 <Input placeholder="Fee paid" type="number" size="large" />
               </Form.Item>
@@ -95,20 +100,20 @@ function MatchContent() {
               <Form.Item
                 label="Advance"
                 name="advance"
-                rules={[{ required: true, message: 'Please specify advance' }]}
+                rules={validationMessages.advance}
               >
                 <Input placeholder="Advance" type="number" size="large" />
               </Form.Item>
               <Form.Item
                 label="Launch Date"
                 name="launchDate"
-                rules={[{ required: true, message: 'Please specify launch date' }]}
+                rules={validationMessages.launchDate}
               >
                 <Input placeholder="Fee paid" type="date" size="large" />
               </Form.Item>
             </div>
             <Form.Item>
-              <Button type="primary" htmlType="submit" size="large" style={{ backgroundColor: '#13e0d5', color: 'black', border: 'none' }}>
+              <Button type="primary" htmlType="submit" size="large" className="match-content-btn">
                 Update Content
               </Button>
             </Form.Item>

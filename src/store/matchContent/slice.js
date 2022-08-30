@@ -13,6 +13,7 @@ const initialState = {
   isLoading: true,
   error: null,
   searchResults: [],
+  visible: false,
 };
 
 export const matchContentsSlice = createSlice({

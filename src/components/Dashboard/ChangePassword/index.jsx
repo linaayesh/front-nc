@@ -35,12 +35,7 @@ function ChangePassword() {
 
           <Form.Item
             name="oldPassword"
-            rules={[
-              {
-                required: true,
-                message: 'Please enter your old password!',
-              },
-            ]}
+            rules={validationMessages.oldPassword}
           >
             <Input placeholder="Old Password" type="password" />
           </Form.Item>

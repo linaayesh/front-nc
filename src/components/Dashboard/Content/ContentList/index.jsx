@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { getPaginatedContent, getPossibleContents } from 'store/matchContent/thunk';
+import { getPaginatedContent } from 'store/matchContent/thunk';
 import { setCurPage, setSearchResults, setVisible } from 'store/matchContent/slice';
 import { ComponentLayout } from 'components/Layout';
 import { VideoCard, VideoModal } from 'components/Dashboard';
 import { AutoComplete, Pagination } from 'components/AntDesign';
+import { getSearchResults } from 'utils';
 import './style.css';
 
 function ContentList() {
@@ -14,24 +16,13 @@ function ContentList() {
     matchedContent,
     curPage,
     searchResults,
-    visible,
     contents,
     contentsTitles,
     contentsCount,
   } = useAppSelector((state) => state.matchContents);
 
-  const getSearchResults = async (contentTitle) => {
-    const possibleContents = Object.values(contents).flat().filter((({
-      title,
-    }) => title.toLowerCase() === contentTitle.toLowerCase()));
-
-    if (possibleContents.length) return possibleContents;
-    const { payload } = await dispatch(getPossibleContents(contentTitle));
-    return payload;
-  };
-
   const onSelect = async (content) => {
-    const contentResults = await getSearchResults(content);
+    const contentResults = await getSearchResults(content, contents, dispatch);
     dispatch(setSearchResults(contentResults));
     dispatch(setVisible(true));
   };
@@ -50,6 +41,10 @@ function ContentList() {
     }
   };
 
+  const filterOptions = (inputValue, option) => option.value.toUpperCase().indexOf(
+    inputValue.toUpperCase(),
+  ) !== -1;
+
   useEffect(() => {
     if (!contents[curPage] || !matchedContent) {
       dispatch(getPaginatedContent({ limit: 10, page: curPage }));
@@ -58,7 +53,7 @@ function ContentList() {
 
   return (
     <>
-      <VideoModal searchResults={searchResults} visible={visible} setVisible={setVisible} />
+      <VideoModal searchResults={searchResults} />
       <ComponentLayout title="Videos Page">
         <div className="contents-list-container__top-sub-container">
           <div className="contents-list-container__top-sub-sub-container">
@@ -71,10 +66,8 @@ function ContentList() {
             onSelect={onSelect}
             onChange={onChange}
             onInputKeyDown={onInputKeyDown}
+            filterOption={filterOptions}
             placeholder="Search a video"
-            filterOption={(inputValue, option) => option.value.toUpperCase().indexOf(
-              inputValue.toUpperCase(),
-            ) !== -1}
             style={{
               width: 350,
             }}

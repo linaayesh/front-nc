@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */ // -> Disabled as Redux toolkit uses Immer to mutate state|
 // visit https://redux-toolkit.js.org/tutorials/quick-start#create-a-redux-state-slice for more details.
 
+import { getTitles } from 'utils';
 import {
   getContentById,
   getUsers,
@@ -39,10 +40,7 @@ const extraReducers = (builder) => {
     .addCase(getPaginatedContent.fulfilled, (state, action) => {
       state.contents = { ...state.contents, [state.curPage]: action.payload.rows };
       state.contentsCount = action.payload.count;
-      const titles = [];
-      Object.values(state.contents)
-        .forEach((rows) => rows.forEach((row) => titles.push({ value: row.title })));
-      state.contentsTitles = titles;
+      state.contentsTitles = getTitles(state.contents);
       state.matchedContent = null;
     });
 
@@ -51,6 +49,7 @@ const extraReducers = (builder) => {
       state.matchedContent = action.payload;
       state.contents = {};
       state.contentsTitles = [];
+      state.visible = false;
     });
 };
 
