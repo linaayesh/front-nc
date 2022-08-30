@@ -1,5 +1,3 @@
-import ChangePasswordPage from './ChangePassword.page';
-import EditProfilePage from './EditProfile.page';
-import DashboardSettings from './DashboardSettings.page';
-
-export { ChangePasswordPage, EditProfilePage, DashboardSettings };
+export { default as ChangePasswordPage } from './ChangePassword.page';
+export { default as EditProfilePage } from './EditProfile.page';
+export { default as DashboardSettingsPage } from './DashboardSettings.page';

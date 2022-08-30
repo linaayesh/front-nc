@@ -1,6 +1,10 @@
+import { ComponentLayout } from 'components/Layout';
+
 function RevenuePage() {
   return (
-    <div>RevenuePage</div>
+    <ComponentLayout title="Revenue Page">
+      <div>RevenuePage</div>
+    </ComponentLayout>
   );
 }
 

@@ -39,18 +39,18 @@ const validationMessages = {
         if (!value || getFieldValue('password') === value) {
           return Promise.resolve();
         }
-        return Promise.reject(new Error('The two passwords that you entered do not match!'));
+        return Promise.reject(
+          new Error('The two passwords that you entered do not match!'),
+        );
       },
     }),
   ],
 
   oldPassword: [
-    [
-      {
-        required: true,
-        message: 'Please enter your old password!',
-      },
-    ],
+    {
+      required: true,
+      message: 'Please enter your old password!',
+    },
   ],
 
   agreement: [
@@ -85,6 +85,41 @@ const validationMessages = {
     {
       required: true,
       message: 'Please enter your Address!',
+    },
+  ],
+
+  userId: [
+    {
+      required: true,
+      message: 'Please select a user to match this content to',
+    },
+  ],
+
+  filmingCosts: [
+    {
+      required: true,
+      message: 'Please specify filming cost',
+    },
+  ],
+
+  feePaid: [
+    {
+      required: true,
+      message: 'Please specify fee paid',
+    },
+  ],
+
+  advance: [
+    {
+      required: true,
+      message: 'Please specify advance',
+    },
+  ],
+
+  launchDate: [
+    {
+      required: true,
+      message: 'Please specify launch date',
     },
   ],
 };

@@ -1,0 +1,129 @@
+.contents-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+  margin-top: 2rem;
+}
+
+.contents-list-container__top-sub-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contents-list-container__top-sub-sub-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contents-list-container__top-sub-sub-container__icon {
+  background-color: var(--main-color);
+  width: 16px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.contents-list-container__top-sub-sub-container__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.my-pagination {
+  margin-top: 2rem;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.contents-list__video-card {
+  display: flex;
+  align-items: center;
+}
+
+.contents-list__video-card .image-wrapper img {
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.contents-list__video-card .info {
+  margin-left: 1rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero .form-container {
+  flex: 1;
+  margin-inline: 1rem;
+  margin-right: 4rem;
+  margin-top: 3rem;
+}
+
+.hero .form-container > * {
+  flex: 1;
+}
+
+.contents-list__video-card .title {
+  font-weight: bold;
+  line-height: 1.1;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.contents-list__video-card .permalink,
+.content-container span {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+}
+
+.form-container .pairs {
+  display: flex;
+}
+
+.form-container .pairs > * {
+  flex: 1;
+}
+
+.form-container .ant-col-16,
+.form-container .ant-col-8 {
+  max-width: 100% !important;
+  margin-inline: 10px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content-container .poster {
+  border-radius: 12px;
+  width: 270px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+.content-container h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  width: 270px;
+}
+
+.match-content-btn {
+  background-color: var(--main-color);
+  color: black;
+  border: none;
+}
+
+.match-content-btn:hover {
+  background-color: #0fb9b1;
+  color: black;
+}

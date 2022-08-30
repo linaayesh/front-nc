@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
-
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { updateUser } from 'store/user/thunk';
 import { Loader } from 'shared/components';
 import { validationMessages } from 'utils';
 import {
-  Input, Button, Form, Switch,
+  Input,
+  Button,
+  Form,
+  Switch,
 } from 'components/AntDesign';
 import ImageUploader from './uploadImage';
 import './style.css';
 
 function EditProfile() {
   const [form] = Form.useForm();
-  const { user } = useAppSelector((state) => state.checkAuth);
+  const { checkAuth: { user }, user: { isLoading } } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const [image, setImage] = useState(null);
   const [isFormChanged, setIsFormChanged] = useState(false);
-  const { isLoading } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     form.setFieldsValue(user);

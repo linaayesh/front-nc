@@ -8,6 +8,7 @@ import {
   RESET_PASSWORD_URL,
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
+  CHANGE_PASSWORD_URL,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
@@ -25,5 +26,7 @@ export default {
 
   createFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'POST', data),
   getFinancialStatus: () => axiosCall(FINANCIAL_STATUS_URL, 'GET'),
+
   updateFinancialData: (data) => axiosCall(FINANCIAL_STATUS_URL, 'PATCH', data),
+  changePassword: (data) => axiosCall(CHANGE_PASSWORD_URL, 'PATCH', data),
 };

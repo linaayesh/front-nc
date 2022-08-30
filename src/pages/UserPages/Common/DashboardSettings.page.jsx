@@ -1,6 +1,10 @@
+import { ComponentLayout } from 'components/Layout';
+
 function DashboardSettings() {
   return (
-    <div>DashboardSettings</div>
+    <ComponentLayout title="Video List">
+      <div>DashboardSettings</div>
+    </ComponentLayout>
   );
 }
 

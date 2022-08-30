@@ -84,3 +84,15 @@ export const updateFinancialData = createAsyncThunk(
     }
   },
 );
+
+export const changePassword = createAsyncThunk(
+  'user/changePassword',
+  async (values, { rejectWithValue }) => {
+    try {
+      const { data } = await userService.changePassword(values);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);

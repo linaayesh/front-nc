@@ -17,3 +17,8 @@ export { default as PlusOutlined } from './Icons/PlusOutlined';
 export { default as LoadingOutlined } from './Icons/LoadingOutlined';
 export { default as DeleteOutlined } from './Icons/DeleteOutlined';
 export { default as Spin } from './Spin';
+export { default as Pagination } from './Pagination';
+export { default as AutoComplete } from './AutoComplete';
+export { default as Row } from './Row';
+export { default as Col } from './Col';
+export { default as Card } from './Card';

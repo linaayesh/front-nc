@@ -14,7 +14,9 @@ function axiosCall(url, method, data) {
     const excludedMessages = ['APPROVED USERS', 'PENDING USERS', 'REJECTED USERS', 'APPROVED ACCOUNT'];
     // TODO: wait for the backend to update `resetPassword` response, to remove what after &&
     if (!excludedMessages.includes(msg) && !res.data.redirect) {
-      message.success(HTTP_EXCEPTIONS_MESSAGES[msg]);
+      if (msg) {
+        message.success(HTTP_EXCEPTIONS_MESSAGES[msg]);
+      }
     }
 
     // TODO: handle the redirect properly, possibly elsewhere.
@@ -22,9 +24,12 @@ function axiosCall(url, method, data) {
       message.success(HTTP_EXCEPTIONS_MESSAGES[msg.message]);
       return <Navigate to={res.data.redirect} />;
     }
+
     return res;
   }).catch((error) => {
-    message.error(HTTP_EXCEPTIONS_MESSAGES[error.response.data.message]);
+    if (error.response.data.message) {
+      message.error(HTTP_EXCEPTIONS_MESSAGES[error.response.data.message]);
+    }
     throw error;
   });
 }

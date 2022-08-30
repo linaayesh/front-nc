@@ -32,6 +32,9 @@ export const HTTP_EXCEPTIONS_MESSAGES = {
   'NOT EXIST USER': 'This user does not exist.',
   'PENDING ACCOUNT': 'This account is still pending for approval.',
   'RESET PASSWORD': 'This password has been reset.',
+  'INCORRECT PASSWORD': 'Your old password is incorrect.',
+  'PASSWORD CHANGED': 'Your password has been changed.',
+  'Content matched successfully': 'Content matched successfully.',
 };
 
 export const IMAGE_VALIDATION_MESSAGES = {
@@ -42,3 +45,5 @@ export const IMAGE_VALIDATION_MESSAGES = {
 export const LOGO = 'https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png';
 
 export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png';
+
+export const INVALID_USER_MESSAGE = 'This user does not exist.';

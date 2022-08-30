@@ -1,6 +1,10 @@
+import { ComponentLayout } from 'components/Layout';
+
 function VideoList() {
   return (
-    <div>VideoList</div>
+    <ComponentLayout title="Video List">
+      <div>VideoList</div>
+    </ComponentLayout>
   );
 }
 

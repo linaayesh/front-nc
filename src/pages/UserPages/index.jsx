@@ -1,17 +1,20 @@
 export {
   PayoutPage,
   RevenuePage,
-  Statistics,
-  StaffList,
-  VideoList,
+  StaffListPage,
+  VideoListPage,
 } from './EndUser';
 
 export {
   EditProfilePage,
   ChangePasswordPage,
-  DashboardSettings,
+  DashboardSettingsPage,
 } from './Common';
 
 export {
-  NewUsersPage, RejectedUsersPage, UserListPage, AddNewUserPage,
+  ContentListPage,
+  NewUsersPage,
+  RejectedUsersPage,
+  UserListPage,
+  AddNewUserPage,
 } from './Admin';

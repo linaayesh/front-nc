@@ -1,3 +1,7 @@
+import * as Ant from './AntDesign';
+
+const AntComponents = Ant;
+export { AntComponents };
 export { default as Navbar } from './Navbar';
 export {
   NewUsers,
@@ -6,6 +10,8 @@ export {
   RejectedUsers,
   AddNewUser,
   EditProfile,
+  ContentList,
+  MatchContent,
   ChangePassword,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
