@@ -10,35 +10,29 @@ function DashboardSettings() {
   };
   return (
 
-    <div className="add-new-user-subcontainer">
-      <Form
-        form={form}
-        name="basic"
-        onFinish={onFinish}
-        autoComplete="off"
-        className="add-new-user-form"
-      >
-        <div className="add-new-user-form-form-f">
-          <div className="add-new-user-nav">
-            <div className="add-new-user-icon" />
-            <div className="title-add-new-user">Update Your Dashboard Settings</div>
-          </div>
+    <Form
+      form={form}
+      name="basic"
+      onFinish={onFinish}
+      autoComplete="off"
+      className="dash-settings-form"
+    >
+      <div className="dash-settings-hero">
 
-          <Form.Item
-            name="splitRatio"
-            rules={validationMessages.splitRatio}
-          >
-            <Input placeholder="Enter The New Split Ratio" type="text" />
-          </Form.Item>
+        <Form.Item
+          name="splitRatio"
+          rules={validationMessages.splitRatio}
+        >
+          <Input placeholder="Enter The New Split Ratio" type="text" />
+        </Form.Item>
 
-          <Form.Item noStyle>
-            <Button className="form-button" type="primary" htmlType="submit">
-              Change Split Ratio
-            </Button>
-          </Form.Item>
-        </div>
-      </Form>
-    </div>
+        <Form.Item noStyle>
+          <Button className="form-button" type="primary" htmlType="submit">
+            Change Split Ratio
+          </Button>
+        </Form.Item>
+      </div>
+    </Form>
   );
 }
 
