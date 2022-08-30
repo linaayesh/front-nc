@@ -20,19 +20,15 @@ export default function AddNewUser() {
   };
 
   return (
-    <ComponentLayout title="Add New User Page">
+    <ComponentLayout title="Add New User Page" heading="Add New User">
       <Form
         form={form}
         name="basic"
         onFinish={onFinish}
         autoComplete="off"
-        className="add-new-user-form"
       >
         <div className="add-new-user-form-form-f">
-          <div className="add-new-user-nav">
-            <div className="add-new-user-icon" />
-            <div className="title-add-new-user">Add New User</div>
-          </div>
+
           <Form.Item
             name="name"
             rules={validationMessages.email}
