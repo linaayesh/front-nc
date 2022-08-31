@@ -1,37 +1,16 @@
-// import { useAppDispatch } from 'hooks';
 import { Input, Button, Form } from 'components/AntDesign';
-// import { updateDashboardSettings } from 'store/admin/thunk';
 import { validationMessages } from 'utils';
 import './style.css';
 
-// const dispatch = useAppDispatch();
-
 function DashboardSettings() {
   const [form] = Form.useForm();
-  const onFinish = async (values) => {
-    // until we have a backend, we will just update it
-    // const {
-    //   VIEWLLIFT_PASSWORD, VIEWLIFT_ENDPOINT,
-    //   VIEWLIFT_WATCHES_FETCH_LIMIT, SYSTEM_ACTIVATING_DATE, splitRatio,
-    // } = values;
-    // const VIEWLLIFT_EMAIL = values.VIEWLLIFT_EMAIL.toLowerCase();
-    // dispatch(updateDashboardSettings({
-    //   VIEWLLIFT_PASSWORD,
-    //   VIEWLIFT_ENDPOINT,
-    //   VIEWLLIFT_EMAIL,
-    //   VIEWLIFT_WATCHES_FETCH_LIMIT,
-    //   SYSTEM_ACTIVATING_DATE,
-    //   splitRatio,
-    // }));
-    console.log(values);
-  };
+
   return (
     <div className="dash-settings-hero">
 
       <Form
         form={form}
         name="basic"
-        onFinish={onFinish}
         autoComplete="off"
         className="dash-settings-form"
       >
@@ -40,21 +19,21 @@ function DashboardSettings() {
           <div className="dash-settings-right">
             <Form.Item
               className="dash-settings-input"
-              name="VIEWLLIFT_EMAIL"
+              name="viewliftEmail"
               rules={validationMessages.VIEWLLIFT_EMAIL}
             >
               <Input placeholder="Enter The New Email" type="text" />
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              name="VIEWLLIFT_PASSWORD"
+              name="viewliftPassword"
               rules={validationMessages.VIEWLLIFT_PASSWORD}
             >
               <Input placeholder="Enter The New Password" type="password" />
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              name="VIEWLIFT_ENDPOINT"
+              name="viewliftEndpoint"
               rules={validationMessages.VIEWLIFT_ENDPOINT}
             >
               <Input placeholder="Enter The New Endpoint" type="text" />
@@ -64,14 +43,14 @@ function DashboardSettings() {
 
             <Form.Item
               className="dash-settings-input"
-              name="VIEWLIFT_WATCHES_FETCH_LIMIT"
+              name="viewliftWatchesFetchLimit"
               rules={validationMessages.VIEWLIFT_WATCHES_FETCH_LIMIT}
             >
               <Input placeholder="Enter The New Watches Fetch Limit" type="text" />
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              name="SYSTEM_ACTIVATING_DATE"
+              name="systemActivatingDate"
               rules={validationMessages.SYSTEM_ACTIVATING_DATE}
             >
               <Input placeholder="Enter The New Activating Date" type="text" />
