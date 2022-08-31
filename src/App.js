@@ -1,6 +1,6 @@
 import 'antd/dist/antd.min.css';
-import { Routes, Route, Outlet } from 'react-router-dom';
 import { DashboardLayout } from 'Layout';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import {
   NotFound, LoginPage,
 } from 'pages';
