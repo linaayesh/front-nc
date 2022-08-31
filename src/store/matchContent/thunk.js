@@ -14,10 +14,10 @@ export const getContentById = createAsyncThunk(
 );
 
 export const getUsers = createAsyncThunk(
-  'matchContents/getUsers',
+  'matchContents/getApprovedList',
   async (_params, { rejectWithValue }) => {
     try {
-      const { data: { data } } = await adminService.getUsers();
+      const { data: { data } } = await adminService.getApprovedList();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
