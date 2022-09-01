@@ -122,43 +122,67 @@ const validationMessages = {
       message: 'Please specify launch date',
     },
   ],
-  splitRatio: [
-    {
-      required: true,
-      message: 'Please specify split ratio',
-    },
-  ],
-  VIEWLLIFT_EMAIL: [
-    {
-      required: true,
-      message: 'Please enter your Viewlift email!',
-    },
-  ],
-  VIEWLLIFT_PASSWORD: [
-    {
-      required: true,
-      message: 'Please enter your Viewlift password!',
-    },
-  ],
-  VIEWLIFT_ENDPOINT: [
-    {
-      required: true,
-      message: 'Please enter your Viewlift endpoint!',
-    },
-  ],
-  VIEWLIFT_WATCHES_FETCH_LIMIT: [
-    {
-      required: true,
-      message: 'Please enter your Viewlift watches fetch limit!',
-    },
-  ],
-  SYSTEM_ACTIVATING_DATE: [
-    {
-      required: true,
-      message: 'Please enter your system activating date!',
-    },
-  ],
 
+  nextupToOwedSplitPercentage: [
+    {
+      required: true,
+      message: 'Please specify Split Percentage',
+    },
+    {
+      type: 'number',
+      min: 0,
+      max: 100,
+      message: 'Split Percentage must be a number between 0 and 100',
+    },
+  ],
+  systemActivationDate: [
+    {
+      required: true,
+      message: 'Please enter System Activation Date',
+      type: 'date',
+    },
+  ],
+  fetchMaxCount: [
+    {
+      required: true,
+      message: 'Please enter Fetch Max Count',
+    },
+  ],
+  expiredAfterInYears: [
+    {
+      required: true,
+      message: 'Please enter Expired After In Years',
+    },
+  ],
+  viewliftEmail: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Email',
+      type: 'email',
+    },
+  ],
+  viewliftEndpoint: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Endpoint',
+      type: 'url',
+    },
+  ],
+  viewliftWatchesFetchLimit: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Watches Fetch Limit',
+      type: 'number',
+      min: 0,
+    },
+  ],
+  viewliftPassword: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Password',
+      type: 'password',
+    },
+  ],
 };
 
 export default validationMessages;
