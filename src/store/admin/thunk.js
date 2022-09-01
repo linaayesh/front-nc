@@ -89,3 +89,14 @@ export const updateDashboardSettings = createAsyncThunk(
     }
   },
 );
+export const geteDashboardSettings = createAsyncThunk(
+  'admin/geteDashboardSettings',
+  async (_params, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.geteDashboardSettings();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
