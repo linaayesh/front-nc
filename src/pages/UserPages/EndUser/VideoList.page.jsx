@@ -1,4 +1,4 @@
-import { ComponentLayout } from 'components/Layout';
+import { ComponentLayout } from 'layout';
 
 function VideoList() {
   return (

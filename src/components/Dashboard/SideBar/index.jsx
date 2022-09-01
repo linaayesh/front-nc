@@ -15,7 +15,7 @@ function SideBar({ handleClick }) {
 
   useEffect(
     () => {
-      if (roleId === ROLES.ADMIN) {
+      if (roleId === ROLES.ADMIN || roleId === ROLES.MASTER_ADMIN) {
         setItems(itemsSuperAdmin);
       } else if (roleId === ROLES.COMEDIAN) {
         setItems(itemsAdmin);

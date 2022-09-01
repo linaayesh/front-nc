@@ -1,0 +1,61 @@
+.dash-settings-hero {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .dash-settings-sub{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    gap:5%;
+  }
+.dash-settings-right{
+  gap:20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.dash-settings-left{
+  gap:20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.dash-settings-input{
+  margin: 0;
+}
+.form-button-dashboard{
+  width: 47.5%;
+  height: 40px;
+  color: #01050A;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: none;
+}
+.form-button-dashboard.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #fff;
+  border-color:  var(--main-color);
+  background: #0eb6ad;
+}
+.dash-settings-form{
+
+  width: 100%;
+}
+  @media screen and (max-width: 768px) {
+    .dash-settings-hero {
+      width: 100%;
+      text-align: center;
+    }
+    .dash-settings-sub{
+      flex-direction: column;
+      gap:20px;
+      width: 100%;
+    }
+    
+.form-button-dashboard{
+  width: 100%;
+}
+
+  }

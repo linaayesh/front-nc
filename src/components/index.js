@@ -13,6 +13,7 @@ export {
   ContentList,
   MatchContent,
   ChangePassword,
+  DashboardSettings,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';

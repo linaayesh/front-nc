@@ -122,6 +122,66 @@ const validationMessages = {
       message: 'Please specify launch date',
     },
   ],
+
+  nextupToOwedSplitPercentage: [
+    {
+      required: true,
+      message: 'Please specify Split Percentage',
+    },
+    {
+      type: 'number',
+      min: 0,
+      max: 1,
+      message: 'Split Percentage must be a number between 0.1 and 1',
+    },
+  ],
+  systemActivationDate: [
+    {
+      required: true,
+      message: 'Please enter System Activation Date',
+      type: 'date',
+    },
+  ],
+  fetchMaxCount: [
+    {
+      required: true,
+      message: 'Please enter Fetch Max Count',
+    },
+  ],
+  expiredAfterInYears: [
+    {
+      required: true,
+      message: 'Please enter Expired After In Years',
+    },
+  ],
+  viewliftEmail: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Email',
+      type: 'email',
+    },
+  ],
+  viewliftEndpoint: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Endpoint',
+      type: 'url',
+    },
+  ],
+  viewliftWatchesFetchLimit: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Watches Fetch Limit',
+      type: 'number',
+      min: 0,
+    },
+  ],
+  viewliftPassword: [
+    {
+      required: true,
+      message: 'Please enter ViewLift Password',
+    },
+  ],
 };
 
 export default validationMessages;

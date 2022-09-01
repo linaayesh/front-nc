@@ -10,6 +10,8 @@ import {
   GET_USERS_URL,
   GET_POSSIBLE_CONTENTS,
   MATCH_USER_CONTENT,
+  UPDATE_DASHBOARD_SETTINGS,
+  GET_DASHBOARD_SETTINGS,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
@@ -25,4 +27,6 @@ export default {
   getPaginatedContent: async ({ limit, page }) => axiosCall(GET_PAGINATED_CONTENT({ limit, page }), 'GET'),
   getPossibleContents: async (title) => axiosCall(GET_POSSIBLE_CONTENTS(title), 'GET'),
   matchUserContent: async (payload) => axiosCall(MATCH_USER_CONTENT, 'PATCH', payload),
+  updateDashboardSettings: async (payload) => axiosCall(UPDATE_DASHBOARD_SETTINGS, 'PATCH', payload),
+  geteDashboardSettings: async () => axiosCall(GET_DASHBOARD_SETTINGS, 'GET'),
 };

@@ -77,3 +77,26 @@ export const createUser = createAsyncThunk(
     }
   },
 );
+
+export const updateDashboardSettings = createAsyncThunk(
+  'admin/updateDashboardSettings',
+  async (settings, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.updateDashboardSettings(settings);
+      return { message: data.message, settings };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
+export const geteDashboardSettings = createAsyncThunk(
+  'admin/geteDashboardSettings',
+  async (_params, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.geteDashboardSettings();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);

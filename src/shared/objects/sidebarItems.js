@@ -142,11 +142,6 @@ const itemsAdmin = [
     path: '/dashboard/AccountSettings',
   },
   {
-    title: 'Dashboard Settings',
-    icon: 'fa fa-cog',
-    path: '/dashboard/Settings',
-  },
-  {
     title: 'Logout',
     icon: 'fa fa-sign-out',
     path: '/logout',
