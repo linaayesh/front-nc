@@ -46,10 +46,16 @@
   @media screen and (max-width: 768px) {
     .dash-settings-hero {
       width: 100%;
+      text-align: center;
     }
     .dash-settings-sub{
       flex-direction: column;
       gap:20px;
       width: 100%;
     }
+    
+.form-button-dashboard{
+  width: 100%;
+}
+
   }

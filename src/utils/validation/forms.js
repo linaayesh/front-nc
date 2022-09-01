@@ -131,8 +131,8 @@ const validationMessages = {
     {
       type: 'number',
       min: 0,
-      max: 100,
-      message: 'Split Percentage must be a number between 0 and 100',
+      max: 1,
+      message: 'Split Percentage must be a number between 0.1 and 1',
     },
   ],
   systemActivationDate: [
@@ -180,7 +180,6 @@ const validationMessages = {
     {
       required: true,
       message: 'Please enter ViewLift Password',
-      type: 'password',
     },
   ],
 };

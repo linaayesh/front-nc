@@ -15,10 +15,7 @@ function DashboardSettings() {
 
   useEffect(() => {
     dispatch(geteDashboardSettings()).then((res) => {
-      const data = {
-        ...res.payload.data.regularVariables,
-        ...res.payload.data.encryptedVariables,
-      };
+      const { data } = res.payload;
       form.setFieldsValue({
         ...data,
         systemActivationDate: data.systemActivationDate.slice(0, 10),
@@ -27,26 +24,12 @@ function DashboardSettings() {
     setIsFormChanged(false);
   }, [form]);
   const onFinish = (values) => {
-    const {
-      viewliftPassword,
-      viewliftEndpoint,
-      viewliftWatchesFetchLimit,
-      nextupToOwedSplitPercentage,
-      expiredAfterInYears,
-      fetchMaxCount,
-      systemActivationDate,
-    } = values;
-    const viewliftEmail = values.viewliftEmail.toLowerCase();
+    const { viewliftEmail, ...rest } = values;
+    viewliftEmail.toLowerCase();
     dispatch(
       updateDashboardSettings({
         viewliftEmail,
-        viewliftPassword,
-        viewliftEndpoint,
-        viewliftWatchesFetchLimit,
-        systemActivationDate,
-        nextupToOwedSplitPercentage,
-        expiredAfterInYears,
-        fetchMaxCount,
+        ...rest,
       }),
     );
   };
@@ -69,9 +52,7 @@ function DashboardSettings() {
               label="View lift Email"
               name="viewliftEmail"
               className="dash-settings-input"
-              rules={[
-                { required: true, message: validationMessages.viewliftEmail },
-              ]}
+              rules={validationMessages.viewliftEmail}
             >
               <Input placeholder="Viewlift Email" type="email" />
             </Form.Item>
@@ -79,12 +60,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="View lift Password"
               name="viewliftPassword"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.viewliftPassword,
-                },
-              ]}
+              rules={validationMessages.viewliftPassword}
             >
               <Input.Password placeholder="Viewlift Password" type="password" />
             </Form.Item>
@@ -92,12 +68,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="View lift Endpoint"
               name="viewliftEndpoint"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.viewliftEndpoint,
-                },
-              ]}
+              rules={validationMessages.viewliftEndpoint}
             >
               <Input placeholder="Viewlift Endpoint" type="url" />
             </Form.Item>
@@ -105,12 +76,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="View lift Watches Fetch Limit"
               name="viewliftWatchesFetchLimit"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.viewliftWatchesFetchLimit,
-                },
-              ]}
+              rules={validationMessages.viewliftWatchesFetchLimit}
             >
               <Input placeholder="Viewlift Watches Fetch Limit" type="number" />
             </Form.Item>
@@ -120,12 +86,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="System Activation Date"
               name="systemActivationDate"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.systemActivationDate,
-                },
-              ]}
+              rules={validationMessages.systemActivationDate}
             >
               <Input placeholder="System Activating Date" type="date" />
             </Form.Item>
@@ -133,12 +94,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="Split Percentage"
               name="nextupToOwedSplitPercentage"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.nextupToOwedSplitPercentage,
-                },
-              ]}
+              rules={validationMessages.nextupToOwedSplitPercentage}
             >
               <Input placeholder="Split Ratio" type="number" />
             </Form.Item>
@@ -146,9 +102,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="fetch Max Count"
               name="fetchMaxCount"
-              rules={[
-                { required: true, message: validationMessages.fetchMaxCount },
-              ]}
+              rules={validationMessages.fetchMaxCount}
             >
               <Input placeholder="Fetch Max Count" type="number" />
             </Form.Item>
@@ -156,12 +110,7 @@ function DashboardSettings() {
               className="dash-settings-input"
               label="Expired After In Years"
               name="expiredAfterInYears"
-              rules={[
-                {
-                  required: true,
-                  message: validationMessages.expiredAfterInYears,
-                },
-              ]}
+              rules={validationMessages.expiredAfterInYears}
             >
               <Input placeholder="Expired After In Years" type="number" />
             </Form.Item>
