@@ -128,7 +128,7 @@ function DashboardSettings() {
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              label="Nextup To Owed Split Percentage"
+              label="Split Percentage"
               name="nextupToOwedSplitPercentage"
               rules={[
                 {
@@ -141,7 +141,7 @@ function DashboardSettings() {
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              label="Expired After In Years"
+              label="fetch Max Count"
               name="fetchMaxCount"
               rules={[
                 { required: true, message: validationMessages.fetchMaxCount },
