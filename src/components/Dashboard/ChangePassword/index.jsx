@@ -1,4 +1,4 @@
-import { ComponentLayout } from 'Layout';
+import { ComponentLayout } from 'layout';
 import {
   Input,
   Button,
