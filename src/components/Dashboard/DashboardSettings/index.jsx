@@ -19,7 +19,10 @@ function DashboardSettings() {
         ...res.payload.data.regularVariables,
         ...res.payload.data.encryptedVariables,
       };
-      form.setFieldsValue(data);
+      form.setFieldsValue({
+        ...data,
+        systemActivationDate: data.systemActivationDate.slice(0, 10),
+      });
     });
     setIsFormChanged(false);
   }, [form]);
@@ -31,8 +34,8 @@ function DashboardSettings() {
       nextupToOwedSplitPercentage,
       expiredAfterInYears,
       fetchMaxCount,
+      systemActivationDate,
     } = values;
-    const systemActivationDate = values.systemActivationDate.slice(0, 10);
     const viewliftEmail = values.viewliftEmail.toLowerCase();
     dispatch(
       updateDashboardSettings({
