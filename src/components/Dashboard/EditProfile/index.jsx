@@ -68,11 +68,10 @@ function EditProfile() {
                 <div className="subcontainer">
 
                   <div className="edit-form-s">
-                    <div className="edit-nav">
-                      <div className="edit-icon" />
-                      <div className="title-edit">Change Your Information</div>
+                    <div className="heading-nav">
+                      <div className="heading-icon" />
+                      <div className="title-heading">Change Your Information</div>
                     </div>
-
                     <Form.Item
                       name="name"
                       rules={validationMessages.name}
@@ -91,9 +90,9 @@ function EditProfile() {
                     </Form.Item>
                   </div>
                   <div className="edit-form-t">
-                    <div className="edit-nav">
-                      <div className="edit-icon" />
-                      <div className="title-edit">Change Your Profile Pic</div>
+                    <div className="heading-nav">
+                      <div className="heading-icon" />
+                      <div className="title-heading">Change Your Profile Pic</div>
                     </div>
                     <div className="ImageUploader">
                       <ImageUploader submitImageToForm={(url) => setImage(url)} />
@@ -101,10 +100,9 @@ function EditProfile() {
                   </div>
                 </div>
 
-                <div className="edit-nav noti">
-                  <div className="edit-icon" />
-                  <div className="title-edit">Notification</div>
-
+                <div className="heading-nav">
+                  <div className="heading-icon" />
+                  <div className="title-heading">Notifications</div>
                 </div>
                 <div className="edit-switch">
                   <p>
