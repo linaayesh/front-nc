@@ -46,13 +46,7 @@ function MatchContent() {
   };
 
   return (
-    <ComponentLayout title="Match Content Page">
-      <div className="contents-list-container__top-sub-container">
-        <div className="contents-list-container__top-sub-sub-container">
-          <div className="contents-list-container__top-sub-sub-container__icon" />
-          <div className="contents-list-container__top-sub-sub-container__title">Link a content to user</div>
-        </div>
-      </div>
+    <ComponentLayout title="Match Content Page" heading="Link a content to user">
       <div className="hero">
         <div className="form-container">
           <Form
