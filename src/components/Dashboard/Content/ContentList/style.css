@@ -5,29 +5,6 @@
   margin-top: 2rem;
 }
 
-.contents-list-container__top-sub-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.contents-list-container__top-sub-sub-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.contents-list-container__top-sub-sub-container__icon {
-  background-color: var(--main-color);
-  width: 16px;
-  height: 32px;
-  border-radius: 4px;
-}
-
-.contents-list-container__top-sub-sub-container__title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
 
 .my-pagination {
   margin-top: 2rem;
