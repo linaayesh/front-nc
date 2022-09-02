@@ -54,12 +54,8 @@ function ContentList() {
   return (
     <>
       <VideoModal searchResults={searchResults} />
-      <ComponentLayout title="Videos Page">
+      <ComponentLayout title="Videos Page" heading="Videos">
         <div className="contents-list-container__top-sub-container">
-          <div className="contents-list-container__top-sub-sub-container">
-            <div className="contents-list-container__top-sub-sub-container__icon" />
-            <div className="contents-list-container__top-sub-sub-container__title">Videos</div>
-          </div>
           <AutoComplete
             value={value}
             options={contentsTitles}
