@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getPaginatedContent } from 'store/matchContent/thunk';
 import { setCurPage, setSearchResults, setVisible } from 'store/matchContent/slice';
-import { ComponentLayout } from 'layout';
+import { ComponentLayout } from 'layouts';
 import { VideoCard, VideoModal } from 'components/Dashboard';
 import { AutoComplete, Pagination } from 'components/AntDesign';
 import { getSearchResults } from 'utils';
