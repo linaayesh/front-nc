@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,12 +18,12 @@ import { CONTENT_LIST_URL } from 'shared/constants/endpoints';
 import { INVALID_USER_MESSAGE } from 'shared/constants';
 
 function MatchContent() {
+  const [form] = Form.useForm();
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
-
   const { curContent, usersToMatch } = useAppSelector((state) => state.matchContents);
-  const { title, permalink } = curContent;
+  const { title, permalink, publishDate } = curContent;
   const modifiedUsers = usersToMatch.map(({ name, email }) => ({ value: email, label: `${name} - ${email}` }));
 
   const onFinish = async (values) => {
@@ -32,6 +33,7 @@ function MatchContent() {
       filmingCosts: +values.filmingCosts,
       advance: +values.advance,
       feePaid: +values.feePaid,
+      recoveredCosts: +values.recoveredCosts,
       userId: usersToMatch.find(({ email }) => email === values.userId)?.id,
     };
 
@@ -50,6 +52,7 @@ function MatchContent() {
       <div className="hero">
         <div className="form-container">
           <Form
+            form={form}
             name="match-content-with-user"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
@@ -58,22 +61,32 @@ function MatchContent() {
             className="my-form"
             layout="vertical"
           >
-            <Form.Item
-              label="Select By User Email"
-              name="userId"
-              rules={validationMessages.userId}
-            >
-              <AutoComplete
-                size="large"
-                value={value}
-                options={modifiedUsers}
-                onChange={onChange}
-                placeholder="Search user email"
-                filterOption={(inputValue, option) => option.label.toUpperCase().indexOf(
-                  inputValue.toUpperCase(),
-                ) !== -1}
-              />
-            </Form.Item>
+            <div className="pairs">
+              <Form.Item
+                label="Select By User Email"
+                name="userId"
+                rules={validationMessages.userId}
+              >
+                <AutoComplete
+                  size="large"
+                  value={value}
+                  options={modifiedUsers}
+                  onChange={onChange}
+                  placeholder="Search user email"
+                  filterOption={(inputValue, option) => option.label.toUpperCase().indexOf(
+                    inputValue.toUpperCase(),
+                  ) !== -1}
+                />
+              </Form.Item>
+              <Form.Item
+                label="Launch Date"
+                name="launchDate"
+                rules={validationMessages.launchDate}
+                initialValue={publishDate?.slice(0, 10)}
+              >
+                <Input placeholder="Fee paid" type="date" size="large" />
+              </Form.Item>
+            </div>
             <div className="pairs">
               <Form.Item
                 label="Filming Costs"
@@ -99,11 +112,24 @@ function MatchContent() {
                 <Input placeholder="Advance" type="number" size="large" />
               </Form.Item>
               <Form.Item
-                label="Launch Date"
-                name="launchDate"
-                rules={validationMessages.launchDate}
+                label="Recovered Costs"
+                name="recoveredCosts"
+                rules={
+                  [
+                    ...validationMessages.recoveredCosts,
+                    {
+                      validator: (_, fovalue) => {
+                        if (+fovalue > +form.getFieldValue('filmingCosts') + +form.getFieldValue('feePaid') + +form.getFieldValue('advance')) {
+                          return Promise.reject(new Error('Recovered costs cannot be greater than total costs'));
+                        }
+                        return Promise.resolve();
+                      },
+                    },
+
+                  ]
+                }
               >
-                <Input placeholder="Fee paid" type="date" size="large" />
+                <Input placeholder="Recovered costs" type="number" size="large" />
               </Form.Item>
             </div>
             <Form.Item>
@@ -118,6 +144,8 @@ function MatchContent() {
           <div className="info">
             <h3>{title}</h3>
             <span>{permalink}</span>
+            <a href={`https://watch.nextupcomedy.com${permalink}`} target="_blank" rel="noreferrer">{permalink}</a>
+            <h1>{publishDate?.slice(0, 10)}</h1>
           </div>
         </div>
       </div>

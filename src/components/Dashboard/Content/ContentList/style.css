@@ -24,10 +24,32 @@
   object-fit: cover;
 }
 
-.contents-list__video-card .info {
+ .info {
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  color: black;
+  text-align: center;
 }
-
+.contenttitle{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.videolink{
+  color: black;
+  text-decoration: none;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+.videoDate{
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+}
 .hero {
   display: flex;
   align-items: center;
@@ -103,4 +125,12 @@
 .match-content-btn:hover {
   background-color: #0fb9b1;
   color: black;
+}
+ @media screen and (max-width: 768px) {
+  /*flip the items*/
+  .hero {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
 }
