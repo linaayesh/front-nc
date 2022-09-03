@@ -58,7 +58,7 @@ function ModalForm({ user }) {
           <Button
             key="submit"
             type="danger"
-            onClick={() => handleRejectUser(user)}
+            onClick={() => handleRejectUser(user, value)}
           >
             Reject
           </Button>,
