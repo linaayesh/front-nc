@@ -31,7 +31,7 @@ export default function AddNewUser() {
 
           <Form.Item
             name="name"
-            rules={validationMessages.email}
+            rules={validationMessages.name}
           >
             <Input placeholder="Name" />
           </Form.Item>
