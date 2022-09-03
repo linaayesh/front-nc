@@ -142,10 +142,12 @@ function MatchContent() {
         <div className="content-container">
           <img src={defaultPoster} alt={title} className="poster" />
           <div className="info">
-            <h3>{title}</h3>
-            <span>{permalink}</span>
-            <a href={`https://watch.nextupcomedy.com${permalink}`} target="_blank" rel="noreferrer">{permalink}</a>
-            <h1>{publishDate?.slice(0, 10)}</h1>
+            <h1 className="contenttitle">{title}</h1>
+            <a href={`https://watch.nextupcomedy.com${permalink}`} target="_blank" rel="noreferrer" className="videolink">
+              https://watch.nextupcomedy.com
+              {permalink}
+            </a>
+            <h1 className="videoDate">{`Publish Date : ${publishDate?.slice(0, 10)}`}</h1>
           </div>
         </div>
       </div>

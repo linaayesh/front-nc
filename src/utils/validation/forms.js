@@ -122,6 +122,12 @@ const validationMessages = {
       message: 'Please specify launch date',
     },
   ],
+  recoveredCosts: [
+    {
+      required: true,
+      message: 'Please specify recovered costs',
+    },
+  ],
 
   nextupToOwedSplitPercentage: [
     {

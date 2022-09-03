@@ -22,7 +22,10 @@ export default function ComponentLayout(props) {
 ComponentLayout.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 ComponentLayout.defaultProps = {
