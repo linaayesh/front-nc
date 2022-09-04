@@ -60,6 +60,7 @@ function MatchContent() {
             autoComplete="off"
             className="my-form"
             layout="vertical"
+            requiredMark={false}
           >
             <div className="pairs">
               <Form.Item
@@ -78,39 +79,43 @@ function MatchContent() {
                   ) !== -1}
                 />
               </Form.Item>
-              <Form.Item
-                label="Launch Date"
-                name="launchDate"
-                rules={validationMessages.launchDate}
-                initialValue={publishDate?.slice(0, 10)}
-              >
-                <Input placeholder="Fee paid" type="date" size="large" />
-              </Form.Item>
+
+              <div className="couple">
+                <div className="heading-nav">
+                  <div className="heading-icon" />
+                  <div className="title-heading">Update the costs</div>
+                </div>
+                <Form.Item
+                  label="Filming Costs"
+                  name="filmingCosts"
+                  rules={validationMessages.filmingCosts}
+                >
+                  <Input placeholder="Filming cost" type="number" size="large" />
+                </Form.Item>
+                <Form.Item
+                  label="Fee Paid"
+                  name="feePaid"
+                  rules={validationMessages.feePaid}
+                >
+                  <Input placeholder="Fee paid" type="number" size="large" />
+                </Form.Item>
+                <Form.Item
+                  label="Advance"
+                  name="advance"
+                  rules={validationMessages.advance}
+                >
+                  <Input placeholder="Advance" type="number" size="large" />
+                </Form.Item>
+              </div>
             </div>
-            <div className="pairs">
-              <Form.Item
-                label="Filming Costs"
-                name="filmingCosts"
-                rules={validationMessages.filmingCosts}
-              >
-                <Input placeholder="Filming cost" type="number" size="large" />
-              </Form.Item>
-              <Form.Item
-                label="Fee Paid"
-                name="feePaid"
-                rules={validationMessages.feePaid}
-              >
-                <Input placeholder="Fee paid" type="number" size="large" />
-              </Form.Item>
-            </div>
-            <div className="pairs">
-              <Form.Item
-                label="Advance"
-                name="advance"
-                rules={validationMessages.advance}
-              >
-                <Input placeholder="Advance" type="number" size="large" />
-              </Form.Item>
+
+            <div className="reserved">
+              <div className="heading-nav">
+                <div className="heading-icon" />
+                <div className="title-heading">
+                  Update the Recovered Costs
+                </div>
+              </div>
               <Form.Item
                 label="Recovered Costs"
                 name="recoveredCosts"
@@ -133,7 +138,7 @@ function MatchContent() {
               </Form.Item>
             </div>
             <Form.Item>
-              <Button type="primary" htmlType="submit" size="large" className="match-content-btn">
+              <Button type="primary" htmlType="submit" size="large" className="form-button">
                 Update Content
               </Button>
             </Form.Item>

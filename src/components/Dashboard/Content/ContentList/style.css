@@ -59,9 +59,8 @@
 
 .hero .form-container {
   flex: 1;
-  margin-inline: 1rem;
   margin-right: 4rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .hero .form-container > * {
@@ -81,18 +80,11 @@
   color: #8c8c8c;
 }
 
-.form-container .pairs {
-  display: flex;
-}
 
-.form-container .pairs > * {
-  flex: 1;
-}
 
 .form-container .ant-col-16,
 .form-container .ant-col-8 {
   max-width: 100% !important;
-  margin-inline: 10px;
 }
 
 .content-container {
