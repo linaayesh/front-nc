@@ -17,7 +17,7 @@ import { axiosCall } from '../utils';
 
 export default {
   approveUser: async (userId) => axiosCall(APPROVE_USER_BY_ID_URL(userId), 'PATCH'),
-  rejectUser: async (userId) => axiosCall(REJECT_USER_BY_ID_URL(userId), 'PATCH'),
+  rejectUser: async (userId, rejectionReason) => axiosCall(REJECT_USER_BY_ID_URL(userId), 'PATCH', { rejectionReason }),
   createUser: async (userInfo) => axiosCall(ADD_USER_URL, 'POST', userInfo),
   getWaitingList: async () => axiosCall(USER_WAITING_LIST_URL, 'GET'),
   getApprovedList: async () => axiosCall(USER_APPROVED_LIST_URL, 'GET'),
