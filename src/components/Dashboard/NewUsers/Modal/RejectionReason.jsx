@@ -8,12 +8,12 @@ function ReasonOfRejection({ value, onChange }) {
       <p>Choose the reason for rejection</p>
       <Radio.Group onChange={onChange} value={value}>
         <Space direction="vertical">
-          <Radio value={1}>Option A</Radio>
-          <Radio value={2}>Option B</Radio>
-          <Radio value={3}>Option C</Radio>
-          <Radio value={4}>
+          <Radio value="Option A">Option A</Radio>
+          <Radio value="Option B">Option B</Radio>
+          <Radio value="Option C">Option C</Radio>
+          <Radio value="other">
             Other
-            {value === 4 ? (
+            {value === 'other' ? (
               <Input
                 style={{ width: 100, marginLeft: 10 }}
               />
@@ -28,6 +28,6 @@ function ReasonOfRejection({ value, onChange }) {
 export default ReasonOfRejection;
 
 ReasonOfRejection.propTypes = {
-  value: PropsTypes.number.isRequired,
+  value: PropsTypes.string.isRequired,
   onChange: PropsTypes.func.isRequired,
 };

@@ -12,7 +12,7 @@ import {
 import ReasonOfRejection from './RejectionReason';
 
 function ModalForm({ user }) {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
