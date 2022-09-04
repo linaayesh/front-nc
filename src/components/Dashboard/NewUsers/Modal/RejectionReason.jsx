@@ -1,24 +1,20 @@
 import PropsTypes from 'prop-types';
-import { Radio, Space, Input } from 'components/AntDesign';
+import { Radio, Space } from 'components/AntDesign';
+import { ACCOUNT_REGISTRATION_REASONS } from 'shared/constants';
 
 function ReasonOfRejection({ value, onChange }) {
+  const options = Object.values(ACCOUNT_REGISTRATION_REASONS).map((reason) => (
+    <Radio key={reason} value={reason}>
+      {reason}
+    </Radio>
+  ));
   return (
     <>
       <p>Are you sure that you want to reject this user？</p>
       <p>Choose the reason for rejection</p>
       <Radio.Group onChange={onChange} value={value}>
         <Space direction="vertical">
-          <Radio value="Option A">Option A</Radio>
-          <Radio value="Option B">Option B</Radio>
-          <Radio value="Option C">Option C</Radio>
-          <Radio value="other">
-            Other
-            {value === 'other' ? (
-              <Input
-                style={{ width: 100, marginLeft: 10 }}
-              />
-            ) : null}
-          </Radio>
+          {options}
         </Space>
       </Radio.Group>
     </>

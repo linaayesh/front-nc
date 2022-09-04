@@ -41,7 +41,12 @@ export const IMAGE_VALIDATION_MESSAGES = {
   IMAGE_TYPE: 'Only JPG/PNG images are accepted!',
   IMAGE_SIZE: 'Image must be smaller than 2MB!',
 };
+export const ACCOUNT_REGISTRATION_REASONS = {
+  Option1: 'I want to be a comedian',
+  Option2: 'I want to be a fan',
+  Option3: 'I want to be a comedian and a fan',
 
+};
 export const LOGO = 'https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png';
 
 export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png';
