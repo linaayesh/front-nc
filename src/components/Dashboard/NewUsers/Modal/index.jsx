@@ -12,7 +12,7 @@ import {
 import ReasonOfRejection from './RejectionReason';
 
 function ModalForm({ user }) {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -27,8 +27,8 @@ function ModalForm({ user }) {
     setIsModalVisible(false);
   };
 
-  const handleRejectUser = (userInfo) => {
-    dispatch(rejectUser(userInfo));
+  const handleRejectUser = (userInfo, rejectionReason) => {
+    dispatch(rejectUser(userInfo, rejectionReason));
     setIsModalVisible(false);
   };
 
@@ -49,7 +49,7 @@ function ModalForm({ user }) {
       <Modal
         title="Reject User"
         visible={isModalVisible}
-        onOk={() => handleRejectUser(user)}
+        onOk={() => handleRejectUser(user, value)}
         onCancel={handleCancel}
         footer={[
           <Button key="back" onClick={handleCancel}>
@@ -58,7 +58,7 @@ function ModalForm({ user }) {
           <Button
             key="submit"
             type="danger"
-            onClick={() => handleRejectUser(user)}
+            onClick={() => handleRejectUser(user, value)}
           >
             Reject
           </Button>,

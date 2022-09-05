@@ -1,4 +1,4 @@
-import { ComponentLayout } from 'layout';
+import { ComponentLayout } from 'layouts';
 import {
   Input,
   Button,
@@ -19,7 +19,7 @@ function ChangePassword() {
   };
 
   return (
-    <ComponentLayout title="Change Password Page">
+    <ComponentLayout title="Change Password Page" heading="Change Your Password">
       <div className="hero">
         <Form
           form={form}
@@ -28,10 +28,6 @@ function ChangePassword() {
           onFinish={onFinish}
           autoComplete="off"
         >
-          <div className="add-new-user-nav">
-            <div className="add-new-user-icon" />
-            <div className="title-add-new-user">Change Your Password</div>
-          </div>
 
           <Form.Item
             name="oldPassword"

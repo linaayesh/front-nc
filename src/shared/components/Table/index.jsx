@@ -17,6 +17,14 @@ function UsersTable({ listToDisplay, thunkFunction }) {
     state.admin.error,
   ]);
 
+  const handleSearch = (e) => {
+    const currValue = e.target.value;
+    setValue(currValue);
+    const filteredData = list.filter((entry) => entry.name.toLowerCase()
+      .includes(currValue));
+    setDataSource(filteredData);
+  };
+
   useEffect(() => {
     dispatch(thunkFunction());
   }, []);
@@ -30,13 +38,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
       placeholder="Search user by Name"
       allowClear
       value={value}
-      onChange={(e) => {
-        const currValue = e.target.value;
-        setValue(currValue);
-        const filteredData = list.filter((entry) => entry.name.toLowerCase()
-          .includes(currValue));
-        setDataSource(filteredData);
-      }}
+      onChange={handleSearch}
     />
   );
 

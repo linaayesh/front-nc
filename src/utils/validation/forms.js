@@ -122,6 +122,20 @@ const validationMessages = {
       message: 'Please specify launch date',
     },
   ],
+  recoveredCosts: [
+    {
+      required: true,
+      message: 'Please specify recovered costs',
+    },
+    ({ getFieldValue }) => ({
+      validator(_, value) {
+        if (+value > +getFieldValue('filmingCosts') + +getFieldValue('feePaid') + +getFieldValue('advance')) {
+          return Promise.reject(new Error('Recovered costs cannot be greater than total costs'));
+        }
+        return Promise.resolve();
+      },
+    }),
+  ],
 
   nextupToOwedSplitPercentage: [
     {

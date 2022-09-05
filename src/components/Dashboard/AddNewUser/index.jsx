@@ -1,7 +1,7 @@
 import { useAppDispatch } from 'hooks';
 import { Input, Button, Form } from 'components/AntDesign';
 import { ROLES } from 'shared/constants';
-import { ComponentLayout } from 'layout';
+import { ComponentLayout } from 'layouts';
 import { createUser } from 'store/admin/thunk';
 import { validationMessages } from 'utils';
 import './style.css';
@@ -31,7 +31,7 @@ export default function AddNewUser() {
 
           <Form.Item
             name="name"
-            rules={validationMessages.email}
+            rules={validationMessages.name}
           >
             <Input placeholder="Name" />
           </Form.Item>

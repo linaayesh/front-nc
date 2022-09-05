@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
-
 import { useAppSelector } from 'hooks';
 import { itemsSuperAdmin, itemsAdmin } from 'shared/objects/sidebarItems';
-import { LOGO, ROLES } from 'shared/constants';
+import { ROLES } from 'shared/constants';
+import { Logo } from 'shared/components';
 import SidebarItem from './SideBarItem';
 import './style.css';
 
@@ -27,13 +27,8 @@ function SideBar({ handleClick }) {
   return (
     <div className="sidebar">
       <div className="logodiv">
-        <img
-          src={LOGO}
-          alt="logo"
-          className="logo"
-          loading="lazy"
-          decoding="async"
-        />
+        <Logo className="logo" />
+
         <div className="buttonround">
           <Button
             icon={<CloseOutlined />}

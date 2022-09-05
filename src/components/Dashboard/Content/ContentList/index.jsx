@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { getPaginatedContent } from 'store/matchContent/thunk';
 import { setCurPage, setSearchResults, setVisible } from 'store/matchContent/slice';
-import { ComponentLayout } from 'layout';
+import { ComponentLayout } from 'layouts';
 import { VideoCard, VideoModal } from 'components/Dashboard';
 import { AutoComplete, Pagination } from 'components/AntDesign';
 import { getSearchResults } from 'utils';
@@ -54,12 +54,8 @@ function ContentList() {
   return (
     <>
       <VideoModal searchResults={searchResults} />
-      <ComponentLayout title="Videos Page">
+      <ComponentLayout title="Videos Page" heading="Videos">
         <div className="contents-list-container__top-sub-container">
-          <div className="contents-list-container__top-sub-sub-container">
-            <div className="contents-list-container__top-sub-sub-container__icon" />
-            <div className="contents-list-container__top-sub-sub-container__title">Videos</div>
-          </div>
           <AutoComplete
             value={value}
             options={contentsTitles}

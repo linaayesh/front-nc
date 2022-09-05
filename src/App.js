@@ -1,5 +1,5 @@
 import 'antd/dist/antd.min.css';
-import { DashboardLayout } from 'layout';
+import { DashboardLayout } from 'layouts';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import {
   NotFound, LoginPage,
@@ -40,7 +40,6 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        {/* <Route index element={<StatisticsPage />} /> */}
         {adminRoutes.map(({ key, path, Component }) => (
           <Route
             key={key}

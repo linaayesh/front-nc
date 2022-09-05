@@ -13,7 +13,7 @@ export default function FormModel({ form, fieldRenderProps }) {
 
   return (
     <>
-      <Logo />
+      <Logo className="home-layout-logo" />
       <Text className="auth-text title-text">{formTitle}</Text>
       <Form
         form={form}

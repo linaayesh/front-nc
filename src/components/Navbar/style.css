@@ -16,7 +16,7 @@
   box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.2)
 }
 .navbar-button {
-  background-color: #13e0d5;
+  background-color: var(--main-color);
   border: none;
   color: white;
   padding: 10px;
@@ -47,7 +47,7 @@
   margin-right: 10px;
 }
 .bell {
-  color: #13e0d5;
+  color: var(--main-color);
   font-size: 30px;
 }
 

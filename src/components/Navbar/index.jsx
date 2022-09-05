@@ -5,7 +5,7 @@ import { DEFAULT_AVATAR } from 'shared/constants';
 import { Button, Space } from 'components/AntDesign';
 import './style.css';
 
-function Navbar({ handleClick, handleLogout }) {
+function Navbar({ handleClick }) {
   return (
     <nav className="navbar">
       <div className="leftside">
@@ -18,7 +18,7 @@ function Navbar({ handleClick, handleLogout }) {
       <div className="rightside">
         <i className="fa fa-bell icon" />
 
-        <Space onClick={handleLogout}>
+        <Space>
           <img
             src={DEFAULT_AVATAR}
             alt="logo"
@@ -35,5 +35,4 @@ function Navbar({ handleClick, handleLogout }) {
 export default Navbar;
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired,
 };

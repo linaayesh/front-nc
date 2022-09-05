@@ -20,7 +20,7 @@ export default function LoginForm() {
 
   return (
     <div className="auth-container-login">
-      <Logo />
+      <Logo className="home-layout-logo" />
       <Text className="auth-text title-text">Welcome back please login to your account.</Text>
       <Form
         name="basic"

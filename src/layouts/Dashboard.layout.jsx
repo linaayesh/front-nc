@@ -1,15 +1,11 @@
 import { useRef } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import { Navbar, SideBar } from 'components';
-import { useAppDispatch } from 'hooks';
-import { logoutUser } from 'store/auth/thunk';
 
 export default function DashboardLayout() {
   const sideBarInLayout = useRef(null);
   const navbarInLayout = useRef(null);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const handleClick = () => {
     const navbar = sideBarInLayout.current.style.display;
@@ -19,13 +15,8 @@ export default function DashboardLayout() {
       navbarInLayout.current.style.display = 'none';
     } else {
       navbarInLayout.current.style.display = 'block';
-
       sideBarInLayout.current.style.display = 'none';
     }
-  };
-  const handleLogout = async () => {
-    dispatch(logoutUser());
-    navigate('/');
   };
 
   return (
@@ -34,7 +25,7 @@ export default function DashboardLayout() {
         <SideBar handleClick={handleClick} />
       </div>
       <div ref={navbarInLayout} className="navbarinlayout">
-        <Navbar handleClick={handleClick} handleLogout={handleLogout} />
+        <Navbar handleClick={handleClick} />
         <div className="Outletstyle">
           <Outlet />
         </div>

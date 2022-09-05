@@ -41,7 +41,15 @@ export const IMAGE_VALIDATION_MESSAGES = {
   IMAGE_TYPE: 'Only JPG/PNG images are accepted!',
   IMAGE_SIZE: 'Image must be smaller than 2MB!',
 };
+export const ACCOUNT_REGISTRATION_REASONS = {
+  Option1: 'The name is not appropriate',
+  Option2: 'The email is fake',
+  Option3: 'There is a user with the same name',
+  Option4: 'Anonymous user who has no contents',
+  Option5: 'User`s email is unreachable',
 
+};
+export const NEXTUP_COMEDEY_LINK = 'https://watch.nextupcomedy.com';
 export const LOGO = 'https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png';
 
 export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png';

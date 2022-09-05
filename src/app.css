@@ -52,7 +52,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #13e0d5;
+  color:  var(--main-color);
 }
 
 .not-found-title {
@@ -71,7 +71,7 @@ body {
 
 .notFound {
   fill: #ffffff;
-  stroke: #13e0d5;
+  stroke:  var(--main-color);
   stroke-width: 1.5;
   animation: lupa 5s infinite;
 }
@@ -88,7 +88,7 @@ body {
 }
 .not-found-back {
   padding: 0.5rem 1.25rem;
-  background: #13e0d5;
+  background:  var(--main-color);
   color: #fff;
   border-radius: 0.25rem;
   margin-top: 1rem;
