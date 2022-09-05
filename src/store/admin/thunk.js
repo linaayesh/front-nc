@@ -55,7 +55,6 @@ export const approveUser = createAsyncThunk(
 
 export const rejectUser = createAsyncThunk(
   'admin/rejectUser',
-  // send rejectionReason as payload
   async ({ user, rejectionReason }, { rejectWithValue }) => {
     try {
       const { data } = await adminService.rejectUser(user.id, rejectionReason);

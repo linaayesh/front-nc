@@ -47,6 +47,7 @@ export const ACCOUNT_REGISTRATION_REASONS = {
   Option3: 'Option3',
 
 };
+export const NEXTUP_COMEDEY_LINK = 'https://watch.nextupcomedy.com';
 export const LOGO = 'https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c713847241/images/1240pxNextUpLogoTurquoise.png';
 
 export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png';

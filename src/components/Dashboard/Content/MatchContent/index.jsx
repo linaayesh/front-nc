@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +14,7 @@ import {
 } from 'components/AntDesign';
 import { validationMessages } from 'utils';
 import { CONTENT_LIST_URL } from 'shared/constants/endpoints';
-import { INVALID_USER_MESSAGE } from 'shared/constants';
+import { INVALID_USER_MESSAGE, NEXTUP_COMEDEY_LINK } from 'shared/constants';
 
 function MatchContent() {
   const [form] = Form.useForm();
@@ -47,6 +46,11 @@ function MatchContent() {
     setValue(text);
   };
 
+  const filterOption = {
+    filterOption:
+    (inputValue, option) => option?.value?.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1,
+  };
+
   return (
     <ComponentLayout title="Match Content Page" heading="Link a content to user">
       <div className="hero">
@@ -74,9 +78,7 @@ function MatchContent() {
                   options={modifiedUsers}
                   onChange={onChange}
                   placeholder="Search user email"
-                  filterOption={(inputValue, option) => option.label.toUpperCase().indexOf(
-                    inputValue.toUpperCase(),
-                  ) !== -1}
+                  filterOption={filterOption}
                 />
               </Form.Item>
 
@@ -119,20 +121,7 @@ function MatchContent() {
               <Form.Item
                 label="Recovered Costs"
                 name="recoveredCosts"
-                rules={
-                  [
-                    ...validationMessages.recoveredCosts,
-                    {
-                      validator: (_, fovalue) => {
-                        if (+fovalue > +form.getFieldValue('filmingCosts') + +form.getFieldValue('feePaid') + +form.getFieldValue('advance')) {
-                          return Promise.reject(new Error('Recovered costs cannot be greater than total costs'));
-                        }
-                        return Promise.resolve();
-                      },
-                    },
-
-                  ]
-                }
+                rules={validationMessages.recoveredCosts}
               >
                 <Input placeholder="Recovered costs" type="number" size="large" />
               </Form.Item>
@@ -148,8 +137,8 @@ function MatchContent() {
           <img src={defaultPoster} alt={title} className="poster" />
           <div className="info">
             <h1 className="contenttitle">{title}</h1>
-            <a href={`https://watch.nextupcomedy.com${permalink}`} target="_blank" rel="noreferrer" className="videolink">
-              https://watch.nextupcomedy.com
+            <a href={`${NEXTUP_COMEDEY_LINK}${permalink}`} target="_blank" rel="noreferrer" className="videolink">
+              {NEXTUP_COMEDEY_LINK}
               {permalink}
             </a>
             <h1 className="videoDate">{`Publish Date : ${publishDate?.slice(0, 10)}`}</h1>
