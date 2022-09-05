@@ -42,9 +42,11 @@ export const IMAGE_VALIDATION_MESSAGES = {
   IMAGE_SIZE: 'Image must be smaller than 2MB!',
 };
 export const ACCOUNT_REGISTRATION_REASONS = {
-  Option1: 'Option1',
-  Option2: 'Option2',
-  Option3: 'Option3',
+  Option1: 'The name is not appropriate',
+  Option2: 'The email is fake',
+  Option3: 'There is a user with the same name',
+  Option4: 'Anonymous user who has no contents',
+  Option5: 'User`s email is unreachable',
 
 };
 export const NEXTUP_COMEDEY_LINK = 'https://watch.nextupcomedy.com';
