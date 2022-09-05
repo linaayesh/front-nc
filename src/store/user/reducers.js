@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */ // -> Disabled as Redux toolkit uses Immer to mutate state|
-// visit https://redux-toolkit.js.org/tutorials/quick-start#create-a-redux-state-slice for more details.
-
 import {
   createUser,
   updateUser,

@@ -20,7 +20,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
     "import/extensions": "off",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off"
   },
   "settings": {
     "import/resolver": {
