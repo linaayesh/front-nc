@@ -40,7 +40,6 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        {/* <Route index element={<StatisticsPage />} /> */}
         {adminRoutes.map(({ key, path, Component }) => (
           <Route
             key={key}
