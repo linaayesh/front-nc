@@ -36,4 +36,5 @@ export const STATISTICS_DATA_URL = `${BASE_URL}/api/v1/user/statistics`;
 
 // * navigation endpoints
 export const MATCH_CONTENT_ENDPOINT = (id) => `/dashboard/contentlist/matchcontent/${id}`;
+export const EDIT_USER_ENDPOINT = (id) => `/dashboard/userlist/edituser/${id}`;
 export const CONTENT_LIST_URL = '/dashboard/contentlist';
