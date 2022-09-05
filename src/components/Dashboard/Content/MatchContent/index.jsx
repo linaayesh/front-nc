@@ -17,7 +17,6 @@ import { CONTENT_LIST_URL } from 'shared/constants/endpoints';
 import { INVALID_USER_MESSAGE, NEXTUP_COMEDEY_LINK } from 'shared/constants';
 
 function MatchContent() {
-  const [form] = Form.useForm();
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const dispatch = useAppDispatch();
@@ -56,7 +55,6 @@ function MatchContent() {
       <div className="hero">
         <div className="form-container">
           <Form
-            form={form}
             name="match-content-with-user"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
