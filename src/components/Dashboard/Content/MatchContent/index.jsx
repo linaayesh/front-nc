@@ -79,6 +79,13 @@ function MatchContent() {
                   filterOption={filterOption}
                 />
               </Form.Item>
+              <Form.Item
+                label="launc hDate"
+                name="launchDate"
+                rules={validationMessages.launchDate}
+              >
+                <Input size="large" placeholder="launch Date" type="date" />
+              </Form.Item>
 
               <div className="couple">
                 <div className="heading-nav">

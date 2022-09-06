@@ -96,11 +96,11 @@ function DashboardSettings() {
               name="nextupToOwedSplitPercentage"
               rules={validationMessages.nextupToOwedSplitPercentage}
             >
-              <Input placeholder="Split Ratio" type="number" />
+              <Input placeholder="Split Ratio" type="number" step={0.01} />
             </Form.Item>
             <Form.Item
               className="dash-settings-input"
-              label="fetch Max Count"
+              label="Max Fetch Trails"
               name="fetchMaxCount"
               rules={validationMessages.fetchMaxCount}
             >

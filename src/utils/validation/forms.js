@@ -143,11 +143,15 @@ const validationMessages = {
       message: 'Please specify Split Percentage',
     },
     {
-      type: 'number',
-      min: 0,
-      max: 1,
-      message: 'Split Percentage must be a number between 0.1 and 1',
+      validator(_, value) {
+        if (value > 1 || value < 0.01) {
+          return Promise.reject(new Error('Split Percentage cannot be greater than 1 or less than 0.01'));
+        }
+        return Promise.resolve();
+      },
+
     },
+
   ],
   systemActivationDate: [
     {
@@ -160,6 +164,14 @@ const validationMessages = {
     {
       required: true,
       message: 'Please enter Fetch Max Count',
+    },
+    {
+      validator(_, value) {
+        if (value > 10 || value < 1) {
+          return Promise.reject(new Error('Fetch Max Count cannot be greater than 10 or less than 1'));
+        }
+        return Promise.resolve();
+      },
     },
   ],
   expiredAfterInYears: [
@@ -187,7 +199,12 @@ const validationMessages = {
       required: true,
       message: 'Please enter ViewLift Watches Fetch Limit',
       type: 'number',
-      min: 0,
+      validator(_, value) {
+        if (value > 1000 || value < 1) {
+          return Promise.reject(new Error('ViewLift Watches Fetch Limit cannot be greater than 1000 or less than 1'));
+        }
+        return Promise.resolve();
+      },
     },
   ],
   viewliftPassword: [
