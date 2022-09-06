@@ -6,7 +6,7 @@ import { Loader } from 'shared/components';
 import { Input, Table } from 'components/AntDesign';
 import ModalForm from 'components/Dashboard/NewUsers/Modal';
 import { columns } from 'shared/objects/Users';
-import UserButton from 'components/Dashboard/UsersList/EditUserData/UserButton';
+import UserButton from 'components/Dashboard/EditUserData/UserButton';
 
 function UsersTable({ listToDisplay, thunkFunction }) {
   const [dataSource, setDataSource] = useState([]);
