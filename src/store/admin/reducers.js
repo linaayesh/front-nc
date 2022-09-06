@@ -5,6 +5,7 @@ import {
   approveUser,
   rejectUser,
   createUser,
+  editUserProfile,
 } from './thunk';
 
 const extraReducers = (builder) => {
@@ -91,6 +92,11 @@ const extraReducers = (builder) => {
     .addCase(rejectUser.rejected, (state, action) => {
       state.isLoading = false;
       return action.payload;
+    });
+
+  builder
+    .addCase(editUserProfile.fulfilled, (state) => {
+      state.isLoading = false;
     });
 };
 
