@@ -14,6 +14,7 @@ export {
   MatchContent,
   ChangePassword,
   DashboardSettings,
+  EditUserData,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
