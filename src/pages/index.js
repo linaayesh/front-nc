@@ -7,7 +7,6 @@ export {
   ChangePasswordPage,
   DashboardSettingsPage,
   StaffListPage,
-  // StatisticsPage,
   PayoutPage,
   VideoListPage,
   UserListPage,
@@ -15,6 +14,7 @@ export {
   RejectedUsersPage,
   AddNewUserPage,
   ContentListPage,
+  StatisticsPage,
 } from './UserPages';
 
 export {

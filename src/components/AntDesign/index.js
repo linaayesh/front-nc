@@ -22,3 +22,4 @@ export { default as AutoComplete } from './AutoComplete/AutoComplete';
 export { default as Row } from './Row/Row';
 export { default as Col } from './Col/Col';
 export { default as Card } from './Card/Card';
+export { default as Statistic } from './Statistic';

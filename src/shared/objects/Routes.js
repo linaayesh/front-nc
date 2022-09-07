@@ -18,6 +18,7 @@ import {
   RejectedUsersPage,
   AddNewUserPage,
   ContentListPage,
+  StatisticsPage,
 } from 'pages';
 
 function ProtectedLoginPage() {
@@ -71,6 +72,12 @@ const routes = [
 ];
 
 const adminRoutes = [
+  {
+    title: 'Statistics',
+    path: '/dashboard/Statistics',
+    Component: StatisticsPage,
+    key: 'Statistics',
+  },
   {
     title: 'Revenue',
     path: '/dashboard/Revenue',
