@@ -78,6 +78,14 @@ gap:10%;
   border-color: var(--main-color);
   background: #0eb6ad;
 }
+.profileimg{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.ImageUploader{
+  display: flex;
+}
 @media screen and (max-width: 700px) {
   .edit-form {
     width: 100%;
