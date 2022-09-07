@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useEffect, useState } from 'react';
 import { GeneralView, DetailedView } from 'components';
 import { userService } from 'services';
@@ -7,7 +6,7 @@ import { useAppSelector } from 'hooks';
 function Statistics() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [setError] = useState('');
   const {
     checkAuth: { user },
   } = useAppSelector((state) => state);
@@ -24,7 +23,6 @@ function Statistics() {
   }, []);
 
   const { Content, earning } = data;
-  if (error) console.log(2222, error);
   if (isLoading) {
     return <h2>Loading</h2>;
   }
