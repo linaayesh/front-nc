@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import PropsTypes from 'prop-types';
 import { ComponentLayout } from 'layouts';
 import { statisticsColumns } from 'shared/objects/Users';
@@ -17,6 +18,7 @@ export default function DetailedView({ rows }) {
               watchedSeconds: contentReports[0].watchedSeconds,
               owedRevenue: contentReports[0].owedRevenue,
               tvodTicketsCount: contentReports[0].tvodTicketsCount,
+              key: title,
             }))
 }
         pagination={{ pageSize: 5 }}
@@ -27,5 +29,5 @@ export default function DetailedView({ rows }) {
 }
 
 DetailedView.propTypes = {
-  rows: PropsTypes.arrayOf.isRequired,
+  rows: PropsTypes.arrayOf(PropsTypes.object).isRequired,
 };
