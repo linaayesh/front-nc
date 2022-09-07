@@ -10,5 +10,5 @@ export { default as ChangePassword } from './ChangePassword';
 export { default as VideoCard } from './Content/VideoCard';
 export { default as VideoModal } from './Content/VideoModal';
 export { default as DashboardSettings } from './DashboardSettings';
-export { GeneralView, DetailedView } from './statistics';
+export { GeneralView, DetailedView } from './Statistics';
 export { default as EditUserData } from './EditUserData';
