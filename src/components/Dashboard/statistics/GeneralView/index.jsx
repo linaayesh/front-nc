@@ -7,7 +7,7 @@ import { icons } from 'shared/constants';
 
 export default function GeneralView({ count, balance }) {
   const {
-    Content, Balance, earnings, Payouts,
+    Content, Balance, Earnings, Payouts,
   } = icons;
   const arr = [
     {
@@ -21,7 +21,7 @@ export default function GeneralView({ count, balance }) {
       value: balance,
     },
     {
-      icon: earnings,
+      icon: Earnings,
       title: 'Earning',
       value: balance,
     },

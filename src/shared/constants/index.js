@@ -1,4 +1,4 @@
-import Earnings from 'assets/images/earnings.png';
+import Earnings from 'assets/images/Earnings.png';
 import Balance from 'assets/images/Balance.png';
 import Payouts from 'assets/images/Payouts.png';
 import Content from 'assets/images/content.png';
