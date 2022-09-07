@@ -1,3 +1,8 @@
+import earnings from 'assets/images/earnings.png';
+import Balance from 'assets/images/Balance.png';
+import Payouts from 'assets/images/Payouts.png';
+import Content from 'assets/images/content.png';
+
 export const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80';
 
 export const DEFAULT_USER_STATE = {
@@ -55,3 +60,10 @@ export const LOGO = 'https://appcmsprod.viewlift.com/60333573-228c-4678-9ce8-05c
 export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-bayer-on-twitter-facebook-blue-tick-png.png';
 
 export const INVALID_USER_MESSAGE = 'This user does not exist.';
+
+export const icons = {
+  earnings,
+  Balance,
+  Payouts,
+  Content,
+};
