@@ -1,14 +1,10 @@
 import Proptypes from 'prop-types';
-import { Card, Avatar, Statistic } from 'components/AntDesign';
+import { Card, Statistic } from 'components/AntDesign';
 
 export default function StatisticsGrid({ icon, title, value }) {
   return (
     <Card.Grid>
-      <Avatar
-        size={64}
-        src={icon}
-        className="statistic-grid-avatar"
-      />
+      <img src={icon} alt="icon" style={{ width: '50px' }} />
       <Statistic title={title} value={value} />
     </Card.Grid>
   );
