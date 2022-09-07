@@ -1,4 +1,4 @@
-import earnings from 'assets/images/earnings.png';
+import Earnings from 'assets/images/earnings.png';
 import Balance from 'assets/images/Balance.png';
 import Payouts from 'assets/images/Payouts.png';
 import Content from 'assets/images/content.png';
@@ -62,7 +62,7 @@ export const CORRECT_CHECKER = 'https://www.vippng.com/png/full/41-413660_julia-
 export const INVALID_USER_MESSAGE = 'This user does not exist.';
 
 export const icons = {
-  earnings,
+  Earnings,
   Balance,
   Payouts,
   Content,
