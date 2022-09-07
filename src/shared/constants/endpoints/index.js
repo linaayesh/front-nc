@@ -28,6 +28,7 @@ export const MATCH_USER_CONTENT = `${BASE_URL}/api/v1/user/match-user-content`;
 export const UPDATE_DASHBOARD_SETTINGS = `${BASE_URL}/api/v1/user/edit-dashboard-settings`;
 export const GET_DASHBOARD_SETTINGS = `${BASE_URL}/api/v1/user/dashboard-settings`;
 export const EDIT_USER_PROFILE = `${BASE_URL}/api/v1/user/edit-user-profile`;
+export const GET_USER_PROFILE = (userId) => `${BASE_URL}/api/v1/user/get-user-data/${userId}`;
 //* user endpoints - |EndUser USER|
 export const FINANCIAL_STATUS_URL = `${BASE_URL}/api/v1/user/financial-information`;
 export const CHANGE_PASSWORD_URL = `${BASE_URL}/api/v1/user/change-password`;

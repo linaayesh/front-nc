@@ -13,6 +13,7 @@ import {
   UPDATE_DASHBOARD_SETTINGS,
   GET_DASHBOARD_SETTINGS,
   EDIT_USER_PROFILE,
+  GET_USER_PROFILE,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
@@ -31,4 +32,5 @@ export default {
   updateDashboardSettings: async (payload) => axiosCall(UPDATE_DASHBOARD_SETTINGS, 'PATCH', payload),
   geteDashboardSettings: async () => axiosCall(GET_DASHBOARD_SETTINGS, 'GET'),
   editUserProfile: async (userInfo) => axiosCall(EDIT_USER_PROFILE, 'PATCH', userInfo),
+  getUserProfile: async (userId) => axiosCall(GET_USER_PROFILE(userId), 'GET'),
 };

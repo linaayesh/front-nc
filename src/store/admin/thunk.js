@@ -112,3 +112,14 @@ export const editUserProfile = createAsyncThunk(
     }
   },
 );
+export const getUserProfile = createAsyncThunk(
+  'admin/getUserProfile',
+  async (userId, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.getUserProfile(userId);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
