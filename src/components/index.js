@@ -16,6 +16,7 @@ export {
   DashboardSettings,
   GeneralView,
   DetailedView,
+  EditUserData,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
