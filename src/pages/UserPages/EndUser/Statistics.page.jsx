@@ -30,11 +30,17 @@ function Statistics() {
   return (
     <>
       <GeneralView
-        count={Content.count}
+        count={1}
         balance={balance}
         earning={+earning}
       />
-      <DetailedView rows={Content.rows} />
+      <DetailedView rows={[{
+        title: 'dkdkdk',
+        watchedSeconds: 100,
+        owedRevenue: 200,
+        tvodTicketsCount: 300,
+      }]}
+      />
     </>
   );
 }

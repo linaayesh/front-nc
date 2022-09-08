@@ -11,12 +11,14 @@ export default function DetailedView({ rows }) {
       <Table
         columns={statisticsColumns}
         dataSource={
-          rows.map(({ title, contentReports }) => (
+          rows.map(({
+            title, watchedSeconds, owedRevenue, tvodTicketsCount,
+          }) => (
             {
               title,
-              watchedSeconds: contentReports[0].watchedSeconds,
-              owedRevenue: contentReports[0].owedRevenue,
-              tvodTicketsCount: contentReports[0].tvodTicketsCount,
+              watchedSeconds,
+              owedRevenue,
+              tvodTicketsCount,
             }))
 }
         pagination={{ pageSize: 5 }}

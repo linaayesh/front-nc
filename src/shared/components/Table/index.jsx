@@ -3,9 +3,11 @@ import PropsTypes from 'prop-types';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { Loader } from 'shared/components';
-import { Input, Table } from 'components/AntDesign';
+import { Button, Input, Table } from 'components/AntDesign';
 import ModalForm from 'components/Dashboard/NewUsers/Modal';
 import { columns } from 'shared/objects/Users';
+import { useNavigate } from 'react-router-dom';
+import { EDIT_USER_ENDPOINT } from 'shared/constants/endpoints';
 
 function UsersTable({ listToDisplay, thunkFunction }) {
   const [dataSource, setDataSource] = useState([]);
@@ -54,6 +56,25 @@ function UsersTable({ listToDisplay, thunkFunction }) {
       ),
     },
   ];
+  const navigate = useNavigate();
+
+  const approvedColumnsAction = [
+    ...columns,
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, user) => (
+        <Button
+          onClick={() => navigate(EDIT_USER_ENDPOINT(user.id))}
+          type="primary"
+          className="form-button"
+        >
+          Edit
+        </Button>
+
+      ),
+    },
+  ];
 
   return (
     !isLoading ? (
@@ -61,7 +82,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
         <div className="search">{FilterByNameInput}</div>
         <div className="table">
           <Table
-            columns={listToDisplay === 'waitingList' ? columnsWithAction : columns}
+            columns={listToDisplay === 'waitingList' ? columnsWithAction : listToDisplay === 'approvedList' ? approvedColumnsAction : columns}
             dataSource={dataSource}
             pagination={{ pageSize: 5 }}
             scroll={{ x: 500 }}

@@ -19,6 +19,7 @@ import {
   AddNewUserPage,
   ContentListPage,
   StatisticsPage,
+  EditUserDataPage,
 } from 'pages';
 
 function ProtectedLoginPage() {
@@ -155,6 +156,12 @@ const adminRoutes = [
     path: '/dashboard/contentList/matchContent/:contentId',
     Component: ContentListPage,
     key: 'matchContent',
+  },
+  {
+    title: 'editUser',
+    path: '/dashboard/userList/editUser/:userId',
+    Component: EditUserDataPage,
+    key: 'editUser',
   },
 ];
 

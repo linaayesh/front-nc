@@ -100,11 +100,36 @@ export const geteDashboardSettings = createAsyncThunk(
     }
   },
 );
+// ! Statistics
+
 export const getStatistics = createAsyncThunk(
-  'admin/getStatistics',
-  async (_params, { rejectWithValue }) => {
+  'admin/editUserProfile',
+  async (userInfo, { rejectWithValue }) => {
     try {
-      const { data } = await userService.getStatistics();
+      const { data } = await userService.getStatistics(userInfo);
+      return { message: data.message, userInfo };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const editUserProfile = createAsyncThunk(
+  'admin/editUserProfile',
+  async (userInfo, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.editUserProfile(userInfo);
+      return { message: data.message, userInfo };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
+export const getUserProfile = createAsyncThunk(
+  'admin/getUserProfile',
+  async (userId, { rejectWithValue }) => {
+    try {
+      const { data } = await adminService.getUserProfile(userId);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
