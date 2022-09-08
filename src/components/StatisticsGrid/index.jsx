@@ -13,5 +13,5 @@ export default function StatisticsGrid({ icon, title, value }) {
 StatisticsGrid.propTypes = {
   icon: Proptypes.string.isRequired,
   title: Proptypes.string.isRequired,
-  value: Proptypes.string.isRequired,
+  value: Proptypes.number.isRequired,
 };
