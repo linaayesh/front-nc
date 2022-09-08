@@ -18,12 +18,12 @@ export default function GeneralView({ count, balance }) {
     {
       icon: Balance,
       title: 'Balance',
-      value: balance,
+      value: `${balance.toFixed(2)}£`,
     },
     {
       icon: Earnings,
       title: 'Earning',
-      value: balance,
+      value: `${balance.toFixed(2)}£`,
     },
     {
       icon: Payouts,
