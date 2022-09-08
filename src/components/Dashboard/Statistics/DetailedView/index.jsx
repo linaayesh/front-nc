@@ -4,27 +4,21 @@ import { ComponentLayout } from 'layouts';
 import { statisticsColumns } from 'shared/objects/Users';
 import { MainTitle } from 'shared';
 import { Table } from 'components/AntDesign';
+import humanizeDuration from 'humanize-duration';
 
 export default function DetailedView({ rows }) {
-  const lastContentReport = rows.contentReports[0];
-
   return (
     <ComponentLayout>
       <MainTitle title="Detailed View" />
       <Table
         columns={statisticsColumns}
-        dataSource={
-          rows.map(({
-            title,
-          }) => (
-            {
-              title,
-              watchedSeconds: lastContentReport.watchedSeconds,
-              owedRevenue: lastContentReport.owedRevenue,
-              tvodTicketsCount: lastContentReport.tvodTicketsCount,
-              key: title,
-            }))
-}
+        dataSource={rows.map(((row) => ({
+          title: row.title,
+          watchedSeconds: humanizeDuration(row.contentReports[0].watchedSeconds * 1000),
+          owedRevenue: `${row.contentReports[0].owedRevenue.slice(0, 5)} £`,
+          tvodTicketsCount: row.contentReports[0].tvodTicketsCount,
+          key: row.title,
+        })))}
         pagination={{ pageSize: 5 }}
         scroll={{ x: 500 }}
       />
