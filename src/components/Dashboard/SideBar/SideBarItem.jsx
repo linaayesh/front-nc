@@ -8,12 +8,18 @@ export default function SidebarItem({ item }) {
   if (item.children) {
     return (
       <div className={open ? 'sidebar-item open ' : 'sidebar-item title'}>
-        <div className="sidebar-title">
+        <div
+          className="sidebar-title"
+          aria-hidden="true"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
           <span>
             {item.icon && <i className={item.icon} />}
             {item.title}
           </span>
-          <button type="button" onClick={() => setOpen(!open)}>
+          <button type="button">
             <i className="bi-chevron-down toggle-btn" />
           </button>
         </div>

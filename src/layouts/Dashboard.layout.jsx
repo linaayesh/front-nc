@@ -8,14 +8,15 @@ export default function DashboardLayout() {
   const navbarInLayout = useRef(null);
 
   const handleClick = () => {
-    const navbar = sideBarInLayout.current.style.display;
-    if (navbar === 'none') {
-      sideBarInLayout.current.style.display = 'block';
-      sideBarInLayout.current.style.width = '100%';
-      navbarInLayout.current.style.display = 'none';
+    const sideBar = sideBarInLayout.current.style;
+    const navbar = navbarInLayout.current.style;
+    if (sideBar.display === 'none') {
+      sideBar.display = 'block';
+      sideBar.width = '100%';
+      navbar.display = 'none';
     } else {
-      navbarInLayout.current.style.display = 'block';
-      sideBarInLayout.current.style.display = 'none';
+      navbar.display = 'block';
+      sideBar.display = 'none';
     }
   };
 
