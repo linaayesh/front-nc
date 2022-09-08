@@ -6,6 +6,8 @@ import { MainTitle } from 'shared';
 import { Table } from 'components/AntDesign';
 
 export default function DetailedView({ rows }) {
+  const lastContentReport = rows.contentReports[0];
+
   return (
     <ComponentLayout>
       <MainTitle title="Detailed View" />
@@ -13,13 +15,13 @@ export default function DetailedView({ rows }) {
         columns={statisticsColumns}
         dataSource={
           rows.map(({
-            title, contentReports,
+            title,
           }) => (
             {
               title,
-              watchedSeconds: contentReports[0].watchedSeconds,
-              owedRevenue: contentReports[0].owedRevenue,
-              tvodTicketsCount: contentReports[0].tvodTicketsCount,
+              watchedSeconds: lastContentReport.watchedSeconds,
+              owedRevenue: lastContentReport.owedRevenue,
+              tvodTicketsCount: lastContentReport.tvodTicketsCount,
               key: title,
             }))
 }

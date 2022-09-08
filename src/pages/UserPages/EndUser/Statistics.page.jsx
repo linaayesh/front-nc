@@ -26,9 +26,8 @@ function Statistics() {
   if (isLoading) {
     return <h2>Loading</h2>;
   }
-  // eslint-disable-next-line no-unsafe-optional-chaining, max-len
-  const balance = +Content?.rows
-    ?.reduce((acc, { owedAccRevenue }) => +acc + Number(owedAccRevenue), 0)
+  const balance = +Content.rows
+    .reduce((acc, { owedAccRevenue }) => +acc + Number(owedAccRevenue), 0)
     .toFixed(4);
   return (
     <>
