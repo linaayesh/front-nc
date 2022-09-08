@@ -3,26 +3,30 @@ import { ComponentLayout } from 'layouts';
 import PropsTypes from 'prop-types';
 import { MainTitle } from 'shared';
 import './style.css';
+import { icons } from 'shared/constants';
 
 export default function GeneralView({ count, balance }) {
+  const {
+    Content, Balance, Earnings, Payouts,
+  } = icons;
   const arr = [
     {
-      icon: 'https://joeschmoe.io/api/v1/random',
+      icon: Content,
       title: 'Content',
       value: count,
     },
     {
-      icon: 'https://joeschmoe.io/api/v1/random',
+      icon: Balance,
       title: 'Balance',
       value: balance,
     },
     {
-      icon: 'https://joeschmoe.io/api/v1/random',
+      icon: Earnings,
       title: 'Earning',
       value: balance,
     },
     {
-      icon: 'https://joeschmoe.io/api/v1/random',
+      icon: Payouts,
       title: 'Payouts',
       value: 0,
     },
