@@ -14,7 +14,7 @@ export default function DetailedView({ rows }) {
         columns={statisticsColumns}
         dataSource={rows.map(((row) => ({
           title: row.title,
-          watchedSeconds: humanizeDuration(row.contentReports[0].watchedSeconds * 1000),
+          watchedSeconds: humanizeDuration(row.contentReports[0].watchedSeconds * 1000, { units: ['h', 'm', 's'] }),
           owedRevenue: `${row.contentReports[0].owedRevenue.slice(0, 5)} £`,
           tvodTicketsCount: row.contentReports[0].tvodTicketsCount,
           key: row.title,
