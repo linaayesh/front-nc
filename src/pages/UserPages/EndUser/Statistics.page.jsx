@@ -13,11 +13,16 @@ function Statistics() {
 
   useEffect(() => {
     if (user.id) {
-      const fetchData = () => userService
-        .getStatistics()
-        .then((res) => setData(res.data.data))
-        .catch((err) => setError(err.msg))
-        .finally(() => setIsLoading(false));
+      const fetchData = async () => {
+        try {
+          const res = await userService.getStatistics();
+          setData(res.data.data);
+        } catch (err) {
+          setError(err.msg);
+        } finally {
+          setIsLoading(false);
+        }
+      };
       fetchData();
     }
   }, []);

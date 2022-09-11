@@ -1,4 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
 import PropsTypes from 'prop-types';
 import { ComponentLayout } from 'layouts';
 import { statisticsColumns } from 'shared/objects/Users';
@@ -27,5 +26,5 @@ export default function DetailedView({ rows }) {
 }
 
 DetailedView.propTypes = {
-  rows: PropsTypes.arrayOf(PropsTypes.object).isRequired,
+  rows: PropsTypes.shape([]).isRequired,
 };
