@@ -34,7 +34,7 @@ const statisticsColumns = [
     key: 'name',
   },
   {
-    title: 'Watched Seconds',
+    title: 'Watched Time',
     dataIndex: 'watchedSeconds',
     key: 'watchedSeconds',
   },

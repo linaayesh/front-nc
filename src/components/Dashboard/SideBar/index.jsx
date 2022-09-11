@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
 import { useAppSelector } from 'hooks';
-import { itemsSuperAdmin, itemsAdmin } from 'shared/objects/sidebarItems';
+import { itemsSuperAdmin, itemsCOMEDIAN, itemsAdmin } from 'shared/objects/sidebarItems';
 import { ROLES } from 'shared/constants';
 import { Logo } from 'shared/components';
 import SidebarItem from './SideBarItem';
@@ -15,10 +15,12 @@ function SideBar({ handleClick }) {
 
   useEffect(
     () => {
-      if (roleId === ROLES.ADMIN || roleId === ROLES.MASTER_ADMIN) {
+      if (roleId === ROLES.MASTER_ADMIN) {
         setItems(itemsSuperAdmin);
-      } else if (roleId === ROLES.COMEDIAN) {
+      } else if (roleId === ROLES.ADMIN) {
         setItems(itemsAdmin);
+      } else if (roleId === ROLES.COMEDIAN) {
+        setItems(itemsCOMEDIAN);
       }
     },
     [roleId],

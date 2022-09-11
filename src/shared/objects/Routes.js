@@ -18,6 +18,7 @@ import {
   RejectedUsersPage,
   AddNewUserPage,
   ContentListPage,
+  StatisticsPage,
   EditUserDataPage,
 } from 'pages';
 
@@ -72,6 +73,12 @@ const routes = [
 ];
 
 const adminRoutes = [
+  {
+    title: 'Statistics',
+    path: '/dashboard/yourstatistics',
+    Component: StatisticsPage,
+    key: 'Statistics',
+  },
   {
     title: 'Revenue',
     path: '/dashboard/Revenue',

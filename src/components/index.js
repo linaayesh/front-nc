@@ -14,6 +14,8 @@ export {
   MatchContent,
   ChangePassword,
   DashboardSettings,
+  GeneralView,
+  DetailedView,
   EditUserData,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
@@ -21,3 +23,4 @@ export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordFo
 export { default as ResetPasswordForm } from './Authentication/ResetPasswordForm';
 export { default as RegisterForm } from './Authentication/RegisterForm';
 export { default as VerifyEmail } from './Authentication/VerifyEmail';
+export { default as StatisticsGrid } from './StatisticsGrid';

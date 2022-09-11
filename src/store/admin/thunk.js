@@ -1,5 +1,5 @@
 import { createAsyncThunk, nanoid } from '@reduxjs/toolkit';
-import { adminService } from 'services';
+import { adminService, userService } from 'services';
 
 export const modifiedResponse = (res) => res.data
   .map((item) => ({ ...item, key: nanoid() })) // generate unique key for each item
@@ -117,6 +117,17 @@ export const getUserProfile = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const { data } = await adminService.getUserProfile(userId);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  },
+);
+export const getStatistics = createAsyncThunk(
+  'admin/getStatistics',
+  async (_params, { rejectWithValue }) => {
+    try {
+      const { data } = await userService.getStatistics();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

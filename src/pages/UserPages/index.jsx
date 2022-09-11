@@ -3,6 +3,7 @@ export {
   RevenuePage,
   StaffListPage,
   VideoListPage,
+  StatisticsPage,
 } from './EndUser';
 
 export {

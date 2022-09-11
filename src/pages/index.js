@@ -14,6 +14,7 @@ export {
   RejectedUsersPage,
   AddNewUserPage,
   ContentListPage,
+  StatisticsPage,
   EditUserDataPage,
 } from './UserPages';
 
