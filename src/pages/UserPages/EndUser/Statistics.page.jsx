@@ -14,7 +14,7 @@ function Statistics() {
   useEffect(() => {
     if (user.id) {
       const fetchData = () => userService
-        .getStatistics(user.id)
+        .getStatistics()
         .then((res) => setData(res.data.data))
         .catch((err) => setError(err.msg))
         .finally(() => setIsLoading(false));

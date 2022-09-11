@@ -9,7 +9,7 @@ import {
   EDIT_PROFILE_URL,
   FINANCIAL_STATUS_URL,
   CHANGE_PASSWORD_URL,
-  GET_STATISTICS,
+  STATISTICS_DATA_URL,
 } from 'shared/constants/endpoints';
 import { axiosCall } from '../utils';
 
@@ -17,7 +17,7 @@ export default {
   createUser: (userInfo) => axiosCall(REGISTER_URL, 'POST', userInfo),
   getUser: () => axiosCall(USER_URL, 'GET'),
   updateUser: (userInfo) => axiosCall(EDIT_PROFILE_URL, 'PATCH', userInfo),
-  getStatistics: (userId) => axiosCall(GET_STATISTICS(userId), 'GET'),
+  getStatistics: () => axiosCall(STATISTICS_DATA_URL, 'GET'),
   loginUser: (credentials) => axiosCall(LOGIN_URL, 'POST', credentials),
   logoutUser: () => axiosCall(LOGOUT_URL, 'GET'),
   googleLogin: (method, tokenId) => axiosCall(GOOGLE_LOGIN_URL(method), 'POST', { tokenId }),
