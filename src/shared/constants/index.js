@@ -2,6 +2,8 @@ import Earnings from 'assets/images/Earnings.png';
 import Balance from 'assets/images/Balance.png';
 import Payouts from 'assets/images/Payouts.png';
 import Content from 'assets/images/Content.png';
+import PendingUsers from 'assets/images/pendinguser.png';
+import AllUsers from 'assets/images/user.png';
 
 export const DEFAULT_AVATAR = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80';
 
@@ -66,4 +68,6 @@ export const icons = {
   Balance,
   Payouts,
   Content,
+  PendingUsers,
+  AllUsers,
 };
