@@ -19,4 +19,5 @@ export {
   AddNewUserPage,
   DashboardSettingsPage,
   EditUserDataPage,
+  UserStatisticsPage,
 } from './Admin';

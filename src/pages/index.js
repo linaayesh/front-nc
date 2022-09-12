@@ -16,6 +16,7 @@ export {
   ContentListPage,
   StatisticsPage,
   EditUserDataPage,
+  UserStatisticsPage,
 } from './UserPages';
 
 export {
