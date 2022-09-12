@@ -21,6 +21,7 @@ import {
   StatisticsPage,
   EditUserDataPage,
   UserStatisticsPage,
+  AdminStatisticsPage,
 } from 'pages';
 
 function ProtectedLoginPage() {
@@ -74,6 +75,13 @@ const routes = [
 ];
 
 const adminRoutes = [
+
+  {
+    title: 'AdminStatistics',
+    path: '/dashboard/statistics',
+    Component: AdminStatisticsPage,
+    key: 'AdminStatistics',
+  },
   {
     title: 'Statistics',
     path: '/dashboard/yourstatistics',

@@ -4,9 +4,9 @@ const itemsSuperAdmin = [
     icon: 'fa fa-dashboard',
     children: [
       {
-        title: 'Your Statistics ',
-        path: '/dashboard/yourstatistics',
-        key: 'yourstatistics',
+        title: 'statistics',
+        path: '/dashboard/statistics',
+        key: 'statistics',
       },
       {
         title: 'Video List ',
@@ -101,9 +101,9 @@ const itemsAdmin = [
     icon: 'fa fa-dashboard',
     children: [
       {
-        title: 'Your Statistics ',
-        path: '/dashboard/yourstatistics',
-        key: 'yourstatistics',
+        title: 'statistics',
+        path: '/dashboard/statistics',
+        key: 'statistics',
       },
       {
         title: 'Video List ',
