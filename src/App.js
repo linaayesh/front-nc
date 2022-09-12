@@ -2,15 +2,17 @@ import 'antd/dist/antd.min.css';
 import { DashboardLayout } from 'layouts';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import {
-  NotFound, LoginPage, StatisticsPage,
+  NotFound, LoginPage, AdminStatisticsPage, StatisticsPage,
 } from 'pages';
 import { ProtectLogin, ProtectedRoute, Logout } from 'middleware';
 import { routes, adminRoutes } from 'shared/objects/Routes';
+import { ROLES } from 'shared/constants';
 import { useAuth } from 'hooks';
 import './app.css';
 
 function App() {
   useAuth();
+  const { id } = useAuth();
 
   return (
     <Routes>
@@ -40,8 +42,11 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        <Route index element={<StatisticsPage />} />
-
+        {id === ROLES.ADMIN || id === ROLES.SUPER_ADMIN ? (
+          <Route index element={<AdminStatisticsPage />} />
+        ) : (
+          <Route index element={<StatisticsPage />} />
+        )}
         {adminRoutes.map(({ key, path, Component }) => (
           <Route
             key={key}
