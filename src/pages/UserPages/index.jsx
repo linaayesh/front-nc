@@ -20,4 +20,5 @@ export {
   DashboardSettingsPage,
   EditUserDataPage,
   UserStatisticsPage,
+  AdminStatisticsPage,
 } from './Admin';

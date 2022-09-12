@@ -17,6 +17,7 @@ export {
   StatisticsPage,
   EditUserDataPage,
   UserStatisticsPage,
+  AdminStatisticsPage,
 } from './UserPages';
 
 export {

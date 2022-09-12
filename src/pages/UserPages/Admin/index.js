@@ -6,3 +6,4 @@ export { default as ContentListPage } from './ContentList.page';
 export { default as DashboardSettingsPage } from './DashboardSettings.page';
 export { default as EditUserDataPage } from './EditUserData.page';
 export { default as UserStatisticsPage } from './UserStatistics.page';
+export { default as AdminStatisticsPage } from './AdminStatistics.page';
