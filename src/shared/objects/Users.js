@@ -50,4 +50,28 @@ const statisticsColumns = [
   },
 ];
 
-export { columns, statisticsColumns };
+const latestReportColumns = [
+  {
+    title: 'Title',
+    dataIndex: 'title',
+    key: 'name',
+  },
+  {
+    title: 'Watched Time From',
+    dataIndex: 'watchedTimeFrom',
+    key: 'watchedTimeFrom',
+  },
+  {
+    title: 'Watched Time To',
+    dataIndex: 'watchedTimeTo',
+    key: 'watchedTimeTo',
+  },
+  {
+    title: 'Total Revenue',
+    dataIndex: 'owedRevenue',
+    key: 'owedRevenue',
+  },
+
+];
+
+export { columns, statisticsColumns, latestReportColumns };
