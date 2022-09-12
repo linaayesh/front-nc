@@ -20,6 +20,7 @@ import {
   ContentListPage,
   StatisticsPage,
   EditUserDataPage,
+  UserStatisticsPage,
 } from 'pages';
 
 function ProtectedLoginPage() {
@@ -78,6 +79,12 @@ const adminRoutes = [
     path: '/dashboard/yourstatistics',
     Component: StatisticsPage,
     key: 'Statistics',
+  },
+  {
+    title: 'UserStatistics',
+    path: '/dashboard/userlist/statistics/:userId',
+    Component: UserStatisticsPage,
+    key: 'UserStatistics',
   },
   {
     title: 'Revenue',
