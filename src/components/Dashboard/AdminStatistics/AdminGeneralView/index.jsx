@@ -1,7 +1,6 @@
 import { AntComponents, StatisticsGrid } from 'components';
 import { ComponentLayout } from 'layouts';
 import PropsTypes from 'prop-types';
-import './style.css';
 import { icons } from 'shared/constants';
 
 export default function AdminGeneralView({
