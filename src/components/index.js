@@ -17,6 +17,8 @@ export {
   GeneralView,
   DetailedView,
   EditUserData,
+  AdminGeneralView,
+  AdminDetailedView,
 } from './Dashboard';
 export { default as LoginForm } from './Authentication/LoginForm';
 export { default as ForgetPasswordForm } from './Authentication/ForgetPasswordForm';
