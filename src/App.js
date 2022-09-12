@@ -13,7 +13,8 @@ import './app.css';
 function App() {
   useAuth();
   const { id } = useAuth();
-
+  const user = useAuth();
+  console.log(user);
   return (
     <Routes>
       <Route path="/" element={<Outlet />}>
@@ -42,7 +43,7 @@ function App() {
           </ProtectedRoute>
         )}
       >
-        {id === ROLES.ADMIN || id === ROLES.SUPER_ADMIN ? (
+        {id === ROLES.ADMIN || id === ROLES.MASTER_ADMIN ? (
           <Route index element={<AdminStatisticsPage />} />
         ) : (
           <Route index element={<StatisticsPage />} />
