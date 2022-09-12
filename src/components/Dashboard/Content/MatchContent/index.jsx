@@ -80,7 +80,7 @@ function MatchContent() {
                 />
               </Form.Item>
               <Form.Item
-                label="launc hDate"
+                label="Launch Date"
                 name="launchDate"
                 rules={validationMessages.launchDate}
               >
