@@ -4,7 +4,7 @@ const itemsSuperAdmin = [
     icon: 'fa fa-dashboard',
     children: [
       {
-        title: 'statistics',
+        title: 'Statistics',
         path: '/dashboard/statistics',
         key: 'statistics',
       },
@@ -101,7 +101,7 @@ const itemsAdmin = [
     icon: 'fa fa-dashboard',
     children: [
       {
-        title: 'statistics',
+        title: 'Statistics',
         path: '/dashboard/statistics',
         key: 'statistics',
       },

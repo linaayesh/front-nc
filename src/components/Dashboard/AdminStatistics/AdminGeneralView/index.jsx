@@ -1,48 +1,17 @@
-import { AntComponents, StatisticsGrid } from 'components';
+import { StatisticsGrid } from 'components';
 import { ComponentLayout } from 'layouts';
 import PropsTypes from 'prop-types';
-import { icons } from 'shared/constants';
+import { Card } from 'components/AntDesign';
+import { AdminGeneralColumns } from 'shared/objects/Users';
 
 export default function AdminGeneralView({
   count, earning, pendingUsers, Payout, allUsers,
 }) {
-  const {
-    Content, Earnings, Payouts, PendingUsers, AllUsers,
-  } = icons;
-
-  const arr = [
-    {
-      icon: Content,
-      title: 'Content',
-      value: count,
-    },
-    {
-      icon: Earnings,
-      title: 'Earning',
-      value: earning,
-    },
-    {
-      icon: Payouts,
-      title: 'Payouts',
-      value: Payout,
-    },
-    {
-      icon: AllUsers,
-      title: 'All Users',
-      value: allUsers,
-    },
-    {
-      icon: PendingUsers,
-      title: 'Pending Users',
-      value: pendingUsers,
-    },
-
-  ];
-  const { Card } = AntComponents;
+  const columns = AdminGeneralColumns(count, earning, pendingUsers, Payout, allUsers);
   return (
     <ComponentLayout title="Statistics" heading="General View">
       <Card className="general-view-statistics">
-        {arr.map(({
+        {columns.map(({
           icon, value, title,
         }) => (
           <StatisticsGrid icon={icon} title={title} value={value} key={title} />

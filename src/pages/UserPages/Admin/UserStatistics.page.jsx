@@ -1,6 +1,6 @@
 import { GeneralView, DetailedView } from 'components';
 
-function UserStatistics() {
+function UserStatisticsPage() {
   const rows = [
     {
       title: 'One Piece',
@@ -33,4 +33,4 @@ function UserStatistics() {
   );
 }
 
-export default UserStatistics;
+export default UserStatisticsPage;

@@ -1,3 +1,5 @@
+import { icons } from 'shared/constants';
+
 const columns = [
   {
     title: 'Name',
@@ -16,7 +18,10 @@ const columns = [
     dataIndex: 'createdAt',
     key: 'createdAt',
     render: (item) => {
-      const [date, time] = [item.split('T')[0], item.split('T')[1].split('.')[0].slice(0, -3)];
+      const [date, time] = [
+        item.split('T')[0],
+        item.split('T')[1].split('.')[0].slice(0, -3),
+      ];
       return `${date} / ${time}`;
     },
   },
@@ -71,7 +76,48 @@ const latestReportColumns = [
     dataIndex: 'owedRevenue',
     key: 'owedRevenue',
   },
-
 ];
+const {
+  Content, Earnings, Payouts, PendingUsers, AllUsers,
+} = icons;
 
-export { columns, statisticsColumns, latestReportColumns };
+const AdminGeneralColumns = (
+  count,
+  earning,
+  Payout,
+  allUsers,
+  pendingUsers,
+) => {
+  const AdminGeneralViewColumns = [
+    {
+      icon: Content,
+      title: 'Content',
+      value: count,
+    },
+    {
+      icon: Earnings,
+      title: 'Earning',
+      value: earning,
+    },
+    {
+      icon: Payouts,
+      title: 'Payouts',
+      value: Payout,
+    },
+    {
+      icon: AllUsers,
+      title: 'All Users',
+      value: allUsers,
+    },
+    {
+      icon: PendingUsers,
+      title: 'Pending Users',
+      value: pendingUsers,
+    },
+  ];
+  return AdminGeneralViewColumns;
+};
+
+export {
+  columns, statisticsColumns, latestReportColumns, AdminGeneralColumns,
+};

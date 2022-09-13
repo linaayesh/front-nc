@@ -8,7 +8,7 @@ import ModalForm from 'components/Dashboard/NewUsers/Modal';
 import { columns } from 'shared/objects/Users';
 import { useNavigate } from 'react-router-dom';
 import { EDIT_USER_ENDPOINT, USER_STATISTICS_ENDPOINT } from 'shared/constants/endpoints';
-import icon from 'assets/images/pie-chart.png';
+import pieChartIcon from 'assets/images/pie-chart.png';
 
 function UsersTable({ listToDisplay, thunkFunction }) {
   const [dataSource, setDataSource] = useState([]);
@@ -84,7 +84,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
           aria-hidden="true"
           className="statistics"
         >
-          <img src={icon} alt="logo" className="iconStas" />
+          <img src={pieChartIcon} alt="logo" className="iconStas" />
         </div>
 
       ),

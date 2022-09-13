@@ -13,8 +13,7 @@ import './app.css';
 function App() {
   useAuth();
   const { id } = useAuth();
-  const user = useAuth();
-  console.log(user);
+
   return (
     <Routes>
       <Route path="/" element={<Outlet />}>
