@@ -11,7 +11,6 @@ import { useAuth } from 'hooks';
 import './app.css';
 
 function App() {
-  useAuth();
   const { id } = useAuth();
 
   return (

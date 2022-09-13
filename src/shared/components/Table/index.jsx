@@ -7,7 +7,10 @@ import { Button, Input, Table } from 'components/AntDesign';
 import ModalForm from 'components/Dashboard/NewUsers/Modal';
 import { columns } from 'shared/objects/Users';
 import { useNavigate } from 'react-router-dom';
-import { EDIT_USER_ENDPOINT, USER_STATISTICS_ENDPOINT } from 'shared/constants/endpoints';
+import {
+  EDIT_USER_ENDPOINT,
+  USER_STATISTICS_ENDPOINT,
+} from 'shared/constants/endpoints';
 import pieChartIcon from 'assets/images/pie-chart.png';
 
 function UsersTable({ listToDisplay, thunkFunction }) {
@@ -23,8 +26,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
   const handleSearch = (e) => {
     const currValue = e.target.value;
     setValue(currValue);
-    const filteredData = list.filter((entry) => entry.name.toLowerCase()
-      .includes(currValue));
+    const filteredData = list.filter((entry) => entry.name.toLowerCase().includes(currValue));
     setDataSource(filteredData);
   };
 
@@ -50,11 +52,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
     {
       title: 'Action',
       key: 'action',
-      render: (_, user) => (
-        <ModalForm
-          user={user}
-        />
-      ),
+      render: (_text, user) => <ModalForm user={user} />,
     },
   ];
   const navigate = useNavigate();
@@ -64,7 +62,7 @@ function UsersTable({ listToDisplay, thunkFunction }) {
     {
       title: 'Action',
       key: 'action',
-      render: (_, user) => (
+      render: (_text, user) => (
         <Button
           onClick={() => navigate(EDIT_USER_ENDPOINT(user.id))}
           type="primary"
@@ -72,12 +70,12 @@ function UsersTable({ listToDisplay, thunkFunction }) {
         >
           Edit
         </Button>
-
       ),
-    }, {
+    },
+    {
       title: 'Statistics',
       key: 'Statistics',
-      render: (_, user) => (
+      render: (_text, user) => (
         <div
           onClick={() => navigate(USER_STATISTICS_ENDPOINT(user.id))}
           type="primary"
@@ -86,25 +84,31 @@ function UsersTable({ listToDisplay, thunkFunction }) {
         >
           <img src={pieChartIcon} alt="logo" className="iconStas" />
         </div>
-
       ),
     },
   ];
 
-  return (
-    !isLoading ? (
-      <div className="sort">
-        <div className="search">{FilterByNameInput}</div>
-        <div className="table">
-          <Table
-            columns={listToDisplay === 'waitingList' ? columnsWithAction : listToDisplay === 'approvedList' ? approvedColumnsAction : columns}
-            dataSource={dataSource}
-            pagination={{ pageSize: 5 }}
-            scroll={{ x: 500 }}
-          />
-        </div>
+  return !isLoading ? (
+    <div className="sort">
+      <div className="search">{FilterByNameInput}</div>
+      <div className="table">
+        <Table
+          columns={
+            listToDisplay === 'waitingList'
+              ? columnsWithAction
+              : listToDisplay === 'approvedList'
+                ? approvedColumnsAction
+                : columns
+          }
+          dataSource={dataSource}
+          pagination={{ pageSize: 5 }}
+          scroll={{ x: 500 }}
+        />
       </div>
-    ) : <Loader />);
+    </div>
+  ) : (
+    <Loader />
+  );
 }
 
 export default UsersTable;
